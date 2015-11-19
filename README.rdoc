@@ -1,25 +1,11 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How to add users to posts:
+http://guides.rubyonrails.org/association_basics.html
 
-Things you may want to cover:
+  So belongs_to user, as :creator
+  With column name "creator_id"
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 * ...
 
