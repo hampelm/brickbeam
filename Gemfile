@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'devise', '~> 3.5.2'
 gem 'friendly_id', '~> 5.1.0'
 gem 'pundit', '~> 1.0.1'
