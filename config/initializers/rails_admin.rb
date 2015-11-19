@@ -31,12 +31,40 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.model Event do
+    list do
+      field :title
+    end
+    edit do
+      include_all_fields
+
+      field :description, :ck_editor
+
+      field :slug do
+        help 'Optional - set automatically by the system'
+      end
+
+      fields_of_type :tag_list do
+        partial 'tag_list_with_suggestions'
+
+        # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
+        ratl_max_suggestions -1
+      end
+    end
+  end
+
   config.model Resource do
     list do
       field :title
     end
     edit do
       include_all_fields
+
+      field :text, :ck_editor
+
+      field :slug do
+        help 'Optional - set automatically by the system'
+      end
 
       fields_of_type :tag_list do
         partial 'tag_list_with_suggestions'

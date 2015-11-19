@@ -1,8 +1,9 @@
-class Resource < ActiveRecord::Base
+class Site < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
-  acts_as_taggable
+  has_many :projects
+  belongs_to :user
 
   def generated_slug
     title

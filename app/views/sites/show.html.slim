@@ -1,0 +1,33 @@
+h2 =@site.title
+
+=@site.description
+
+p #{link_to('Edit', edit_site_path(@site))}
+
+p Created by #{@site.user.name}
+
+p Created at #{@site.created_at}
+
+p Updated at #{@site.updated_at}
+
+h2 Projects
+
+= render partial: 'project', collection: @site.projects, as: :project
+
+h2 Add a project
+
+= form_for([@site, @site.projects.build]) do |f|
+  div
+    == f.label :duration
+    == f.text_field :duration
+
+  div
+    == f.label :description
+    == f.text_area :description
+
+  div
+    == f.label :cost
+    == f.text_field :cost
+
+  div
+    == f.submit

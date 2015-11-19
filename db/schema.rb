@@ -11,7 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119170330) do
+ActiveRecord::Schema.define(version: 20151119214730) do
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "slug"
+    t.integer  "user_id"
+  end
+
+  add_index "events", ["slug"], name: "index_events_on_slug", unique: true
+
+  create_table "projects", force: :cascade do |t|
+    t.text     "description"
+    t.string   "duration"
+    t.string   "cost"
+    t.integer  "site_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "projects", ["site_id"], name: "index_projects_on_site_id"
 
   create_table "resources", force: :cascade do |t|
     t.string   "title"
@@ -23,6 +64,19 @@ ActiveRecord::Schema.define(version: 20151119170330) do
   end
 
   add_index "resources", ["slug"], name: "index_resources_on_slug", unique: true
+
+  create_table "sites", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.datetime "created"
+    t.datetime "edited"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "slug"
+    t.integer  "user_id"
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -57,6 +111,7 @@ ActiveRecord::Schema.define(version: 20151119170330) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
