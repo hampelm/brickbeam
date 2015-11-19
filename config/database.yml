@@ -7,13 +7,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  database: brickbeam
   pool: 5
-  username: matth
 
 development:
   <<: *default
   database: brickbeam
+  username: matth
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,7 +20,7 @@ development:
 test:
   <<: *default
   database: brickbeam-test
+  username: matth
 
 production:
   <<: *default
-  database: db/production.sqlite3
