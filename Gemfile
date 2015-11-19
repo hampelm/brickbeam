@@ -15,10 +15,12 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'aws-sdk'
 gem 'ckeditor', '~> 4.1.4'
 gem 'devise', '~> 3.5.2'
 gem 'friendly_id', '~> 5.1'
 gem 'paperclip', '~>4.3'
+gem 'pg', '~>0.18'
 gem 'pundit', '~> 1.0.1'
 gem 'rails_admin', '~> 0.7.0'
 gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'

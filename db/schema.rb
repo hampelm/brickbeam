@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151119214730) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -26,8 +29,8 @@ ActiveRecord::Schema.define(version: 20151119214730) do
     t.datetime "updated_at",                   null: false
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 20151119214730) do
     t.integer  "user_id"
   end
 
-  add_index "events", ["slug"], name: "index_events_on_slug", unique: true
+  add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.text     "description"
@@ -52,7 +55,7 @@ ActiveRecord::Schema.define(version: 20151119214730) do
     t.integer  "user_id"
   end
 
-  add_index "projects", ["site_id"], name: "index_projects_on_site_id"
+  add_index "projects", ["site_id"], name: "index_projects_on_site_id", using: :btree
 
   create_table "resources", force: :cascade do |t|
     t.string   "title"
@@ -63,7 +66,7 @@ ActiveRecord::Schema.define(version: 20151119214730) do
     t.string   "slug"
   end
 
-  add_index "resources", ["slug"], name: "index_resources_on_slug", unique: true
+  add_index "resources", ["slug"], name: "index_resources_on_slug", unique: true, using: :btree
 
   create_table "sites", force: :cascade do |t|
     t.string   "title"
@@ -88,15 +91,15 @@ ActiveRecord::Schema.define(version: 20151119214730) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -114,7 +117,8 @@ ActiveRecord::Schema.define(version: 20151119214730) do
     t.string   "name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "projects", "sites"
 end
