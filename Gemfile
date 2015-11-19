@@ -24,7 +24,9 @@ gem 'pg', '~>0.18'
 gem 'pundit', '~> 1.0.1'
 gem 'rails_admin', '~> 0.7.0'
 gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
+gem 'rails_12factor', group: :production
 gem 'slim'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
