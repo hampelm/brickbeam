@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   # get 'welcome/index'
 
   resources :resources
+  resources :events
 
   resources :sites do
     resources :projects
   end
 
   resources :questions do
+    get :autocomplete_tag_name, :on => :collection
     resources :comments
   end
 

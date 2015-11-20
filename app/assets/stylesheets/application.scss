@@ -112,10 +112,11 @@ a {
 
 
 header {
-  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   padding-bottom: 0px;
 
-  h1 {
+  h1 a {
     display: inline-block;
 
     width: 100%;
@@ -126,6 +127,10 @@ header {
 
     background: transparent image-url("bbd_logo2.png") no-repeat center center;
     background-size: contain;
+  }
+
+  h1 a:hover {
+    border: 0px none;
   }
 
   .nav {
@@ -193,6 +198,16 @@ header {
 
   img {
     opacity: 0.6;
+  }
+}
+
+.events-panel {
+  padding-top: 50px;
+  padding-bottom: 100px;
+
+  .event {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
   }
 }
 
@@ -365,7 +380,7 @@ header {
 
 .resources-panel {
   background: lighten($pink, 45%);
-  padding: 70px 0 0px;
+  padding: 70px 0 100px;
 
   .resource {
     padding: 30px 30px 30px 30px;
@@ -404,7 +419,6 @@ header {
 .brag-panel {
   position: relative;
 
-  padding-top: 50px;
   padding-bottom: 50px;
 
   color: darken($yellow, 50%);
@@ -414,6 +428,7 @@ header {
     height: 500px;
   }
 
+  #sites-map,
   #site-map {
     margin-bottom: 20px;
     line-height: 200px;
@@ -421,6 +436,11 @@ header {
     font-size: 30px;
     text-align: center;
     background: lighten($yellow, 30%);
+  }
+
+  #sites-map {
+    height: 500px;
+    line-height: 500px;
   }
 
   .site-details {

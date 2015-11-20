@@ -2,8 +2,10 @@ class QuestionsController < ApplicationController
   layout "questions"
   before_action :authenticate_user!, :except => [:index, :show]
 
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag' # <- New
+
   def index
-    @questions = Question.all
+    @questions = Question.order('created_at DESC').all
   end
 
   def show
@@ -40,7 +42,7 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.friendly.find(params[:id])
 
-    unless user_owns_site?
+    unless user_owns_question?
       flash[:error] = "You do not have permission to update this question"
       redirect_to @question
       return

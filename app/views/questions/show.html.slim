@@ -1,7 +1,6 @@
 .row
   .col-md-3
 
-
   .col-md-6.col
     h2.article-title #{@question.title}
 
@@ -9,6 +8,9 @@
       p.question-meta Asked by <strong>#{@question.user.name}</strong> at #{@question.created_at.to_s(:standard)}
 
       = simple_format(@question.description)
+
+      - if @question.user == current_user
+        p #{link_to('Edit your question', edit_question_path(@question))}
 
     h3.comment-intro Discussion
 
@@ -23,7 +25,6 @@
       .col-md-6
         .comment-text
           = simple_format(comment.body)
-
 
 .row
   .col-md-6.col-md-push-3

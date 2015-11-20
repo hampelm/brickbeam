@@ -1,11 +1,14 @@
 = form_for @question do |f|
-  div
-    == f.label :title
+  .form-group
+    == f.label 'Your question'
     == f.text_field :title, class: 'form-control'
 
-  div
-    == f.label :description
-    == f.text_area :description, class: 'form-control'
+  // .form-group
+  // == f.autocomplete_field :tag_list, autocomplete_tag_name_questions_path, :"data-delimiter" => ', '
 
-  div
-    == f.submit "Ask your question", class: 'btn btn-primary'
+  .form-group
+    == f.label :description
+    == f.text_area :description, class: 'form-control', rows: 10
+
+  .form-group
+    == f.submit "Ask!", class: 'btn btn-primary'

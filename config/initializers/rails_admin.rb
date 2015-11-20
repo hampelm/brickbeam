@@ -4,6 +4,7 @@ RailsAdmin.config do |config|
 
   ## == Devise ==
   config.authenticate_with do
+    # redirect_to main_app.root_path unless current_user.try(:is_admin?)
     warden.authenticate! scope: :user
   end
   config.current_user_method(&:current_user)
@@ -31,18 +32,30 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.model Question do
+    edit do
+      include_all_fields
+      exclude_fields :slug
+
+      fields_of_type :tag_list do
+        partial 'tag_list_with_suggestions'
+
+        # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
+        ratl_max_suggestions -1
+      end
+    end
+  end
+
   config.model Event do
     list do
       field :title
     end
+
     edit do
       include_all_fields
+      exclude_fields :slug
 
       field :description, :ck_editor
-
-      field :slug do
-        help 'Optional - set automatically by the system'
-      end
 
       fields_of_type :tag_list do
         partial 'tag_list_with_suggestions'
@@ -59,12 +72,9 @@ RailsAdmin.config do |config|
     end
     edit do
       include_all_fields
+      exclude_fields :slug
 
       field :text, :ck_editor
-
-      field :slug do
-        help 'Optional - set automatically by the system'
-      end
 
       fields_of_type :tag_list do
         partial 'tag_list_with_suggestions'

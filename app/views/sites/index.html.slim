@@ -1,6 +1,13 @@
 .row
   .col-md-12
+    .map#sites-map map
+
+.row
+  .col-md-4
     - for site in @sites
       h3.site-title #{link_to(site.title, site_path(site))}
       = site.description
 
+.row
+  .col-md-12
+    .add-your-rehab Brag your own site!
