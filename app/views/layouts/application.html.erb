@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Brickbeam</title>
+  <title>Brick + Beam Detroit</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Welcome to Brick + Beam Detroit</h1>
+  <div class="container-responsive">
+    <header class="site">
+      <h1>Brick + Beam Detroit</h1>
+      <ul class="nav">
+        <li class="events"><a href="/events">Upcoming events</a></li>
+        <li class="forum"><a href="/questions">Q&amp;A forum</a></li>
+        <li class="brag"><a href="/sites">Brag your Rehab</a></li>
+        <li class="resources"><a href="/resources">Rehab Resources</a></li>
+        <li class="secondary"><a href="/about">About B+B</a></li>
+      </ul>
+    </header>
+  </div>
 
+  <div class="section-panel">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <%= yield :section_head %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= content_for?(:content) ? yield(:content) : yield %>
+
+  <div class="forum-prompt-panel">
+    <h2 class="rehab-prompt">Have a rehab question?</h2>
+    <div class="rehab-call-to-action">
+      <p>Ask your question in our Q&amp;A forum. Experts are standing by.</p>
+      <a class="rehab-link btn-default">Ask now</a>
+    </div>
+  </div>
+
+  <!--
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-  <%= yield %>
+  -->
 
 </body>
 </html>

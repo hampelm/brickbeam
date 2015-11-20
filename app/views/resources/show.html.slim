@@ -1,0 +1,13 @@
+.row
+  .col-sm-3.sidebar
+    .in
+      p Sidebar here
+  .col-md-9
+    .row
+      .col-sm-12
+        h2.article-title =@resource.title
+    .row
+      .col-sm-8
+        p.byline =@resource.byline
+
+        == @resource.text

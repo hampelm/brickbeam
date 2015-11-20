@@ -1,0 +1,9 @@
+= content_for :section_head do
+  h2.section-head Brag your Rehab
+
+= content_for :content do
+  .brag-panel
+    .container
+      == yield
+
+= render template: "layouts/application"

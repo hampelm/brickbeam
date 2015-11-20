@@ -1,0 +1,23 @@
+.broad-section
+  .row
+    .col-md-3
+      h2.broad-section-header Interior Resources
+      p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    .col-md-9
+      .row
+        - for resource in @interior
+          .col-sm-4.col-xs-6
+            .resource
+              h3.resource-title #{link_to(resource.title, resource_path(resource))}
+
+
+.broad-section
+  .row
+    .col-md-3
+      h2.broad-section-header Exterior Resources
+    .col-md-9
+      .row
+        - for resource in @exterior
+          .col-sm-4.col-sx-6
+            .resource
+              h3.resource-title #{resource.title}

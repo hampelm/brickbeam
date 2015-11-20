@@ -1,0 +1,40 @@
+.row
+  .col-md-3
+
+
+  .col-md-6.col
+    h2.article-title #{@question.title}
+
+    .question
+      p.question-meta Asked by <strong>#{@question.user.name}</strong> at #{@question.created_at.to_s(:standard)}
+
+      = simple_format(@question.description)
+
+    h3.comment-intro Discussion
+
+- @question.comments.each do |comment|
+  .comment
+    .row
+      .col-md-3
+        .comment-meta
+          .byline =comment.user.name
+          .timestamp #{comment.created_at.to_s(:standard)}
+
+      .col-md-6
+        .comment-text
+          = simple_format(comment.body)
+
+
+.row
+  .col-md-6.col-md-push-3
+    h3.comment-intro Add your answer
+    - if user_signed_in?
+      = form_for ([@question, @question.comments.build]) do |f|
+        div
+          == f.text_area :body, class: 'form-control'
+
+        div
+          == f.submit "Add comment", class: 'btn btn-primary'
+
+    - else
+      h3 #{link_to('Log in', new_user_session_path)}  or #{link_to('sign up', new_user_registration_path)}  to Brick + Beam to reply

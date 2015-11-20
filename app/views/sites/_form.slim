@@ -4,8 +4,16 @@
     == f.text_field :title
 
   div
+    label Location
+    div#site-map map
+
+  div
     == f.label :description
     == f.text_area :description
+
+  div
+    == f.label :building_type
+    == f.select :building_type, ['House', 'Commercial', 'Religous', 'Instutional', 'Indstrial']
 
   div
     == f.submit

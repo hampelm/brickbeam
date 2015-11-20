@@ -1,33 +1,45 @@
-h2 =@site.title
+.row
+  .col-md-12
+    h2.article-title =@site.title
 
-=@site.description
+.site-details
+  .row
+    .col-md-6
+      p Created by #{@site.user.name}
 
-p #{link_to('Edit', edit_site_path(@site))}
+      p.building-type =@site.building_type
 
-p Created by #{@site.user.name}
+      div.map#site-map map
 
-p Created at #{@site.created_at}
+      p =@site.description
 
-p Updated at #{@site.updated_at}
+      p #{link_to('Edit', edit_site_path(@site))}
+    .col-md-6
+      .project-list
+        h3 Projects
 
-h2 Projects
+        = render partial: 'project', collection: @site.projects, as: :project
 
-= render partial: 'project', collection: @site.projects, as: :project
+      - if @site.user == current_user
+        .add-project
+          h3 Add a project to your site
 
-h2 Add a project
+          = form_for([@site, @site.projects.build]) do |f|
+            div.form-group
+              == f.label :description
+              == f.text_area :description, class: 'form-control'
 
-= form_for([@site, @site.projects.build]) do |f|
-  div
-    == f.label :duration
-    == f.text_field :duration
+            div.form-group
+              == f.label :duration
+              == f.text_field :duration, class: 'form-control'
 
-  div
-    == f.label :description
-    == f.text_area :description
+            div.form-group
+              == f.label :cost
+              == f.text_field :cost, class: 'form-control'
 
-  div
-    == f.label :cost
-    == f.text_field :cost
+            div.form-group
+              == f.submit
 
-  div
-    == f.submit
+        // p Created at #{@site.created_at}
+
+        // p Updated at #{@site.updated_at}

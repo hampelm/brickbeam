@@ -1,0 +1,7 @@
+.row
+  - for question in @questions
+    .col-md-3 #{link_to(question.title, question_path(question))}
+
+.row
+  .col-md-12
+    p #{link_to('Ask a question', new_question_path)}

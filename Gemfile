@@ -27,6 +27,11 @@ gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_
 gem 'rails_12factor', group: :production
 gem 'slim'
 
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap_form'
+gem 'font-awesome-rails'
+gem 'redcarpet'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

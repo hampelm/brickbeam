@@ -7,4 +7,6 @@ class User < ActiveRecord::Base
   has_many :events
   has_many :sites
   has_many :projects
+  has_many :questions
+  has_many :comments
 end

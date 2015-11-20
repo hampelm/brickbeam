@@ -1,0 +1,513 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *xxx require_tree .
+ *xxx require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,300italic,400italic);
+
+$teal: #5eb9a5;
+$teal-dark: darken($teal, 30%);
+$pink: #e13452;
+$green: #b3d149;
+$green-dark: darken($green, 45%);
+$brown: #976b48;
+$kraft: #978261;
+$gray: #8a8786;
+$yellow: #f4e138;
+$yellow-tark: darken($yellow, 40%);
+
+$serif: 'PT Serif', serif;
+$open: 'Open Sans', 'PT Sans', sans-serif;
+$pt: 'PT Sans', sans-serif;
+$sans: $open;
+
+$radius: 4px;
+$transition: 0.3s;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $sans;
+  font-size: 15px;
+  font-weight: 300;
+
+  color: #444;
+  color: darken($teal, 40%);
+  background: #fff;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 200;
+  margin: 0;
+}
+
+h2 {
+  font-family: $sans;
+  font-size: 4em;
+  font-weight: 700;
+}
+
+h2.article-title {
+  font-weight: 300;
+  margin-top: 0;
+  font-size: 40px;
+}
+
+h4 {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+p {
+  font-family: $serif;
+  font-size: 15px;
+  line-height: 1.61;
+}
+
+a {
+  color: darken($teal, 15%);
+  &:hover {
+    text-decoration: none;
+
+    color: darken($teal, 15%);
+    border-bottom: 1px dotted darken($teal, 15%);
+  }
+}
+
+.btn-default {
+  color: darken($teal, 40%);
+  border-color: darken($yellow, 20%);
+  background: darken($yellow, 10%);
+  text-shadow: none;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-primary {
+  background: darken($yellow, 10%);
+}
+
+
+header {
+  margin-bottom: 50px;
+  padding-bottom: 0px;
+
+  h1 {
+    display: inline-block;
+
+    width: 100%;
+    height: 100px;
+    padding: 0;
+
+    text-indent: -9999px;
+
+    background: transparent image-url("bbd_logo2.png") no-repeat center center;
+    background-size: contain;
+  }
+
+  .nav {
+    text-align: center;
+
+    li {
+      font-size: 20px;
+
+      display: inline-block;
+    }
+
+    a {
+      color: #666;
+    }
+
+    a:hover {
+      color: $teal;
+      background: none;
+      border-bottom: 0px none;
+    }
+  }
+}
+
+.resources-panel,
+.content-panel {
+  .related-articles {
+    margin-top: 50px;
+    margin-bottom: 60px;
+  }
+}
+
+.sidebar .in {
+  padding-top: 50px;
+  padding-right: 20px;
+
+  .resource-category {
+    h2.broad-section {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 300;
+      margin-top: 10px;
+    }
+
+    h3.specific-section {
+
+    }
+
+    h3.active {
+      color: $pink;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    ul.subnav {
+      margin-bottom: 20px;
+    }
+  }
+
+  img {
+    opacity: 0.6;
+  }
+}
+
+.questions-panel {
+  padding-top: 50px;
+  padding-bottom: 100px;
+
+  h3.comment-intro {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .question,
+  .comment {
+    margin-bottom: 30px;
+  }
+
+  .question-meta,
+  .comment-meta {
+    text-align: right;
+    font-family: $sans;
+
+    .byline {
+      font-weight: 700;
+    }
+  }
+
+  .question-meta {
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .comment-text {
+    padding-bottom: 30px;
+    border-bottom: 1px dotted $gray;
+  }
+}
+
+.news-panel {
+  // background: lighten($yellow, 5%);
+  padding-top: 30px;
+
+  .news-header {
+    color: $green-dark
+  }
+
+  .piece {
+    position: relative;
+    cursor: pointer;
+    .details {
+      font-size: 18px;
+
+      position: absolute;
+      bottom: 0px;
+
+      width: 100%;
+      margin-bottom: 0;
+
+      opacity: 1.0;
+
+      .in {
+        //margin: 20px;
+        padding: 20px;
+
+        //border-radius: $radius;
+        border-bottom-left-radius: $radius;
+        border-bottom-right-radius: $radius;
+        background: $green;
+
+        h2.news-type {
+          font-size: 18px;
+          font-weight: 700;
+
+          margin-top: 0;
+          margin-bottom: 3px;
+        }
+
+        h3 {
+          font-size: 18px;
+
+          margin: 0;
+        }
+      }
+    }
+
+    .block {
+      width: 100%;
+      height: 0;
+      margin-bottom: 30px;
+      padding-bottom: 100%;
+
+      cursor: pointer;
+
+      opacity: 0.9;
+      border-radius: $radius;
+      background-color: $green;
+      background-size: cover;
+
+      &.text {
+        background-color: $pink;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+      }
+    }
+
+    &:hover {
+      .block {
+        opacity: 1.0;
+      }
+    }
+  }
+}
+
+.section-panel {
+  padding: 40px 0;
+
+  // background: $teal;
+  border-top: 3px double $teal;
+  border-bottom: 3px double $teal;
+
+  // border-top: 5px solid lighten($teal, 20%);
+  // border-bottom: 5px solid lighten($teal, 20%);
+
+  h2.section-head {
+    font-weight: 700;
+    margin: 0;
+    color: darken($teal, 35%);
+  }
+}
+
+.email-panel {
+  padding: 15px;
+
+  text-align: center;
+
+  border-top: 5px solid lighten($teal, 10%);
+  border-bottom: 5px solid lighten($teal, 10%);
+  background: $teal;
+
+  h2.email-signup {
+    font-size: 24px;
+    font-weight: 200;
+
+    margin-top: 0;
+
+    color: $teal-dark;
+  }
+}
+
+.homepage-resources-panel {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  background: $teal; // lighten($teal, 30%); // url(../img/fullboard-t.png) no-repeat center center;
+  background-size: 100%;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .container {
+    //background: lighten($teal, 30%);
+  }
+
+  .strong {
+    font-weight: 800;
+  }
+}
+
+.resources-panel {
+  background: lighten($pink, 45%);
+  padding: 70px 0 0px;
+
+  .resource {
+    padding: 30px 30px 30px 30px;
+    // background: $teal; // url(../img/clipperboard.png) no-repeat center center;
+    background-size: cover;
+    margin-bottom: 30px;
+    border-radius: $radius;
+    color: $teal-dark;
+    color: darken($pink, 35%);
+    color: $brown;
+    cursor: pointer;
+
+    &:hover {
+      background: lighten($pink, 35%);
+      // color: #fff;
+      transition: $transition ease;
+    }
+  }
+
+  .broad-section {
+    margin-bottom: 70px;
+  }
+
+  h2.broad-section-header {
+    font-size: 32px;
+    margin-top: 30px;
+    color: $pink;
+  }
+
+  h3.resource-title {
+    // background: $teal;
+    // padding: 10px;
+  }
+}
+
+.brag-panel {
+  position: relative;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  color: darken($yellow, 50%);
+  // background: lighten($yellow, 30%);
+
+  #brag-map {
+    height: 500px;
+  }
+
+  #site-map {
+    margin-bottom: 20px;
+    line-height: 200px;
+    font-weight: 300;
+    font-size: 30px;
+    text-align: center;
+    background: lighten($yellow, 30%);
+  }
+
+  .site-details {
+    padding-top: 30px;
+  }
+
+  .project-list {
+    padding-bottom: 20px;
+    .project {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+      border-bottom: 1px dotted $gray;
+      h4.project-details {
+      }
+    }
+  }
+
+  h2.brag-headline {
+    position: absolute;
+    top: 50px;
+
+    display: inline-block;
+
+    margin-left: -8px;
+    padding: 20px;
+
+    border-radius: $radius;
+    background: lighten($yellow, 30%);
+  }
+
+  h2.brag-location {
+    font-size: 18px;
+
+    margin-bottom: 0;
+  }
+
+  h3.brag-title {
+    font-size: 18px;
+
+    margin-top: 0;
+  }
+}
+
+
+
+.forum-prompt-panel {
+  position: fixed;
+  z-index: 9999;
+  right: 50px;
+  bottom: 0;
+
+  width: 275px;
+  padding: 15px 15px;
+
+  cursor: pointer;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: $teal;
+
+  h2.rehab-prompt {
+    font-size: 20px;
+    font-weight: 700;
+
+    margin: 0;
+
+    color: #fff;
+  }
+
+  .rehab-call-to-action {
+    display: none;
+
+    padding-top: 15px;
+    a.rehab-link {
+      display: inline-block;
+
+      padding: 10px;
+
+      background: $yellow;
+    }
+  }
+
+  &:hover {
+    .rehab-call-to-action {
+      display: block;
+    }
+  }
+}
+

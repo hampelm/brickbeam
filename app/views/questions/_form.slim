@@ -1,0 +1,11 @@
+= form_for @question do |f|
+  div
+    == f.label :title
+    == f.text_field :title, class: 'form-control'
+
+  div
+    == f.label :description
+    == f.text_area :description, class: 'form-control'
+
+  div
+    == f.submit "Ask your question", class: 'btn btn-primary'

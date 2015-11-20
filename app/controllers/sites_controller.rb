@@ -1,14 +1,19 @@
 class SitesController < ApplicationController
+  layout "sites"
+  before_action :authenticate_user!, :except => [:index, :show]
+
+  def index
+    @sites = Site.all
+  end
+
   def show
     @site = Site.friendly.find(params[:id])
   end
 
-  before_action :authenticate_user!
   def new
     @site = Site.new
   end
 
-  before_action :authenticate_user!
   def create
     @site = Site.new(site_params)
     @site.user = current_user
@@ -20,7 +25,6 @@ class SitesController < ApplicationController
     end
   end
 
-  before_action :authenticate_user!
   def edit
     @site = Site.friendly.find(params[:id])
 
@@ -33,7 +37,6 @@ class SitesController < ApplicationController
     render 'edit'
   end
 
-  before_action :authenticate_user!
   def update
     @site = Site.friendly.find(params[:id])
 
@@ -52,7 +55,7 @@ class SitesController < ApplicationController
 
   private
     def site_params
-      params.require(:site).permit(:title, :description)
+      params.require(:site).permit(:title, :description, :building_type)
     end
 
     def user_owns_site?

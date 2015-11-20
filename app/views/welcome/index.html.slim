@@ -1,11 +1,8 @@
-h1 Welcome to Brick + Beam
-
 h2 Resources
 - for resource in @resources
   pre = resource.attributes
   = url_for(resource)
   h3: a[href=url_for(resource)] = resource.title
-
 
 h2 Events
 - for event in @events

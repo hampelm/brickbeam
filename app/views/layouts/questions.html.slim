@@ -1,0 +1,9 @@
+= content_for :section_head do
+  h2.section-head Q & A Forum
+
+= content_for :content do
+  .questions-panel
+    .container
+      == yield
+
+= render template: "layouts/application"

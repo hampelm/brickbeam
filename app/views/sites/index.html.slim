@@ -1,0 +1,6 @@
+.row
+  .col-md-12
+    - for site in @sites
+      h3.site-title #{link_to(site.title, site_path(site))}
+      = site.description
+

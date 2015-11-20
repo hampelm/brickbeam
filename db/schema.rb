@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119214730) do
+ActiveRecord::Schema.define(version: 20151120175843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20151119214730) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
+  add_index "comments", ["question_id"], name: "index_comments_on_question_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -57,6 +67,15 @@ ActiveRecord::Schema.define(version: 20151119214730) do
 
   add_index "projects", ["site_id"], name: "index_projects_on_site_id", using: :btree
 
+  create_table "questions", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "slug"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
   create_table "resources", force: :cascade do |t|
     t.string   "title"
     t.string   "byline"
@@ -75,10 +94,11 @@ ActiveRecord::Schema.define(version: 20151119214730) do
     t.decimal  "lng"
     t.datetime "created"
     t.datetime "edited"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "slug"
     t.integer  "user_id"
+    t.string   "building_type"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -115,10 +135,13 @@ ActiveRecord::Schema.define(version: 20151119214730) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.boolean  "is_admin"
+    t.boolean  "is_inactive"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "comments", "questions"
   add_foreign_key "projects", "sites"
 end
