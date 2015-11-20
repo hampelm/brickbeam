@@ -95,6 +95,28 @@ a {
   }
 }
 
+.placeholder {
+  background: #eee;
+  height: 300px;
+  line-height: 300px;
+  font-size: 20px;
+  font-family: $sans;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+
+  &.news {
+    border-radius: $radius;
+  }
+  &.map {
+    background: lighten($yellow, 30%)
+  }
+  &.signup {
+    height: 100px;
+    line-height: 100px;
+  }
+}
+
 .btn-default {
   color: darken($teal, 40%);
   border-color: darken($yellow, 20%);
