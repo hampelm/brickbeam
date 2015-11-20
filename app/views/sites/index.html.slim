@@ -4,10 +4,9 @@
 
 .row
   .col-md-4
-    - for site in @sites
+    .add-your-brag #{link_to('Add your rehab', new_site_path)}
+
+  - for site in @sites
+    .col-md-4
       h3.site-title #{link_to(site.title, site_path(site))}
       = site.description
-
-.row
-  .col-md-12
-    .add-your-rehab Brag your own site!

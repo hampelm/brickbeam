@@ -5,9 +5,9 @@
 .site-details
   .row
     .col-md-6
-      p Created by #{@site.user.name}
+      h4 Added by #{@site.user.name}
 
-      p.building-type =@site.building_type
+      h4.building-type #{@site.building_type}, #{@site.building_size} Square feet
 
       div.map#site-map map
 
@@ -24,23 +24,23 @@
 
       - if @site.user == current_user
         .add-project
-          h3 Add a project to your site
+          h3 Record a rehab
 
           = form_for([@site, @site.projects.build]) do |f|
             div.form-group
-              == f.label :description
+              == f.label "What did you change?"
               == f.text_area :description, class: 'form-control'
 
             div.form-group
-              == f.label :duration
+              == f.label "How long did it take?"
               == f.text_field :duration, class: 'form-control'
 
             div.form-group
-              == f.label :cost
+              == f.label "About how much did it cost?"
               == f.text_field :cost, class: 'form-control'
 
             div.form-group
-              == f.submit
+              == f.submit 'Add project', class: 'btn btn-primary'
 
         // p Created at #{@site.created_at}
 
