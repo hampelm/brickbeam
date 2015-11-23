@@ -11,13 +11,10 @@
     <div class="row">
       <div class="col-md-12">
         <% if user_signed_in? %>
-          <li>
+          Welcome, <%= current_user.name %>.
           <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-          </li>
         <% else %>
-          <li>
           <%= link_to('Login', new_user_session_path)  %>
-          </li>
         <% end %>
       </div>
     </div>

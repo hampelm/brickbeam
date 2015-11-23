@@ -1,0 +1,9 @@
+= content_for :section_head do
+  h2.section-head Welcome to Brick + Beam
+
+= content_for :content do
+  .events-panel
+    .container
+      == yield
+
+= render template: "layouts/application"

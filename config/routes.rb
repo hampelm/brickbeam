@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :resources
   resources :events
+  resources :tags
 
   resources :sites do
     resources :projects
