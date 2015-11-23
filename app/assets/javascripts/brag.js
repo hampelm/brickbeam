@@ -90,6 +90,9 @@ $(function() {
     var flat = e.latlng.lat + getFuzzed();
     var flng = e.latlng.lng + getFuzzed();
 
+    $('#site_lat').val(flat)
+    $('#site_lng').val(flng);
+
     console.log(flat, flng);
 
     if (circle) {

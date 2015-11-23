@@ -7,6 +7,8 @@
     label Location
     p Tap or click your site on the map. We'll automatically disguise the location you selected. We never store your real location in our database.
     div#site-map map
+    = f.hidden_field :lat
+    = f.hidden_field :lng
 
   .form-group
     == f.label :building_type
