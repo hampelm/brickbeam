@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120224221) do
+ActiveRecord::Schema.define(version: 20151123174524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,12 +95,16 @@ ActiveRecord::Schema.define(version: 20151120224221) do
     t.decimal  "lng"
     t.datetime "created"
     t.datetime "edited"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "slug"
     t.integer  "user_id"
     t.string   "building_type"
     t.string   "building_size"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -139,6 +143,7 @@ ActiveRecord::Schema.define(version: 20151120224221) do
     t.string   "name"
     t.boolean  "is_admin"
     t.boolean  "is_inactive"
+    t.boolean  "agreement"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

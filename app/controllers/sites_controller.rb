@@ -55,7 +55,7 @@ class SitesController < ApplicationController
 
   private
     def site_params
-      params.require(:site).permit(:title, :description, :building_type, :building_size, :lat, :lng)
+      params.require(:site).permit(:title, :description, :building_type, :building_size, :lat, :lng, :photo)
     end
 
     def user_owns_site?

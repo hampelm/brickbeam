@@ -12,25 +12,40 @@
 //
 //= require ./brag/map.js
 
+/*globals L, Uint8Array, Exception */
+
 $(function() {
-  L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGgiLCJhIjoicGFzV1ZkWSJ9.KeK3hKmM52XpUEHHx_F8NQ';
-  var map = L.mapbox.map('site-map', 'mapbox.streets')
-    .setView([42.34435,-83.056898 ], 12) // detroit
-    .addControl(L.mapbox.geocoderControl('mapbox.places'));
-
-
   var marker;
   var fuzzed;
   var circle;
-  var featureGroup = L.featureGroup().addTo(map);
-
+  var center = [42.34435,-83.056898];
   var circle_options = {
       color: '#e13452',      // Stroke color
-      opacity: 1,         // Stroke opacity
-      weight: 0,         // Stroke weight
+      opacity: 1,            // Stroke opacity
+      weight: 0,             // Stroke weight
       fillColor: '#e13452',  // Fill color
-      fillOpacity: 0.6    // Fill opacity
+      fillOpacity: 0.6       // Fill opacity
   };
+
+  // Check if we already have a location
+  var startlat = Number($('#site_lat').val());
+  var startlng = Number($('#site_lng').val());
+  if (startlat !== 0) {
+    center = [startlat, startlng];
+  }
+  console.log(startlat, startlng);
+
+  // Set up the map
+  L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGgiLCJhIjoicGFzV1ZkWSJ9.KeK3hKmM52XpUEHHx_F8NQ';
+  var map = L.mapbox.map('site-map', 'mapbox.streets')
+    .setView(center, 12) // detroit
+    .addControl(L.mapbox.geocoderControl('mapbox.places'));
+
+  if (startlat !== 0) {
+    circle = L.circle(center, 600, circle_options)
+    .addTo(map);
+  }
+
 
   // From https://github.com/EFForg/OpenWireless/pull/195/files
   function getRandom(min, max) {
@@ -72,28 +87,21 @@ $(function() {
     var r = window.crypto.getRandomValues(arr);
 
     var fuzzed = getRandom(300,500) / 100000;
-    console.log("Using", fuzzed);
 
-    console.log(r);
     if (r[0] % 2 === 0) {
       fuzzed = -fuzzed;
     }
-    console.log(fuzzed);
     return fuzzed;
   }
 
   // todo http://stackoverflow.com/questions/22467177/draw-a-circle-of-constant-size-for-all-zoom-levels-leaflet-js
 
   map.on('click', function(e) {
-    console.log(e.latlng.lat, e.latlng.lng);
-
     var flat = e.latlng.lat + getFuzzed();
     var flng = e.latlng.lng + getFuzzed();
 
-    $('#site_lat').val(flat)
+    $('#site_lat').val(flat);
     $('#site_lng').val(flng);
-
-    console.log(flat, flng);
 
     if (circle) {
       map.removeLayer(circle);

@@ -3,6 +3,9 @@
     == f.label "Give your site a name"
     == f.text_field :title, class: 'form-control'
 
+    == f.label "Optionally, add a photo"
+    == f.file_field :photo, class: 'form-control'
+
   .form-group
     label Location
     p Tap or click your site on the map. We'll automatically disguise the location you selected. We never store your real location in our database.
@@ -23,6 +26,6 @@
     == f.text_area :description, class: 'form-control', rows: 6
 
   .form-group
-    == f.submit 'Add your site', class: 'btn btn-primary'
+    == f.submit 'Save your site', class: 'btn btn-primary'
 
 = javascript_include_tag 'brag'

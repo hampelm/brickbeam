@@ -1,22 +1,23 @@
-.row
-  .col-md-12
-    h2.article-title =@site.title
-
 .site-details
   .row
-    .col-md-6
+    .col-sm-7.col-sm-push-3
+      h2.article-title =@site.title
+  .row
+    .col-sm-3
+      div.map#site-map map
+      - if @site.user == current_user
       h4 Added by #{@site.user.name}
 
       h4.building-type #{@site.building_type}, #{@site.building_size} Square feet
 
-      div.map#site-map map
+      p #{link_to('Edit', edit_site_path(@site))}
+
+    .col-sm-6
+      img src="#{@site.photo.url}" width="100%" class="site-photo"
 
       p =@site.description
 
-      - if @site.user == current_user
-        p #{link_to('Edit', edit_site_path(@site))}
 
-    .col-md-6
       .project-list
         h3 Projects
 
