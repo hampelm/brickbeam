@@ -5,6 +5,7 @@
 
   .form-group
     label Location
+    p Tap or click your site on the map. We'll automatically disguise the location you selected. We never store your real location in our database.
     div#site-map map
 
   .form-group
@@ -21,3 +22,5 @@
 
   .form-group
     == f.submit 'Add your site', class: 'btn btn-primary'
+
+= javascript_include_tag 'brag'

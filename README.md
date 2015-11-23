@@ -35,3 +35,7 @@ rails generate model Comment body:text question:references creator_id:integer
 rails generate acts_as_taggable_on:migration
 
 rails generate migration AddSlugToSites slug:string
+
+# Todo
+
+http://stackoverflow.com/questions/28422222/using-action-mailer-for-new-comment-notification-rails-4
