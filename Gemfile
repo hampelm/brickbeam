@@ -80,6 +80,19 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
+  gem 'guard', require: false
+  gem 'guard-rspec', require: false
+  gem 'guard-rubocop', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'guard-scss-lint', require: false
+  gem 'guard-shell', require: false
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'terminal-notifier-guard', require: false
+
+  # gem 'html2slim'
+  gem 'slim_lint'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
