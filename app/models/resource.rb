@@ -15,6 +15,8 @@ class Resource < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
+  has_many :attachments
+
   acts_as_taggable
 
   def generated_slug
