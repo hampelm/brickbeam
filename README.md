@@ -14,6 +14,8 @@ You'll need:
 
 # Dev notes
 
+To add model descriptions to relevant files, run the command `annotate` from the project root.
+
 ## How to add slugs
 
 ## Events
