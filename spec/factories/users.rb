@@ -21,17 +21,25 @@
 #  agreement              :boolean
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+FactoryGirl.define do
+  factory :user do
+    name { FFaker::Name.name }
+    email { FFaker::Internet.email }
+    password 'password'
+    password_confirmation 'password'
+    confirmed_at Time.zone.now
 
-  validates :agreement, acceptance: { accept: true }
+    trait :admin do
+      is_admin true
+    end
 
-  has_many :events
-  has_many :sites
-  has_many :projects
-  has_many :questions
-  has_many :comments
+    trait :unconfirmed do
+      password nil
+      password_confirmation nil
+      confirmed_at nil
+    end
+
+    factory :admin, traits: [:admin]
+    factory :unconfirmed_user, traits: [:unconfirmed]
+  end
 end

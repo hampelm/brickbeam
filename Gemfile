@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'annotate'
 gem 'aws-sdk', '<2.0'
 gem 'ckeditor', '~> 4.1.4'
 gem 'devise', '~> 3.5.2'
@@ -24,7 +25,6 @@ gem 'pg', '~>0.18'
 gem 'pundit', '~> 1.0.1'
 gem 'rails_admin', '~> 0.7.0'
 gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
-gem 'rails_12factor', group: :production
 gem 'slim'
 
 gem 'bootstrap-sass', '~> 3.3.5'
@@ -55,14 +55,43 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :production do
+  gem 'heroku-deflater'
+  gem 'rails_12factor'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'capybara-email'
+  gem 'database_cleaner'
+  gem 'poltergeist'
+  gem 'webmock'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'ffaker'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+
+  gem 'guard', require: false
+  gem 'guard-rspec', require: false
+  gem 'guard-rubocop', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'guard-scss-lint', require: false
+  gem 'guard-shell', require: false
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'terminal-notifier-guard', require: false
+
+  # gem 'html2slim'
+  gem 'slim_lint'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
