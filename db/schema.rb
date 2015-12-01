@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126044903) do
+ActiveRecord::Schema.define(version: 20151201163806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20151126044903) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.boolean  "hidden"
   end
 
   add_index "comments", ["question_id"], name: "index_comments_on_question_id", using: :btree
@@ -61,11 +62,15 @@ ActiveRecord::Schema.define(version: 20151126044903) do
     t.text     "description"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "slug"
     t.integer  "user_id"
     t.string   "location"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
@@ -89,15 +94,20 @@ ActiveRecord::Schema.define(version: 20151126044903) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.boolean  "hidden"
   end
 
   create_table "resources", force: :cascade do |t|
     t.string   "title"
     t.string   "byline"
     t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "slug"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "resources", ["slug"], name: "index_resources_on_slug", unique: true, using: :btree
@@ -119,6 +129,7 @@ ActiveRecord::Schema.define(version: 20151126044903) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.boolean  "hidden"
   end
 
   create_table "taggings", force: :cascade do |t|

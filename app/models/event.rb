@@ -20,6 +20,9 @@ class Event < ActiveRecord::Base
 
   acts_as_taggable
 
+  has_attached_file :photo, styles: { large: "1000x1000>", thumb: "100x100>" }
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
+
   belongs_to:user
 
   def generated_slug
