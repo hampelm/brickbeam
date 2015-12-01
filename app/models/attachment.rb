@@ -10,6 +10,8 @@
 #
 
 class Attachment < ActiveRecord::Base
+  validates :title, presence: true
+
   has_attached_file :file_attachment
   belongs_to :resource
 end
