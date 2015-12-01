@@ -4,6 +4,10 @@ This is the rails app that powers Brick + Beam Detroit
 
 # Deployment
 
+Running the app: `rails s`
+
+You may need to be using the proper version of Ruby (currently, 2.2.3). We suggest chruby: `chruby 2.2.3`
+
 # Dev install
 
 These instructions are optimized for Mac. All components should have cross-platform equivalents, but you'll need to find the correct install process.
