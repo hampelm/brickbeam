@@ -15,7 +15,7 @@
 
     h3.comment-intro Discussion
 
-- @question.comments.each do |comment|
+- @comments.each do |comment|
   .comment
     .row
       .col-md-3
@@ -32,11 +32,16 @@
     h3.comment-intro Add your answer
     - if user_signed_in?
       = form_for ([@question, @question.comments.build]) do |f|
-        div
+        div.form-group
           == f.text_area :body, class: 'form-control'
 
-        div
-          == f.submit "Add comment", class: 'btn btn-primary'
+        div.form-group
+          label.checkbox
+            = f.check_box :subscription, checked: true
+            | Send me an email when new comments are posted.
+
+        div.form-group
+          == f.submit "Add your reply", class: 'btn btn-primary'
 
     - else
       h3 #{link_to('Log in', new_user_session_path)}  or #{link_to('sign up', new_user_registration_path)}  to Brick + Beam to reply

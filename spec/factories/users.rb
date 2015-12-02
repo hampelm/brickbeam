@@ -27,7 +27,6 @@ FactoryGirl.define do
     email { FFaker::Internet.email }
     password 'password'
     password_confirmation 'password'
-    confirmed_at Time.zone.now
 
     trait :admin do
       is_admin true

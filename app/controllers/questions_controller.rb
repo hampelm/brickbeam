@@ -5,11 +5,12 @@ class QuestionsController < ApplicationController
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag' # <- New
 
   def index
-    @questions = Question.order('created_at DESC').all
+    @questions = Question.where(hidden: [false, nil]).order('created_at DESC').all
   end
 
   def show
     @question = Question.friendly.find(params[:id])
+    @comments = @question.comments.where(hidden: [false, nil])
   end
 
   def new

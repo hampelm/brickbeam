@@ -1,13 +1,13 @@
 = form_for @question do |f|
   .form-group
-    == f.label "What's your question?"
+    == f.label :title, "What's your question?"
     == f.text_field :title, class: 'form-control'
 
   // .form-group
   // == f.autocomplete_field :tag_list, autocomplete_tag_name_questions_path, :"data-delimiter" => ', '
 
   .form-group
-    == f.label "Any details people should know?"
+    == f.label :description, "Any details people should know?"
     == f.text_area :description, class: 'form-control', rows: 10
 
   .form-group

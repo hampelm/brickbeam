@@ -13,5 +13,11 @@
 
 FactoryGirl.define do
   factory :comment do
+    body { FFaker::Lorem.paragraph }
+    question
+
+    trait :hidden do
+      hidden true
+    end
   end
 end

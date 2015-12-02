@@ -14,5 +14,14 @@
 
 FactoryGirl.define do
   factory :question do
+    title { FFaker::Lorem.phrase }
+    description { FFaker::Lorem.paragraph }
+    user
+
+    factory :question_with_hidden_comment do
+      after(:create) do |question, evaluator|
+        create(:comment, :hidden, question: question)
+      end
+    end
   end
 end
