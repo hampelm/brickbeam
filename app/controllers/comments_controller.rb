@@ -7,6 +7,12 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save
 
+    if params[:subscribe] == true
+      @subscription = @Subscription.create()
+      @subscription.user = current_user
+      @subscription.save()
+    end
+
     redirect_to question_path(@question)
   end
 
