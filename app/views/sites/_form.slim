@@ -7,8 +7,7 @@
     == f.file_field :photo, class: 'form-control'
 
   .form-group
-    label Location
-    p Tap or click your site on the map. We'll automatically disguise the location you selected. We never store your real location in our database.
+    p <strong>Tap or click your site on the map.</strong> We'll automatically disguise the location you selected. We never store your real location in our database.
     div#site-map map
     = f.hidden_field :lat
     = f.hidden_field :lng
@@ -26,6 +25,6 @@
     == f.text_area :description, class: 'form-control', rows: 6
 
   .form-group
-    == f.submit 'Save your site', class: 'btn btn-primary'
+    == f.submit 'Save your site and add rehab projects', class: 'btn btn-primary'
 
 = javascript_include_tag 'brag'
