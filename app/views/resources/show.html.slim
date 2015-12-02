@@ -11,3 +11,11 @@
         p.byline =@resource.byline
 
         == @resource.text
+
+        - if @resource.attachments
+          .resource-attachments
+            h3 Related files
+
+            ul
+            - @resource.attachments.each do |attachment|
+              li <a href="#{attachment.file_attachment.url}">#{attachment.title}</a>

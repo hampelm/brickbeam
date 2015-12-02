@@ -18,5 +18,8 @@ class Attachment < ActiveRecord::Base
   validates :title, presence: true
 
   has_attached_file :file_attachment
+  do_not_validate_attachment_file_type :file_attachment
+  validates :file_attachment, presence: true
+
   belongs_to :resource
 end
