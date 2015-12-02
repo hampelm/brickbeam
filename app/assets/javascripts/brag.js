@@ -19,6 +19,7 @@ $(function() {
   var fuzzed;
   var circle;
   var center = [42.34435,-83.056898];
+  var radius = 300;
   var circle_options = {
       color: '#e13452',      // Stroke color
       opacity: 1,            // Stroke opacity
@@ -42,7 +43,7 @@ $(function() {
     .addControl(L.mapbox.geocoderControl('mapbox.places'));
 
   if (startlat !== 0) {
-    circle = L.circle(center, 600, circle_options)
+    circle = L.circle(center, radius, circle_options)
     .addTo(map);
   }
 
@@ -86,15 +87,13 @@ $(function() {
     var arr = new Uint8Array(1);
     var r = window.crypto.getRandomValues(arr);
 
-    var fuzzed = getRandom(300,500) / 100000;
+    var fuzzed = getRandom(50, 200) / 100000;
 
     if (r[0] % 2 === 0) {
       fuzzed = -fuzzed;
     }
     return fuzzed;
   }
-
-  // todo http://stackoverflow.com/questions/22467177/draw-a-circle-of-constant-size-for-all-zoom-levels-leaflet-js
 
   map.on('click', function(e) {
     var flat = e.latlng.lat + getFuzzed();
@@ -107,6 +106,11 @@ $(function() {
       map.removeLayer(circle);
     }
 
-    circle = L.circle([flat, flng], 600, circle_options)
+    circle = L.circle([flat, flng], radius, circle_options)
       .addTo(map);
+
+      console.log(map.getZoom());
+    if (map.getZoom() > 16) {
+      map.setZoom(16);
+    }
   }.bind(this));});
