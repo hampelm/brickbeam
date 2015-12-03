@@ -376,6 +376,14 @@ header {
     font-weight: 700;
     margin: 0;
     color: darken($teal, 35%);
+
+    a,
+    a:visited,
+    a:hover,
+    a:active {
+      color: darken($teal, 35%);
+      border-bottom: 0px none;
+    }
   }
 }
 

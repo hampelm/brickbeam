@@ -22,3 +22,16 @@
           .col-sm-4.col-sx-6
             .resource
               h3.resource-title #{resource.title}
+
+
+.broad-section
+  .row
+    .col-md-3
+      h2.broad-section-header Red Tape Resources
+      p About interior resources
+    .col-md-9
+      .row
+        - for resource in @redtape
+          .col-sm-4.col-sx-6
+            .resource
+              h3.resource-title #{resource.title}

@@ -44,6 +44,15 @@
     line-height: 500px;
   }
 
+  .site-photo {
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+  }
+
   .site-details {
     h2.article-title {
       margin-bottom: 50px;

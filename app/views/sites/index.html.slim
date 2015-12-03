@@ -8,5 +8,9 @@
 
   - for site in @sites
     .col-md-4
+      - if site.photo.exists?
+        .site-photo style="background-image: url(#{site.photo.url})"
+      - else
+        .site-photo style="background-image: url(#{asset_url('homes.png')})"
       h3.site-title #{link_to(site.title, site_path(site))}
       = site.description
