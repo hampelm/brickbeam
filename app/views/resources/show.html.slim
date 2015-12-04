@@ -1,18 +1,27 @@
 .row
   .col-sm-3.sidebar
     .in
-      p Sidebar here
+      - @topics.each do |topic|
+        h3 =topic.name
+        - topic.tags.each do |tag|
+          h4 = tag
+          -@related_by_tag[tag].each do |related|
+            h5 =link_to(related.title, resource_path(related))
+
   .col-md-9
     .row
       .col-sm-12
+        == @resource.tag_list
         h2.article-title =@resource.title
     .row
       .col-sm-8
         p.byline =@resource.byline
 
+        =image_tag @resource.photo.url, width: "100%", alt: "", class: "resource-image"
+
         == @resource.text
 
-        - if @resource.attachments
+        - if @resource.attachments.length > 0
           .resource-attachments
             h3 Related files
 

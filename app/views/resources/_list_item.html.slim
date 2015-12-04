@@ -1,2 +1,7 @@
-.col-md-4
-  h3 #{resource.title}
+.col-sm-4.col-xs-6
+  .resource
+    - if resource.photo?
+      <div class="resource-photo" style="background-image: url(#{resource.photo.url(:thumb)})"></div>
+    == resource.tag_list
+    h3.resource-title #{link_to(resource.title, resource_path(resource))}
+

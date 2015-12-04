@@ -1,3 +1,49 @@
-// Place all the styles related to the resources controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.resources-panel {
+  background: lighten($pink, 45%);
+  padding: 70px 0 100px;
+
+  .resource {
+    padding: 30px 30px 30px 30px;
+    // background: $teal; // url(../img/clipperboard.png) no-repeat center center;
+    background-size: cover;
+    margin-bottom: 30px;
+    border-radius: $radius;
+    color: $teal-dark;
+    color: darken($pink, 35%);
+    color: $brown;
+    cursor: pointer;
+
+    &:hover {
+      background: lighten($pink, 35%);
+      // color: #fff;
+      transition: $transition ease;
+    }
+
+    .resource-photo {
+      height: 150px;
+      background-size: cover;
+      margin-bottom: 8px;
+    }
+  }
+
+  .broad-section {
+    margin-bottom: 70px;
+  }
+
+  h2.broad-section-header {
+    font-size: 32px;
+    margin-top: 30px;
+    color: $pink;
+  }
+
+  h3.resource-title {
+    // background: $teal;
+    // padding: 10px;
+  }
+
+  img.resource-image {
+    display: block;
+    margin-bottom: 15px;
+  }
+}
+
