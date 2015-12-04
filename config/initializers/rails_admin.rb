@@ -66,6 +66,16 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model Topic do
+    edit do
+      include_all_fields
+
+      fields_of_type :tag_list do
+        partial 'tag_list_with_autocomplete'
+      end
+    end
+  end
+
   config.model Resource do
     list do
       field :title

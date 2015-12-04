@@ -88,6 +88,12 @@ p {
   line-height: 1.61;
 }
 
+p.byline {
+  font-family: $sans;
+  font-weight: 700;
+  margin-top: 3px;
+}
+
 a {
   color: darken($teal, 15%);
   &:hover {
@@ -426,46 +432,6 @@ header {
   }
 }
 
-.resources-panel {
-  background: lighten($pink, 45%);
-  padding: 70px 0 100px;
-
-  .resource {
-    padding: 30px 30px 30px 30px;
-    // background: $teal; // url(../img/clipperboard.png) no-repeat center center;
-    background-size: cover;
-    margin-bottom: 30px;
-    border-radius: $radius;
-    color: $teal-dark;
-    color: darken($pink, 35%);
-    color: $brown;
-    cursor: pointer;
-
-    &:hover {
-      background: lighten($pink, 35%);
-      // color: #fff;
-      transition: $transition ease;
-    }
-  }
-
-  .broad-section {
-    margin-bottom: 70px;
-  }
-
-  h2.broad-section-header {
-    font-size: 32px;
-    margin-top: 30px;
-    color: $pink;
-  }
-
-  h3.resource-title {
-    // background: $teal;
-    // padding: 10px;
-  }
-}
-
-
-
 .forum-prompt-panel {
   position: fixed;
   z-index: 9999;
@@ -535,4 +501,5 @@ header {
 
 @import 'devise';
 @import 'sites';
+@import 'resources';
 
