@@ -2,9 +2,8 @@ class ResourcesController < ApplicationController
   layout "resources"
 
   def index
-    @interior = Resource.tagged_with("Interior")
-    @exterior = Resource.tagged_with("Exterior")
-    @redtape = Resource.tagged_with("Red Tape")
+    @resources = Resource.all
+    @topics = Topic.all()
   end
 
   def show

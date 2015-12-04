@@ -3,27 +3,13 @@
   padding: 70px 0 100px;
 
   .resource {
-    padding: 30px 30px 30px 30px;
-    // background: $teal; // url(../img/clipperboard.png) no-repeat center center;
+    padding-bottom: 50px;
+  }
+
+  .resource-photo {
+    height: 150px;
     background-size: cover;
-    margin-bottom: 30px;
-    border-radius: $radius;
-    color: $teal-dark;
-    color: darken($pink, 35%);
-    color: $brown;
-    cursor: pointer;
-
-    &:hover {
-      background: lighten($pink, 35%);
-      // color: #fff;
-      transition: $transition ease;
-    }
-
-    .resource-photo {
-      height: 150px;
-      background-size: cover;
-      margin-bottom: 8px;
-    }
+    margin-bottom: 8px;
   }
 
   .broad-section {

@@ -499,7 +499,17 @@ header {
   }
 }
 
+.resource-sidebar {
+  h4.tag {
+    font-weight: 700;
+  }
+  h5.article-title {
+    font-weight: 300;
+  }
+}
+
 @import 'devise';
 @import 'sites';
 @import 'resources';
+@import 'tags';
 

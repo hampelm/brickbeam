@@ -1,5 +1,17 @@
-h2 Tag list here
+.row
+  .col-sm-6
+    h2.article-title Resources
+    = render partial: '/resources/list_item', collection: @resources, as: :resource
 
-- for resource in @resources
-  .resource
-    h2 =resource.title
+  .col-sm-6
+    .tag-related-section
+      h2.article-title Events
+      | [Will show when available]
+
+    .tag-related-section
+      h2.article-title Questions & Answers
+      | [Will show when available]
+
+    .tag-related-section
+      h2.article-title Projects
+      | [Will show when available]

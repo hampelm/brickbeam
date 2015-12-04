@@ -1,27 +1,12 @@
-.broad-section
-  .row
-    .col-md-3
-      h2.broad-section-header Interior Resources
-      p About interior resources
-    .col-md-9
-      .row
-        = render partial: 'list_item', collection: @interior, as: :resource
+.row
+  .col-xs-3
+    .resource-sidebar
+      - @topics.each do |topic|
+        h3 =topic.name
+        - topic.tags.each do |tag|
+          h4.tag = link_to(tag, tag_path(tag.name))
 
-.broad-section
-  .row
-    .col-md-3
-      h2.broad-section-header Exterior Resources
-      p About interior resources
-    .col-md-9
-      .row
-        = render partial: 'list_item', collection: @exterior, as: :resource
+  .col-xs-9
+    h2.article-title Fresh Brick + Beam Resources
+    = render partial: 'list_item', collection: @resources, as: :resource
 
-
-.broad-section
-  .row
-    .col-md-3
-      h2.broad-section-header Red Tape Resources
-      p About interior resources
-    .col-md-9
-      .row
-        = render partial: 'list_item', collection: @redtape, as: :resource
