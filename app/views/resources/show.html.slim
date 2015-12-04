@@ -17,7 +17,8 @@
       .col-sm-8
         p.byline =@resource.byline
 
-        =image_tag @resource.photo.url, width: "100%", alt: "", class: "resource-image"
+        - if @resource.photo?
+          =image_tag @resource.photo.url, width: "100%", alt: "", class: "resource-image"
 
         == @resource.text
 
