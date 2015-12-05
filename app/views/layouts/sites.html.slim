@@ -1,9 +1,14 @@
-= content_for :section_head do
-  h2.section-head <a href="/sites">Brag your Rehab</a>
-
 = content_for :content do
-  .brag-panel
+  .section-panel.brag-head
     .container
-      == yield
+      .row
+        .col-xs-12
+          h2.section-head <a href="/sites">Brag your Rehab</a>
+      .row
+        .col-sm-6
+          p Copy about why the rehab section is here. What are people looking at? What can they get? How to contribute?
+
+  .brag-panel
+    == yield
 
 = render template: "layouts/application"

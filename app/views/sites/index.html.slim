@@ -1,16 +1,45 @@
-.row
-  .col-md-12
-    .map#sites-map map
+.map#sites-map
 
-.row
-  .col-md-4
-    .add-your-brag #{link_to('Add your rehab', new_site_path)}
+.container
+  .row
+    .col-md-12
+      .add-your-brag #{link_to('Add your rehab', new_site_path)} Copy about why you should add a rehab.
 
-  - for site in @sites
-    .col-md-4
-      - if site.photo.exists?
-        .site-photo style="background-image: url(#{site.photo.url})"
-      - else
-        .site-photo style="background-image: url(#{asset_url('homes.png')})"
-      h3.site-title #{link_to(site.title, site_path(site))}
-      = site.description
+  .row
+    - for site in @sites
+      .col-md-4
+        .site
+          - if site.photo.exists?
+            .site-photo style="background-image: url(#{site.photo.url})"
+          - else
+            .site-photo.missing style="background-image: url(#{asset_url('homes.png')})"
+          h3.site-user == site.user.name
+          h3.site-title #{link_to(site.title, site_path(site))}
+
+javascript:
+  $(function() {
+    L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGgiLCJhIjoicGFzV1ZkWSJ9.KeK3hKmM52XpUEHHx_F8NQ';
+    var map = L.mapbox.map('sites-map', 'mapbox.streets')
+      .setView([42.34435,-83.056898], 12) // detroit
+      .addControl(L.mapbox.geocoderControl('mapbox.places'));
+    map.scrollWheelZoom.disable();
+
+    var circle_options = {
+        color: '#e13452',      // Stroke color
+        opacity: 1,         // Stroke opacity
+        weight: 0,         // Stroke weight
+        fillColor: '#e13452',  // Fill color
+        fillOpacity: 0.6    // Fill opacity
+    };
+
+    var sites = #{{@sites.to_json}};
+    var i;
+    for (i = 0; i < sites.length; i++) {
+      var site = sites[i];
+      if (!site.lat) continue;
+      console.log(site);
+      circle = L.circle([site.lat, site.lng], 600, circle_options)
+        .bindPopup(sites[i].title)
+        .addTo(map);
+    }
+  })

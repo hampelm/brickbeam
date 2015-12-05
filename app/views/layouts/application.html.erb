@@ -33,6 +33,7 @@
     </header>
   </div>
 
+  <% if content_for?(:section_head) %>
   <div class="section-panel">
     <div class="container">
       <div class="row">
@@ -42,6 +43,7 @@
       </div>
     </div>
   </div>
+  <% end %>
 
   <%= content_for?(:content) ? yield(:content) : yield %>
 

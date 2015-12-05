@@ -375,8 +375,11 @@ header {
   border-top: 3px double $teal;
   border-bottom: 3px double $teal;
 
-  // border-top: 5px solid lighten($teal, 20%);
-  // border-bottom: 5px solid lighten($teal, 20%);
+  p {
+    font-family: $sans;
+    margin-top: 1em;
+    font-size: 16px;
+  }
 
   h2.section-head {
     font-weight: 700;
