@@ -10,7 +10,7 @@
   .col-sm-4
     .tag-related-section
       h2.article-title Events
-      | [Will show when available]
+      =render partial: '/events/list_item', collection: @events, as: :event
 
     .tag-related-section
       h2.article-title Questions & Answers

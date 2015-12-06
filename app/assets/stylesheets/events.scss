@@ -1,3 +1,46 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.past-events {
+  margin-top: 50px;
+
+  h2.article-title {
+    margin-bottom: 20px;
+  }
+}
+
+.past-event {
+  position: relative;
+  height: 300px;
+  margin-bottom: 30px;
+  padding: 10px;
+
+  .past-event-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300px;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+  }
+
+  .past-event-details {
+    position: absolute;
+    bottom: 10px;
+    z-index: 2;
+    margin-right: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+
+    h2 {
+      font-weight: 300;
+      font-size: 24px;
+      margin-bottom: 8px
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 500
+    }
+  }
+}
