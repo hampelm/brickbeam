@@ -3,17 +3,18 @@
     .in
       .resource-sidebar
         - @topics.each do |topic|
-          h3.broad-topic =topic.name
-          - topic.tags.each do |tag|
-            h4.tag = link_to(tag, tag_path(tag.name))
-            -@related_by_tag[tag].each do |related|
-              h5.article-title =link_to(related.title, resource_path(related))
+          .broad-topic
+            h3 =topic.name
+            - topic.tags.each do |tag|
+              h4.tag = link_to(tag, tag_path(tag.name))
+              -@related_by_tag[tag].each do |related|
+                h5.article-title =link_to(related.title, resource_path(related))
 
   .col-sm-9
     .row
       .col-sm-12
-        == @resource.tag_list
         h2.article-title =@resource.title
+
     .row
       .col-sm-8
         p.byline =@resource.byline
@@ -30,3 +31,7 @@
             ul
             - @resource.attachments.each do |attachment|
               li <a href="#{attachment.file_attachment.url}">#{attachment.title}</a>
+
+      .row-sm-2
+        = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
+

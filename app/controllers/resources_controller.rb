@@ -4,6 +4,8 @@ class ResourcesController < ApplicationController
   def index
     @resources = Resource.all
     @topics = Topic.all()
+
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def show

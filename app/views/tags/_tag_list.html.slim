@@ -1,0 +1,6 @@
+.tag-list
+  - tags.each do |tag|
+    - if defined? tag.name
+      =link_to tag.name, tag_path(tag.name), class: "tag"
+    - else
+      =link_to tag, tag_path(tag), class: "tag"

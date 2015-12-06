@@ -7,6 +7,8 @@ class TagsController < ApplicationController
   end
 
   def show
+    @topics = Topic.all()
+
     @tag = params[:id]
     @resources = Resource.tagged_with(params[:id])
     @events = Event.tagged_with(params[:id])

@@ -2,9 +2,13 @@
   .col-xs-3
     .resource-sidebar
       - @topics.each do |topic|
-        h3 =topic.name
-        - topic.tags.each do |tag|
-          h4.tag = link_to(tag, tag_path(tag.name))
+        .broad-topic
+          h3 =topic.name
+          - topic.tags.each do |tag|
+            h4.tag = link_to(tag, tag_path(tag.name))
+
+      h3 Explore everything
+      = render partial: '/tags/tag_list', :locals => { :tags => @tags }
 
   .col-xs-9
     h2.article-title Fresh Brick + Beam Resources

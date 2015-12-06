@@ -1,3 +1,25 @@
+.tag-list {
+  margin-top: 10px;
+
+  a.tag {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+
+    display: inline-block;
+    border: 0 none;
+    background: lighten($pink, 10%);
+    padding: 5px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+
+    &:hover {
+      background: $pink;
+      transition: $transition ease;
+    }
+  }
+}
+
 .tags-panel {
   padding-top: 50px;
 

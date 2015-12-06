@@ -6,9 +6,13 @@ This is the rails app that powers Brick + Beam Detroit
 
 Running the app: `rails s`
 
+# Development
+
 You may need to be using the proper version of Ruby (currently, 2.2.3). We suggest chruby: `chruby 2.2.3`
 
-# Development
+Start the app with `rails s`
+
+Watch for sass changes and recompile, and run code linters with `guard` in a new tab.
 
 ## Setup
 

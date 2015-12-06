@@ -32,6 +32,7 @@ $brown: #976b48;
 $kraft: #978261;
 $gray: #8a8786;
 $body: #444;
+$body-mild: darken($teal, 40%);
 $yellow: #f4e138;
 $yellow-tark: darken($yellow, 40%);
 
@@ -53,8 +54,7 @@ body {
   font-size: 15px;
   font-weight: 300;
 
-  color: #444;
-  color: darken($teal, 40%);
+  color: $body-mild;
   background: #fff;
 }
 
@@ -499,15 +499,6 @@ header {
     font-weight: 700;
     margin-bottom: 40px;
     color: darken($kraft, 40%);
-  }
-}
-
-.resource-sidebar {
-  h4.tag {
-    font-weight: 700;
-  }
-  h5.article-title {
-    font-weight: 300;
   }
 }
 
