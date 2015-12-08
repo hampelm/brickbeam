@@ -91,7 +91,9 @@ p {
 p.byline {
   font-family: $sans;
   font-weight: 700;
+  color: $gray;
   margin-top: 3px;
+  line-height: 1.2;
 }
 
 a {
@@ -247,16 +249,16 @@ header {
   padding-bottom: 100px;
 
   .ask-a-question a {
-    display: block;
-    padding: 20px;
-    background: lighten($pink, 35%);
-    color: darken($pink, 30%);
-    border-radius: $radius;
+    display: inline-block;
+    padding: 8px 16px;
+    background: $pink; //lighten($pink, 25%);
+    color:  #fff; //darken($pink, 30%);
+    border-radius: 20px;
     font-size: 20px;
 
     &:hover {
       border: 0px none;
-      background: lighten($pink, 25%);
+      background: darken($pink, 5%);
       transition: $transition ease;
     }
   }

@@ -8,14 +8,17 @@
     = render partial: '/resources/list_item', collection: @resources, as: :resource
 
   .col-sm-4
-    .tag-related-section
-      h2.article-title Events
-      =render partial: '/events/list_item', collection: @events, as: :event
+    - unless @events.blank?
+      .tag-related-section
+        h2.article-title Events
+        =render partial: '/events/list_item', collection: @events, as: :event
 
-    .tag-related-section
-      h2.article-title Questions & Answers
-      | [Will show when available]
+    - unless @questions.blank?
+      .tag-related-section
+        h2.article-title Questions & Answers
+        | [Will show when available]
 
-    .tag-related-section
-      h2.article-title Projects
-      | [Will show when available]
+    - unless @sites.blank?
+      .tag-related-section
+        h2.article-title Projects
+        | [Will show when available]

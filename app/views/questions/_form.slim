@@ -11,4 +11,7 @@
     == f.text_area :description, class: 'form-control', rows: 10
 
   .form-group
+    = render partial: '/tags/tag_form_fields', :locals => { :tags => @tags_sorted, :f => f }
+
+  .form-group
     == f.submit "Ask!", class: 'btn btn-primary'

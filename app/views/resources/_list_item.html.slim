@@ -9,5 +9,8 @@
 
       .col-sm-8.col-xs-6
         h3.resource-title #{link_to(resource.title, resource_path(resource))}
+        - if resource.byline?
+          p.byline #{resource.byline}
+
         = render partial: '/tags/tag_list', :locals => { :tags => resource.tag_list }
 

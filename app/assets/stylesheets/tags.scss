@@ -1,3 +1,5 @@
+$tag-background: lighten($pink, 10%);
+
 .tag-list {
   margin-top: 10px;
 
@@ -8,7 +10,7 @@
 
     display: inline-block;
     border: 0 none;
-    background: lighten($pink, 10%);
+    background: $tag-background;
     padding: 5px;
     margin-right: 2px;
     margin-bottom: 2px;
@@ -31,11 +33,22 @@
   .resource {
     padding-bottom: 50px;
   }
-
-  .resource-photo {
-    height: 100px;
-    background-size: cover;
-    margin-bottom: 8px;
-  }
 }
 
+form {
+  label.tag {
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    // background: lighten($pink, 30%);
+    // color: darken($pink, 25%);
+    padding: 5px;
+
+    input {
+      display: inline-block;
+      margin-right: 6px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+label What is your question about?
+div
+  - tags.each do |tag|
+    label.tag
+      = f.check_box tag, name: tag.name, checked: (f.object.tag_list.include? tag.name)
+      == tag.name
+
+= f.hidden_field :tag_list, value: f.object.tag_list.to_s
+
+javascript:
+  $(function() {
+    var $tag_list = $('#question_tag_list');
+    var checked = [];
+
+    // When a tag is checked or unchecked, add or remove it from
+    // the hidden form.
+    var handleCheck =function() {
+      if (this.checked) {
+        checked.push(this.name);
+      } else {
+        checked = _.pull(checked, this.name);
+      }
+
+      // Update the hidden list of tags
+      $tag_list.val(checked.join(','));
+    }
+
+    $('label.tag input').change(handleCheck);
+  });

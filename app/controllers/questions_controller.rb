@@ -15,6 +15,8 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @tags = ActsAsTaggableOn::Tag.all
+    @tags_sorted = @tags.sort_by { |obj| obj.name }
   end
 
   def create
@@ -30,6 +32,8 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.friendly.find(params[:id])
+    @tags = ActsAsTaggableOn::Tag.all
+    @tags_sorted = @tags.sort_by { |obj| obj.name }
 
     unless user_owns_question?
       flash[:error] = "You do not have permission to update this question"
@@ -58,7 +62,7 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:title, :description)
+      params.require(:question).permit(:title, :description, :tag_list)
     end
 
     def user_owns_question?
