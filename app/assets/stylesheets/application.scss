@@ -504,6 +504,11 @@ header {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+
+    h2 {
+      text-align: center;
+    }
+
     a {
       display: inline-block;
       margin: 0px 8px;
