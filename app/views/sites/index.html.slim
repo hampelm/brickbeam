@@ -13,8 +13,9 @@
             .site-photo style="background-image: url(#{site.photo.url})"
           - else
             .site-photo.missing style="background-image: url(#{asset_url('homes.png')})"
-          h3.site-user == site.user.name
-          h3.site-title #{link_to(site.title, site_path(site))}
+          .site-info
+            h3.site-user == site.user.name
+            h3.site-title #{link_to(site.title, site_path(site))}
 
 javascript:
   $(function() {

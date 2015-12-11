@@ -8,7 +8,9 @@
   padding-bottom: 50px;
 
   color: darken($yellow, 50%);
-  background: lighten($yellow, 30%);
+  background: #fff;
+
+  color: #333;
 
   .add-your-brag {
     text-align: center;
@@ -42,9 +44,30 @@
   }
 
   .site {
-    // padding: 15px;
-    // background: lighten($yellow, 35%);
-    // border-radius: $radius;
+    position: relative;
+    height: 350px;
+    margin-bottom: 30px;
+    border: 15px solid $green;
+    overflow: hidden;
+  }
+
+  .site-info {
+    position: absolute;
+    bottom: 0px;
+    z-index: 2;
+    width: 100%;
+    padding: 15px 0px 0px 0px;
+    // background: rgba(255, 255, 255, 1);
+    background: $green;
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
+
+    h3.site-title {
+      font-weight: 700;
+    }
   }
 
   .site-user {
@@ -53,10 +76,16 @@
   }
 
   .sites-list .site-photo {
-    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 350px;
+    width: 100%;
+    background: $green;
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    margin-bottom: 20px;
+    opacity: 0.9;
 
     &.missing {
       background-size: contain;

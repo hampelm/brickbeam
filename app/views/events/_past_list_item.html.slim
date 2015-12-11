@@ -1,0 +1,8 @@
+.past-event
+  .past-event-details
+    h2 =event.title
+    h3 =event.start_date.to_s(:standard)
+    h3 =event.location
+
+  .past-event-photo style="background-image: url(#{event.photo})"
+

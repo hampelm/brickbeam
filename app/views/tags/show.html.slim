@@ -1,13 +1,9 @@
 .row
-  .col-sm-3
-    = render partial: 'sidebar', :locals => { :topics => @topics }
-
-
-  .col-sm-5
+  .col-sm-6
     h2.article-title Resources
     = render partial: '/resources/list_item', collection: @resources, as: :resource
 
-  .col-sm-4
+  .col-sm-6
     - unless @events.blank?
       .tag-related-section
         h2.article-title Events

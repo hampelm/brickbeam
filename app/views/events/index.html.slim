@@ -1,8 +1,10 @@
-- for event in @events
-  h2 =event.title
-  h3 =event.start_date.to_s(:standard)
-  h3 =event.location
-
+.upcoming-events
+  - for event in @events
+    .upcoming-event style="background-image: url(#{event.photo})"
+      .details
+        h2 =event.title
+        h3 =event.start_date.to_s(:standard)
+        h3 =event.location
 
 .past-events
   .row
@@ -11,12 +13,10 @@
 
   .row
     - for event in @past_events
-      .col-sm-6
+      .col-sm-4
         .past-event
           .past-event-details
             h2 =event.title
-            h3 =event.start_date.to_s(:standard)
-            h3 =event.location
             = render partial: '/tags/tag_list', :locals => { :tags => event.tags }
 
           .past-event-photo style="background-image: url(#{event.photo})"

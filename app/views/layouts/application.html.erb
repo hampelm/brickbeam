@@ -9,9 +9,14 @@
 </head>
 <body>
   <!--
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
+  <div class="topbar">
+    <div class="container">
+      <div class="col-xs-6 social-media">
+        <i class="fa fa-facebook"></i>
+        <i class="fa fa-twitter"></i>
+        <i class="fa fa-instagram"></i>
+      </div>
+      <div class="col-xs-6 user-info">
         <% if user_signed_in? %>
           Welcome, <%= current_user.name %>.
           <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
@@ -60,23 +65,13 @@
 
   <div class="footer">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>In partnership with:</h2>
-        </div>
-      </div>
       <div class="row footer-logos">
-        <div class="col-sm-3 footer-logo">
-          <a href="http://www.knightfoundation.org/"><%= image_tag "logos/knight-logo.png", width: "100%", alt: "Knight Foundation" %></a>
-        </div>
-        <div class="col-sm-3 footer-logo">
-          <a href="http://www.mhpn.org"><%= image_tag "logos/mhpn-logo.png", width: "60%", alt: "MHPN" %></a>
-        </div>
-        <div class="col-sm-3 footer-logo">
-          <a href="http://preservationdetroit.org/"><%= image_tag "logos/pd-logo transparent.png", width: "80%", alt: "Preservation Detroit" %></a>
-        </div>
-        <div class="col-sm-3 footer-logo">
-          <a href="http://detroitfuturecity.com/"><%= image_tag "logos/detroit-future city-black.png", width: "80%", alt: "Detroit Future City" %></a>
+        <div class="col-sm-12 footer-logo">
+          <h2>In partnership with:</h2>
+          <a href="http://www.knightfoundation.org/"><%= image_tag "logos/knight-logo.png", width: "150px", alt: "Knight Foundation" %></a>
+          <a href="http://www.mhpn.org"><%= image_tag "logos/mhpn-logo.png", width: "150px", alt: "MHPN" %></a>
+          <a href="http://preservationdetroit.org/"><%= image_tag "logos/pd-logo transparent.png", width: "150px", alt: "Preservation Detroit" %></a>
+          <a href="http://detroitfuturecity.com/"><%= image_tag "logos/detroit-future city-black.png", width: "150px", alt: "Detroit Future City" %></a>
         </div>
       </div>
     </div>
