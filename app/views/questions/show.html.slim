@@ -13,7 +13,8 @@
       - if @question.user == current_user
         p #{link_to('Edit your question', edit_question_path(@question))}
 
-    h3.comment-intro Discussion
+    - if !@comments.exists
+      h3.comment-intro Discussion
 
   .col-sm-3
     = render partial: '/tags/tag_list', :locals => { :tags => @question.tag_list }
@@ -30,15 +31,13 @@
         .comment-text
           = simple_format(comment.body)
 
-
-
 .row
   .col-md-6.col-md-push-3
     h3.comment-intro Add your answer
     - if user_signed_in?
       = form_for ([@question, @question.comments.build]) do |f|
         div.form-group
-          == f.text_area :body, class: 'form-control'
+          == f.text_area :body, class: 'form-control', rows: 5
 
         div.form-group
           label.checkbox
