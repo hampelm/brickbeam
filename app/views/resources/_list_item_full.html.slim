@@ -1,0 +1,13 @@
+.polaroid.resource
+  .polaroid-details
+    h3.resource-title #{link_to(resource.title, resource_path(resource))}
+    - if resource.byline?
+      p.byline #{resource.byline}
+
+    = render partial: '/tags/tag_list', :locals => { :tags => resource.tag_list }
+
+  - if resource.photo?
+    <div class="polaroid-photo" style="background-image: url(#{resource.photo.url(:thumb)})"></div>
+
+  - if !resource.photo?
+    <div class="polaroid-photo missing-#{ rand(1..3) }"></div>

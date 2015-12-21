@@ -2,7 +2,9 @@
   h2.section-head <a href="/questions">Q & A Forum</a>
 
 = content_for :content do
-  .questions-panel
+  .questions-panel.section
+    =render 'shared/section_head', :section_title => 'Q & A Forum', :path => questions_path
+
     .container
       == yield
 

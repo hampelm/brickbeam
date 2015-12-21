@@ -1,8 +1,7 @@
-= content_for :section_head do
-  h2.section-head <a href="/resources">Rehab Resources</a>
-
 = content_for :content do
-  .resources-panel
+  .resources-panel.section
+    =render 'shared/section_head', :section_title => 'Rehab Resources', :path => resources_url
+
     .container
       == yield
 

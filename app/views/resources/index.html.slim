@@ -1,4 +1,10 @@
 .row
+  .col-xs-9
+    h2.article-title Fresh Brick + Beam Resources
+
+    .row
+      = render partial: 'list_item', collection: @resources, as: :resource
+
   .col-xs-3
     .resource-sidebar
       - @topics.each do |topic|
@@ -9,9 +15,4 @@
 
       h3 Explore everything
       = render partial: '/tags/tag_list', :locals => { :tags => @tags }
-
-  .col-xs-9
-    h2.article-title Fresh Brick + Beam Resources
-
-    = render partial: 'list_item', collection: @resources, as: :resource
 

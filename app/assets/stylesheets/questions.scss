@@ -1,3 +1,50 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.questions-panel {
+  .ask-a-question a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: $pink; //lighten($pink, 25%);
+    color:  #fff; //darken($pink, 30%);
+    border-radius: 20px;
+    font-size: 20px;
+
+    &:hover {
+      border: 0px none;
+      background: darken($pink, 5%);
+      transition: $transition ease;
+    }
+  }
+
+  h3.comment-intro {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .question,
+  .comment {
+    margin-bottom: 30px;
+  }
+
+  .question-meta,
+  .comment-meta {
+    text-align: right;
+    font-family: $sans;
+
+    .byline {
+      font-weight: 700;
+    }
+  }
+
+  .question-meta {
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .comment-text {
+    padding-bottom: 30px;
+    border-bottom: 1px dotted $gray;
+  }
+}

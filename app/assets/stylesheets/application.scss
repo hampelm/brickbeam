@@ -93,7 +93,7 @@ p.byline {
   font-weight: 700;
   color: $gray;
   margin-top: 3px;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 a {
@@ -196,6 +196,11 @@ header {
   }
 }
 
+.section {
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+
 .resources-panel,
 .content-panel {
   .related-articles {
@@ -244,62 +249,12 @@ header {
 }
 
 .events-panel {
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 100px;
 
   .event {
     margin-bottom: 30px;
     padding-bottom: 30px;
-  }
-}
-
-.questions-panel {
-  padding-top: 50px;
-  padding-bottom: 100px;
-
-  .ask-a-question a {
-    display: inline-block;
-    padding: 8px 16px;
-    background: $pink; //lighten($pink, 25%);
-    color:  #fff; //darken($pink, 30%);
-    border-radius: 20px;
-    font-size: 20px;
-
-    &:hover {
-      border: 0px none;
-      background: darken($pink, 5%);
-      transition: $transition ease;
-    }
-  }
-
-  h3.comment-intro {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .question,
-  .comment {
-    margin-bottom: 30px;
-  }
-
-  .question-meta,
-  .comment-meta {
-    text-align: right;
-    font-family: $sans;
-
-    .byline {
-      font-weight: 700;
-    }
-  }
-
-  .question-meta {
-    text-align: left;
-    margin-top: 10px;
-  }
-
-  .comment-text {
-    padding-bottom: 30px;
-    border-bottom: 1px dotted $gray;
   }
 }
 
@@ -380,11 +335,7 @@ header {
 }
 
 .section-panel {
-  padding: 40px 0;
-
-  // background: $teal;
-  border-top: 3px double $teal;
-  border-bottom: 3px double $teal;
+  padding: 40px 0 70px 0;
 
   p {
     font-family: $sans;
@@ -395,15 +346,33 @@ header {
   h2.section-head {
     font-weight: 700;
     margin: 0;
-    color: darken($teal, 35%);
+    color: $body;
 
     a,
     a:visited,
     a:hover,
     a:active {
-      color: darken($teal, 35%);
+      color: $body;
+      text-decoration: none;
       border-bottom: 0px none;
     }
+  }
+}
+
+.page {
+  h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: $body;
+    margin-top: 2em;
+  }
+
+  li {
+    font-family: $serif;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    list-style-position: outside;
+    font-size: 16px;
   }
 }
 
@@ -528,8 +497,10 @@ header {
 }
 
 @import 'devise';
+@import 'polaroid';
 @import 'events';
 @import 'sites';
 @import 'resources';
+@import 'questions';
 @import 'tags';
 

@@ -1,0 +1,44 @@
+
+.polaroid {
+  position: relative;
+  height: 350px;
+  margin-bottom: 30px;
+  border: 10px solid #fff;
+  overflow: hidden;
+
+  .polaroid-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 350px;
+    width: 100%;
+    background-image: image-url("missing-1.png");
+    background: $pink;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+  }
+
+  .polaroid-details {
+    position: absolute;
+    bottom: 0px;
+    z-index: 2;
+    width: 100%;
+    padding: 10px 0px 0px 0px;
+    background: rgba(255, 255, 255, 1);
+    // background: $pink;
+
+    h2 {
+      font-weight: 300;
+      //color: #fff;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}

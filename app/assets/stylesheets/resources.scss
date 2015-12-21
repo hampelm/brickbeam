@@ -1,6 +1,18 @@
 .resources-panel {
-  background: lighten($pink, 45%);
-  padding: 70px 0 100px;
+  background: lighten($pink, 43%);
+  background: #f0e3d1;
+
+  h2.article-title {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid lighten($gray, 20%);
+  }
+
+  .page {
+    padding: 40px;
+    background: #fff;
+    border: 1px solid darken(#f0e3d1, 10%);
+  }
 
   .resource {
     padding-top: 20px;
@@ -13,6 +25,10 @@
     background-position: center center;
     background-size: cover;
     margin-bottom: 8px;
+  }
+
+  .resource-attachments h3 {
+    margin-top: 1em;
   }
 
   .resource-photo.missing-1,
@@ -39,6 +55,10 @@
   img.resource-image {
     display: block;
     margin-bottom: 15px;
+  }
+
+  .related-resources .polaroid {
+    height: 200px;
   }
 }
 

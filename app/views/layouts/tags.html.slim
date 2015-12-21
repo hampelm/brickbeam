@@ -1,11 +1,15 @@
-= content_for :section_head do
-  - if params[:id]
-    h2.section-head All #{params[:id]} resources
-  - else
-    h2 Tags
-
 = content_for :content do
-  .tags-panel
+  .tags-panel.section
+    .section-panel
+      .container
+       .row
+          .col-xs-12
+            - if params[:id]
+              h2.section-head All #{params[:id]} resources
+            - else
+              h2 Tags
+
+
     .container
       == yield
 

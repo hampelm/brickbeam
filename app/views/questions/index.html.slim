@@ -7,3 +7,6 @@
         h2.article-title #{link_to(question.title, question_path(question))}
         .question
           p.question-meta Asked by <strong>#{question.user.name}</strong> at #{question.created_at.to_s(:standard)}
+
+          = render partial: '/tags/tag_list', :locals => { :tags => question.tag_list }
+

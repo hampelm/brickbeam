@@ -1,4 +1,30 @@
 .row
+  .col-sm-9
+    .page
+      .row
+        .col-sm-12
+          h2.article-title =@resource.title
+
+      .row
+        .col-sm-8
+          p.byline =@resource.byline
+
+          - if @resource.photo?
+            =image_tag @resource.photo.url, width: "100%", alt: "", class: "resource-image"
+
+          == @resource.text
+
+        .row-sm-2
+          = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
+
+          - if @resource.attachments.length > 0
+            .resource-attachments
+              h3 Related files
+
+              ul
+              - @resource.attachments.each do |attachment|
+                li <a href="#{attachment.file_attachment.url}">#{attachment.title}</a>
+
   .col-sm-3.sidebar
     .in
       .resource-sidebar
@@ -7,31 +33,11 @@
             h3 =topic.name
             - topic.tags.each do |tag|
               h4.tag = link_to(tag, tag_path(tag.name))
-              -@related_by_tag[tag].each do |related|
-                h5.article-title =link_to(related.title, resource_path(related))
 
-  .col-sm-9
-    .row
-      .col-sm-12
-        h2.article-title =@resource.title
+      .related-resources
+        h3 Related resources
 
-    .row
-      .col-sm-8
-        p.byline =@resource.byline
+        = render partial: 'list_item_full', collection: @related[0,5], as: :resource
 
-        - if @resource.photo?
-          =image_tag @resource.photo.url, width: "100%", alt: "", class: "resource-image"
 
-        == @resource.text
-
-        - if @resource.attachments.length > 0
-          .resource-attachments
-            h3 Related files
-
-            ul
-            - @resource.attachments.each do |attachment|
-              li <a href="#{attachment.file_attachment.url}">#{attachment.title}</a>
-
-      .row-sm-2
-        = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
 
