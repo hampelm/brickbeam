@@ -1,0 +1,26 @@
+.row
+  .col-sm-12
+    h2.article-title #{@user.name}, a part of Brick and Beam since #{@user.created_at.to_s(:since)}
+
+.row
+  .col-sm-9
+    .page
+      .row
+        .col-sm-8
+          - if @user == current_user
+            .edit-user-account
+              h3 Need to update your information?
+              h3 #{link_to("Edit your account.", edit_user_registration_path)}
+
+          - unless @questions.empty?
+            h3 #{pluralize(@questions.length, 'question')} asked
+            = render partial: '/questions/list_item', collection: @questions, as: :question
+
+        .row-sm-2
+
+  .col-sm-3.sidebar
+    .in
+      - unless @sites.empty?
+        h3 #{pluralize(@sites.length, 'rehab')} recorded
+        .sites-list
+          = render partial: '/sites/list_item', collection: @sites, as: :site, :locals => {container_class: ''}

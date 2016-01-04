@@ -1,0 +1,17 @@
+.users-panel {
+  padding-bottom: 50px;
+
+  .edit-user-account {
+    background: $teal;
+    padding: 30px;
+    margin-bottom: 30px;
+
+    a,
+    a:active,
+    a:hover,
+    a:focus {
+      color: #fff;
+      border-bottom: 1px dotted #fff;
+    }
+  }
+}

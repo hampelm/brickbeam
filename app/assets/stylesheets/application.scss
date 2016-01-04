@@ -223,7 +223,6 @@ header {
 }
 
 .sidebar .in {
-  padding-top: 50px;
   padding-right: 20px;
 
   .resource-category {
@@ -511,9 +510,11 @@ header {
 
 @import 'devise';
 @import 'polaroid';
+
 @import 'events';
-@import 'sites';
-@import 'resources';
 @import 'questions';
+@import 'resources';
+@import 'sites';
+@import 'users';
 @import 'tags';
 
