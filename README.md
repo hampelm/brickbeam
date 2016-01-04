@@ -8,15 +8,22 @@ Running the app: `rails s`
 
 # Development
 
-You may need to be using the proper version of Ruby (currently, 2.2.3). We suggest chruby: `chruby 2.2.3`
+You may need to be using the proper version of Ruby (currently, 2.2.3). We
+suggest using chruby to mangage versions. To switch to the correct version using
+chruby, run this command: `chruby 2.2.3`
 
 Start the app with `rails s`
 
-Watch for sass changes and recompile, and run code linters with `guard` in a new tab.
+Watch for sass changes and recompile, and run code linters with `guard` in a new
+tab.
 
 ## Setup
 
-These instructions are optimized for Mac. All components should have cross-platform equivalents, but you'll need to find the correct install process. The expect you have Ruby 2.2.3.
+The first time you run this app, you'll need to do a little bit of setup.
+
+These instructions are optimized for Mac. All components should have cross-
+platform equivalents, but you'll need to find the correct install process. They
+expect you are running Ruby 2.2.3.
 
 ### You'll need
 
@@ -32,5 +39,6 @@ These instructions are optimized for Mac. All components should have cross-platf
 
 ## Developing
 
-To add model descriptions to relevant files, run the command `annotate` from the project root.
+To add model descriptions to relevant files, run the command `annotate` from the
+project root.
 
