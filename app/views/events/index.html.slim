@@ -2,7 +2,7 @@
   - for event in @events
     .upcoming-event style="background-image: url(#{event.photo})"
       .details
-        h2 =event.title
+        h2 = link_to(event.title, event_path(event))
         h3 =event.start_date.to_s(:standard)
         h3 =event.location
 
@@ -16,7 +16,7 @@
       .col-sm-4
         .polaroid.past-event
           .polaroid-details
-            h2 =event.title
+            h2 #{link_to(event.title, event_path(event))}
             = render partial: '/tags/tag_list', :locals => { :tags => event.tags }
 
           .polaroid-photo style="background-image: url(#{event.photo})"

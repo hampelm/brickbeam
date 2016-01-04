@@ -3,6 +3,17 @@
 
 .events-panel {
   background: lighten($kraft, 40%);
+
+  .page {
+    padding: 40px;
+    background: #fff;
+    border: 1px solid darken(#f0e3d1, 10%);
+  }
+
+  .details {
+    margin-bottom: 10px;
+  }
+
 }
 
 .upcoming-event {
