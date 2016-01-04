@@ -35,4 +35,12 @@ class Site < ActiveRecord::Base
   def generated_slug
     title
   end
+
+  def building_type_enum
+    ['House', 'Commercial', 'Religous', 'Instutional', 'Indstrial']
+  end
+
+  def building_size_enum
+    ['<1,000', '1,000-1,200', '1,201-1,500', '1,501-2,000', '2,001-3,000', '3,001-5,000', '>5,000']
+  end
 end
