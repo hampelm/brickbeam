@@ -11,8 +11,8 @@ RSpec.feature 'Hidden comments spec', type: :feature do
     visit '/questions'
 
     # Log in
-    click_link 'Ask a question'
-    expect(page).to have_content 'Welcome to Brick + Beam'
+    click_link 'Ask your question'
+    expect(page).to have_content 'Log in'
     fill_in 'Email', match: :first, with: user.email
     fill_in 'Password', match: :first, with: user.password
     click_button 'Log in'
