@@ -143,6 +143,16 @@ a {
   background: darken($yellow, 10%);
 }
 
+.btn-edit {
+  color: #fff;
+  background: $teal-dark;
+
+  &:hover {
+    color: #fff;
+    border: 0px none;
+  }
+}
+
 .topbar {
   background: lighten($gray, 30%);
   line-height: 1.2;

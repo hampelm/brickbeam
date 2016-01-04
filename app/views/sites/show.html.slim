@@ -2,17 +2,19 @@
   .row
     .col-sm-7.col-sm-push-3
       h2.article-title =@site.title
+
   .row
     .col-sm-3
       div.map#site-map map
+
       - if @site.user == current_user
-      h4 Added by #{@site.user.name}
-
-      h4.building-type #{@site.building_type}, #{@site.building_size} Square feet
-
-      p #{link_to('Edit', edit_site_path(@site))}
+        =link_to('Edit your rehab', edit_site_path(@site), class: 'btn btn-edit')
 
     .col-sm-6
+      h3 Added by #{@site.user.name}
+
+      h3.building-type #{@site.building_type}, #{@site.building_size} Square feet
+
       - if @site.photo?
         img src="#{@site.photo.url}" width="100%" class="site-photo"
 
@@ -20,7 +22,8 @@
 
 
       .project-list
-        h3 Projects
+        - if @site.projects.length > 0
+          h3 Projects
 
         = render partial: 'project', collection: @site.projects, as: :project
 
@@ -61,6 +64,3 @@ javascript:
     circle = L.circle([#{@site.lat}, #{@site.lng}], 600, circle_options)
       .addTo(map);
   });
-        // p Created at #{@site.created_at}
-
-        // p Updated at #{@site.updated_at}
