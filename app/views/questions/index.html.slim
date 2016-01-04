@@ -3,10 +3,5 @@
      .ask-a-question #{link_to('Ask your question', new_question_path)}
 
   .col-md-6
-    - for question in @questions
-        h2.article-title #{link_to(question.title, question_path(question))}
-        .question
-          p.question-meta #{pluralize(question.comments.length, 'answer')}. Asked by <strong>#{question.user.name}</strong>
-
-          = render partial: '/tags/tag_list', :locals => { :tags => question.tag_list }
+    = render partial: 'list_item', collection: @questions, as: :question
 

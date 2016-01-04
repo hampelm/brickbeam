@@ -44,56 +44,6 @@
     height: 500px;
   }
 
-  .site {
-    position: relative;
-    height: 350px;
-    margin-bottom: 30px;
-    border: 15px solid $green;
-    overflow: hidden;
-  }
-
-  .site-info {
-    position: absolute;
-    bottom: 0px;
-    z-index: 2;
-    width: 100%;
-    padding: 15px 0px 0px 0px;
-    // background: rgba(255, 255, 255, 1);
-    background: $green;
-    color: #fff;
-
-    a {
-      color: #fff;
-    }
-
-    h3.site-title {
-      font-weight: 700;
-    }
-  }
-
-  .site-user {
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  .sites-list .site-photo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 350px;
-    width: 100%;
-    background: $green;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0.9;
-
-    &.missing {
-      background-size: contain;
-      opacity: 0.7;
-    }
-  }
-
   .site-details {
     padding-top: 70px;
 
@@ -122,6 +72,57 @@
         }
       }
     }
+  } // end site details
+}
+
+
+.site {
+  position: relative;
+  height: 350px;
+  margin-bottom: 30px;
+  border: 15px solid $green;
+  overflow: hidden;
+
+  .site-info {
+    position: absolute;
+    bottom: 0px;
+    z-index: 2;
+    width: 100%;
+    padding: 15px 0px 0px 0px;
+    // background: rgba(255, 255, 255, 1);
+    background: $green;
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
+
+    h3.site-title {
+      font-weight: 700;
+    }
   }
 
+  .site-user {
+    font-size: 16px;
+    font-weight: 700;
+  }
 }
+
+.sites-list .site-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 350px;
+  width: 100%;
+  background: $green;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+
+  &.missing {
+    background-size: contain;
+    opacity: 0.7;
+  }
+}
+

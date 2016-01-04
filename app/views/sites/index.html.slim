@@ -6,16 +6,7 @@
       .add-your-brag #{link_to('Add your rehab', new_site_path)} Copy about why you should add a rehab.
 
   .row.sites-list
-    - for site in @sites
-      .col-md-4
-        .site
-          - if site.photo.exists?
-            .site-photo style="background-image: url(#{site.photo.url})"
-          - else
-            .site-photo.missing style="background-image: url(#{asset_url('homes.png')})"
-          .site-info
-            h3.site-user == site.user.name
-            h3.site-title #{link_to(site.title, site_path(site))}
+    = render partial: 'list_item', collection: @sites, as: :site
 
 javascript:
   $(function() {
