@@ -98,6 +98,8 @@ p.byline {
 
 a {
   color: darken($teal, 15%);
+
+  &:focus,
   &:hover {
     text-decoration: none;
 
