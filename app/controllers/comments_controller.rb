@@ -13,6 +13,8 @@ class CommentsController < ApplicationController
       @subscription.save()
     end
 
+    NotificationMailer.new_comment_email(@question.user, @comment).deliver_later
+
     redirect_to question_path(@question)
   end
 

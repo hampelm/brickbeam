@@ -74,6 +74,8 @@ group :development, :test do
   gem 'byebug'
   gem 'ffaker'
   gem 'factory_girl_rails'
+  gem 'letter_opener'
+  gem 'capybara-email'
   gem 'rspec-rails'
 end
 

@@ -1,0 +1,17 @@
+An update from Brick + Beam Detroit:
+
+#{@user.name}, a new comment has been posted on
+#{@comment.question.title}
+----
+
+Comment by #{@comment.user.name}
+
+= @comment.body
+
+----
+
+View and reply:
+= question_url(@comment.question_id)
+
+Manage your notifications or unsubscribe:
+= user_url(@user)
