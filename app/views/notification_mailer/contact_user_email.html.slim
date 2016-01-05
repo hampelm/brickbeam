@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+
+    css:
+      body, h1, h2, p {
+        font-family: Helvetica Neue, Helvetica, sans-serif;
+        color: #333;
+      }
+
+  body
+
+    center
+      = image_tag attachments['logo.png'].url, alt: 'Brick + Beam Detroit', width: '100%', style: 'max-width: 300px;'
+
+    h1 #{@user.name}, a Brick + Beam user has reached out to you.
+
+    p For your privacy, your email address has not been shared with them. If you wish to reply, please respond to them directly at #{@from.email}.
+
+    p
+      strong Message from #{@from.name}
+
+    = @text
+
+    hr
+
+    p #{link_to('Change your contact settings', user_url(@to))}

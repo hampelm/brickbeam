@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :resources
   resources :subscriptions
   resources :tags
-  resources :users
+  resources :users do
+    post 'contact' => 'users#contact'
+  end
 
   resources :sites do
     resources :projects

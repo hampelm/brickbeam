@@ -24,6 +24,8 @@
 #
 
 class UsersController < ApplicationController
+  before_action :authenticate_user!, :except => [:show]
+
   layout "users"
 
   def show
@@ -33,4 +35,18 @@ class UsersController < ApplicationController
     @questions = Question.where user: @user.id
     @sites = Site.where user: @user.id
   end
+
+  def contact
+    @from = current_user
+    @to = User.find(params[:id])
+    @body = params[:body]
+
+    NotificationMailer.contact_user_email(@from, @to, @body).deliver_later
+  end
+
+  # private
+  #   def contact_params
+  #     params.require(:comment).permit(:body)
+  #   end
+
 end
