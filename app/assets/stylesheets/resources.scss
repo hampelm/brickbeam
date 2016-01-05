@@ -1,17 +1,21 @@
 .resources-panel {
   background: lighten($pink, 43%);
   background: lighten($kraft, 40%);
+  background: #f2d03b;
+
+  .section-panel h2.section-head a {
+    color: #fff;
+  }
 
   h2.article-title {
     padding-bottom: 15px;
     margin-bottom: 15px;
-    border-bottom: 1px solid lighten($gray, 20%);
   }
 
   .page {
     padding: 40px;
     background: #fff;
-    border: 1px solid darken(#f0e3d1, 10%);
+    // border: 1px solid darken(#f0e3d1, 10%);
   }
 
   .resource {
