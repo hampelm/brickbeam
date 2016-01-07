@@ -1,8 +1,10 @@
-.events-head {
-}
-
 .events-panel {
-  background: lighten($kraft, 40%);
+  // background: $purple;
+
+  h2.section-head,
+  h2.section-head a {
+    color: #fff;
+  }
 
   .page {
     padding: 40px;
@@ -16,13 +18,33 @@
 
 }
 
+// The main upcoming event
 .upcoming-event {
-  padding: 200px 20px 20px 20px;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
-  border: 10px solid #fff;
+  text-align: center;
+  overflow: auto;
+
+  .details {
+    text-align: center;
+    border: 1px solid #fff;
+    padding: 125px 50px 125px 50px;
+    margin: 10px;
+    text-shadow: 0px 0px 10px rgba(0,0,0,0.9);
+  }
+
+  h2 a {
+    font-weight: 300;
+    color: #fff;
+
+    &:hover,
+    &:active {
+      color: #fff;
+      border-color: #fff;
+    }
+  }
 }
 
 .past-events {

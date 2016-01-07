@@ -3,19 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .questions-panel {
-  background: lighten($kraft, 40%);
+  background: lighten($teal, 40%);
 
   .ask-a-question a {
     display: inline-block;
     padding: 8px 16px;
-    background: $pink; //lighten($pink, 25%);
-    color:  #fff; //darken($pink, 30%);
+    background: $blue;
+    color:  #fff;
     border-radius: 20px;
     font-size: 20px;
 
     &:hover {
       border: 0px none;
-      background: darken($pink, 5%);
+      background: darken($blue, 5%);
       transition: $transition ease;
     }
   }
@@ -47,6 +47,5 @@
 
   .comment-text {
     padding-bottom: 30px;
-    border-bottom: 1px dotted $gray;
   }
 }

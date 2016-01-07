@@ -8,6 +8,7 @@ class TagsController < ApplicationController
 
   def show
     @topics = Topic.all()
+    @tags = ActsAsTaggableOn::Tag.all
 
     @tag = params[:id]
     @resources = Resource.tagged_with(params[:id])

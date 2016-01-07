@@ -1,13 +1,17 @@
 .row
   .col-sm-6
     h2.article-title Resources
-    = render partial: '/resources/list_item', collection: @resources, as: :resource
+    .row
+      - for resource in @resources
+        .col-sm-6
+            =render 'shared/polaroid', :model => resource
 
-  .col-sm-6
+
+  .col-sm-3
     - unless @events.blank?
       .tag-related-section
         h2.article-title Events
-        =render partial: '/events/list_item', collection: @events, as: :event
+        = render partial: 'shared/polaroid', collection: @events, as: :model
 
     - unless @questions.blank?
       .tag-related-section
@@ -18,3 +22,15 @@
       .tag-related-section
         h2.article-title Projects
         | [Will show when available]
+
+  .col-sm-3.sidebar
+    .in
+      .tag-sidebar
+        - @topics.each do |topic|
+          .broad-topic
+            h3 =topic.name
+            - topic.tags.each do |tag|
+              h4.tag = link_to(tag, tag_path(tag.name))
+
+        h3 Explore
+        = render partial: '/tags/tag_list', :locals => { :tags => @tags }
