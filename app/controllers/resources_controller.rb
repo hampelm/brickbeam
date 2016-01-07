@@ -12,6 +12,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.friendly.find(params[:id])
     @topics = Topic.all()
     @related = Resource.tagged_with(@resource.tags, :any => true)
+    @tags = ActsAsTaggableOn::Tag.all
 
     @related_by_tag = Hash.new []
     @related.each do |related|

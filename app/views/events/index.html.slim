@@ -13,11 +13,5 @@
 
   .row
     - for event in @past_events
-      .col-sm-4
-        .polaroid.past-event
-          .polaroid-details
-            h2 #{link_to(event.title, event_path(event))}
-            = render partial: '/tags/tag_list', :locals => { :tags => event.tags }
-
-          .polaroid-photo style="background-image: url(#{event.photo})"
-
+      .col-sm-4.past-event
+        =render 'shared/polaroid', :model => event

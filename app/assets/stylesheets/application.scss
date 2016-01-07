@@ -23,23 +23,34 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,300italic,400italic);
 
 
-$teal: #5eb9a5;
+$teal: #008c74;
 $teal-dark: darken($teal, 30%);
-$pink: #e13452;
-$green: #b3d149;
-$green-dark: darken($green, 45%);
-$brown: #976b48;
-$kraft: #978261;
-$gray: #8a8786;
-$body: #444;
-$body-mild: darken($teal, 40%);
+$blue: #004c66;
+$purple: #332b40;
 $yellow: #f4e138;
 $yellow-tark: darken($yellow, 40%);
+
+$pink: #f2d03b;
+$green: #b3d149;
+$green-dark: darken($green, 45%);
+
+$gray: #8a8786;
+
+$body: #333;
+$body-mild: darken($teal, 40%);
+
+$border-color: $gray;
 
 $serif: 'PT Serif', serif;
 $open: 'Open Sans', 'PT Sans', sans-serif;
 $pt: 'PT Sans', sans-serif;
 $sans: $open;
+
+$size-body: 15px;
+$size-med: 18px;
+$size-lg: 20px;
+$size-xl: 40px;
+
 
 $radius: 4px;
 $transition: 0.3s;
@@ -51,7 +62,7 @@ $transition: 0.3s;
 
 body {
   font-family: $sans;
-  font-size: 15px;
+  font-size: $size-body;
   font-weight: 300;
 
   color: $body-mild;
@@ -67,7 +78,7 @@ h3 {
 
 h2 {
   font-family: $sans;
-  font-size: 4em;
+  font-size: $size-xl;
   font-weight: 700;
 }
 
@@ -75,37 +86,36 @@ h2.article-title {
   font-weight: 300;
   margin-top: 0px;
   margin-bottom: 30px;
-  font-size: 40px;
+  font-size: $size-xl;
 }
 
 h4 {
-  font-size: 15px;
+  font-size: $size-body;
   font-weight: 300;
 }
 
 p {
   font-family: $serif;
-  font-size: 15px;
+  font-size: $size-body;
   line-height: 1.61;
 }
 
 p.byline {
   font-family: $sans;
-  font-weight: 700;
-  color: $gray;
+  font-weight: 300;
+  color: $body;
   margin-top: 3px;
   line-height: 1.5;
 }
 
 a {
-  color: darken($teal, 15%);
+  color: darken($blue, 15%);
 
   &:focus,
   &:hover {
     text-decoration: none;
 
-    color: darken($teal, 15%);
-    border-bottom: 1px dotted darken($teal, 15%);
+    border-bottom: 1px solid $blue;
   }
 }
 
@@ -113,7 +123,7 @@ a {
   background: #eee;
   height: 300px;
   line-height: 300px;
-  font-size: 20px;
+  font-size: $size-lg;
   font-family: $sans;
   text-align: center;
   margin-bottom: 15px;
@@ -192,7 +202,7 @@ header {
     text-align: center;
 
     li {
-      font-size: 20px;
+      font-size: $size-lg;
 
       display: inline-block;
     }
@@ -227,13 +237,13 @@ header {
 
   .resource-category {
     h2.broad-section {
-      font-size: 18px;
+      font-size: $size-med;
       font-weight: 700;
       margin-bottom: 0;
     }
 
     h3 {
-      font-size: 18px;
+      font-size: $size-med;
       font-weight: 300;
       margin-top: 10px;
     }
@@ -281,8 +291,9 @@ header {
   .piece {
     position: relative;
     cursor: pointer;
+
     .details {
-      font-size: 18px;
+      font-size: $size-med;
 
       position: absolute;
       bottom: 0px;
@@ -310,8 +321,7 @@ header {
         }
 
         h3 {
-          font-size: 18px;
-
+          font-size: $size-med;
           margin: 0;
         }
       }
@@ -352,7 +362,7 @@ header {
   p {
     font-family: $sans;
     margin-top: 1em;
-    font-size: 16px;
+    font-size: $size-body;
   }
 
   h2.section-head {
@@ -373,7 +383,7 @@ header {
 
 .page {
   h4 {
-    font-size: 16px;
+    font-size: $size-body;
     font-weight: 700;
     color: $body;
     margin-top: 2em;
@@ -384,7 +394,7 @@ header {
     margin-bottom: 1em;
     margin-left: 1em;
     list-style-position: outside;
-    font-size: 16px;
+    font-size: $size-body;
   }
 }
 
@@ -398,7 +408,7 @@ header {
   background: $teal;
 
   h2.email-signup {
-    font-size: 24px;
+    font-size: $size-lg;
     font-weight: 200;
 
     margin-top: 0;
@@ -443,7 +453,7 @@ header {
   background: $teal;
 
   h2.rehab-prompt {
-    font-size: 20px;
+    font-size: $size-lg;
     font-weight: 700;
 
     margin: 0;
@@ -472,7 +482,7 @@ header {
 }
 
 .footer {
-  background: lighten($kraft, 20%);
+  background: lighten($teal, 20%);
   padding: 50px 0px;
 
   .footer-logos {
@@ -500,11 +510,11 @@ header {
   }
 
   h2 {
-    font-size: 18px;
+    font-size: $size-med;
     text-align: left;
     font-weight: 700;
     margin-bottom: 40px;
-    color: darken($kraft, 40%);
+    color: darken($teal, 40%);
   }
 }
 

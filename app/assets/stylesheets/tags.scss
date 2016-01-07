@@ -1,4 +1,4 @@
-$tag-background: lighten($pink, 10%);
+$tag-background: $blue;
 
 .tag-list {
   margin-top: 10px;
@@ -16,7 +16,7 @@ $tag-background: lighten($pink, 10%);
     margin-bottom: 2px;
 
     &:hover {
-      background: $pink;
+      background: darken($blue, 5%);
       transition: $transition ease;
     }
   }
@@ -34,6 +34,11 @@ $tag-background: lighten($pink, 10%);
   }
 }
 
+.tag-sidebar {
+  border-left: 1px solid $border-color;
+  padding-left: 30px;
+}
+
 form {
   label.tag {
     font-weight: 500;
@@ -41,8 +46,8 @@ form {
     margin-right: 2px;
     margin-bottom: 2px;
     cursor: pointer;
-    background: lighten($pink, 30%);
-    color: darken($pink, 25%);
+    background: $tag-background;
+    color: #fff;
     padding: 5px 8px 5px 5px;
 
     input {

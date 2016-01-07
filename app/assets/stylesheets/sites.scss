@@ -1,7 +1,3 @@
-// Place all the styles related to the sites controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .brag-panel {
   position: relative;
   padding-top: 0;
@@ -19,8 +15,6 @@
 
     a {
       font-weight: 700;
-      color: darken($pink, 30%);
-      border-bottom: 1px solid darken($pink, 30%);
 
       &:hover {
       }

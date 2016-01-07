@@ -1,22 +1,26 @@
 .resources-panel {
-  background: lighten($pink, 43%);
-  background: lighten($kraft, 40%);
+  // background: $yellow;
 
   h2.article-title {
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid lighten($gray, 20%);
+    padding-bottom: 0;
+    margin-bottom: 10px;
   }
 
   .page {
-    padding: 40px;
+    padding: 0px 40px 40px 0px;
     background: #fff;
-    border: 1px solid darken(#f0e3d1, 10%);
   }
 
-  .resource {
-    padding-top: 20px;
-    padding-bottom: 30px;
+  .resource-details {
+    padding-left: 10px;
+
+    h4 {
+      margin-top: 0;
+    }
+
+    .tag-list {
+      margin-top: 0;
+    }
   }
 
   .resource-photo {
@@ -57,12 +61,19 @@
     margin-bottom: 15px;
   }
 
-  .related-resources .polaroid {
-    height: 200px;
+  .related-resources {
+    h3 {
+      font-weight: 500;
+      margin: 40px 0 20px;
+    }
+
+    .polaroid {
+      margin: 0px 0px 1px 0px;
+    }
   }
 }
 
-.resource-sidebar {
+.tag-sidebar {
   h2 {
     font-weight: 700;
     font-size: 16px;
