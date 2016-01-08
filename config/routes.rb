@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   # get 'welcome/index'
 
-  resources :resources
   resources :events
+  resources :pages
+  resources :resources
   resources :tags
   resources :users
 

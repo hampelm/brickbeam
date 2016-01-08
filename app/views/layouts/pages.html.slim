@@ -1,0 +1,8 @@
+= content_for :content do
+  .events-panel
+    // =render 'shared/section_head', :section_title => 'Events', :path => events_path
+
+    .container
+      == yield
+
+= render template: "layouts/application"

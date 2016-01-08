@@ -19,6 +19,8 @@
 #  is_admin               :boolean
 #  is_inactive            :boolean
 #  agreement              :boolean
+#  provider               :string
+#  uid                    :string
 #
 
 FactoryGirl.define do
