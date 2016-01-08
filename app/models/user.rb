@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   validates :agreement, acceptance: { accept: true }
+  validates :name, presence: true
 
   has_many :events
   has_many :sites

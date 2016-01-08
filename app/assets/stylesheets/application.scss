@@ -30,6 +30,7 @@ $purple: #332b40;
 $yellow: #f4e138;
 $yellow-tark: darken($yellow, 40%);
 
+$warning: #f2d03b;
 $pink: #f2d03b;
 $green: #b3d149;
 $green-dark: darken($green, 45%);
@@ -72,14 +73,14 @@ body {
 h1,
 h2,
 h3 {
-  font-weight: 200;
+  font-weight: 300;
   margin: 0;
 }
 
 h2 {
   font-family: $sans;
   font-size: $size-xl;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 h2.article-title {
@@ -117,6 +118,10 @@ a {
 
     border-bottom: 1px solid $blue;
   }
+}
+
+label {
+  font-weight: 500;
 }
 
 .placeholder {
@@ -520,6 +525,7 @@ header {
 
 @import 'devise';
 @import 'polaroid';
+@import 'frame';
 
 @import 'events';
 @import 'questions';

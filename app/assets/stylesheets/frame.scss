@@ -1,0 +1,49 @@
+.frame {
+  background: $blue;
+  overflow: auto;
+
+  .frame-in {
+    color: #fff;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #fff;
+
+    a, a:hover {
+      color: #fff;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    input.form-control {
+      border: 0px none;
+      border-radius: 0;
+      color: $body;
+    }
+
+    .btn-primary {
+      border: 0px none;
+      background: $yellow;
+      color: $body;
+    }
+
+    .f-login-btn {
+      display: inline-block;
+      color: #fff;
+      background: lighten($blue, 15%);
+      padding: 4px 7px;
+      margin-bottom: 10px;
+
+      &:hover {
+        border-bottom: 0px none;
+        background: lighten($blue, 10%);
+      }
+    }
+
+    .btn-primary:hover,
+    .btn-primary:active {
+      background: darken($yellow, 10%);
+    }
+  }
+}

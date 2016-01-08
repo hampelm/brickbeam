@@ -4,6 +4,15 @@
   }
 
   ul {
-    color: $pink;
+    color: $warning;
+    list-style: none;
   }
+}
+
+h3.regular-user {
+  margin: 10px 0px 20px;
+  padding-top: 20px;
+  border-top: 1px solid #fff;
+  font-weight: 500;
+  font-size: $size-body;
 }
