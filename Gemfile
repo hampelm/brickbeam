@@ -17,20 +17,21 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'annotate'
 gem 'aws-sdk', '<2.0'
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap_form'
 gem 'ckeditor', '~> 4.1.4'
 gem 'devise', '~> 3.5.2'
+gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.1'
+gem 'omniauth-facebook'
 gem 'paperclip', '~>4.3'
 gem 'pg', '~>0.18'
 gem 'pundit', '~> 1.0.1'
 gem 'rails_admin', '~> 0.7.0'
 gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
+gem 'redcarpet'
 gem 'slim'
 
-gem 'bootstrap-sass', '~> 3.3.5'
-gem 'bootstrap_form'
-gem 'font-awesome-rails'
-gem 'redcarpet'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -63,7 +64,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-email'
   gem 'database_cleaner'
   gem 'poltergeist'
   gem 'webmock'
@@ -72,17 +72,15 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'ffaker'
   gem 'factory_girl_rails'
-  gem 'letter_opener'
+  gem 'ffaker'
+  gem 'letter_opener' # Prevews email in the browser
   gem 'capybara-email'
   gem 'rspec-rails'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
+  gem 'figaro' # Reads config/application.yml for local env variables
   gem 'guard', require: false
   gem 'guard-rspec', require: false
   gem 'guard-rubocop', require: false
@@ -98,5 +96,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
 end
 
