@@ -24,5 +24,4 @@ class Question < ActiveRecord::Base
   def generated_slug
     title
   end
-
 end

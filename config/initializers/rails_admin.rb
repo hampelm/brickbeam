@@ -15,6 +15,8 @@ RailsAdmin.config do |config|
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
+  config.excluded_models = ["Assets", "Attachment", "AttachmentFiles", "Picture", "Subscription", ]
+
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
   config.actions do
     dashboard                     # mandatory
@@ -43,6 +45,13 @@ RailsAdmin.config do |config|
         # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
         ratl_max_suggestions -1
       end
+    end
+  end
+
+  config.model Page do
+    edit do
+      include_all_fields
+      field :body, :ck_editor
     end
   end
 
