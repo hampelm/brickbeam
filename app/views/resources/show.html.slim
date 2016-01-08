@@ -5,39 +5,48 @@
         .col-sm-12
           h2.article-title =@resource.title
 
-      .row
-        .col-sm-8
           p.byline =@resource.byline
 
+      .row
+        .col-sm-8
           - if @resource.photo?
             =image_tag @resource.photo.url, width: "100%", alt: "", class: "resource-image"
 
           == @resource.text
 
-        .row-sm-2
-          = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
+        .col-sm-4
+          .resource-details
+            = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
 
-          - if @resource.attachments.length > 0
-            .resource-attachments
-              h3 Related files
+            - if @resource.attachments.length > 0
+              .resource-attachments
+                h3 Related files
 
-              ul
-              - @resource.attachments.each do |attachment|
-                li <a href="#{attachment.file_attachment.url}">#{attachment.title}</a>
+                - @resource.attachments.each do |attachment|
+                  h4 <a href="#{attachment.file_attachment.url}">#{attachment.title}</a>
+
+    - if @resource.text.length < 1000
+      .row
+        .col-md-12
+          .related-resources
+            h3 Related resources
+            = render partial: 'shared/polaroid', collection: @related[0,5], as: :model
+
 
   .col-sm-3.sidebar
     .in
-      .resource-sidebar
+      .tag-sidebar
         - @topics.each do |topic|
           .broad-topic
             h3 =topic.name
             - topic.tags.each do |tag|
               h4.tag = link_to(tag, tag_path(tag.name))
 
-      .related-resources
-        h3 Related resources
+        - if @resource.text.length > 1000
+          .related-resources
+            h3 Related resources
+            = render partial: 'shared/polaroid', collection: @related[0,5], as: :model
 
-        = render partial: 'list_item_full', collection: @related[0,5], as: :resource
-
-
+        h3 Explore
+        = render partial: '/tags/tag_list', :locals => { :tags => @tags }
 

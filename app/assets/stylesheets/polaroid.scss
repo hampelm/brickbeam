@@ -1,44 +1,57 @@
-
 .polaroid {
   position: relative;
-  height: 350px;
-  margin-bottom: 30px;
-  border: 10px solid #fff;
+  height: 340px;
+  margin: 0px 10px 30px;
+  // border: 10px solid #fff
   overflow: hidden;
 
   .polaroid-photo {
     position: absolute;
     top: 0;
     left: 0;
-    height: 350px;
+    height: 340px;
     width: 100%;
     background-image: image-url("missing-1.png");
-    background: $pink;
+    background: $blue;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.9;
+
+    .polaroid-frame {
+      border: 1px solid #fff;
+      margin: 10px 10px 10px 10px;
+      height: 320px;
+    }
   }
 
   .polaroid-details {
     position: absolute;
     bottom: 0px;
     z-index: 2;
-    width: 100%;
-    padding: 10px 0px 0px 0px;
-    background: rgba(255, 255, 255, 1);
-    // background: $pink;
+    width: calc(100% - 10px);
+    padding: 20px 25px;
 
     h2 {
       font-weight: 300;
-      //color: #fff;
       font-size: 24px;
-      margin-bottom: 8px;
+      margin-bottom: 1px;
+      margin-left: 0.2em;
+      // color: #fff;
+      // text-shadow: 0px 0px 10px rgba(0,0,0,0.9);
+
+      a,
+      a:hover,
+      a:active {
+        line-height: 1.45em;
+        background: #fff;
+        box-shadow: 0.2em 0 0 #fff, -0.2em 0 0 #fff;
+        border: 0px none;
+      }
     }
 
-    h3 {
-      font-size: 16px;
-      font-weight: 500;
+    .tag-list {
+      margin-top: 0;
     }
   }
 }
