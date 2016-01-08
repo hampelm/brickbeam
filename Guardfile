@@ -85,10 +85,10 @@ group :specs, halt_on_fail: true do
     watch(/.*\.slim/) { |m| `slim-lint --color #{m[0]}` }
   end
 
-  guard :scsslint,
-        all_on_start: false do
-    watch(%r{.+\.scss$})
-  end
+  # guard :scsslint,
+  #      all_on_start: false do
+  #  watch(%r{.+\.scss$})
+  # end
 end
 
 guard 'livereload' do

@@ -1,27 +1,37 @@
 .container
   .row
     .col-sm-4.col-sm-offset-2
-      h2 Log in
+      .frame
+        .frame-in
+          h2 Sign in
 
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .form-group
-          = f.label :email
-          = f.email_field :email, autofocus: true, class: 'form-control'
+          - if devise_mapping.omniauthable?
+            - resource_class.omniauth_providers.each do |provider|
+              = link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), class: 'f-login-btn'
 
-        .form-group
-          = f.label :password
-          = f.password_field :password, autocomplete: "off", class: 'form-control'
+          h3.regular-user Sign in with your email:
 
-        - if devise_mapping.rememberable?
-          .form-group
-            label
-              = f.check_box :remember_me
-              |  Remember me
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .form-group
+              = f.label :email
+              = f.email_field :email, autofocus: true, class: 'form-control'
 
-        .actions
-          = f.submit "Log in", class: 'btn btn-primary'
+            .form-group
+              = f.label :password
+              = f.password_field :password, autocomplete: "off", class: 'form-control'
 
-      = render "devise/shared/links"
+            - if devise_mapping.rememberable?
+              .form-group
+                label
+                  = f.check_box :remember_me
+                  |  Remember me
+
+            .actions
+              = f.submit "Sign in", class: 'btn btn-primary'
+
+            = render "devise/shared/links"
 
     .col-sm-4
-      =render "devise/registrations/new"
+      .frame
+        .frame-in
+          =render "devise/registrations/new"
