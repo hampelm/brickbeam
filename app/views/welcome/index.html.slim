@@ -1,31 +1,115 @@
-.container
+.container.front
   .row
     .col-md-12
-      =render 'shared/mailchimp'
+      .panel-front.frame
+        .panel-front-in.frame-in
+          .row
+            .col-md-8.col-md-push-2
+              .intro
+                h1 Welcome to Detroit's Rehabber Community
+                p Brick + Beam is a community for building rehabbers of all levels. We aim to support rehab in Detroit by sharing knowledge, building talent, and providing access to the resources you need to get (or keep!) going.
 
-  .row
-    .col-md-4
-      .placeholder.news news
-    .col-md-4
-      .placeholder.news news
-    .col-md-4
-      .placeholder.news news
-    .col-md-4
-      .placeholder.news news
-    .col-md-4
-      .placeholder.news news
-    .col-md-4
-      .placeholder.news news
+                <img src="/assets/wrench-white.png" width="100">
+
+          .homepage-heroes.invert
+            .row
+              .col-md-3
+                .hero
+                    h2 Rehabber events
+                    p Brick + Beam hosts regular events with practical info and fellowship.
+                    a.btn Upcoming events
+              .col-md-3
+                .hero
+                    h2 Rehab Q&A
+                    p Bring your rehab questions and help others with your experience.
+                    a.btn Ask a question
+              .col-md-3
+                .hero
+                    h2 Brag your Rehab
+                    p Put you projects on the map and showcase Detroit's revival.
+                    a.btn See the sites
+              .col-md-3
+                .hero
+                    h2 Resource library
+                    p Learn from our organized collection of how-tos and reference material.
+                    a.btn Browse the library
 
   .row
     .col-md-12
-      .placeholder.signup questions
-
-
-  .row
-    .col-md-12
-      .placeholder.map map
+      .email-signup
+        h2.section-title Get Brick + Beam updates
+        p Filled with upcoming events, new resources, helpful Q&A, and more.
+        =render 'shared/mailchimp'
 
   .row
     .col-md-12
-      .placeholder.signup signup
+      - for event in @events
+        .upcoming-event style="background-image: url(#{event.photo})"
+          .details
+            h2 = link_to(event.title, event_path(event))
+            h3 =event.start_date.to_s(:standard)
+            h3 =event.location
+
+.front-questions.front.invert
+  .container
+    .row
+      .col-md-12
+        h2.section-title Your rehab questions
+        .ask
+          p Description of how this works.
+          =link_to('Ask your question', questions_path, class: 'btn')
+
+    .row
+      .homepage-questions
+        - @questions.each do |question|
+          .col-md-3
+            .question
+              h2.article-title #{link_to(question.title, question_path(question))}
+              .question-meta #{pluralize(question.comments.length, 'answer')}
+              .question-user Asked by <strong>#{question.user.name}</strong>
+
+.container.front
+  .row
+    .col-md-12
+      h2.section-title See Detroit's rehabs
+
+      #sites-map
+
+  .row
+    .col-md-12
+      .homepage-resources
+        h2.section-title Fresh rehab resources
+        .row
+          - for resource in @resources
+            .col-sm-3
+              .resource
+                =render 'shared/polaroid', :model => resource
+
+
+javascript:
+  $(function() {
+    L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGgiLCJhIjoicGFzV1ZkWSJ9.KeK3hKmM52XpUEHHx_F8NQ';
+    var map = L.mapbox.map('sites-map', 'mapbox.streets')
+      .setView([42.34435,-83.056898], 12) // detroit
+      .addControl(L.mapbox.geocoderControl('mapbox.places'));
+    map.scrollWheelZoom.disable();
+
+    var circle_options = {
+        color: '#e13452',      // Stroke color
+        opacity: 1,         // Stroke opacity
+        weight: 0,         // Stroke weight
+        fillColor: '#e13452',  // Fill color
+        fillOpacity: 0.6    // Fill opacity
+    };
+
+    var sites = #{{@sites.to_json}};
+    var i;
+    for (i = 0; i < sites.length; i++) {
+      var site = sites[i];
+      if (!site.lat) continue;
+      console.log(site);
+      circle = L.circle([site.lat, site.lng], 600, circle_options)
+        .bindPopup(sites[i].title)
+        .addTo(map);
+    }
+  })

@@ -23,27 +23,24 @@
     }
 
     .btn-primary {
-      border: 0px none;
-      background: $yellow;
-      color: $body;
+      color: #fff;
+      border: 1px solid #fff;
     }
 
     .f-login-btn {
       display: inline-block;
-      color: #fff;
-      background: lighten($blue, 15%);
-      padding: 4px 7px;
       margin-bottom: 10px;
 
       &:hover {
         border-bottom: 0px none;
-        background: lighten($blue, 10%);
+        background: $blue;
+        color: #fff;
       }
     }
 
     .btn-primary:hover,
     .btn-primary:active {
-      background: darken($yellow, 10%);
+      border-color: $yellow;
     }
   }
 }

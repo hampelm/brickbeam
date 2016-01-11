@@ -32,7 +32,7 @@ $yellow-tark: darken($yellow, 40%);
 
 $warning: #f2d03b;
 $pink: #f2d03b;
-$green: #b3d149;
+$green: #8cb202;
 $green-dark: darken($green, 45%);
 
 $gray: #8a8786;
@@ -122,6 +122,41 @@ a {
 
 label {
   font-weight: 500;
+}
+
+.btn, .btn-primary {
+  border-radius: 0;
+  border: 1px solid $body;
+  padding: 6px 10px;
+  background: transparent;
+  color: $body;
+}
+
+.btn-primary:active,
+.btn-primary:hover,
+.btn:active,
+.btn:hover {
+  background: $green;
+  color: $body;
+  font-weight: 500;
+  border-color: $green;
+}
+
+.invert {
+  .btn, .btn-primary {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .btn-primary:active,
+  .btn-primary:hover,
+  .btn:active,
+  .btn:hover {
+    background: $green;
+    color: $body;
+    font-weight: 500;
+    border-color: $green;
+  }
 }
 
 .placeholder {
@@ -487,8 +522,8 @@ header {
 }
 
 .footer {
-  background: lighten($teal, 20%);
-  padding: 50px 0px;
+  background: $green;
+  padding: 20px 0px;
 
   .footer-logos {
     display: table;
