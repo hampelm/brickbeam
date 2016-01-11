@@ -3,20 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .questions-panel {
-  background: lighten($teal, 40%);
-
   .ask-a-question a {
-    display: inline-block;
     padding: 8px 16px;
-    background: $blue;
-    color:  #fff;
-    border-radius: 20px;
     font-size: 20px;
+    font-weight: 500;
+    color: $green;
+    border-color: $green;
 
     &:hover {
-      border: 0px none;
-      background: darken($blue, 5%);
-      transition: $transition ease;
+      color: #fff;
+    }
+  }
+
+  h2.article-title {
+    margin-bottom: 10px;
+    font-size: $size-md;
+    a:hover {
+      text-decoration: none;
     }
   }
 
@@ -32,7 +35,13 @@
 
   .question-meta,
   .comment-meta {
-    text-align: right;
+    border: 1px solid #eee;
+    border-width: 1px 0;
+    padding: 5px 0;
+  }
+
+  .question-meta,
+  .comment-meta {
     font-family: $sans;
 
     .byline {

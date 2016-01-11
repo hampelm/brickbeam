@@ -48,7 +48,7 @@ $pt: 'PT Sans', sans-serif;
 $sans: $open;
 
 $size-body: 15px;
-$size-med: 18px;
+$size-md: 18px;
 $size-lg: 20px;
 $size-xl: 40px;
 
@@ -125,20 +125,21 @@ label {
 }
 
 .btn, .btn-primary {
+  font-family: $sans;
+  color: $body;
   border-radius: 0;
   border: 1px solid $body;
   padding: 6px 10px;
   background: transparent;
-  color: $body;
 }
 
 .btn-primary:active,
 .btn-primary:hover,
 .btn:active,
 .btn:hover {
+  transition: $transition ease;
   background: $green;
   color: $body;
-  font-weight: 500;
   border-color: $green;
 }
 
@@ -157,6 +158,12 @@ label {
     font-weight: 500;
     border-color: $green;
   }
+}
+
+img.decoration {
+  opacity: 0.2;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 .placeholder {
@@ -277,13 +284,13 @@ header {
 
   .resource-category {
     h2.broad-section {
-      font-size: $size-med;
+      font-size: $size-md;
       font-weight: 700;
       margin-bottom: 0;
     }
 
     h3 {
-      font-size: $size-med;
+      font-size: $size-md;
       font-weight: 300;
       margin-top: 10px;
     }
@@ -333,7 +340,7 @@ header {
     cursor: pointer;
 
     .details {
-      font-size: $size-med;
+      font-size: $size-md;
 
       position: absolute;
       bottom: 0px;
@@ -361,7 +368,7 @@ header {
         }
 
         h3 {
-          font-size: $size-med;
+          font-size: $size-md;
           margin: 0;
         }
       }
@@ -406,7 +413,7 @@ header {
   }
 
   h2.section-head {
-    font-weight: 700;
+    font-weight: 300;
     margin: 0;
     color: $body;
 
@@ -525,6 +532,15 @@ header {
   background: $green;
   padding: 20px 0px;
 
+  .footer-nav,
+  .footer-links {
+    text-align: center;
+  }
+
+  .footer-links {
+    margin: 20px 40px;
+  }
+
   .footer-logos {
     display: table;
     text-align: center;
@@ -550,7 +566,7 @@ header {
   }
 
   h2 {
-    font-size: $size-med;
+    font-size: $size-md;
     text-align: left;
     font-weight: 700;
     margin-bottom: 40px;

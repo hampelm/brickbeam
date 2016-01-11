@@ -24,12 +24,12 @@ RSpec.feature 'Registration flow', type: :feature do
     expect(page).to have_text('Welcome, Test Name.')
 
     click_link 'Logout'
-    expect(page).to have_content 'Login'
+    expect(page).to have_content 'Log in'
 
-    click_link 'Login'
+    click_link 'Log in'
     fill_in 'Email', match: :first, with: email_address
     fill_in 'Password', match: :first, with: password
-    click_button 'Log in'
+    click_button 'Sign in'
     expect(page).to have_content 'Logout'
   end
 end

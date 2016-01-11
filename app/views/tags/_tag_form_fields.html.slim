@@ -25,5 +25,9 @@ javascript:
       $tag_list.val(checked.join(','));
     }
 
+    // Update the list on click
     $('label.tag input').change(handleCheck);
+
+    // Set the list on first page load
+    $('label.tag input').each(handleCheck);
   });

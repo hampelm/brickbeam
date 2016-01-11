@@ -10,11 +10,11 @@ RSpec.feature 'User profile spec', type: :feature do
     expect(page).not_to have_content "Edit your account"
 
     # Log in
-    click_link 'Login'
+    click_link 'Log in'
     expect(page).to have_content 'Log in'
     fill_in 'Email', match: :first, with: user.email
     fill_in 'Password', match: :first, with: user.password
-    click_button 'Log in'
+    click_button 'Sign in'
 
     # The user should have a link to edit their account
     visit '/users/' + user.id.to_s

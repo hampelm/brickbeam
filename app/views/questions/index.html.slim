@@ -1,7 +1,7 @@
 .row
-  .col-md-3
-     .ask-a-question #{link_to('Ask your question', new_question_path)}
+  .col-sm-3
+     .ask-a-question #{link_to('Ask your question', new_question_path, class: 'btn-primary')}
 
-  .col-md-6
+  .col-sm-7
     = render partial: 'list_item', collection: @questions, as: :question
 

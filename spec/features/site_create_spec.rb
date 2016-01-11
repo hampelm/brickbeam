@@ -14,7 +14,7 @@ RSpec.feature 'Create a site spec', type: :feature do
     expect(page).to have_content 'Log in'
     fill_in 'Email', match: :first, with: user.email
     fill_in 'Password', match: :first, with: user.password
-    click_button 'Log in'
+    click_button 'Sign in'
 
     # Create a question
     expect(page).to have_content 'Thanks for submitting your rehab'
