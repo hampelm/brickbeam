@@ -11,8 +11,7 @@
 
       = simple_format(@question.description)
 
-
-    - if !@comments.exists
+    - if @comments.exists
       h3.comment-intro Discussion
 
     - @comments.each do |comment|
@@ -36,7 +35,7 @@
 
             div.form-group
               label.checkbox
-                = f.check_box :subscription, checked: true
+                = f.check_box :subscribe, checked: true
                 | Send me an email when new comments are posted.
 
             div.form-group
@@ -48,6 +47,11 @@
   .col-sm-3
     - if @question.user == current_user
       p #{link_to('Edit your question', edit_question_path(@question), class: 'btn')}
+
+    - unless @subscription.blank?
+      = form_for(@subscription, :html => { :method => :delete, :remote => true }) do |f|
+        == f.submit "Unsubscribe from notifications", class: 'btn btn-primary'
+
 
     = render partial: '/tags/tag_list', :locals => { :tags => @question.tag_list }
 

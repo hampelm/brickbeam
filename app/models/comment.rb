@@ -12,7 +12,7 @@
 #
 
 class Comment < ActiveRecord::Base
-  attr_accessor :subscription
+  attr_accessor :subscribe
 
   validates :body, presence: true
 

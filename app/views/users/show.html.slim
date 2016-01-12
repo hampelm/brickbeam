@@ -6,17 +6,28 @@
   .col-sm-9
     .page
       .row
-        .col-sm-8
+        .col-sm-7
           - if @user == current_user
-            .edit-user-account
+            .edit-user-account.invert
               h3 Need to update your information?
-              h3 #{link_to("Edit your account.", edit_user_registration_path)}
+              = link_to("Edit your account.", edit_user_registration_path, class: 'btn')
 
           - unless @questions.empty?
-            h3 #{pluralize(@questions.length, 'question')} asked
-            = render partial: '/questions/list_item', collection: @questions, as: :question
+            h2 #{pluralize(@questions.length, 'question')} asked
+            - @questions.each do |question|
+              h3 #{link_to(question.title, question_path(question))}
 
-        .row-sm-2
+        .row-sm-3
+          - unless @subscriptions.empty?
+            h2 Your email notifications
+
+            p You will get an email when new updates are posted to these questions:
+
+            - @subscriptions.each do |subscription|
+              h3 #{subscription.question.title}
+              = form_for(subscription, :html => { :method => :delete, :remote => true }) do |f|
+                == f.submit "Unsubscribe from " + subscription.question.title, class: 'btn btn-primary'
+
 
   .col-sm-3.sidebar
     .in

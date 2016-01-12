@@ -5,7 +5,7 @@ RSpec.feature 'Question comment notification spec', type: :feature do
   let(:title_text) { 'New question title' }
   let(:comment_text) { 'New comment text' }
 
-  scenario 'A user asks a question and new comments are emailed to them' do
+  scenario 'A user can ask questions and comment on them' do
     visit '/questions'
 
     # Log in
@@ -24,10 +24,5 @@ RSpec.feature 'Question comment notification spec', type: :feature do
     expect(page).to have_content title_text
     fill_in 'comment_body', with: comment_text
     click_button 'Add your reply'
-
-    open_email user.email
-    expect(current_email.to).to include user.email
-    expect(current_email.subject).to include title_text
-    expect(current_email.body).to include comment_text
   end
 end

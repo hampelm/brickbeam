@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  description :text
+#  slug        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  user_id     :integer
+#  hidden      :boolean
+#
+
 class QuestionsController < ApplicationController
   layout "questions"
   before_action :authenticate_user!, :except => [:index, :show]
@@ -11,6 +25,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.friendly.find(params[:id])
     @comments = @question.comments.where(hidden: [false, nil])
+    @subscription = Subscription.find_by question: @question, user: current_user
   end
 
   def new
@@ -24,6 +39,9 @@ class QuestionsController < ApplicationController
     @question.user = current_user
 
     if @question.save
+      # Subscribe the asker to notifications
+      Subscription.new_subscription_for(current_user, @question)
+
       redirect_to @question
     else
       render 'new'
