@@ -1,6 +1,7 @@
 .row
   .col-sm-3
-     .ask-a-question #{link_to('Ask your question', new_question_path, class: 'btn-primary')}
+    .ask-a-question #{link_to('Ask a question', new_question_path, class: 'btn')}
+    =image_tag('rollerboard.png', width: '80%', class: 'decoration')
 
   .col-sm-7
     = render partial: 'list_item', collection: @questions, as: :question

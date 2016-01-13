@@ -50,7 +50,7 @@
 
     - unless @subscription.blank?
       = form_for(@subscription, :html => { :method => :delete, :remote => true }) do |f|
-        == f.submit "Unsubscribe from notifications", class: 'btn btn-primary'
+        == f.submit "Unsubscribe from notifications", class: 'btn'
 
 
     = render partial: '/tags/tag_list', :locals => { :tags => @question.tag_list }
