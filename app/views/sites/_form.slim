@@ -9,8 +9,9 @@
 
   .form-group
     p <strong>Tap or click your site on the map.</strong> We'll automatically disguise the location you selected. We never store your real location in our database.
-    == text_field_tag 'address-search', nil, class: 'form-control', placeholder: '1000 Woodward Ave'
-    button.btn Find address
+    .address-search
+      == text_field_tag 'address-search', nil, class: 'form-control', placeholder: '1000 Woodward Ave'
+      button.btn Find address
     div#site-map map
     = f.hidden_field :lat, value: 42.369632
     = f.hidden_field :lng, value: -83.073678
