@@ -11,7 +11,7 @@
         =link_to('Edit your rehab', edit_site_path(@site), class: 'btn btn-edit')
 
     .col-sm-6
-      h3 Added by #{@site.user.name}
+      h3 Added by #{link_to(@site.user.name, @site.user)}
 
       h3.building-type #{@site.building_type}, #{@site.building_size} Square feet
 

@@ -24,10 +24,18 @@
     }
   }
 
+
+  h3 {
+    margin-bottom: 5px;
+  }
+
   .edit-user-account {
     background: $teal;
-    padding: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     color: #fff;
+
+    h3 {
+      margin-bottom: 5px;
+    }
   }
 }

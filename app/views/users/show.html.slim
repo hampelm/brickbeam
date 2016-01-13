@@ -5,9 +5,10 @@
 .row
   .col-sm-6
     - if @user == current_user
-      .edit-user-account.invert
-        h3 Need to update your information?
-        = link_to("Edit your account", edit_user_registration_path, class: 'btn')
+      .edit-user-account.invert.frame
+        .frame-in
+          h3 Need to update your information?
+          = link_to("Edit your account", edit_user_registration_path, class: 'btn')
 
     form.contact-user-form.invert.frame
       .frame-in
@@ -24,8 +25,8 @@
 
   .col-sm-3
     - unless @sites.empty?
-      h3 #{pluralize(@sites.length, 'rehab')} recorded
       .sites-list
+        h3 #{pluralize(@sites.length, 'rehab')} recorded
         = render partial: '/sites/list_item', collection: @sites, as: :site, :locals => {container_class: ''}
 
   .col-sm-3
