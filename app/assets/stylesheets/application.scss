@@ -110,12 +110,12 @@ p.byline {
 }
 
 a {
-  color: darken($blue, 15%);
+  //color: darken($blue, 15%);
+  color: $blue;
 
   &:focus,
   &:hover {
     text-decoration: none;
-
     border-bottom: 1px solid $blue;
   }
 }
@@ -133,6 +133,12 @@ label {
   background: transparent;
 }
 
+.btn-primary {
+  color: #fff;
+  background: $green;
+  border: 1px solid $green;
+}
+
 .btn-primary:active,
 .btn-primary:hover,
 .btn:active,
@@ -142,6 +148,15 @@ label {
   color: $body;
   border-color: $green;
 }
+
+
+.btn-primary:active,
+.btn-primary:hover {
+  background: darken($green, 10%);
+  border-color: darken($green, 10%);
+  color: #fff;
+}
+
 
 .invert {
   .btn, .btn-primary {
@@ -155,7 +170,6 @@ label {
   .btn:hover {
     background: $green;
     color: $body;
-    font-weight: 500;
     border-color: $green;
   }
 }
@@ -222,12 +236,8 @@ img.decoration {
   }
 }
 
-
-header {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  padding-bottom: 0px;
-
+header,
+footer {
   h1 a {
     display: inline-block;
 
@@ -241,34 +251,44 @@ header {
     background-size: contain;
   }
 
-  h1 a:hover {
+  h1 a:hover,
+  h1 a:active,
+  h1 a:focus {
     border: 0px none;
-  }
-
-  .nav {
-    text-align: center;
-
-    li {
-      font-size: $size-lg;
-
-      display: inline-block;
-    }
-
-    a {
-      color: #666;
-    }
-
-    a:hover {
-      color: $teal;
-      background: none;
-      border-bottom: 0px none;
-    }
   }
 }
 
-.section {
-  padding-top: 10px;
-  padding-bottom: 60px;
+header {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 0px;
+}
+
+/* Navigation */
+header .nav,
+footer .nav {
+  text-align: center;
+
+  li {
+    font-size: $size-lg;
+
+    display: inline-block;
+  }
+
+  a,
+  a:focus,
+  a:hover,
+  a:active {
+    color: #666;
+    background: transparent;
+    border-bottom: 0px none;
+  }
+
+  a:hover {
+    color: $teal;
+    background: none;
+    border-bottom: 0px none;
+  }
 }
 
 .resources-panel,
@@ -528,9 +548,24 @@ header {
   }
 }
 
-.footer {
+footer {
   background: $green;
   padding: 20px 0px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  .nav {
+    margin-bottom: 20px;
+
+    a {
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
 
   .footer-nav,
   .footer-links {
@@ -554,6 +589,10 @@ header {
 
     h2 {
       text-align: center;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
     }
 
     a {

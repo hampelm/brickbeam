@@ -1,5 +1,5 @@
 h2.article-title #{link_to(question.title, question_path(question))}
 .question
-  p.question-meta #{pluralize(question.comments.length, 'answer')}. Asked by <strong>#{question.user.name}</strong>
+  p.question-meta #{pluralize(question.comments.length, 'answer')}. Asked by #{question.user.name}
 
   = render partial: '/tags/tag_list', :locals => { :tags => question.tag_list }

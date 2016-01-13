@@ -1,3 +1,13 @@
+/*
+How these work:
+
+.polaroid
+  .polaroid-photo (background image)
+    .polaroid-frame
+  .polaroid-details
+    (your content here)
+*/
+
 .polaroid {
   position: relative;
   height: 340px;

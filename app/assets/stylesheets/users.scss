@@ -1,17 +1,33 @@
 .users-panel {
   padding-bottom: 50px;
 
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .subscriptions {
+    padding: 0 30px;
+  }
+
+  .question {
+    margin: 8px 0 10px;
+  }
+
+  .contact-user-form {
+    margin-bottom: 20px;
+    textarea {
+      width: 100%;
+    }
+  }
+
   .edit-user-account {
     background: $teal;
     padding: 30px;
     margin-bottom: 30px;
-
-    a,
-    a:active,
-    a:hover,
-    a:focus {
-      color: #fff;
-      border-bottom: 1px solid #fff;
-    }
+    color: #fff;
   }
 }

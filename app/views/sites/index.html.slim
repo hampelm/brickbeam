@@ -1,9 +1,46 @@
+.section-panel.brag-head.invert
+  .container
+    .row
+      .col-sm-8.col-sm-push-2
+        h2.section-head <a href="/sites">Brag your Rehab</a>
+        p Copy about why the rehab section is here. What are people looking at? What can they get? How to contribute?
+        div #{link_to('Add your rehab', new_site_path, class: 'btn')}
+
 .map#sites-map
 
 .container
   .row
     .col-md-12
-      .add-your-brag #{link_to('Add your rehab', new_site_path)} Copy about why you should add a rehab.
+      .map-tools
+        .dropdown
+          button#placeTypeDropdown.btn.dropdown-toggle[data-toggle="dropdown"] Project type <span class="caret"></span>
+          ul.dropdown-menu
+            li
+              a Home
+              a Commercial
+              a Religious
+              a Institutional
+              a Industrial
+
+        .dropdown
+          button#placeTypeDropdown.btn.dropdown-toggle[data-toggle="dropdown"] Square feet <span class="caret"></span>
+          ul.dropdown-menu
+            li
+              a <1,000
+              a 1,000-1,200
+              a 1,201-1,500
+              a 1,501-2,000
+              a 2,001-3,000
+              a 3,001-5,000
+              a >5,000
+
+        .dropdown
+          button#placeTypeDropdown.btn.dropdown-toggle[data-toggle="dropdown"] Building age <span class="caret"></span>
+          ul.dropdown-menu
+            li
+              a Action
+              a Action
+              a Action
 
   .row.sites-list
     = render partial: 'list_item', collection: @sites, as: :site

@@ -27,6 +27,8 @@ class Site < ActiveRecord::Base
   friendly_id :title, :use => :slugged
 
   has_many :projects
+  accepts_nested_attributes_for :projects
+
   belongs_to :user
 
   has_attached_file :photo, styles: { large: "1000x1000>", thumb: "100x100>" }
@@ -43,4 +45,5 @@ class Site < ActiveRecord::Base
   def building_size_enum
     ['<1,000', '1,000-1,200', '1,201-1,500', '1,501-2,000', '2,001-3,000', '3,001-5,000', '>5,000']
   end
+
 end

@@ -7,11 +7,11 @@
     h2.article-title #{@question.title}
 
     .question
-      p.question-meta Asked by <strong>#{@question.user.name}</strong> at #{@question.created_at.to_s(:standard)}
+      p.question-meta Asked by <strong>#{link_to(@question.user.name, @question.user)}</strong> at #{@question.created_at.to_s(:standard)}
 
       = simple_format(@question.description)
 
-    - if @comments.exists
+    - if @comments.exists?
       h3.comment-intro Discussion
 
     - @comments.each do |comment|
@@ -19,8 +19,8 @@
         .row
           .col-sm-12
             .comment-meta
-              span.byline =comment.user.name
-              span.timestamp at #{comment.created_at.to_s(:standard)}
+              span.byline #{link_to(comment.user.name, comment.user)}
+              span.timestamp  at #{comment.created_at.to_s(:standard)}
 
             .comment-text
               = simple_format(comment.body)
@@ -35,7 +35,7 @@
 
             div.form-group
               label.checkbox
-                = f.check_box :subscribe, checked: true
+                = f.check_box :subscribe
                 | Send me an email when new comments are posted.
 
             div.form-group

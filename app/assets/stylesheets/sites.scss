@@ -8,16 +8,50 @@
 
   color: #333;
 
-  .add-your-brag {
+  .page {
+    padding: 40px;
+    background: #fff;
+    border: 1px solid darken($yellow, 20%);
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  form {
+    label {
+      margin-top: 1em;
+    }
+
+    textarea.form-control,
+    select.form-control,
+    input.form-control {
+      border-radius: 0;
+    }
+
+    h3 {
+      margin-top: 30px;
+    }
+  }
+
+  .brag-head {
+    background: $green;
     text-align: center;
-    font-size: 20px;
-    padding: 20px;
+    padding: 50px 0;
+    overflow: auto;
 
-    a {
+    h2 {
+      text-transform: uppercase;
+      letter-spacing: 5px;
       font-weight: 700;
-
-      &:hover {
+      a {
+        color: $yellow !important;
       }
+    }
+
+    p {
+      font-family: $serif;
+      font-size: $size-md;
     }
   }
 
@@ -35,7 +69,22 @@
     font-weight: 300;
     text-align: center;
     background: lighten($yellow, 30%);
-    height: 500px;
+    height: 700px;
+  }
+
+  .map-tools {
+    text-align: center;
+    margin-bottom: 20px;
+
+    .dropdown {
+      display: inline-block;
+      text-align: left;
+
+      .dropdown-toggle {
+        border-radius: 20px;
+        margin: 0px 5px;
+      }
+    }
   }
 
   .site-details {
@@ -71,49 +120,18 @@
 
 
 .site {
-  position: relative;
-  height: 350px;
-  margin-bottom: 30px;
-  border: 15px solid $green;
-  overflow: hidden;
+    background: $green;
 
   .site-info {
-    position: absolute;
-    bottom: 0px;
-    z-index: 2;
-    width: 100%;
-    padding: 15px 0px 0px 0px;
-    // background: rgba(255, 255, 255, 1);
-    background: $green;
     color: #fff;
 
     a {
       color: #fff;
     }
-
-    h3.site-title {
-      font-weight: 700;
-    }
-  }
-
-  .site-user {
-    font-size: 16px;
-    font-weight: 700;
   }
 }
 
 .sites-list .site-photo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 350px;
-  width: 100%;
-  background: $green;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.9;
-
   &.missing {
     background-size: contain;
     opacity: 0.7;

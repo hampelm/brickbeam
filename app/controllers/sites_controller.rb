@@ -36,6 +36,7 @@ class SitesController < ApplicationController
 
   def new
     @site = Site.new
+    @site.projects.build
   end
 
   def create
@@ -79,7 +80,10 @@ class SitesController < ApplicationController
 
   private
     def site_params
-      params.require(:site).permit(:title, :description, :building_type, :building_size, :lat, :lng, :photo)
+      params.require(:site).permit(:title, :description,
+        :building_type, :building_size,
+        :lat, :lng, :photo,
+        projects_attributes: [:description, :duration, :cost])
     end
 
     def user_owns_site?

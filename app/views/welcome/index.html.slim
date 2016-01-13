@@ -9,7 +9,7 @@
                 h1 Welcome to Detroit's Rehabber Community
                 p Brick + Beam is a community for building rehabbers of all levels. We aim to support rehab in Detroit by sharing knowledge, building talent, and providing access to the resources you need to get (or keep!) going.
 
-                <img src="/assets/wrench-white.png" width="100">
+                <!-- <img src="/assets/wrench-white.png" width="100"> -->
 
           .homepage-heroes.invert
             .row
@@ -54,7 +54,7 @@
   .container
     .row
       .col-md-12
-        h2.section-title Your rehab questions
+        h2.section-title Your rehab questions answered
         .ask
           p Description of how this works.
           =link_to('Ask your question', questions_path, class: 'btn')
@@ -78,7 +78,7 @@
   .row
     .col-md-12
       .homepage-resources
-        h2.section-title Fresh rehab resources
+        h2.section-title From the <a href="/resources">Rehab Resource Library</a>
         .row
           - for resource in @resources
             .col-sm-3

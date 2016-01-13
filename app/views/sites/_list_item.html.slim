@@ -1,9 +1,12 @@
 div class=(local_assigns.fetch :container_class, 'col-sm-4')
-  .site
+  .site.polaroid
     - if site.photo.exists?
-      .site-photo style="background-image: url(#{site.photo.url})"
+      .site-photo.polaroid-photo style="background-image: url(#{site.photo.url})"
+        .polaroid-frame
     - else
-      .site-photo.missing style="background-image: url(#{asset_url('homes.png')})"
-    .site-info
+      .site-photo.polaroid-photo.missing style="background-image: url(#{asset_url('homes.png')})"
+        .polaroid-frame
+
+    .site-info.polaroid-details
       h3.site-user == site.user.name
       h3.site-title #{link_to(site.title, site_path(site))}
