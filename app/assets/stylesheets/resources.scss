@@ -60,13 +60,19 @@
   }
 
   .related-resources {
+    margin-bottom: 60px;
+
     h3 {
       font-weight: 500;
-      margin: 40px 0 20px;
+      margin: 30px 0 20px;
+    }
+
+   .resource {
+      margin-bottom: 30px;
     }
 
     .polaroid {
-      margin: 0px 0px 1px 0px;
+      margin: 0;
     }
   }
 }
@@ -104,4 +110,6 @@
   background-size: cover;
   margin-bottom: 8px;
 }
+
+
 

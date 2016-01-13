@@ -1,5 +1,9 @@
 .events-panel {
   // background: $purple;
+  //
+  .section-panel {
+    padding: 0 0 70px;
+  }
 
   h2.section-head,
   h2.section-head a {
@@ -7,13 +11,25 @@
   }
 
   .page {
-    padding: 40px;
+    //padding: 40px;
+    padding: 0px 40px 0 0;
     background: #fff;
-    border: 1px solid darken(#f0e3d1, 10%);
+    // border: 1px solid darken(#f0e3d1, 10%);
   }
 
   .details {
     margin-bottom: 10px;
+  }
+
+  .event-image {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .related-events {
+    h3 {
+      margin-bottom: 10px;
+    }
   }
 
 }

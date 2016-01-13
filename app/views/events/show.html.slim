@@ -1,25 +1,29 @@
+=render 'shared/section_head', :section_title => 'Brick + Beam Events', :path => events_path
+
 .row
-  .col-sm-9
-    .page
-      .row
-        .col-sm-12
-          h2.article-title =@event.title
+  .col-sm-10.col-sm-push-1
+    .row
+      .col-sm-8
+        .page
+          .row
+            .col-sm-12
+              h2.article-title =@event.title
 
-      .row
-        .col-sm-8
-          .details
-            h3.event-start-date =@event.start_date.to_s(:date_then_time)
-            h3.event-location =@event.location
+              .details
+                h3.event-start-date =@event.start_date.to_s(:date_then_time)
+                h3.event-location =@event.location
+                = render partial: '/tags/tag_list', :locals => { :tags => @event.tag_list }
 
-          - if @event.photo?
-            =image_tag @event.photo.url, width: "100%", alt: "", class: "event-image"
+              - if @event.photo?
+                =image_tag @event.photo.url, width: "100%", alt: "", class: "event-image"
 
-          == @event.description
+              == @event.description
 
-        .row-sm-2
-          = render partial: '/tags/tag_list', :locals => { :tags => @event.tag_list }
 
-  .col-sm-3.sidebar
-    .in
-      .related-resources
-        h3 Related events
+      .col-sm-4.sidebar
+        .related-events
+          h3 Related events
+          .row
+            - for event in @related
+              .past-event
+                =render 'shared/polaroid', :model => event

@@ -21,8 +21,8 @@ How these work:
     left: 0;
     height: 340px;
     width: 100%;
-    background-image: image-url("missing-1.png");
     background: $blue;
+    background-image: image-url("missing-1.png");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -52,11 +52,21 @@ How these work:
 
       a,
       a:hover,
-      a:active {
+      a:active,
+      a:focus {
         line-height: 1.45em;
         background: #fff;
         box-shadow: 0.2em 0 0 #fff, -0.2em 0 0 #fff;
         border: 0px none;
+        transition: $transition ease;
+      }
+
+      a:hover,
+      a:active,
+      a:focus {
+        color: #fff;
+        background: $blue;
+        box-shadow: 0.2em 0 0 $blue, -0.2em 0 0 $blue;
       }
     }
 

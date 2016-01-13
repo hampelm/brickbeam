@@ -99,6 +99,10 @@ p {
   font-family: $serif;
   font-size: $size-body;
   line-height: 1.61;
+
+  a {
+    border-bottom: 1px solid $blue;
+  }
 }
 
 p.byline {
@@ -436,6 +440,7 @@ footer .nav {
     font-weight: 300;
     margin: 0;
     color: $body;
+    text-align: center;
 
     a,
     a:visited,

@@ -30,7 +30,11 @@
         .col-md-12
           .related-resources
             h3 Related resources
-            = render partial: 'shared/polaroid', collection: @related[0,5], as: :model
+            .row
+              - for resource in @related
+                .col-sm-4
+                  .resource
+                    =render 'shared/polaroid', :model => resource
 
 
   .col-sm-3.sidebar

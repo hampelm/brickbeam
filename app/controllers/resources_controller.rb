@@ -28,7 +28,7 @@ class ResourcesController < ApplicationController
   def show
     @resource = Resource.friendly.find(params[:id])
     @topics = Topic.all()
-    @related = Resource.tagged_with(@resource.tags, :any => true)
+    @related = Resource.tagged_with(@resource.tags, :any => true).limit(6)
     @tags = ActsAsTaggableOn::Tag.all
 
     @related_by_tag = Hash.new []
