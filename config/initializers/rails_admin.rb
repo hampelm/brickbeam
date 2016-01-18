@@ -35,6 +35,12 @@ RailsAdmin.config do |config|
   end
 
   config.model Question do
+    list do
+      field :title
+      field :user
+      field :updated_at
+    end
+
     edit do
       include_all_fields
       exclude_fields :slug
@@ -48,6 +54,13 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model Site do
+    list do
+      field :user
+      field :updated_at
+    end
+  end
+
   config.model Page do
     edit do
       include_all_fields
@@ -58,6 +71,7 @@ RailsAdmin.config do |config|
   config.model Event do
     list do
       field :title
+      field :start_date
     end
 
     edit do
