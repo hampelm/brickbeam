@@ -18,7 +18,7 @@ RSpec.feature 'Create a site spec', type: :feature do
 
     # Create a question
     expect(page).to have_content 'Thanks for submitting your rehab'
-    fill_in "Give your site a name", with: site_name
+    # fill_in "Give your site a name", with: site_name
     select "Commercial", :from => "site[building_type]"
     select "1,501-2,000", :from => "site[building_size]"
 
