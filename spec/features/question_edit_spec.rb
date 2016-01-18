@@ -13,7 +13,7 @@ RSpec.feature 'U', type: :feature do
     # Need to figure out how to add tags first.
 
     # Log in
-    click_link 'Ask your question'
+    click_link 'Ask a question'
     expect(page).to have_content 'Log in'
     fill_in 'Email', match: :first, with: user.email
     fill_in 'Password', match: :first, with: user.password
