@@ -32,7 +32,6 @@ gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_
 gem 'redcarpet'
 gem 'slim'
 
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
