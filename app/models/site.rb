@@ -26,7 +26,7 @@ class Site < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
-  has_many :projects
+  has_many :projects, dependent: :destroy
   accepts_nested_attributes_for :projects
 
   belongs_to :user
