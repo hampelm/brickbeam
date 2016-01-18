@@ -55,8 +55,8 @@ How these work:
       a:active,
       a:focus {
         line-height: 1.45em;
-        background: #fff;
-        box-shadow: 0.2em 0 0 #fff, -0.2em 0 0 #fff;
+        background: $trans-white;
+        box-shadow: 0.2em 0 0 $trans-white, -0.2em 0 0 $trans-white;
         border: 0px none;
         transition: $transition ease;
       }

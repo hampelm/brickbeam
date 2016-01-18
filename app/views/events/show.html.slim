@@ -10,6 +10,11 @@
               h2.article-title =@event.title
 
               .details
+                h3.host
+                -if @event.partner_event?
+                  | Partner Event
+                -else
+                  | Brick + Beam Hosts
                 h3.event-start-date =@event.start_date.to_s(:date_then_time)
                 h3.event-location =@event.location
                 = render partial: '/tags/tag_list', :locals => { :tags => @event.tag_list }

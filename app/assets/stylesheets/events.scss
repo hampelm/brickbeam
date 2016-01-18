@@ -49,17 +49,34 @@
     border: 1px solid #fff;
     padding: 125px 50px 125px 50px;
     margin: 10px;
-    text-shadow: 0px 0px 10px rgba(0,0,0,0.9);
+    // text-shadow: 0px 0px 10px rgba(0,0,0,0.9);
+
+    h2 a,
+    h3 span,
+    .event-type {
+      display: inline-block;
+      background: $trans-white;
+      color: $body;
+      padding: 6px 8px;
+      margin-bottom: 1px;
+    }
+
+    .event-type {
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
   }
 
   h2 a {
     font-weight: 300;
-    color: #fff;
+    color: $blue;
+    border: 0px none;
 
     &:hover,
     &:active {
       color: #fff;
-      border-color: #fff;
+      background: $blue;
     }
   }
 }

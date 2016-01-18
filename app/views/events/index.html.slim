@@ -2,9 +2,14 @@
   - for event in @events
     .upcoming-event style="background-image: url(#{event.photo})"
       .details
-        h2 = link_to(event.title, event_path(event))
-        h3 =event.start_date.to_s(:standard)
-        h3 =event.location
+        .event-type
+          -if event.partner_event?
+            | Partner Event
+          -else
+            | Brick + Beam Hosts
+        h2 #{link_to(event.title, event_path(event))}
+        h3 <span>#{event.start_date.to_s(:standard)}</span>
+        h3 <span>#{event.location}</span>
 
 .past-events
   .row

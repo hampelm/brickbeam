@@ -35,8 +35,8 @@ $pink: #f2d03b;
 $green: #8cb202;
 $green-dark: darken($green, 45%);
 
+$trans-white: rgba(255, 255, 255, 0.8);
 $gray: #8a8786;
-
 $body: #333;
 $body-mild: darken($teal, 40%);
 
@@ -121,6 +121,7 @@ a {
   &:hover {
     text-decoration: none;
     border-bottom: 1px solid $blue;
+    transition: $transition ease;
   }
 }
 

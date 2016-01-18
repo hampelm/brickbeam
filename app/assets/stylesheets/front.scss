@@ -120,8 +120,16 @@
       input {
         border-radius: 0;
         border: 0px none;
-        border-bottom: 1px dotted darken($green, 10%);
+        box-shadow: none;
+        border-bottom: 2px solid darken($green, 10%);
         width: 300px;
+        font-weight: 700;
+
+        &:placeholder-shown {
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
       }
     }
   }
