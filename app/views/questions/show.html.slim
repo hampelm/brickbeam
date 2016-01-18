@@ -55,4 +55,6 @@
 
     = render partial: '/tags/tag_list', :locals => { :tags => @question.tag_list }
 
+= content_for :title do
+  | #{@question.title}
 

@@ -33,3 +33,6 @@
               - for event in @related
                 .past-event
                   =render 'shared/polaroid', :model => event
+
+= content_for :title do
+  | #{@event.title}

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Brick + Beam Detroit</title>
+  <% if content_for?(:title) %>
+    <title><%= yield(:title) %> | Brick + Beam Detroit</title>
+  <% else %>
+    <title>Brick + Beam Detroit</title>
+  <% end %>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

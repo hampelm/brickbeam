@@ -1,0 +1,10 @@
+.upcoming-event style="background-image: url(#{event.photo})"
+  .details
+    .event-type
+      -if event.partner_event?
+        | Partner Event
+      -else
+        | Brick + Beam Hosts
+    h2 #{link_to(event.title, event_path(event))}
+    h3 <span>#{event.start_date.to_s(:standard)}</span>
+    h3 <span>#{event.location}</span>

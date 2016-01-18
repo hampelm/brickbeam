@@ -47,11 +47,7 @@
   .row
     .col-md-12
       - for event in @events
-        .upcoming-event style="background-image: url(#{event.photo})"
-          .details
-            h2 = link_to(event.title, event_path(event))
-            h3 =event.start_date.to_s(:standard)
-            h3 =event.location
+        =render 'events/upcoming_event', :event => event
 
 .front-questions.front.invert
   .container
