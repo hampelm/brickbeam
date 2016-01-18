@@ -233,8 +233,9 @@ img.decoration {
 }
 
 .topbar {
-  background: lighten($gray, 30%);
+  background: #fff;
   line-height: 1.2;
+  padding: 15px 0;
 
   .user-info {
     text-align: right;
