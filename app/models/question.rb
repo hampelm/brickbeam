@@ -19,6 +19,7 @@ class Question < ActiveRecord::Base
   acts_as_taggable
 
   has_many :comments, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
   belongs_to :user
 
   def generated_slug

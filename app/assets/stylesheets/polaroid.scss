@@ -8,9 +8,11 @@ How these work:
     (your content here)
 */
 
+$height: 340px;
+
 .polaroid {
   position: relative;
-  height: 340px;
+  height: $height;
   margin: 0px 10px 30px;
   // border: 10px solid #fff
   overflow: hidden;
@@ -19,7 +21,7 @@ How these work:
     position: absolute;
     top: 0;
     left: 0;
-    height: 340px;
+    height: $height;
     width: 100%;
     background: $blue;
     background-image: image-url("missing-1.png");
@@ -31,7 +33,7 @@ How these work:
     .polaroid-frame {
       border: 1px solid #fff;
       margin: 10px 10px 10px 10px;
-      height: 320px;
+      height: $height - 20px;
     }
   }
 

@@ -1,4 +1,11 @@
 .project
   p.project-description = project.description
 
-  h4.project-details #{project.duration} / #{project.cost}
+  - if project.duration?
+    h4.project-details <strong>It took</strong>: #{project.duration}
+
+  - if project.cost?
+    h4.project-details <strong>Cost</strong>: #{project.cost}
+
+
+  = render partial: '/tags/tag_list', :locals => { :tags => project.tag_list }

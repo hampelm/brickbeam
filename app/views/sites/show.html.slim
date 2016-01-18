@@ -1,51 +1,45 @@
 .container.site-details
   .row
     .col-sm-7.col-sm-push-3
-      h2.article-title =@site.title
+      h2.article-title #{@site.building_type}, #{@site.building_size} Square feet
 
-  .row
-    .col-sm-3
-      div.map#site-map map
+  - if @site.projects.length == 0 && @site.user == current_user
+    .row
+      .col-md-6.col-md-push-3
+        .page
+          h2.article-title Step 2: Add your first project
+          = render 'project_form'
 
-      - if @site.user == current_user
-        =link_to('Edit your rehab', edit_site_path(@site), class: 'btn btn-edit')
+  - else
+    .row
+      .col-sm-3
+        div.map#site-map map
 
-    .col-sm-6
-      h3 Added by #{link_to(@site.user.name, @site.user)}
+        - if @site.user == current_user
+          =link_to('Edit your rehab', edit_site_path(@site), class: 'btn btn-edit')
 
-      h3.building-type #{@site.building_type}, #{@site.building_size} Square feet
+      .col-sm-6
+        h3 Added by #{link_to(@site.user.name, @site.user)}
 
-      - if @site.photo?
-        img src="#{@site.photo.url}" width="100%" class="site-photo"
+        - if @site.photo?
+          img src="#{@site.photo.url}" width="100%" class="site-photo"
 
-      p =@site.description
+        p =@site.description
+
+        .project-list
+          - if @site.projects.length > 0
+            h3 Projects
+
+            = render partial: 'project', collection: @site.projects, as: :project
+
+            - if @site.user == current_user
+              .add-project
+                h3 Add another project
+                p Tell rehabbers about what you've been working on.
+
+                = render 'project_form'
 
 
-      .project-list
-        - if @site.projects.length > 0
-          h3 Projects
-
-        = render partial: 'project', collection: @site.projects, as: :project
-
-      - if @site.user == current_user
-        .add-project
-          h3 Record a rehab
-
-          = form_for([@site, @site.projects.build]) do |f|
-            div.form-group
-              == f.label "What did you change?"
-              == f.text_area :description, class: 'form-control'
-
-            div.form-group
-              == f.label "How long did it take?"
-              == f.text_field :duration, class: 'form-control'
-
-            div.form-group
-              == f.label "About how much did it cost?"
-              == f.select(:cost, ['Free!', "You don't want to know.", "Well, so, my friend let me borrow their truck...", 'Less than $50', '$51-150', '$151-$500', '$501-$999', '$1,000-2,500', '$2,501-$5,000', '$5,001-10,000', '$10,001-25,000', '$25,001-$75,000',  '$75,001-99,999', '$100,000 or more'], {}, { class: 'form-control' })
-
-            div.form-group
-              == f.submit 'Add project', class: 'btn btn-primary'
 
 javascript:
   $(function() {
