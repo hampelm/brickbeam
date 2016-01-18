@@ -3,11 +3,8 @@
     == f.label :title, "What's your question?"
     == f.text_field :title, class: 'form-control'
 
-  // .form-group
-  // == f.autocomplete_field :tag_list, autocomplete_tag_name_questions_path, :"data-delimiter" => ', '
-
   .form-group
-    == f.label :description, "Any details people should know?"
+    == f.label :description, "What details should people know?"
     == f.text_area :description, class: 'form-control', rows: 10
 
   .form-group
