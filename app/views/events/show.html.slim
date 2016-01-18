@@ -26,9 +26,10 @@
 
 
       .col-sm-4.sidebar
-        .related-events
-          h3 Related events
-          .row
-            - for event in @related
-              .past-event
-                =render 'shared/polaroid', :model => event
+        - unless @related.empty?
+          .related-events
+            h3 Related events
+            .row
+              - for event in @related
+                .past-event
+                  =render 'shared/polaroid', :model => event

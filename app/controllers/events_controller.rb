@@ -29,6 +29,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.friendly.find(params[:id])
-    @related = Event.tagged_with(@event.tags, :any => true).limit(3)
+    @related = Event.tagged_with(@event.tags, :any => true).where.not(id: @event.id).limit(3)
   end
 end
