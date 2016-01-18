@@ -1,39 +1,42 @@
+.welcome
+  .container.front
+    .row
+      .col-md-12
+        .panel-front.invert
+          .intro
+            .intro-in
+              .row
+                .col-sm-8.col-sm-push-2
+                  h1 Welcome to Detroit's Rehabber Community
+                  p Brick + Beam is a community for building rehabbers of all levels. We aim to support rehab in Detroit by sharing knowledge, building talent, and providing access to the resources you need to get (or keep!) going.
+
+                  <img src="/assets/wrench-b-white.png" width="100">
+
+          .homepage-heroes
+            .homepage-heroes-in
+              .row
+                .col-md-3
+                  .hero
+                      h2 Events
+                      p Regular events with practical info, hands-on classes, and fellowship.
+                      a.btn Upcoming events
+                .col-md-3
+                  .hero
+                      h2 Rehab Q&A
+                      p Ask your rehab questions and contribute your experience by answering others.
+                      a.btn Ask a question
+                .col-md-3
+                  .hero
+                      h2 Brag your Rehab
+                      p Tell us what you’ve been working on and showcase Detroit’s revival.
+                      a.btn See the map
+                .col-md-3
+                  .hero
+                      h2 Resource library
+                      p Learn from our organized collection of how-tos and reference materials.
+                      a.btn Browse the library
+
 .container.front
-  .row
-    .col-md-12
-      .panel-front.frame
-        .panel-front-in.frame-in
-          .row
-            .col-md-8.col-md-push-2
-              .intro
-                h1 Welcome to Detroit's Rehabber Community
-                p Brick + Beam is a community for building rehabbers of all levels. We aim to support rehab in Detroit by sharing knowledge, building talent, and providing access to the resources you need to get (or keep!) going.
-
-                <!-- <img src="/assets/wrench-white.png" width="100"> -->
-
-          .homepage-heroes.invert
-            .row
-              .col-md-3
-                .hero
-                    h2 Rehabber events
-                    p Brick + Beam hosts regular events with practical info and fellowship.
-                    a.btn Upcoming events
-              .col-md-3
-                .hero
-                    h2 Rehab Q&A
-                    p Bring your rehab questions and help others with your experience.
-                    a.btn Ask a question
-              .col-md-3
-                .hero
-                    h2 Brag your Rehab
-                    p Put you projects on the map and showcase Detroit's revival.
-                    a.btn See the sites
-              .col-md-3
-                .hero
-                    h2 Resource library
-                    p Learn from our organized collection of how-tos and reference material.
-                    a.btn Browse the library
-
   .row
     .col-md-12
       .email-signup
@@ -68,22 +71,23 @@
               .question-meta #{pluralize(question.comments.length, 'answer')}
               .question-user Asked by <strong>#{question.user.name}</strong>
 
-.container.front
-  .row
-    .col-md-12
-      h2.section-title See Detroit's rehabs
+.front
+  .container
+    .row
+      .col-md-12
+        h2.section-title See Detroit's rehabs
 
-      #sites-map
+        #sites-map
 
-  .row
-    .col-md-12
-      .homepage-resources
-        h2.section-title From the <a href="/resources">Rehab Resource Library</a>
-        .row
-          - for resource in @resources
-            .col-sm-3
-              .resource
-                =render 'shared/polaroid', :model => resource
+    .row
+      .col-md-12
+        .homepage-resources
+          h2.section-title From the <a href="/resources">Rehab Resource Library</a>
+          .row
+            - for resource in @resources
+              .col-sm-3
+                .resource
+                  =render 'shared/polaroid', :model => resource
 
 
 javascript:
