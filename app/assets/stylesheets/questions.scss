@@ -5,6 +5,10 @@
 .questions-panel {
   margin-bottom: 50px;
 
+  p.helptext {
+    margin-bottom: 30px;
+  }
+
   .ask-a-question a {
     padding: 8px 16px;
     font-size: 20px;
@@ -19,7 +23,7 @@
 
   h2.article-title {
     margin-bottom: 10px;
-    font-size: $size-md;
+    font-size: 30px;
     a:hover {
       text-decoration: none;
     }

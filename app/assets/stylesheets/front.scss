@@ -1,6 +1,26 @@
+.welcome {
+  background: transparent url('photos/bank.jpg') no-repeat center center;
+  background: transparent url('photos/house-a.jpg') no-repeat center center;
+  background: transparent url('photos/house-b.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 50px 0;
+}
+
+
 .panel-front {
+  color: #fff;
+  //border: 1px solid #fff;
+  background: $blue;
+
   .intro {
-    margin: 30px 0 40px;
+    overflow: auto;
+
+    .intro-in {
+      margin: 10px 10px 0 10px;
+      padding-top: 40px;
+      border: 1px solid #fff;
+      border-width: 1px 1px 0 1px;
+    }
 
     text-align: center;
 
@@ -13,8 +33,17 @@
     }
   }
 
+  .homepage-heroes {
+    overflow: auto;
+
+    .homepage-heroes-in {
+      margin: 0px 10px 10px 10px;
+      border: 1px solid #fff;
+      border-width: 0px 1px 1px 1px;
+    }
+  }
+
   .hero {
-    background: $blue;
     padding: 30px;
 
     h2 {
@@ -31,7 +60,7 @@
   }
 
   #sites-map {
-    height: 650px;
+    height: 450px;
   }
 }
 
