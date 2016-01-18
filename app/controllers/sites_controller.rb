@@ -32,11 +32,15 @@ class SitesController < ApplicationController
 
   def show
     @site = Site.friendly.find(params[:id])
+    @tags = ActsAsTaggableOn::Tag.all
+    @tags_sorted = @tags.sort_by { |obj| obj.name }
   end
 
   def new
     @site = Site.new
     @site.projects.build
+    @tags = ActsAsTaggableOn::Tag.all
+    @tags_sorted = @tags.sort_by { |obj| obj.name }
   end
 
   def create
@@ -83,7 +87,7 @@ class SitesController < ApplicationController
       params.require(:site).permit(:title, :description,
         :building_type, :building_size,
         :lat, :lng, :photo,
-        projects_attributes: [:description, :duration, :cost])
+        projects_attributes: [:description, :duration, :cost, :tag_list])
     end
 
     def user_owns_site?

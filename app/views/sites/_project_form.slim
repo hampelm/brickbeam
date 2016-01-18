@@ -1,0 +1,19 @@
+= form_for([@site, @site.projects.build]) do |f|
+  div.form-group
+    == f.label "What did you do?"
+    p Break it down as much or as little as you’d like. Every bit of information will help other rehabbers.
+    == f.text_area :description, class: 'form-control', placeholder: '"I sanded the floors and repaired drywall..."'
+
+  .form-group
+    = render partial: '/tags/tag_form_fields', :locals => { :tags => @tags_sorted, :f => f }
+
+  div.form-group
+    == f.label "How long did it take?"
+    == f.text_field :duration, class: 'form-control', placeholder: 'Eg "2 months", "an afternoon", "half a decade"'
+
+  div.form-group
+    == f.label "About how much did it cost?"
+    == f.select(:cost, ['Free!', "You don't want to know.", "Well, so, my friend let me borrow their truck...", 'Less than $50', '$51-150', '$151-$500', '$501-$999', '$1,000-2,500', '$2,501-$5,000', '$5,001-10,000', '$10,001-25,000', '$25,001-$75,000',  '$75,001-99,999', '$100,000 or more'], {}, { class: 'form-control' })
+
+  div.form-group
+    == f.submit 'Add project', class: 'btn btn-primary'

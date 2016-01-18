@@ -223,13 +223,7 @@ img.decoration {
 }
 
 .btn-edit {
-  color: #fff;
-  background: $teal-dark;
-
-  &:hover {
-    color: #fff;
-    border: 0px none;
-  }
+  color: $body;
 }
 
 .topbar {

@@ -17,7 +17,7 @@ RSpec.feature 'Create a site spec', type: :feature do
     click_button 'Sign in'
 
     # Create a question
-    expect(page).to have_content 'Thanks for submitting your rehab'
+    expect(page).to have_content 'Tell us about your building'
     # fill_in "Give your site a name", with: site_name
     select "Commercial", :from => "site[building_type]"
     select "1,501-2,000", :from => "site[building_size]"
@@ -27,6 +27,6 @@ RSpec.feature 'Create a site spec', type: :feature do
 
     click_button 'Save your site and add rehab projects'
 
-    expect(page).to have_content body_text
+    expect(page).to have_content 'Step 2: Add your first project'
   end
 end

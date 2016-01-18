@@ -1,4 +1,4 @@
-label What is your question about?
+label Select any related topics:
 div
   - tags.each do |tag|
     label.tag
@@ -7,9 +7,13 @@ div
 
 = f.hidden_field :tag_list, value: f.object.tag_list.to_s
 
+
 javascript:
   $(function() {
     var $tag_list = $('#question_tag_list');
+    if (!$tag_list[0]) {
+      $tag_list = $('#project_tag_list');
+    }
     var checked = [];
 
     // When a tag is checked or unchecked, add or remove it from

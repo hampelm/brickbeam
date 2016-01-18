@@ -23,10 +23,19 @@
       margin-top: 1em;
     }
 
+    label.tag {
+      margin-top: 0;
+    }
+
     textarea.form-control,
     select.form-control,
     input.form-control {
       border-radius: 0;
+    }
+
+    .geocoding-error {
+      display: none;
+      color: $warning;
     }
 
     h3 {

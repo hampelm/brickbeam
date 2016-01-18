@@ -9,4 +9,4 @@ div class=(local_assigns.fetch :container_class, 'col-sm-4')
 
     .site-info.polaroid-details
       h3.site-user == site.user.name
-      h3.site-title #{link_to(site.title, site_path(site))}
+      h3.site-title #{link_to(site.building_type, site_path(site))}

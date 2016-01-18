@@ -15,7 +15,7 @@ RailsAdmin.config do |config|
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
-  config.excluded_models = ["Assets", "Attachment", "AttachmentFiles", "Picture", "Subscription", ]
+  config.excluded_models = ["Assets", "Attachment", "AttachmentFiles", "Picture", ]
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
   config.actions do
@@ -53,6 +53,7 @@ RailsAdmin.config do |config|
       end
     end
   end
+
 
   config.model Site do
     list do
@@ -117,4 +118,12 @@ RailsAdmin.config do |config|
       end
     end
   end
+
+  config.model Subscription do
+    list do
+      field :user
+      field :question
+    end
+  end
+
 end

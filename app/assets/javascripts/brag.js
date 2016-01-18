@@ -14,6 +14,83 @@
 
 /*globals L, Uint8Array, Exception */
 
+/**
+ * Geocode an address
+ * @param  {String}   address  eg "123 foo street"
+ * @param  {String}   region   A region to narrow the search. eg "Detroit, MI"
+ * @param  {Function} callback Takes params in the format error, {addressLine, latlng}
+ */
+var BingKey = 'Arc0Uekwc6xUCJJgDA6Kv__AL_rvEh4Hcpj4nkyUmGTIx-SxMd52PPmsqKbvI_ce';
+function codeAddress(address, region, callback) {
+  // TODO: Can we get the locale from the geolocation feature?
+  // If the user-entered address does not include a city, append the survey location.
+  var addressWithLocale = address;
+
+  // If there is a comma in the address, assume the user added the city.
+  if (address.indexOf(',') === -1) {
+    // See if the survey location is part of the user-entered address.
+    // Assume survey location is of the form "City, State", "City, State, USA", or "City, State ZIP"
+    var addressLower = address.toLocaleLowerCase();
+    var locationComponents = region.split(',');
+    var containsLocale = false;
+
+    // TODO: Check the tail parts of the survey location.
+
+    // Check the first part of the survey location.
+    var city = locationComponents[0].toLocaleLowerCase().trim();
+    if (addressLower.length >= city.length && addressLower.substr(addressLower.length - city.length, city.length) === city) {
+      containsLocale = true;
+      // Add the remaining location components.
+      addressWithLocale = addressWithLocale + ', ' + locationComponents.slice(1).join(',');
+    }
+
+    if (!containsLocale) {
+      addressWithLocale = addressWithLocale + ', ' + region;
+    }
+  }
+
+  // Strip spaces
+  addressWithLocale = addressWithLocale.replace(/^\s+|\s+$/g, '');
+
+  var geocodeEndpoint = 'https://dev.virtualearth.net/REST/v1/Locations/' + addressWithLocale + '?o=json&key=' + BingKey + '&jsonp=?';
+
+  $.ajax({
+    url: geocodeEndpoint,
+    dataType: 'json',
+    success: function (data) {
+      if (data.resourceSets.length > 0){
+        var result = data.resourceSets[0].resources[0];
+
+        // Apparently we can get an empty result.
+        if (!result) {
+          callback({
+            type: 'GeocodingError',
+            message: 'No geocoding results found'
+          });
+          return;
+        }
+
+        callback(null, {
+          addressLine: result.address.addressLine,
+          coords: result.point.coordinates
+        });
+      } else {
+        callback({
+          type: 'GeocodingError',
+          message: 'No geocoding results found'
+        });
+      }
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR, textStatus, errorThrown);
+      callback({
+        type: 'GeocodingError',
+        message: 'Geocoding failed'
+      });
+    }
+  });
+}
+
 $(function() {
   var marker;
   var fuzzed;
@@ -46,7 +123,6 @@ $(function() {
     circle = L.circle(center, radius, circle_options)
     .addTo(map);
   }
-
 
   // From https://github.com/EFForg/OpenWireless/pull/195/files
   function getRandom(min, max) {
@@ -95,10 +171,7 @@ $(function() {
     return fuzzed;
   }
 
-  map.on('click', function(e) {
-    var flat = e.latlng.lat + getFuzzed();
-    var flng = e.latlng.lng + getFuzzed();
-
+  function setLocation(flat, flng) {
     $('#site_lat').val(flat);
     $('#site_lng').val(flng);
 
@@ -109,8 +182,36 @@ $(function() {
     circle = L.circle([flat, flng], radius, circle_options)
       .addTo(map);
 
-      console.log(map.getZoom());
     if (map.getZoom() > 16) {
       map.setZoom(16);
     }
-  }.bind(this));});
+  }
+
+  map.on('click', function(e) {
+    var flat = e.latlng.lat + getFuzzed();
+    var flng = e.latlng.lng + getFuzzed();
+
+    setLocation(flat, flng);
+  }.bind(this));
+
+  $('#start-address-search').on('click', function(event) {
+    event.preventDefault();
+    $('#geocoding-error').fadeOut();
+
+    var address = $('#address-search').val();
+    console.log("Looking for", address);
+    codeAddress(address, 'Detroit, MI', function(error, data) {
+      console.log("geocoding results", data);
+      if (error) {
+        $('#geocoding-error').html(error.message);
+        $('#geocoding-error').fadeIn();
+        return;
+      }
+      var flat = data.coords[0] + getFuzzed();
+      var flng = data.coords[1] + getFuzzed();
+      setLocation(flat, flng);
+    });
+  });
+
+
+});

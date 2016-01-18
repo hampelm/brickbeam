@@ -1,7 +1,7 @@
 .welcome {
-  background: transparent url('photos/bank.jpg') no-repeat center center;
-  background: transparent url('photos/house-a.jpg') no-repeat center center;
-  background: transparent url('photos/house-b.jpg') no-repeat center center;
+  background: transparent #{image-url('photos/bank.jpg')} no-repeat center center;
+  background: transparent #{image-url('photos/house-a.jpg')} no-repeat center center;
+  background: transparent #{image-url('photos/house-b.jpg')} no-repeat center center;
   background-size: cover;
   padding: 50px 0;
 }
