@@ -1,4 +1,11 @@
 .container
+  -unless flash.empty?
+    .row
+      .col-sm-8.col-sm-offset-2
+        .flash-messages
+          - flash.each do |key, value|
+            h3.flash #{value}
+
   .row
     .col-sm-4.col-sm-offset-2
       .frame
