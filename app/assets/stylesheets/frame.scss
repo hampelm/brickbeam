@@ -34,11 +34,16 @@
     .f-login-btn {
       display: inline-block;
       margin-bottom: 10px;
+      border: 1px solid #fff;
+      padding: 4px 8px;
 
-      &:hover {
-        border-bottom: 0px none;
-        background: $blue;
-        color: #fff;
+      &:hover,
+      &:active,
+      &:focus {
+        background: $yellow;
+        border-color: $yellow;
+        color: $body;
+        transition: $transition ease;
       }
     }
   }
