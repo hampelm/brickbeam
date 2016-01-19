@@ -2,23 +2,30 @@
   background: transparent #{image-url('photos/bank.jpg')} no-repeat center center;
   background: transparent #{image-url('photos/house-a.jpg')} no-repeat center center;
   background: transparent #{image-url('photos/house-b.jpg')} no-repeat center center;
+  background: transparent #{image-url('photos/brixels.jpg')} no-repeat center center;
   background-size: cover;
   padding: 50px 0;
 }
 
 
+$panel-back: $green;
+$panel-highlight: #fff;
 .panel-front {
   color: #fff;
   //border: 1px solid #fff;
-  background: $blue;
+  background: $panel-back;
+  overflow: hidden;
+
+  .bbtn {
+    border-color: $green;
+    color: $green;
+  }
 
   .intro {
-    overflow: auto;
-
     .intro-in {
       margin: 10px 10px 0 10px;
       padding-top: 40px;
-      border: 1px solid #fff;
+      border: 1px solid $panel-highlight;
       border-width: 1px 1px 0 1px;
     }
 
@@ -34,11 +41,9 @@
   }
 
   .homepage-heroes {
-    overflow: auto;
-
     .homepage-heroes-in {
       margin: 0px 10px 10px 10px;
-      border: 1px solid #fff;
+      border: 1px solid $panel-highlight;
       border-width: 0px 1px 1px 1px;
     }
   }
@@ -70,9 +75,20 @@
   padding: 0 0 80px;
   margin-top: 80px;
 
+  p {
+    font-size: $size-lg;
+  }
+
+  .img {
+    text-align: center;
+    img {
+      display: inline-block;
+    }
+  }
+
   .ask {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 
   .question {

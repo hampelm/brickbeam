@@ -19,22 +19,23 @@
                   .hero
                       h2 Events
                       p Regular events with practical info, hands-on classes, and fellowship.
-                      a.btn Upcoming events
+                      =link_to('Upcoming events', events_path, class: 'btn')
                 .col-md-3
                   .hero
                       h2 Rehab Q&A
                       p Ask your rehab questions and contribute your experience by answering others.
-                      a.btn Ask a question
+                      =link_to('Ask a question', questions_path, class: 'btn')
                 .col-md-3
                   .hero
                       h2 Brag your Rehab
                       p Tell us what you’ve been working on and showcase Detroit’s revival.
-                      a.btn See the map
+                      =link_to('See the map', sites_path, class: 'btn')
+
                 .col-md-3
                   .hero
                       h2 Resource library
                       p Learn from our organized collection of how-tos and reference materials.
-                      a.btn Browse the library
+                      =link_to('Browse the library', resources_path, class: 'btn')
 
 .container.front
   .row
@@ -52,11 +53,13 @@
 .front-questions.front.invert
   .container
     .row
-      .col-md-12
-        h2.section-title Your rehab questions answered
+      .col-sm-8.col-sm-push-2
+        h2.section-title Your rehab questions, answered.
         .ask
-          p Description of how this works.
+          p Need help on a project? Stuck on something? Want to know where to find a well-regarded contractor? Ask a question here. Have a ton of experience? Done it before? Have your own project? Your experience matters! Help out by answering questions.
           =link_to('Ask a question', questions_path, class: 'btn')
+        div(style="text-align: center;")
+          =image_tag("saw-white-r.png", height: "50", style: "display: inline-block; margin-bottom: 25px;")
 
     .row
       .homepage-questions
