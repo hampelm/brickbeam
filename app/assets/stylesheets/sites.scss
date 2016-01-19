@@ -149,21 +149,20 @@
 
 
 .site {
-    background: $green;
+  //background: $blue;
 
-  .site-info {
-    color: #fff;
+  .site-user,
+  .site-title {
+  }
 
-    a {
-      color: #fff;
-    }
+  .polaroid-photo {
+    opacity: 1;
   }
 }
 
 .sites-list .site-photo {
   &.missing {
-    background-size: contain;
-    opacity: 0.7;
+    background-size: auto 50%;
   }
 }
 

@@ -8,7 +8,7 @@
 }
 
 
-$panel-back: $green;
+$panel-back: $blue;
 $panel-highlight: #fff;
 .panel-front {
   color: #fff;
@@ -16,10 +16,12 @@ $panel-highlight: #fff;
   background: $panel-back;
   overflow: hidden;
 
-  .bbtn {
+  /*
+  .btn {
     border-color: $green;
     color: $green;
   }
+  */
 
   .intro {
     .intro-in {

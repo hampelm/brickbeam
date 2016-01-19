@@ -6,4 +6,15 @@ module ApplicationHelper
       link_to link_text, link_path
     end
   end
+
+  def random_image
+    images = [
+      'roller-white.png',
+      'saw-white.png',
+      'hammer-white.png',
+      'screwdriver-white.png'
+    ]
+
+    return images.sample
+  end
 end

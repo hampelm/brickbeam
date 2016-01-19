@@ -1,0 +1,47 @@
+javascript:
+  $(function() {
+
+    var pinIcon = L.icon({
+      iconUrl: '#{asset_url("icons/map-icon.png")}',
+
+      iconSize:     [20, 39], // size of the icon
+      iconAnchor:   [15, 38], // point of the icon which will correspond to marker's location
+      popupAnchor:  [-3, -10] // point from which the popup should open relative to the iconAnchor
+  });
+
+    L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGgiLCJhIjoicGFzV1ZkWSJ9.KeK3hKmM52XpUEHHx_F8NQ';
+    var map = L.mapbox.map('sites-map', 'mapbox.streets')
+      .setView([42.34435,-83.056898], 12) // detroit
+      .addControl(L.mapbox.geocoderControl('mapbox.places'));
+    map.scrollWheelZoom.disable();
+
+    var circle_options = {
+        color: '#f2d03b',      // Stroke color
+        opacity: 1,         // Stroke opacity
+        weight: 0,         // Stroke weight
+        fillColor: '#f2d03b',  // Fill color
+        fillOpacity: 0.6    // Fill opacity
+    };
+
+    var sites = #{{@sites.to_json}};
+    var i;
+
+    // Add the circles
+    for (i = 0; i < sites.length; i++) {
+      var site = sites[i];
+      if (!site.lat) continue;
+      console.log(site);
+      circle = L.circle([site.lat, site.lng], 600, circle_options)
+        .bindPopup('<a href="/sites/' + sites[i].id + '">' + sites[i].building_type + '</a>')
+        .addTo(map);
+    }
+
+    // Add the pins
+    for (i = 0; i < sites.length; i++) {
+      var site = sites[i];
+      if (!site.lat) continue;
+      circle = L.marker([site.lat, site.lng], {icon: pinIcon})
+        .bindPopup('<a href="/sites/' + sites[i].id + '">' + sites[i].building_type + '</a>')
+        .addTo(map);
+    }
+  });

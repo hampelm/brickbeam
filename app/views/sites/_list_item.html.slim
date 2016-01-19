@@ -4,9 +4,9 @@ div class=(local_assigns.fetch :container_class, 'col-sm-4')
       .site-photo.polaroid-photo style="background-image: url(#{site.photo.url})"
         .polaroid-frame
     - else
-      .site-photo.polaroid-photo.missing style="background-image: url(#{asset_url('homes.png')})"
+      .site-photo.polaroid-photo.missing style="background-image: url(#{asset_url(random_image())})"
         .polaroid-frame
 
     .site-info.polaroid-details
-      h3.site-user == site.user.name
-      h3.site-title #{link_to(site.building_type, site_path(site))}
+      h2.site-user #{link_to(site.user.name, site_path(site))}
+      h2.site-title #{link_to(site.building_type, site_path(site))}
