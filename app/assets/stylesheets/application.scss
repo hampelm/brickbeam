@@ -41,6 +41,7 @@ $body: #333;
 $body-mild: darken($teal, 40%);
 
 $border-color: $gray;
+$link-color: $blue;
 
 $serif: 'PT Serif', serif;
 $open: 'Open Sans', 'PT Sans', sans-serif;
@@ -101,7 +102,7 @@ p {
   line-height: 1.61;
 
   a {
-    border-bottom: 1px solid $blue;
+    border-bottom: 1px solid $link-color;
   }
 }
 
@@ -114,13 +115,12 @@ p.byline {
 }
 
 a {
-  //color: darken($blue, 15%);
-  color: $blue;
+  color: $link-color;
 
   &:focus,
   &:hover {
     text-decoration: none;
-    border-bottom: 1px solid $blue;
+    border-bottom: 1px solid $link-color;
     transition: $transition ease;
   }
 }
@@ -618,7 +618,6 @@ footer {
     text-align: left;
     font-weight: 700;
     margin-bottom: 40px;
-    color: darken($teal, 40%);
   }
 }
 

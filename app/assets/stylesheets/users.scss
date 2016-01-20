@@ -1,6 +1,17 @@
 .users-panel {
   padding-bottom: 50px;
 
+  .page {
+    padding: 40px;
+    background: #fff;
+    border: 1px solid darken($yellow, 20%);
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+
   h2 {
     font-size: 24px;
   }
@@ -13,6 +24,10 @@
   h3 {
     font-size: 20px;
     margin-bottom: 5px;
+  }
+
+  .cancel-account {
+    margin-top: 2em;
   }
 
   .polaroid,

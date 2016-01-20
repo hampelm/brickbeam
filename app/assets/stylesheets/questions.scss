@@ -63,6 +63,9 @@
 
     .byline {
       font-weight: 700;
+      a {
+        border-bottom: 1px solid $link-color;
+      }
     }
   }
 
