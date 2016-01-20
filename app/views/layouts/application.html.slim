@@ -1,0 +1,88 @@
+doctype html
+html
+  head
+    - if content_for?(:title)
+      title
+        = yield(:title)
+        |  | Brick + Beam Detroit
+    - else
+      title
+        | Brick + Beam Detroit
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    .topbar
+      .container
+        .col-xs-6.social-media
+          i.fa.fa-facebook
+          i.fa.fa-twitter
+          i.fa.fa-instagram
+        .col-xs-6.user-info
+          - if user_signed_in?
+            |  Welcome,
+            = link_to(current_user.name, current_user)
+            | .
+            = link_to('Logout', destroy_user_session_path, :method => :delete)
+          - else
+            = link_to('Log in', new_user_session_path)
+    .container-responsive
+      header
+        h1
+          a[href="/"]
+            | Brick + Beam Detroit
+        ul.nav
+          li.events
+            a[href="/events"]
+              | Events
+          li.forum
+            a[href="/questions"]
+              | Q&A Forum
+          li.brag
+            a[href="/sites"]
+              | Brag your Rehab
+          li.resources
+            a[href="/resources"]
+              | Rehab Resources
+          li.about
+            a[href="/pages/about"]
+              | About
+
+    = content_for?(:content) ? yield(:content) : yield
+
+    .forum-prompt-panel.invert
+      h2.rehab-prompt
+        | Have a rehab question?
+      .rehab-call-to-action
+        p
+          | Ask a question in our Q&A forum. Experts are standing by.
+        = link_to('Ask now', new_question_path, class: 'rehab-link btn-default')
+
+    footer
+      .container
+        .row
+          .col-sm-12
+            h1
+              a[href="/"]
+                | Brick + Beam Detroit
+        .row.footer-logos
+          .col-sm-12.footer-logo
+            h2
+              | In partnership with:
+            a[href="http://www.knightfoundation.org/"]
+              = image_tag "logos/knight-logo.png", width: "300px", alt: "Knight Foundation"
+            a[href="http://www.mhpn.org"]
+              = image_tag "logos/mhpn-logo.png", width: "150px", alt: "MHPN"
+            a[href="http://preservationdetroit.org/"]
+              = image_tag "logos/pd-logo transparent.png", width: "150px", alt: "Preservation Detroit"
+            a[href="http://detroitfuturecity.com/"]
+              = image_tag "logos/detroit-future city-black.png", width: "150px", alt: "Detroit Future City"
+        .row
+          .col-md-12
+            .footer-links
+              a[href="/pages/privacy"]
+                | Privacy Policy
+              |  -
+              a[href="/pages/guidelines"]
+                | Community Guidelines
