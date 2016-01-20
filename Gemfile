@@ -90,6 +90,7 @@ group :development do
   gem 'guard-scss-lint', require: false
   gem 'guard-shell', require: false
   gem 'guard-livereload', require: false
+  gem 'html2slim', require: false
   gem 'rack-livereload'
   gem 'terminal-notifier-guard', require: false
 
