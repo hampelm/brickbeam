@@ -62,7 +62,6 @@ group :production do
   gem 'heroku-deflater'
   gem 'memcachier' # heroku addon memcache service
   gem 'rails_12factor'
-  gem 'yui-compressor'
 end
 
 group :test do

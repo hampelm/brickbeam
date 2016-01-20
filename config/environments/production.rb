@@ -25,11 +25,12 @@ Rails.application.configure do
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.css_compressor = :yui
-  config.assets.js_compressor = :yui
+  config.assets.js_compressor = :uglifier
+  # config.assets.css_compressor = :sass
 
-  # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  # Fall bakc to assets pipeline if a precompiled asset is missed.
+  # (default is false)
+  config.assets.compile = true
 
   # Use memcache to speed up asset pre-compilation
   # Via http://blog.alexmaccaw.com/faster-deploys
