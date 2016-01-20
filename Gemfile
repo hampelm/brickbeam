@@ -57,7 +57,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :production do
+  gem 'dalli' # memcache
   gem 'heroku-deflater'
+  gem 'memcachier' # heroku addon memcache service
   gem 'rails_12factor'
 end
 
