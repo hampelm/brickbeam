@@ -10,5 +10,10 @@
   .form-group
     = render partial: '/tags/tag_form_fields', :locals => { :tags => @tags_sorted, :f => f }
 
+  div.form-group
+    label.checkbox
+      = f.check_box :subscribe, :checked => true
+      | Send me an email when new replies are posted
+
   .form-group
     == f.submit "Ask!", class: 'btn btn-primary'

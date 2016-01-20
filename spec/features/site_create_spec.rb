@@ -25,7 +25,7 @@ RSpec.feature 'Create a site spec', type: :feature do
     fill_in "Tell us about your site -- how did you find it? What did it look like at first? How long have you been working on it?",
       with: body_text
 
-    click_button 'Save your site and add rehab projects'
+    click_button 'Save your site. Next: add rehab projects'
 
     expect(page).to have_content 'Step 2: Add your first project'
   end

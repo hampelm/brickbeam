@@ -40,7 +40,9 @@ class QuestionsController < ApplicationController
 
     if @question.save
       # Subscribe the asker to notifications
-      Subscription.new_subscription_for(current_user, @question)
+      if params[:question][:subscribe] == "1"
+        Subscription.new_subscription_for(current_user, @question)
+      end
 
       redirect_to @question
     else
@@ -80,7 +82,7 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:title, :description, :tag_list)
+      params.require(:question).permit(:title, :description, :tag_list, :subscribe)
     end
 
     def user_owns_question?
