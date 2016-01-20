@@ -8,5 +8,5 @@ div class=(local_assigns.fetch :container_class, 'col-sm-4')
         .polaroid-frame
 
     .site-info.polaroid-details
-      h2.site-user #{link_to(site.user.name, site_path(site))}
       h2.site-title #{link_to(site.building_type, site_path(site))}
+      h2.site-user #{link_to("Added by " + site.user.name, site_path(site))}
