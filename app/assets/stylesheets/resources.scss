@@ -29,8 +29,21 @@
     margin-bottom: 8px;
   }
 
-  .resource-attachments h3 {
-    margin-top: 1em;
+  .resource-attachments {
+    border-top: 1px solid #eee;
+
+    h3 {
+      margin-top: 1em;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      margin-top: 0;
+      font-size: $size-md;
+      a {
+        border-bottom: 1px solid $link-color;
+      }
+    }
   }
 
   .resource-photo.missing-1,

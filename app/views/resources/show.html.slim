@@ -14,16 +14,16 @@
 
           == @resource.text
 
+          - if @resource.attachments.length > 0
+            .resource-attachments
+              h3 Downloads
+
+              - @resource.attachments.each do |attachment|
+                h4 <a href="#{attachment.file_attachment.url}">#{attachment.title} (#{number_to_human_size(attachment.file_attachment_file_size)})</a>
+
         .col-sm-4
           .resource-details
             = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
-
-            - if @resource.attachments.length > 0
-              .resource-attachments
-                h3 Related files
-
-                - @resource.attachments.each do |attachment|
-                  h4 <a href="#{attachment.file_attachment.url}">#{attachment.title}</a>
 
     - if @resource.text.length < 1000
       .row
