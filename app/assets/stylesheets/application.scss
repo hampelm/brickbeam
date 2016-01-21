@@ -233,6 +233,13 @@ img.decoration {
 
   .user-info {
     text-align: right;
+
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      border-bottom: 1px solid $blue;
+    }
   }
 }
 

@@ -45,6 +45,12 @@
     margin-bottom: 20px;
   }
 
+  h3.sign-in {
+    a {
+      border-bottom: 1px solid $link-color;
+    }
+  }
+
   .question,
   .comment {
     margin-bottom: 30px;

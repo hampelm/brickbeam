@@ -102,11 +102,13 @@ $panel-highlight: #fff;
 
       a {
         color: #fff;
+        border-bottom: 1px solid #fff;
       }
     }
   }
 }
 
+.homepage-sites h2 a,
 .homepage-resources h2 a {
   border-bottom: 1px solid $blue;
 }

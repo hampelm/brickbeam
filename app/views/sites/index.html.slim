@@ -3,7 +3,12 @@
     .row
       .col-sm-8.col-sm-push-2
         h2.section-head <a href="/sites">Brag your Rehab</a>
-        p Copy about why the rehab section is here. What are people looking at? What can they get? How to contribute?
+        p Check out projects happening across Detroit and add your own!
+
+        p <strong>Use this map to see where rehab and reinvestment is happening</strong> in neighborhoods across the city. Each pin represents a building with project-specific information inside.
+
+        p <strong>Own a building?</strong> Share your experience with others! Contributing your projects – whether cabinet installation or electrical work or roof repairs – helps other current and prospective property owners. We never share your real location.
+
         div #{link_to('Add your rehab', new_site_path, class: 'btn')}
 
 .map#sites-map
@@ -13,19 +18,21 @@
     .col-md-12
       .map-tools
         .dropdown
-          button#placeTypeDropdown.btn.dropdown-toggle[data-toggle="dropdown"] Project type <span class="caret"></span>
-          ul.dropdown-menu
+          button.btn.dropdown-toggle[data-toggle="dropdown"] Project type <span class="caret"></span>
+          ul#siteTypeDropdown.dropdown-menu
             li
-              a Home
+              a Any
+              a House
               a Commercial
               a Religious
               a Institutional
               a Industrial
 
         .dropdown
-          button#placeTypeDropdown.btn.dropdown-toggle[data-toggle="dropdown"] Square feet <span class="caret"></span>
-          ul.dropdown-menu
+          button.btn.dropdown-toggle[data-toggle="dropdown"] Square feet <span class="caret"></span>
+          ul#siteSizeDropdown.dropdown-menu
             li
+              a Any
               a <1,000
               a 1,000-1,200
               a 1,201-1,500
@@ -34,13 +41,6 @@
               a 3,001-5,000
               a >5,000
 
-        .dropdown
-          button#placeTypeDropdown.btn.dropdown-toggle[data-toggle="dropdown"] Building age <span class="caret"></span>
-          ul.dropdown-menu
-            li
-              a Action
-              a Action
-              a Action
 
   .row.sites-list
     = render partial: 'list_item', collection: @sites, as: :site

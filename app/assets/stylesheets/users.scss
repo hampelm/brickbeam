@@ -12,8 +12,10 @@
     }
   }
 
-  h2 {
+  h2.section-title {
     font-size: 24px;
+    margin-top: 2em;
+    margin-bottom: 10px;
   }
 
   h2.article-title {
@@ -26,6 +28,14 @@
     margin-bottom: 5px;
   }
 
+  h3 {
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      border-bottom: 1px solid $link-color;
+    }
+  }
   .cancel-account {
     margin-top: 2em;
   }

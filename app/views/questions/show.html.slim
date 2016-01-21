@@ -42,7 +42,7 @@
               == f.submit "Add your reply", class: 'btn btn-primary'
 
         - else
-          h3 #{link_to('Log in', new_user_session_path)}  or #{link_to('sign up', new_user_registration_path)}  to Brick + Beam to reply
+          h3.sign-in #{link_to('Log in', new_user_session_path)}  or #{link_to('sign up', new_user_registration_path)}  to Brick + Beam to reply
 
   .col-sm-3
     - if @question.user == current_user

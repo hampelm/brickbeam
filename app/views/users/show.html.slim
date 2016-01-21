@@ -3,17 +3,28 @@
     h2.article-title #{@user.name}, a part of Brick + Beam since #{@user.created_at.to_s(:since)}
 
 .row
-  .col-sm-6
+  .col-sm-8.col-sm-push-2
     - if @user == current_user
       .edit-user-account.invert.frame
         .frame-in
           h3 Need to update your information?
           = link_to("Edit your account", edit_user_registration_path, class: 'btn')
 
+      - unless @subscriptions.empty?
+        .subscriptions
+          h2.section-title Your email notifications
+
+          p You will get an email when new updates are posted to these questions:
+
+          - @subscriptions.each do |subscription|
+            h3 #{subscription.question.title}
+            = form_for(subscription, :html => { :method => :delete, :remote => true }) do |f|
+              == f.submit "Unsubscribe from " + subscription.question.title, class: 'btn btn-primary'
+
       /!
         form.contact-user-form.invert.frame
           .frame-in
-            h2 Contact #{@user.name}
+            h2.section-title Contact #{@user.name}
             - if user_signed_in?
               p Have a question for #{@user.name}? Enter your message here and we'll send them a note. Your email address will be shared with them.
               textarea rows="8"
@@ -22,25 +33,14 @@
               p Have a question for #{@user.name}? #{link_to('Sign in or register to send them a message', new_user_session_path)}.
 
     - unless @questions.empty?
-      h2 #{pluralize(@questions.length, 'question')} asked
+      h2.section-title #{pluralize(@questions.length, 'question')} asked
       - @questions.each do |question|
         .question
           h3 #{link_to(question.title, question_path(question))}
 
-  .col-sm-3
     - unless @sites.empty?
       .sites-list
-        h3 #{pluralize(@sites.length, 'rehab')} recorded
-        = render partial: '/sites/list_item', collection: @sites, as: :site, :locals => {container_class: ''}
+        h2.section-title #{pluralize(@sites.length, 'rehab')} recorded
+        .row
+          = render partial: '/sites/list_item', collection: @sites, as: :site, :locals => {container_class: 'col-sm-6'}
 
-  .col-sm-3
-    - unless @subscriptions.empty?
-      .subscriptions
-        h2 Your email notifications
-
-        p You will get an email when new updates are posted to these questions:
-
-        - @subscriptions.each do |subscription|
-          h3 #{subscription.question.title}
-          = form_for(subscription, :html => { :method => :delete, :remote => true }) do |f|
-            == f.submit "Unsubscribe from " + subscription.question.title, class: 'btn btn-primary'

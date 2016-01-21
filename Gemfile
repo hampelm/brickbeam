@@ -25,12 +25,12 @@ gem 'devise', '~> 3.5.2'
 gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.1'
 gem 'omniauth-facebook'
-gem 'paperclip', '~>4.3'
+gem 'paperclip', '~>4.3' # attachment
 gem 'pg', '~>0.18'
-gem 'pundit', '~> 1.0.1'
+gem 'pundit', '~> 1.0.1' # authorization
 gem 'rails_admin', '~> 0.7.0'
 gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
-gem 'redcarpet'
+gem 'redcarpet' # markdown parser
 gem 'slim'
 
 # Use jquery as the JavaScript library

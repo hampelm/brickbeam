@@ -81,6 +81,7 @@
     p {
       font-family: $serif;
       font-size: $size-md;
+      text-align: left;
     }
   }
 
@@ -99,6 +100,20 @@
     text-align: center;
     background: lighten($yellow, 30%);
     height: 700px;
+  }
+
+  .bragPopup .leaflet-popup-content {
+    font-size: $size-lg;
+    font-family: $sans;
+
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      color: $blue;
+      border-bottom: 1px solid $blue;
+      text-decoration: none;
+    }
   }
 
   .map-tools {

@@ -1,13 +1,12 @@
 javascript:
   $(function() {
-
     var pinIcon = L.icon({
       iconUrl: '#{asset_url("icons/map-icon.png")}',
 
       iconSize:     [20, 39], // size of the icon
       iconAnchor:   [15, 38], // point of the icon which will correspond to marker's location
       popupAnchor:  [-3, -10] // point from which the popup should open relative to the iconAnchor
-  });
+    });
 
     L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGgiLCJhIjoicGFzV1ZkWSJ9.KeK3hKmM52XpUEHHx_F8NQ';
     var map = L.mapbox.map('sites-map', 'mapbox.streets')
@@ -24,24 +23,82 @@ javascript:
     };
 
     var sites = #{{@sites.to_json}};
-    var i;
+    var markers = new L.LayerGroup();
+    markers.addTo(map);
+    var i, circle, pin;
 
-    // Add the circles
-    for (i = 0; i < sites.length; i++) {
-      var site = sites[i];
-      if (!site.lat) continue;
-      console.log(site);
-      circle = L.circle([site.lat, site.lng], 600, circle_options)
-        .bindPopup('<a href="/sites/' + sites[i].id + '">' + sites[i].building_type + '</a>')
-        .addTo(map);
+    function addSites(filter) {
+      // Clean out any existing markers
+      markers.clearLayers();
+
+      // Add the locations
+      for (i = 0; i < sites.length; i++) {
+        var site = sites[i];
+        if (!site.lat) continue; // skip sites without a location
+
+        // Filter out sites
+        if (filter) {
+          var skip = false;
+          _.each(filter, function(value, key) {
+            if (site[key] !== value) {
+              skip = true;
+            }
+          });
+          if (skip) {
+            continue;
+          }
+        }
+
+        console.log("Adding", site);
+
+        var link = '<a href="/sites/' + site.id + '">' + site.building_type + '</a>';
+        if (site.photo_file_name) {
+          // TODO
+          // var link = '<a href="/sites/' + sites[i].id + '">';
+        }
+
+        // Add the circle
+        circle = L.circle([site.lat, site.lng], 600, circle_options)
+          .bindPopup(link, {
+            className: 'bragPopup'
+          })
+          .addTo(map);
+
+        // Add the pin
+        pin = L.marker([site.lat, site.lng], {icon: pinIcon})
+          .bindPopup(link, {
+            className: 'bragPopup'
+          })
+          .addTo(map);
+
+        markers.addLayer(circle);
+        markers.addLayer(pin);
+      }
     }
 
-    // Add the pins
-    for (i = 0; i < sites.length; i++) {
-      var site = sites[i];
-      if (!site.lat) continue;
-      circle = L.marker([site.lat, site.lng], {icon: pinIcon})
-        .bindPopup('<a href="/sites/' + sites[i].id + '">' + sites[i].building_type + '</a>')
-        .addTo(map);
-    }
+    $('#siteTypeDropdown a').click(function() {
+      $target = $(event.target);
+      var filter = $target.html();
+      if (filter === 'Any') {
+        addSites();
+        return;
+      }
+      addSites({
+        building_type: filter
+      });
+    });
+    $('#siteSizeDropdown a').click(function() {
+      $target = $(event.target);
+      var filter = $target.html();
+      if (filter === 'Any') {
+        addSites();
+        return;
+      }
+      addSites({
+        building_type: filter
+      });
+    });
+
+    addSites();
+
   });
