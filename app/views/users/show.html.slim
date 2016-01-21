@@ -44,3 +44,6 @@
         .row
           = render partial: '/sites/list_item', collection: @sites, as: :site, :locals => {container_class: 'col-sm-6'}
 
+= content_for :title do
+  | #{@user.name}
+
