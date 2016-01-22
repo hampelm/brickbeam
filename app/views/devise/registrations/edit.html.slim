@@ -11,6 +11,11 @@
             = f.text_field :name, autofocus: true, class: 'form-control'
 
           .form-group
+            label
+              = f.check_box :contact_me, :checked => true
+              |  Yes, let others contact me with rehab questions (your email is not shared, and you can cancel at any time)
+
+          .form-group
             = f.label :email
             = f.email_field :email, class: 'form-control'
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
