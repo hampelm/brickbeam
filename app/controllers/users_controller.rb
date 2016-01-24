@@ -39,10 +39,16 @@ class UsersController < ApplicationController
 
   def contact
     @from = current_user
-    @to = User.find(params[:id])
+    @to = User.find(params[:id].to_i)
     @body = params[:body]
 
-    NotificationMailer.contact_user_email(@from, @to, @body).deliver_later
+    if @to.contact_me?
+      NotificationMailer.contact_user_email(@from, @to, @body).deliver_later
+      flash[:notice] = "We've forwarded your message to " + @to.name + '.'
+      redirect_to '/users/' + @to.id.to_s
+    else
+      return head(:forbidden)
+    end
   end
 
   # private

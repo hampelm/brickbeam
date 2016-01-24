@@ -35,6 +35,14 @@ FactoryGirl.define do
       is_admin true
     end
 
+    trait :contactable do
+      contact_me true
+    end
+
+    trait :uncontactable do
+      contact_me false
+    end
+
     trait :unconfirmed do
       password nil
       password_confirmation nil

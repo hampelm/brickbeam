@@ -16,13 +16,13 @@ html
 
     h1 #{@user.name}, a Brick + Beam user has reached out to you.
 
-    p For your privacy, your email address has not been shared with them. If you wish to reply, please respond to them directly at #{@from.email}.
+    p For your privacy, your email address has not been shared with them. If you wish to reply, please respond to them directly at <a href="mailto:#{@from.email}">#{@from.email}</a>.
 
     p
-      strong Message from #{@from.name}
+      strong Message from #{@from.name} (<a href="mailto:#{@from.email}">#{@from.email}</a>):
 
-    = @text
+    = @body
 
     hr
 
-    p #{link_to('Change your contact settings', user_url(@to))}
+    p #{link_to('Change your contact settings', user_url(@user))}

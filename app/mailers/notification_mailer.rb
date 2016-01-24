@@ -12,9 +12,10 @@ class NotificationMailer < ApplicationMailer
 
   def contact_user_email(from, to, body)
     @from = from
-    @to = to
+    @user = to
     @body = body
 
-    mail(to: @to.email, subject: 'A Brick + Beam user has contacted you')
+    attachments.inline['logo.png'] = File.read(Rails.root.to_s + '/app/assets/images/emails/bbd_logo2.png')
+    mail(to: @user.email, subject: 'A Brick + Beam user has contacted you')
   end
 end
