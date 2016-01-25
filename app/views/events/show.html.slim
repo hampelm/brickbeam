@@ -15,7 +15,7 @@
                   | Partner Event
                 -else
                   | Brick + Beam Event
-                h3.event-start-date =@event.start_date.to_s(:date_then_time)
+                h3.event-start-date =@event.start_date.to_s(:standard)
                 h3.event-location =@event.location
                 = render partial: '/tags/tag_list', :locals => { :tags => @event.tag_list }
 
