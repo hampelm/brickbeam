@@ -1,13 +1,20 @@
 .container.site-details
   .row
-    .col-sm-7.col-sm-push-3
-      h2.article-title #{@site.building_type}, #{@site.building_size} Square feet
+    .col-sm-8.col-sm-push-2
+      .site-intro
+        -if @site.title
+          h2.article-title #{@site.title}
+          h3 #{@site.building_type}, #{@site.building_size} Square feet
+        - else
+          h2.article-title #{@site.building_type}, #{@site.building_size} Square feet
 
   - if @site.projects.length == 0 && @site.user == current_user
     .row
       .col-md-6.col-md-push-3
         .page
           h2.article-title Step 2: Add your first project
+          p Add deatils of your first first project. You'll be able to add more projects after you submit the first.
+
           = render 'project_form'
 
   - else

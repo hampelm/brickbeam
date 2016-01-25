@@ -7,5 +7,6 @@
   - if project.cost?
     h4.project-details <strong>Cost</strong>: #{project.cost}
 
+  h4.project-details <strong>Recorded</strong>: #{project.updated_at.to_s(:since)}
 
   = render partial: '/tags/tag_list', :locals => { :tags => project.tag_list }

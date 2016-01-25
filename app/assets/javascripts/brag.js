@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into brag.js, which will include all the files
+2// This is a manifest file that'll be compiled into brag.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -98,11 +98,11 @@ $(function() {
   var center = [42.34435,-83.056898];
   var radius = 300;
   var circle_options = {
-      color: '#e13452',      // Stroke color
-      opacity: 1,            // Stroke opacity
-      weight: 0,             // Stroke weight
-      fillColor: '#e13452',  // Fill color
-      fillOpacity: 0.6       // Fill opacity
+    color: '#f2d03b',      // Stroke color
+    opacity: 1,         // Stroke opacity
+    weight: 0,         // Stroke weight
+    fillColor: '#f2d03b',  // Fill color
+    fillOpacity: 0.6    // Fill opacity
   };
 
   // Check if we already have a location
@@ -118,6 +118,7 @@ $(function() {
   var map = L.mapbox.map('site-map', 'mapbox.streets')
     .setView(center, 12) // detroit
     .addControl(L.mapbox.geocoderControl('mapbox.places'));
+  map.scrollWheelZoom.disable();
 
   if (startlat !== 0) {
     circle = L.circle(center, radius, circle_options)

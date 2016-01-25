@@ -28,19 +28,20 @@ class SitesController < ApplicationController
 
   def index
     @sites = Site.where(hidden: [false, nil])
+                 .order('updated_at desc')
   end
 
   def show
     @site = Site.friendly.find(params[:id])
     @tags = ActsAsTaggableOn::Tag.all
-    @tags_sorted = @tags.sort_by { |obj| obj.name }
+    @tags_sorted = @tags.sort_by { |obj| obj.name.downcase }
   end
 
   def new
     @site = Site.new
     @site.projects.build
     @tags = ActsAsTaggableOn::Tag.all
-    @tags_sorted = @tags.sort_by { |obj| obj.name }
+    @tags_sorted = @tags.sort_by { |obj| obj.name.downcase }
   end
 
   def create

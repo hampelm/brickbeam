@@ -3,6 +3,9 @@
   h3 Step 1: Tell us about your building
 
   .form-group
+    == f.label "Do you have a name for your building? (optional)"
+    == f.text_field :title, class: 'form-control', placeholder: 'Eg "Manoogian Mansion", "Highclere Castle"'
+
     == f.label :building_type
     == f.select(:building_type, ['House', 'Commercial', 'Religous', 'Instutional', 'Industrial'], {}, { class: 'form-control' })
 
@@ -11,7 +14,7 @@
     == f.select(:building_size, ['<1,000', '1,000-1,200', '1,201-1,500', '1,501-2,000', '2,001-3,000', '3,001-5,000', '>5,000'], {}, { class: 'form-control' })
 
   .form-group
-    == f.label :description, "Tell us about your site -- how did you find it? What did it look like at first? How long have you been working on it?"
+    == f.label :description, "Tell us about your site. How did you find it? What did it look like at first? What do you love about it? You'll have an opportunity to add your rehab projects later."
     == f.text_area :description, class: 'form-control', rows: 6
 
   .form-group
@@ -30,6 +33,9 @@
     = f.hidden_field :lng, value: -83.073678
 
   .form-group
-    == f.submit 'Save your site. Next: add rehab projects', class: 'btn btn-primary'
+    - if @site.new_record?
+      == f.submit 'Save your site. Next: add rehab projects', class: 'btn btn-primary'
+    - else
+      == f.submit 'Save your site', class: 'btn btn-primary'
 
 = javascript_include_tag 'brag'

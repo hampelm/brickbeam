@@ -1,5 +1,7 @@
 javascript:
   $(function() {
+
+    // Set up the pin icon
     var pinIcon = L.icon({
       iconUrl: '#{asset_url("icons/map-icon.png")}',
 
@@ -8,6 +10,8 @@ javascript:
       popupAnchor:  [-3, -10] // point from which the popup should open relative to the iconAnchor
     });
 
+
+    // Set up the map
     L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGgiLCJhIjoicGFzV1ZkWSJ9.KeK3hKmM52XpUEHHx_F8NQ';
     var map = L.mapbox.map('sites-map', 'mapbox.streets')
       .setView([42.34435,-83.056898], 12) // detroit
@@ -22,10 +26,13 @@ javascript:
         fillOpacity: 0.6    // Fill opacity
     };
 
+
+    // Define the markers
     var sites = #{{@sites.to_json}};
     var markers = new L.LayerGroup();
     markers.addTo(map);
     var i, circle, pin;
+
 
     function addSites(filter) {
       // Clean out any existing markers
@@ -51,7 +58,12 @@ javascript:
 
         console.log("Adding", site);
 
-        var link = '<a href="/sites/' + site.id + '">' + site.building_type + '</a>';
+        var link;
+        if (site.title) {
+          link = '<a href="/sites/' + site.id + '">' + site.title + '</a>';
+        } else {
+          link = '<a href="/sites/' + site.id + '">' + site.building_type + '</a>';
+        }
         if (site.photo_file_name) {
           // TODO
           // var link = '<a href="/sites/' + sites[i].id + '">';
@@ -76,6 +88,7 @@ javascript:
       }
     }
 
+    // Handle dropdowns selecting the sites
     $('#siteTypeDropdown a').click(function() {
       $target = $(event.target);
       var filter = $target.html();

@@ -1,6 +1,6 @@
 .row
   .col-sm-6.col-sm-push-3
-    .back #{link_to("Back to " + @site.title, site_path(@site))}
-    h2.article-title Edit your site
-    p Instructions here.
-    = render 'form'
+    .page.edit-site
+      .back #{link_to("Back to your site", site_path(@site))}
+      h2.article-title Edit your site
+      = render 'form'

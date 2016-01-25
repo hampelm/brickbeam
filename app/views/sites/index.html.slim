@@ -1,15 +1,11 @@
-.section-panel.brag-head.invert
-  .container
-    .row
-      .col-sm-8.col-sm-push-2
-        h2.section-head <a href="/sites">Brag your Rehab</a>
-        p Check out projects across Detroit and add your own!
+= content_for :intro do
+  p Check out projects across Detroit and add your own!
 
-        p <strong>Use this map to see where rehab and reinvestment is happening</strong> in neighborhoods across the city. Each pin represents a building with project-specific information inside.
+  p <strong>Use this map to see where rehab and reinvestment is happening</strong> in neighborhoods across the city. Each pin represents a building with project-specific information inside.
 
-        p <strong>Own a building?</strong> Share your experience with others! Contributing your projects – whether cabinet installation or electrical work or roof repairs – helps other current and prospective property owners. We never share your exact location.
+  p <strong>Own a building?</strong> Share your experience with others! Contributing your projects – whether cabinet installation or electrical work or roof repairs – helps other current and prospective property owners. We never share your exact location.
 
-        div #{link_to('Add your rehab', new_site_path, class: 'btn')}
+  div #{link_to('Add your rehab', new_site_path, class: 'btn')}
 
 .map#sites-map
 
