@@ -1,9 +1,11 @@
-= content_for :section_head do
-  h2.section-head <a href="/questions">Q&A Forum</a>
-
 = content_for :content do
-  .questions-panel.section
-    =render 'shared/section_head', :section_title => 'Q&A Forum', :path => questions_path
+  .questions-panel
+    .section-panel.question-head.invert
+      .container
+        .row
+          .col-sm-8.col-sm-push-2
+            h2.section-head <a href="/questions">Q&amp;A Forum</a>
+            = yield(:intro)
 
     .container
       == yield

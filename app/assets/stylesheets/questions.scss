@@ -15,6 +15,15 @@
 .questions-panel {
   margin-bottom: 50px;
 
+  .section-panel {
+    p {
+      color: #fff;
+      font-size: $size-md;
+      font-family: $serif;
+      text-align: left;
+    }
+  }
+
   .page {
     padding: 40px;
     background: #fff;
@@ -24,10 +33,6 @@
       text-align: center;
       margin-bottom: 30px;
     }
-  }
-
-  p.helptext {
-    margin-bottom: 30px;
   }
 
   .ask-a-question a {
