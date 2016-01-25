@@ -31,8 +31,14 @@ class Event < ActiveRecord::Base
 
   has_attached_file :photo,
     source_file_options: { all:     '-auto-orient' },
-    styles: { large: "1000x1000>",
-              thumb: "300x300>" }
+    styles: { larger: "2000x2000>",
+              large: "1000x1000>",
+              thumb: "500x500>" },
+    convert_options: {
+      larger: '-quality 85 -strip',
+      large: '-quality 85 -strip',
+      thumb: '-quality 85 -strip'
+    }
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
 

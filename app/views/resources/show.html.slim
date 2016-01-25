@@ -25,16 +25,15 @@
           .resource-details
             = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
 
-    - if @resource.text.length < 1000
-      .row
-        .col-md-12
-          .related-resources
-            h3 Related resources
-            .row
-              - for resource in @related
-                .col-sm-4
-                  .resource
-                    =render 'shared/polaroid', :model => resource
+    .row
+      .col-md-12
+        .related-resources
+          h3 Related resources
+          .row
+            - for resource in @related
+              .col-sm-4
+                .resource
+                  =render 'shared/polaroid', :model => resource
 
 
   .col-sm-3.sidebar
@@ -46,12 +45,7 @@
             - topic.tags.each do |tag|
               h4.tag = link_to(tag, tag_path(tag.name))
 
-        - if @resource.text.length > 1000
-          .related-resources
-            h3 Related resources
-            = render partial: 'shared/polaroid', collection: @related[0,5], as: :model
-
-        h3 Explore
+        h3 All tags
         = render partial: '/tags/tag_list', :locals => { :tags => @tags }
 
 

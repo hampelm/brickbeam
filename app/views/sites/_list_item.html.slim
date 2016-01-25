@@ -1,4 +1,4 @@
-div class=(local_assigns.fetch :container_class, 'col-sm-4')
+div class=(local_assigns.fetch :container_class, 'col-md-4 col-sm-6')
   .site.polaroid
     - if site.photo.exists?
       .site-photo.polaroid-photo style="background-image: url(#{site.photo.url})"

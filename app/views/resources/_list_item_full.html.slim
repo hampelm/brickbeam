@@ -7,7 +7,7 @@
     = render partial: '/tags/tag_list', :locals => { :tags => resource.tag_list }
 
   - if resource.photo?
-    <div class="polaroid-photo" style="background-image: url(#{resource.photo.url(:thumb)})"></div>
+    <div class="polaroid-photo" style="background-image: url(#{resource.photo.url(:large)})"></div>
 
   - if !resource.photo?
     <div class="polaroid-photo missing-#{ rand(1..3) }"></div>

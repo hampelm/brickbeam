@@ -22,14 +22,14 @@ class ResourcesController < ApplicationController
     @resources = Resource.all
     @topics = Topic.all()
 
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
   end
 
   def show
     @resource = Resource.friendly.find(params[:id])
     @topics = Topic.all()
     @related = Resource.tagged_with(@resource.tags, :any => true).limit(6)
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
 
     @related_by_tag = Hash.new []
     @related.each do |related|

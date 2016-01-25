@@ -26,6 +26,8 @@ gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.1'
 gem 'omniauth-facebook'
 gem 'paperclip', '~>4.3' # attachment
+gem "image_optim_bin", group: :production # Must be before paperclip-optimizer
+gem 'paperclip-optimizer'
 gem 'pg', '~>0.18'
 gem 'pundit', '~> 1.0.1' # authorization
 gem 'rails_admin', '~> 0.7.0'

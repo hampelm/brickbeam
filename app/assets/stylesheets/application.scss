@@ -345,7 +345,6 @@ footer .nav {
 }
 
 .events-panel {
-  padding-top: 30px;
   padding-bottom: 100px;
 
   .event {
@@ -431,7 +430,10 @@ footer .nav {
 }
 
 .section-panel {
-  padding: 40px 0 70px 0;
+  padding: 70px 0 70px 0;
+  margin-bottom: 70px;
+  background: $purple;
+
 
   p {
     font-family: $sans;
@@ -440,16 +442,18 @@ footer .nav {
   }
 
   h2.section-head {
-    font-weight: 300;
     margin: 0;
-    color: $body;
+    color: #fff;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 700;
 
     a,
     a:visited,
     a:hover,
     a:active {
-      color: $body;
+      color: #fff;
       text-decoration: none;
       border-bottom: 0px none;
     }

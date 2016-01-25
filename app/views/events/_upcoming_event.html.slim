@@ -1,4 +1,4 @@
-.upcoming-event style="background-image: url(#{event.photo})"
+.upcoming-event style="background-image: url(#{event.photo.url(:larger)})"
   .details
     .event-type
       -if event.partner_event?

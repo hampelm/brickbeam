@@ -1,12 +1,5 @@
 .row
-  .col-xs-9
-    .row
-      - for resource in @resources
-        .col-sm-4
-          .resource
-            =render 'shared/polaroid', :model => resource
-
-  .col-xs-3
+  .col-sm-3.col-sm-push-9
     .tag-sidebar
       - @topics.each do |topic|
         .broad-topic
@@ -14,8 +7,15 @@
           - topic.tags.each do |tag|
             h4.tag = link_to(tag, tag_path(tag.name))
 
-      h3 Explore
+      h3 All topics
       = render partial: '/tags/tag_list', :locals => { :tags => @tags }
+
+  .col-sm-9.col-sm-pull-3
+    .row
+      - for resource in @resources
+        .col-md-4.col-sm-6
+          .resource
+            =render 'shared/polaroid', :model => resource
 
 = content_for :title do
   | Rehab Resources

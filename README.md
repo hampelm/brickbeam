@@ -39,6 +39,13 @@ platform equivalents, but you'll need to find the correct install process. They 
 To add model descriptions to relevant files, run the command `annotate` from the
 project root.
 
+### To resize thumbnails
+
+`rake paperclip:refresh CLASS=Event`
+
+The `paperclip-optimizer` gem has been installed but not activated. It provides
+additional image compresion. Enable if page weight increases significantly.
+
 # Deploying to Heroku
 
 This app expects memcachier to be installed for [precaching assets](http://blog.alexmaccaw.com/faster-deploys). To set up, run:
