@@ -288,13 +288,16 @@ footer .nav {
   a:active {
     color: #666;
     background: transparent;
-    border-bottom: 0px none;
+    border-bottom: 1px solid #fff;
+    display: inline-block;
+    padding: 0;
+    margin: 10px 15px;
   }
 
   a:hover {
-    color: $teal;
+    color: darken($green, 5%);
     background: none;
-    border-bottom: 0px none;
+    border-bottom: 1px solid $green;
   }
 }
 
