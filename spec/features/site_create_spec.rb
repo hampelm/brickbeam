@@ -22,7 +22,7 @@ RSpec.feature 'Create a site spec', type: :feature do
     select "Commercial", :from => "site[building_type]"
     select "1,501-2,000", :from => "site[building_size]"
 
-    fill_in "Tell us about your site -- how did you find it? What did it look like at first? How long have you been working on it?",
+    fill_in "Tell us about your site. How did you find it? What did it look like at first? What do you love about it? You'll have an opportunity to add your rehab projects later.",
       with: body_text
 
     click_button 'Save your site. Next: add rehab projects'
