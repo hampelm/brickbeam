@@ -56,8 +56,6 @@ javascript:
           }
         }
 
-        console.log("Adding", site);
-
         var link;
         if (site.title) {
           link = '<a href="/sites/' + site.id + '">' + site.title + '</a>';
@@ -108,7 +106,7 @@ javascript:
         return;
       }
       addSites({
-        building_type: filter
+        building_size: filter
       });
     });
 
