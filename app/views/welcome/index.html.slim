@@ -15,23 +15,23 @@
           .homepage-heroes
             .homepage-heroes-in
               .row
-                .col-md-3
+                .col-md-3.col-sm-6
                   .hero
                       h2 Events
                       p Regular events with practical info, hands-on classes, and fellowship.
                       =link_to('Upcoming events', events_path, class: 'btn')
-                .col-md-3
+                .col-md-3.col-sm-6
                   .hero
                       h2 Rehab Q&A
                       p Ask your rehab questions and contribute your experience by answering others.
                       =link_to('Ask a question', questions_path, class: 'btn')
-                .col-md-3
+                .col-md-3.col-sm-6
                   .hero
                       h2 Brag your Rehab
                       p Tell us what you’ve been working on and showcase Detroit’s revival.
                       =link_to('See the map', sites_path, class: 'btn')
 
-                .col-md-3
+                .col-md-3.col-sm-6
                   .hero
                       h2 Resource library
                       p Learn from our organized collection of how-tos and reference materials.
@@ -64,7 +64,7 @@
     .row
       .homepage-questions
         - @questions.each do |question|
-          .col-md-3
+          .col-md-3.col-sm-6
             .question
               h2.article-title #{link_to(question.title, question_path(question))}
               .question-meta #{pluralize(question.comments.length, 'answer')}
@@ -85,7 +85,7 @@
           h2.section-title From the <a href="/resources">Rehab Resource Library</a>
           .row
             - for resource in @resources
-              .col-sm-3
+              .col-sm-6.col-md-3
                 .resource
                   =render 'shared/polaroid', :model => resource
 
