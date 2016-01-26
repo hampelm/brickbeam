@@ -17,6 +17,25 @@ RailsAdmin.config do |config|
 
   # config.excluded_models = ["Assets", "Picture", ]
 
+
+  config.included_models = [
+    'ActsAsTaggableOn::Tag', # Because this isn't in models/, we have to list all
+    'Asset',
+    'Attachment',
+    'AttachmentFile',
+    'Comment',
+    'Event',
+    'Page',
+    'Picture',
+    'Project',
+    'Question',
+    'Resource',
+    'Site',
+    'Subscription',
+    'Topic',
+    'User',
+  ]
+
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
   config.actions do
     dashboard                     # mandatory
