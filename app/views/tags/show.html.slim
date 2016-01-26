@@ -1,25 +1,40 @@
 .row
-  .col-sm-6
-    h2.article-title Resources
-    .row
-      - for resource in @resources
-        .col-sm-6
-            =render 'shared/polaroid', :model => resource
 
-
-  .col-sm-3
+  .col-sm-9
     - unless @events.blank?
       .tag-related-section
         h2.article-title Events
-        = render partial: 'shared/polaroid', collection: @events, as: :model
+        .row
+          - for event in @events
+            .col-sm-6.past-event
+              =render 'shared/polaroid', :model => event
 
     - unless @sites.blank?
       .tag-related-section
         h2.article-title Projects
         = render partial: '/sites/list_item', collection: @sites, as: :site, :locals => {container_class: ''}
 
-  .col-sm-3
     - unless @questions.blank?
-    .tag-related-section
-      h2.article-title Q & A
-      = render partial: 'questions/list_item', collection: @questions, as: :question
+      .tag-related-section
+        h2.article-title Q & A
+        = render partial: 'questions/list_item', collection: @questions, as: :question
+
+
+    h2.article-title Resources
+    .row
+      - for resource in @resources
+        .col-sm-4
+            =render 'shared/polaroid', :model => resource
+
+  .col-sm-3.sidebar
+    .in
+      .tag-sidebar
+        - @topics.each do |topic|
+          .broad-topic
+            h3 =topic.name
+            - topic.tags.each do |tag|
+              h4.tag = link_to(tag, tag_path(tag.name))
+
+        h3 All tags
+        = render partial: '/tags/tag_list', :locals => { :tags => @tags }
+
