@@ -20,7 +20,7 @@
               - if @event.photo?
                 =image_tag @event.photo.url, width: "100%", alt: "", class: "event-image"
 
-              == @event.description
+              == @event.description.html_safe
 
 
       .col-sm-4.sidebar

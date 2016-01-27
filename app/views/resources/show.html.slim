@@ -12,7 +12,7 @@
           - if @resource.photo?
             =image_tag @resource.photo.url, width: "100%", alt: "", class: "resource-image"
 
-          == @resource.text
+          == @resource.text.html_safe
 
           - if @resource.attachments.length > 0
             .resource-attachments
