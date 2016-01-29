@@ -21,6 +21,7 @@ RSpec.feature 'Contact Me spec', type: :feature do
 
     # Check the contactee's email
     open_email contactable_user.email
+    expect(current_email.from).to include user.email
     expect(current_email.to).to include contactable_user.email
     expect(current_email.body).to include 'Change your contact settings'
     expect(current_email.body).to include 'My message here'

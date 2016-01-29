@@ -15,7 +15,7 @@ class NotificationMailer < ApplicationMailer
     @body = body
 
     attachments.inline['logo.png'] = File.read(Rails.root.to_s + '/app/assets/images/emails/bbd_logo2.png')
-    mail(to: @user.email, subject: 'A Brick + Beam user has contacted you')
+    mail(from: from.email, to: @user.email, subject: 'A Brick + Beam user has contacted you')
   end
 
   def question_digest_email(user, questions)
