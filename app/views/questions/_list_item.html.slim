@@ -1,5 +1,10 @@
 .question
   h2.article-title #{link_to(question.title, question_path(question))}
-  p.question-meta #{pluralize(question.comments.length, 'answer')}. Asked by #{question.user.name} on #{question.updated_at.to_s(:since)}
+  p.question-meta
+    - if question.comments.length == 0
+      span.no-answers No answers yet. Can you help?
+    - else
+      | #{pluralize(question.comments.length, 'answer')}.
+    | &nbsp;Asked by #{question.user.name} on #{question.updated_at.to_s(:since)}
 
   = render partial: '/tags/tag_list', :locals => { :tags => question.tag_list }

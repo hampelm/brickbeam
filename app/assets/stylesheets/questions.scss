@@ -24,6 +24,13 @@
     }
   }
 
+  .question span.no-answers {
+    background: $yellow;
+    padding: 0px 5px;
+    display: inline-block;
+    margin-right: 0.25em;
+  }
+
   .page {
     padding: 40px;
     background: #fff;
