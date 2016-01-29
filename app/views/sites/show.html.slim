@@ -25,6 +25,9 @@
         - if @site.user == current_user
           =link_to('Edit your rehab', edit_site_path(@site), class: 'btn btn-edit')
 
+        .add-a-brag
+          = link_to('Add your rehab', new_site_path, class: 'btn')
+
       .col-sm-6
         h3.byline Added by #{link_to(@site.user.name, @site.user)}
 

@@ -150,6 +150,18 @@
       border-bottom: 1px solid $link-color;
     }
 
+    .add-a-brag a {
+      padding: 8px 16px;
+      font-size: 20px;
+      font-weight: 500;
+      color: $green;
+      border-color: $green;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
     .site-intro {
       margin-bottom: 30px;
 
