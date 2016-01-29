@@ -36,7 +36,38 @@ $tag-background: $blue;
 .tag-sidebar {
   border-left: 1px solid $border-color;
   padding-left: 30px;
+  margin-bottom: 30px;
+
+  h2 {
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+
+  h4 {
+    font-weight: 300;
+    font-size: 18px;
+
+    a {
+      color: $body-mild;
+    }
+  }
+
+  .broad-topic {
+    margin-bottom: 35px;
+  }
+
+  p {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    font-size: $size-md;
+    font-family: $sans;
+  }
 }
+
 
 form {
   label.tag {

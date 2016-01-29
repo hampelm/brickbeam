@@ -28,13 +28,4 @@
 
   .col-sm-3.sidebar
     .in
-      .tag-sidebar
-        - @topics.each do |topic|
-          .broad-topic
-            h3 =topic.name
-            - topic.tags.each do |tag|
-              h4.tag = link_to(tag, tag_path(tag.name))
-
-        h3 All tags
-        = render partial: '/tags/tag_list', :locals => { :tags => @tags }
-
+      = render partial: '/shared/tag_sidebar', :locals => { :tags => @tags, :topics => @topics }
