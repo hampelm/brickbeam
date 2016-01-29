@@ -20,9 +20,9 @@ RSpec.feature 'Contact Me spec', type: :feature do
     expect(page).to have_content "We've forwarded your message to " + contactable_user.name
 
     # Check the contactee's email
-    open_email user_two.email
-    expect(current_email.to).to include user.email
-    expect(current_email.subject).to include 'Unsubscribe'
+    open_email contactable_user.email
+    expect(current_email.to).to include contactable_user.email
+    expect(current_email.body).to include 'Change your contact settings'
     expect(current_email.body).to include 'My message here'
     expect(current_email.body).to include user.email
     expect(current_email.body).to include user.name
@@ -40,12 +40,12 @@ RSpec.feature 'Contact Me spec', type: :feature do
   end
 
   scenario 'Anonymous users see a prompt to log in if the user is contactable' do
-    visit users_path(contactable_user)
+    visit '/users/' + contactable_user.id.to_s
     expect(page).to have_content 'register to send them a message'
   end
 
   scenario 'Anonymous users do not see a prompt to log in if the user is uncontactable' do
-    visit users_path(uncontactable_user)
+    visit '/users/' + uncontactable_user.id.to_s
     expect(page).not_to have_content 'register to send them a message'
   end
 

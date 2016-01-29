@@ -26,6 +26,7 @@
             = form_for(subscription, :html => { :method => :delete, :remote => true }) do |f|
               == f.submit "Unsubscribe from " + subscription.question.title, class: 'btn btn-primary'
 
+    - else
       - if @user.contact_me?
         .contact-user.frame.invert
           .frame-in
