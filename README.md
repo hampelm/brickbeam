@@ -39,6 +39,12 @@ platform equivalents, but you'll need to find the correct install process. They 
 To add model descriptions to relevant files, run the command `annotate` from the
 project root.
 
+### To generate the daily email digest:
+
+```
+rake question_digest:create_and_send
+```
+
 ### To resize thumbnails
 
 `rake paperclip:refresh CLASS=Event`

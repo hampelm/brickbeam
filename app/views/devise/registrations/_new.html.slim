@@ -33,6 +33,11 @@ h3.regular-user Register with your email:
 
   .form-group
     label
+      = f.check_box :daily_question_digest
+      |  Send me a daily email with new rehab questions
+
+  .form-group
+    label
       = f.check_box :agreement
       |  I agree to the <a href="/pages/guidelines">Brick + Beam content policy</a>
 

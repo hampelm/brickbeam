@@ -22,6 +22,7 @@
 #  provider               :string
 #  uid                    :string
 #  contact_me             :boolean
+#  daily_question_digest  :boolean
 #
 
 class User < ActiveRecord::Base
@@ -31,6 +32,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   devise :omniauthable, :omniauth_providers => [:facebook]
+
+  scope :subscribed_to_question_digest, -> { where(daily_question_digest: true) }
 
   validates :agreement, acceptance: { accept: true }
   validates :name, presence: true
