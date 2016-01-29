@@ -21,7 +21,7 @@ html
     p
       strong Message from #{@from.name} (<a href="mailto:#{@from.email}">#{@from.email}</a>):
 
-    = @body
+    = simple_format(@body)
 
     hr
 

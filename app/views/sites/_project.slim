@@ -1,5 +1,6 @@
 .project
-  p.project-description = project.description
+  .project-description
+    = simple_format(project.description)
 
   - if project.duration?
     h4.project-details <strong>It took</strong>: #{project.duration}
