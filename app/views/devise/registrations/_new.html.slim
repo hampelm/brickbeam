@@ -28,6 +28,11 @@ h3.regular-user Register with your email:
 
   .form-group
     label
+      = f.check_box :contact_me, :checked => true
+      |  Yes, let others contact me with rehab questions (your email is not shared, and you can cancel at any time)
+
+  .form-group
+    label
       = f.check_box :agreement
       |  I agree to the <a href="/pages/guidelines">Brick + Beam content policy</a>
 

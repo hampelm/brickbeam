@@ -8,4 +8,14 @@ class NotificationMailer < ApplicationMailer
     attachments.inline['logo.png'] = File.read(Rails.root.to_s + '/app/assets/images/emails/bbd_logo2.png')
     mail(to: @user.email, subject: 'New comment on ' + title)
   end
+
+
+  def contact_user_email(from, to, body)
+    @from = from
+    @user = to
+    @body = body
+
+    attachments.inline['logo.png'] = File.read(Rails.root.to_s + '/app/assets/images/emails/bbd_logo2.png')
+    mail(to: @user.email, subject: 'A Brick + Beam user has contacted you')
+  end
 end

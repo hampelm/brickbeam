@@ -1,0 +1,13 @@
+#{@user.name}, a Brick + Beam user has reached out to you.
+
+For your privacy, your email address has not been shared with them. If you wish
+to reply, please respond to them directly at #{@from.email}.
+
+Message from #{@from.name} (#{@from.email})
+
+= @text
+
+----
+
+Change your contact settings:
+= user_url(@to)

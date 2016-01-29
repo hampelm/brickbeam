@@ -21,9 +21,12 @@
 #  agreement              :boolean
 #  provider               :string
 #  uid                    :string
+#  contact_me             :boolean
 #
 
 class UsersController < ApplicationController
+  before_action :authenticate_user!, :except => [:show]
+
   layout "users"
 
   def show
@@ -33,4 +36,24 @@ class UsersController < ApplicationController
     @questions = Question.where user: @user.id
     @sites = Site.where user: @user.id
   end
+
+  def contact
+    @from = current_user
+    @to = User.find(params[:id].to_i)
+    @body = params[:body]
+
+    if @to.contact_me?
+      NotificationMailer.contact_user_email(@from, @to, @body).deliver_later
+      flash[:notice] = "We've forwarded your message to " + @to.name + '.'
+      redirect_to '/users/' + @to.id.to_s
+    else
+      return head(:forbidden)
+    end
+  end
+
+  # private
+  #   def contact_params
+  #     params.require(:comment).permit(:body)
+  #   end
+
 end

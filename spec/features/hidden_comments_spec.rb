@@ -38,7 +38,5 @@ RSpec.feature 'Hidden comments spec', type: :feature do
     click_link(question.title)
 
     expect(page).not_to have_content(question.comments.first.body)
-
-    # Hide the comment
   end
 end

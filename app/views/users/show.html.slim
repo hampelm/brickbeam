@@ -4,6 +4,11 @@
 
 .row
   .col-sm-8.col-sm-push-2
+    -unless flash.empty?
+      .flash-messages
+        - flash.each do |key, value|
+          h3.flash #{value}
+
     - if @user == current_user
       .edit-user-account.invert.frame
         .frame-in
@@ -21,14 +26,17 @@
             = form_for(subscription, :html => { :method => :delete, :remote => true }) do |f|
               == f.submit "Unsubscribe from " + subscription.question.title, class: 'btn btn-primary'
 
-      /!
-        form.contact-user-form.invert.frame
+    - else
+      - if @user.contact_me?
+        .contact-user.frame.invert
           .frame-in
             h2.section-title Contact #{@user.name}
             - if user_signed_in?
               p Have a question for #{@user.name}? Enter your message here and we'll send them a note. Your email address will be shared with them.
-              textarea rows="8"
-              input.btn-primary type="submit" value="Contact #{@user.name}"
+              = form_tag('/users/' + @user.id.to_s + '/contact') do
+                = text_area_tag(:body, "", size: "24x8")
+                = hidden_field_tag(:id, @user.id)
+                input.btn-primary type="submit" value="Contact #{@user.name}"
             - else
               p Have a question for #{@user.name}? #{link_to('Sign in or register to send them a message', new_user_session_path)}.
 

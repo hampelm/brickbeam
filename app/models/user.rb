@@ -21,6 +21,7 @@
 #  agreement              :boolean
 #  provider               :string
 #  uid                    :string
+#  contact_me             :boolean
 #
 
 class User < ActiveRecord::Base

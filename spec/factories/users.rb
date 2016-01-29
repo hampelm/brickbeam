@@ -21,6 +21,7 @@
 #  agreement              :boolean
 #  provider               :string
 #  uid                    :string
+#  contact_me             :boolean
 #
 
 FactoryGirl.define do
@@ -32,6 +33,14 @@ FactoryGirl.define do
 
     trait :admin do
       is_admin true
+    end
+
+    trait :contactable do
+      contact_me true
+    end
+
+    trait :uncontactable do
+      contact_me false
     end
 
     trait :unconfirmed do
