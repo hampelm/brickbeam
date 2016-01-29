@@ -9,7 +9,6 @@ class NotificationMailer < ApplicationMailer
     mail(to: @user.email, subject: 'New comment on ' + title)
   end
 
-
   def contact_user_email(from, to, body)
     @from = from
     @user = to
@@ -17,5 +16,11 @@ class NotificationMailer < ApplicationMailer
 
     attachments.inline['logo.png'] = File.read(Rails.root.to_s + '/app/assets/images/emails/bbd_logo2.png')
     mail(to: @user.email, subject: 'A Brick + Beam user has contacted you')
+  end
+
+  def question_digest_email(user, questions)
+    @questions = questions
+    attachments.inline['logo.png'] = File.read(Rails.root.to_s + '/app/assets/images/emails/bbd_logo2.png')
+    mail(to: user.email, subject: 'New rehab questions on Brick + Beam Detroit')
   end
 end

@@ -18,6 +18,11 @@ FactoryGirl.define do
     description { FFaker::Lorem.paragraph }
     user
 
+    trait :old do
+      created_at 10.days.ago
+      updated_at 10.days.ago
+    end
+
     factory :question_with_hidden_comment do
       after(:create) do |question, evaluator|
         create(:comment, :hidden, question: question)

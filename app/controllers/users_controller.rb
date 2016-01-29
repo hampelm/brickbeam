@@ -22,6 +22,7 @@
 #  provider               :string
 #  uid                    :string
 #  contact_me             :boolean
+#  daily_question_digest  :boolean
 #
 
 class UsersController < ApplicationController

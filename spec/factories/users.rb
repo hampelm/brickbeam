@@ -22,6 +22,7 @@
 #  provider               :string
 #  uid                    :string
 #  contact_me             :boolean
+#  daily_question_digest  :boolean
 #
 
 FactoryGirl.define do
@@ -41,6 +42,10 @@ FactoryGirl.define do
 
     trait :uncontactable do
       contact_me false
+    end
+
+    trait :daily_digest do
+      daily_question_digest true
     end
 
     trait :unconfirmed do
