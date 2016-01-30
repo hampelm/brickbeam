@@ -5,6 +5,6 @@
       span.no-answers No answers yet. Can you help?
     - else
       | #{pluralize(question.comments.length, 'answer')}.
-    |  Asked by #{question.user.name} on #{question.updated_at.to_s(:since)}
+    |  Asked by #{question.user.name} on #{question.updated_at.to_s(:month_day_year)}
 
   = render partial: '/tags/tag_list', :locals => { :tags => question.tag_list }
