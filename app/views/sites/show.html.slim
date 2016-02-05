@@ -68,7 +68,7 @@ javascript:
   });
 
 = content_for :og do
-  - if @site.title
+  - if @site.title?
     meta property="og:title" content="#{@site.title} by #{@site.user.name} | Brick + Beam"
   - else
     meta property="og:title" content="Rehab: #{@site.building_type} added by #{@site.user.name} | Brick + Beam"
