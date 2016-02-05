@@ -1,17 +1,29 @@
 doctype html
-html
+html prefix="og: http://ogp.me/ns#"
   head
     - if content_for?(:title)
       title
         = yield(:title)
         |  | Brick + Beam Detroit
+      meta property="og:title" content="#{content_for(:title)} | Brick + Beam Detroit"
     - else
       title
         | Brick + Beam Detroit
+      meta property="og:title" content="Brick + Beam Detroit"
+
+    = yield(:og)
+    meta property="og:image" content="#{asset_url('facebook/brickbeam-5.jpg')}"
+    meta property="og:image" content="#{asset_url('facebook/brickbeam-4.jpg')}"
+    meta property="og:image" content="#{asset_url('facebook/brickbeam-1.jpg')}"
+    meta property="og:image" content="#{asset_url('facebook/brickbeam-2.jpg')}"
+    meta property="og:image" content="#{asset_url('facebook/brickbeam-logo.jpg')}"
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   body
     .topbar
       .container

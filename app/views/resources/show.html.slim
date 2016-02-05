@@ -43,3 +43,8 @@
 
 = content_for :title do
   | #{@resource.title}
+
+= content_for :og do
+  meta property="og:description" content="#{truncate(strip_tags(@resource.text).squish, length: 175)}"
+  - if @resource.photo?
+    = render partial: '/shared/og_image', locals: { url: @resource.photo.url }
