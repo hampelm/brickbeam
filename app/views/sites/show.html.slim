@@ -68,6 +68,18 @@ javascript:
   });
 
 = content_for :og do
+  - if @site.title
+    meta property="og:title" content="#{@site.title} by #{@site.user.name} | Brick + Beam"
+  - else
+    meta property="og:title" content="Rehab: #{@site.building_type} added by #{@site.user.name} | Brick + Beam"
+
   - if @site.photo?
     = render partial: '/shared/og_image', locals: { url: @site.photo.url }
     meta property="og:description" content="#{truncate(strip_tags(@site.description).squish, length: 175)}"
+
+= content_for :title do
+  - if @site.title
+    | #{@site.title}
+  - else
+    | #{@site.building_type} added by #{@site.user.name}
+
