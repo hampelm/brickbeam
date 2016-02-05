@@ -60,4 +60,5 @@
 
 = content_for :og do
   meta property="og:title" content="#{@question.title} | Brick + Beam"
+  meta property="og:description" content="#{truncate(strip_tags(@question.description).squish, length: 175)}"
 
