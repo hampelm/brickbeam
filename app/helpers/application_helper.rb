@@ -7,6 +7,10 @@ module ApplicationHelper
     end
   end
 
+  def asset_url asset
+    "#{request.protocol}#{request.host_with_port}#{asset_path(asset)}"
+  end
+
   def random_image
     images = [
       'roller-white.png',

@@ -66,3 +66,8 @@ javascript:
     circle = L.circle([#{@site.lat}, #{@site.lng}], 600, circle_options)
       .addTo(map);
   });
+
+= content_for :og do
+  - if @site.photo?
+    = render partial: '/shared/og_image', locals: { url: @site.photo.url }
+    meta property="og:description" content="#{truncate(strip_tags(@site.description).squish, length: 175)}"

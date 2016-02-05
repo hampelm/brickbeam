@@ -4,3 +4,6 @@
       h2.article-title =@page.title
 
       == @page.body.html_safe
+
+= content_for :og do
+  meta property="og:description" content="#{truncate(strip_tags(@page.body).squish, length: 175)}"

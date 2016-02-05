@@ -34,3 +34,8 @@
 
 = content_for :title do
   | #{@event.title}
+
+= content_for :og do
+  meta property="og:description" content="#{truncate(strip_tags(@event.description).squish, length: 175)}"
+  - if @event.photo?
+    = render partial: '/shared/og_image', locals: { url: @event.photo.url }

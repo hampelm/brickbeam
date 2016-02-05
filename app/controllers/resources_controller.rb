@@ -19,8 +19,8 @@ class ResourcesController < ApplicationController
   layout "resources"
 
   def index
-    @resources = Resource.all
-    @topics = Topic.all()
+    @resources = Resource.order('updated_at DESC').all
+    @topics = Topic.all
 
     @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
   end
