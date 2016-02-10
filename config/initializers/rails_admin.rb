@@ -55,6 +55,7 @@ RailsAdmin.config do |config|
 
   config.model Question do
     list do
+      sort_by :updated_at
       field :title
       field :user
       field :updated_at
@@ -70,6 +71,14 @@ RailsAdmin.config do |config|
         # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
         ratl_max_suggestions -1
       end
+    end
+  end
+
+  config.model User do
+    list do
+      sort_by :updated_at
+      field :name
+      field :email
     end
   end
 
@@ -90,6 +99,7 @@ RailsAdmin.config do |config|
 
   config.model Event do
     list do
+      sort_by :updated_at
       field :title
       field :start_date
     end
@@ -121,8 +131,11 @@ RailsAdmin.config do |config|
 
   config.model Resource do
     list do
+      sort_by :updated_at
       field :title
+      field :updated_at
     end
+
     edit do
       include_all_fields
       exclude_fields :slug
