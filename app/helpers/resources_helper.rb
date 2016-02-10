@@ -13,6 +13,7 @@
 #  photo_content_type :string
 #  photo_file_size    :integer
 #  photo_updated_at   :datetime
+#  photo_credit       :string
 #
 
 module ResourcesHelper
