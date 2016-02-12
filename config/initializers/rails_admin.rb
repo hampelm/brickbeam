@@ -138,7 +138,7 @@ RailsAdmin.config do |config|
 
     edit do
       include_all_fields
-      exclude_fields :slug
+      exclude_fields :slug, :base_tags, :tags
 
       field :text, :ck_editor
 

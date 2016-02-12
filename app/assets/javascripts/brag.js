@@ -91,11 +91,15 @@ function codeAddress(address, region, callback) {
   });
 }
 
+
+/* Set up the map */
 $(function() {
   var marker;
   var fuzzed;
   var circle;
   var center = [42.34435,-83.056898];
+  // Starting circle location: 42.369632-83.073678
+
   var radius = 300;
   var circle_options = {
     color: '#f2d03b',      // Stroke color
@@ -115,10 +119,12 @@ $(function() {
 
   // Set up the map
   L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGgiLCJhIjoicGFzV1ZkWSJ9.KeK3hKmM52XpUEHHx_F8NQ';
-  var map = L.mapbox.map('site-map', 'mapbox.streets')
+  var map = L.mapbox.map('site-map')
     .setView(center, 12) // detroit
     .addControl(L.mapbox.geocoderControl('mapbox.places'));
   map.scrollWheelZoom.disable();
+  L.mapbox.styleLayer('mapbox://styles/matth/cijg1tef5000a92kfbti9hsfk').addTo(map);
+
 
   if (startlat !== 0) {
     circle = L.circle(center, radius, circle_options)
@@ -212,6 +218,20 @@ $(function() {
       var flng = data.coords[1] + getFuzzed();
       setLocation(flat, flng);
     });
+  });
+
+  $('#new_site').submit(function(e) {
+    console.log("Form submitted");
+    e.preventDefault();
+    var lat = $(this.elements['site[lat]']).val();
+    var lng = $(this.elements['site[lng]']).val();
+
+    if (!lat || !lng) {
+      $('.add-an-address-warning').fadeIn();
+    } else {
+      $('.add-an-address-warning').fadeOut();
+      form.submit();
+    }
   });
 
 

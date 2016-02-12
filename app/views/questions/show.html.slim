@@ -52,8 +52,14 @@
       = form_for(@subscription, :html => { :method => :delete, :remote => true }) do |f|
         == f.submit "Unsubscribe from notifications", class: 'btn'
 
-
     = render partial: '/tags/tag_list', :locals => { :tags => @question.tag_list }
+
+    - if @related.exists?
+      .related-questions
+        h3 Related questions
+        = render partial: 'simple_list_item', collection: @related
+
+
 
 = content_for :title do
   | #{@question.title}

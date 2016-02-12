@@ -8,7 +8,7 @@ class TagsController < ApplicationController
 
   def show
     @topics = Topic.all()
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
 
     @tag = params[:id]
     @resources = Resource.tagged_with(params[:id])

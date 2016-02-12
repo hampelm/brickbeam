@@ -16,7 +16,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css);
+@import url(https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css);
 
 @import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700);
@@ -596,7 +596,13 @@ footer {
   }
 
   .footer-links {
-    margin: 20px 40px;
+    margin: 40px 0 0;
+  }
+
+  .footer-links.social-links {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: 700;
   }
 
   .footer-logos {

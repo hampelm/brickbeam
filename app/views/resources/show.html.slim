@@ -8,7 +8,11 @@
           p.byline =@resource.byline
 
       .row
-        .col-sm-8
+        .col-md-4.col-md-push-8
+          .resource-details
+            = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
+
+        .col-md-8.col-md-pull-4
           - if @resource.photo?
             =image_tag @resource.photo.url, width: "100%", alt: "", class: "resource-image"
             p.photo-credit =@resource.photo_credit
@@ -22,9 +26,6 @@
               - @resource.attachments.each do |attachment|
                 h4 <a href="#{attachment.file_attachment.url}">#{attachment.title} (#{number_to_human_size(attachment.file_attachment_file_size)})</a>
 
-        .col-sm-4
-          .resource-details
-            = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
 
     .row
       .col-md-12
@@ -32,7 +33,7 @@
           h3 Related resources
           .row
             - for resource in @related
-              .col-sm-4
+              .col-md-4.col-sm-6
                 .resource
                   =render 'shared/polaroid', :model => resource
 

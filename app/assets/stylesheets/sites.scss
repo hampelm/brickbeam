@@ -38,9 +38,12 @@
       border-radius: 0;
     }
 
-    .geocoding-error {
+
+    .geocoding-error,
+    .add-an-address-warning {
       display: none;
-      color: $warning;
+      padding: 2px 5px;
+      background: $warning;
     }
 
     h3 {

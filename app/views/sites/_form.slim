@@ -29,12 +29,14 @@
       button.btn#start-address-search Find address
       div.geocoding-error
     div#site-map map
-    = f.hidden_field :lat, value: 42.369632
-    = f.hidden_field :lng, value: -83.073678
+    = f.hidden_field :lat
+    = f.hidden_field :lng
+
+    span.add-an-address-warning Please add your site to the map
 
   .form-group
     - if @site.new_record?
-      == f.submit 'Save your site. Next: add rehab projects', class: 'btn btn-primary'
+      == f.submit 'Save your site. Next: add rehab projects', class: 'btn btn-primary', id: 'submit-site'
     - else
       == f.submit 'Save your site', class: 'btn btn-primary'
 
