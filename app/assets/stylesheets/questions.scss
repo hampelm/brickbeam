@@ -76,6 +76,13 @@
     }
   }
 
+  form {
+    .tag-prompt {
+      font-family: $sans;
+      font-size: 0.9em;
+    }
+  }
+
   h2.article-title {
     margin-bottom: 10px;
     font-size: 30px;
