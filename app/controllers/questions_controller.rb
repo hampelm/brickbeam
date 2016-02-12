@@ -26,6 +26,11 @@ class QuestionsController < ApplicationController
     @question = Question.friendly.find(params[:id])
     @comments = @question.comments.where(hidden: [false, nil])
     @subscription = Subscription.find_by question: @question, user: current_user
+
+    @related = Question.tagged_with(@question.tags, :any => true)
+                       .where.not(id: @question.id)
+                       .limit(6)
+                       .order('created_at DESC')
   end
 
   def new

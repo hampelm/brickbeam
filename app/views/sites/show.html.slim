@@ -13,13 +13,13 @@
       .col-md-6.col-md-push-3
         .page
           h2.article-title Step 2: Add your first project
-          p Add details of your first first project. You'll be able to add more projects after you submit the first.
+          p Add the details of your first first project. You'll be able to add more projects after you submit the first.
 
           = render 'project_form'
 
   - else
     .row
-      .col-sm-3
+      .col-md-3.col-sm-4
         div.map#site-map map
 
         - if @site.user == current_user
@@ -28,7 +28,7 @@
         .add-a-brag
           = link_to('Add your rehab', new_site_path, class: 'btn')
 
-      .col-sm-6
+      .col-md-6.col-sm-8
         h3.byline Added by #{link_to(@site.user.name, @site.user)}
 
         - if @site.photo?

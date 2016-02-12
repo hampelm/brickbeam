@@ -1,11 +1,11 @@
 .tag-sidebar
+  h3 Explore topics
+  = render partial: '/tags/tag_list', :locals => { :tags => @tags }
+
   - topics.each do |topic|
     .broad-topic
       h3 =topic.name
-      - topic.tags.each do |tag|
+      - topic.tags.sort_by { |obj| obj.name.downcase }.each do |tag|
         h4.tag = link_to(tag, tag_path(tag.name))
-
-  h3 All tags
-  = render partial: '/tags/tag_list', :locals => { :tags => @tags }
 
   p Have a resource to share? Please <a href="mailto:brickandbeamdetroit@gmail.com">email us</a>!

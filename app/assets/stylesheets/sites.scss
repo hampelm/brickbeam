@@ -38,9 +38,16 @@
       border-radius: 0;
     }
 
-    .geocoding-error {
+    .tag-prompt {
+      font-family: $sans;
+      font-size: 0.9em;
+    }
+
+    .geocoding-error,
+    .add-an-address-warning {
       display: none;
-      color: $warning;
+      padding: 2px 5px;
+      background: $warning;
     }
 
     h3 {
@@ -154,11 +161,16 @@
       padding: 8px 16px;
       font-size: 20px;
       font-weight: 500;
-      color: $green;
+      color: #fff;
       border-color: $green;
+      background: $green;
+      display: inline-block;
+      margin-bottom: 35px;
 
       &:hover {
-        color: #fff;
+        color: $green;
+        background: #fff;
+        border-color: $green;
       }
     }
 

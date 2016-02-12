@@ -6,6 +6,7 @@
 
   .form-group
     = render partial: '/tags/tag_form_fields', :locals => { :tags => @tags_sorted, :f => f }
+    p.tag-prompt Don't see the tag you're looking for? Ask your question, then <a href="mailto:brickandbeamdetroit@gmail.com">drop us an email with details</a>.
 
   div.form-group
     == f.label "How long did it take?"
