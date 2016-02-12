@@ -63,7 +63,7 @@ RailsAdmin.config do |config|
 
     edit do
       include_all_fields
-      exclude_fields :slug
+      exclude_fields :slug, :base_tags, :tags
 
       fields_of_type :tag_list do
         partial 'tag_list_with_suggestions'
@@ -106,7 +106,7 @@ RailsAdmin.config do |config|
 
     edit do
       include_all_fields
-      exclude_fields :slug, :user
+      exclude_fields :slug, :user, :base_tags, :tags
 
       field :description, :ck_editor
 
