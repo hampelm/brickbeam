@@ -122,6 +122,7 @@ RailsAdmin.config do |config|
   config.model Topic do
     edit do
       include_all_fields
+      exclude_fields :base_tags, :tags
 
       fields_of_type :tag_list do
         partial 'tag_list_with_autocomplete'
