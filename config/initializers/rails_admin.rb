@@ -125,6 +125,9 @@ RailsAdmin.config do |config|
 
       fields_of_type :tag_list do
         partial 'tag_list_with_autocomplete'
+
+        # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
+        ratl_max_suggestions -1
       end
     end
   end
