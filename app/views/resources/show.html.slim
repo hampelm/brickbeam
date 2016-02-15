@@ -10,7 +10,7 @@
       .row
         .col-md-4.col-md-push-8
           .resource-details
-            = render partial: '/tags/tag_list', :locals => { :tags => @resource.tag_list }
+            = render partial: '/tags/tag_list', :locals => { :tags => @resource.tags }
 
         .col-md-8.col-md-pull-4
           - if @resource.photo?

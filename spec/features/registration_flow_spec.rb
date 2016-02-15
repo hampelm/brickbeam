@@ -23,6 +23,7 @@ RSpec.feature 'Registration flow', type: :feature do
     click_button 'Sign up'
 
     click_link 'Logout'
+
     expect(page).to have_content 'Log in'
 
     click_link 'Log in'
