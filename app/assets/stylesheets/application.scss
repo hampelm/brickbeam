@@ -26,11 +26,11 @@ $teal: #008c74;
 $teal-dark: darken($teal, 30%);
 $blue: #004c66;
 $purple: #332b40;
+$pink: #e13452;
 $yellow: #f4e138;
 $yellow-tark: darken($yellow, 40%);
 
 $warning: #f2d03b;
-$pink: #f2d03b;
 $green: #8cb202;
 $green-dark: darken($green, 45%);
 
@@ -158,6 +158,20 @@ label {
   background: darken($green, 10%);
   border-color: darken($green, 10%);
   color: #fff;
+}
+
+.btn-destroy:active,
+.btn-destroy:hover {
+  background: $pink;
+  border-color: $pink;
+  color: #fff;
+}
+
+.btn-mini {
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 3px 4px;
+  border-color: #666;
 }
 
 
