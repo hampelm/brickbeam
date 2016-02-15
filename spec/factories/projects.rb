@@ -14,5 +14,7 @@
 
 FactoryGirl.define do
   factory :project do
+    description { FFaker::Lorem.paragraph }
+    site
   end
 end

@@ -11,3 +11,7 @@
   h4.project-details <strong>Recorded</strong>: #{project.updated_at.to_s(:since)}
 
   = render partial: '/tags/tag_list', :locals => { :tags => project.tags }
+
+  - if @site.user == current_user
+    div
+      = link_to('Delete this project', site_project_path(@site, project), method: :delete, data: { confirm: "Are you sure you want to delete this project?" }, class: 'btn btn-destroy btn-mini')

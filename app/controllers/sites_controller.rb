@@ -65,7 +65,7 @@ class SitesController < ApplicationController
     @site = Site.friendly.find(params[:id])
 
     unless user_owns_site?
-      flash[:error] = "You do not have permissin to update this resource"
+      flash[:error] = "You do not have permission to update this resource"
       redirect_to @site
       return
     end
@@ -73,11 +73,24 @@ class SitesController < ApplicationController
     render 'edit'
   end
 
+  def destroy
+    @site = Site.friendly.find(params[:id])
+
+    unless user_owns_site?
+      flash[:error] = "You do not have permission to update this resource"
+      redirect_to @site
+      return
+    end
+
+    @site.destroy
+    redirect_to sites_path
+  end
+
   def update
     @site = Site.friendly.find(params[:id])
 
     unless user_owns_site?
-      flash[:error] = "You do not have permissin to update this resource"
+      flash[:error] = "You do not have permission to update this resource"
       redirect_to @site
       return
     end
