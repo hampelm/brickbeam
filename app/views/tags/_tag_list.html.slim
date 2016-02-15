@@ -1,5 +1,5 @@
 .tag-list
-  - tags.each do |tag|
+  - tags.sort_by { |obj| obj.name.downcase }.each do |tag|
     - if defined? tag.name
       =link_to tag.name, tag_path(tag.name), class: "tag"
     - else

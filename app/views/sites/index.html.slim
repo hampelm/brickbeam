@@ -37,6 +37,11 @@
               a 3,001-5,000
               a >5,000
 
+        .dropdown
+          button.btn.dropdown-toggle[data-toggle="dropdown"] Project type <span class="caret"></span>
+          ul#projectTypeDropdown.dropdown-menu
+            li
+              a Any
 
   .row.sites-list
     = render partial: 'list_item', collection: @sites, as: :site

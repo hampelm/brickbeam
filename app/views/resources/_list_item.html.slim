@@ -5,7 +5,7 @@
       - if resource.byline?
         p.byline #{resource.byline}
 
-      = render partial: '/tags/tag_list', :locals => { :tags => resource.tag_list }
+      = render partial: '/tags/tag_list', :locals => { :tags => resource.tags }
 
     - if resource.photo?
       <div class="polaroid-photo" style="background-image: url(#{resource.photo.url(:large)})"></div>

@@ -29,6 +29,12 @@ class SitesController < ApplicationController
   def index
     @sites = Site.where(hidden: [false, nil])
                  .order('updated_at desc')
+
+    @site_json = @sites.to_json({:include => {
+        :projects => {
+          :include => :tags
+        }
+    }})
   end
 
   def show
