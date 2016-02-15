@@ -1,5 +1,6 @@
 javascript:
   $(function() {
+    var i, j, k, circle, pin;
 
     // Set up the pin icon
     var pinIcon = L.icon({
@@ -26,13 +27,45 @@ javascript:
         fillOpacity: 0.6    // Fill opacity
     };
 
+    // Pull unique tags from the list of sites
+    // A bit hokey because the data structure isn't ideal
+    function getSiteTags(sites) {
+      for (i = 0; i < sites.length; i++) {
+        var tags = [];
+        for (j = 0; j < sites[i].projects.length; j++) {
+          for (k = 0; k < sites[i].projects[j].tags.length; k++) {
+            var tag = sites[i].projects[j].tags[k].name;
+            // Skip duplicate tags
+            if (tags.indexOf(name) === -1) {
+              tags.push(tag);
+            }
+          }
+        }
+        sites[i].tags = tags;
+      }
+    }
 
-    // Define the markers
-    var sites = #{{@sites.to_json}};
+    function uniqueTags(sites) {
+      var tags = [];
+      _.each(sites, function(site) {
+        tags = tags.concat(site.tags);
+      });
+      return _.chain(tags).uniq().sort().value();
+    }
+
+    // Get the markers and tags
+    var sites = #{{ @site_json }};
+
+    // Set up the tag filter
+    getSiteTags(sites);
+    var tags = uniqueTags(sites);
+    _.each(tags, function(tag) {
+      $('#projectTypeDropdown li').append('<a>' + tag  + '</a>');
+    });
+
+    // Add the markers to the map
     var markers = new L.LayerGroup();
     markers.addTo(map);
-    var i, circle, pin;
-
 
     function addSites(filter) {
       // Clean out any existing markers
@@ -43,14 +76,23 @@ javascript:
         var site = sites[i];
         if (!site.lat) continue; // skip sites without a location
 
-        // Filter out sites
+        // If a filter is active, apply it to filter out
+        // any unwanted sites.
         if (filter) {
           var skip = false;
           _.each(filter, function(value, key) {
             if (site[key] !== value) {
               skip = true;
             }
+
+            // Special case for tag filters
+            if (key === 'tag') {
+              if (site.tags.indexOf(value) !== -1) {
+                skip = false;
+              }
+            }
           });
+
           if (skip) {
             continue;
           }
@@ -107,6 +149,18 @@ javascript:
       }
       addSites({
         building_size: filter
+      });
+    });
+
+    $('#projectTypeDropdown a').click(function() {
+      $target = $(event.target);
+      var filter = $target.html();
+      if (filter === 'Any') {
+        addSites();
+        return;
+      }
+      addSites({
+        tag: filter
       });
     });
 
