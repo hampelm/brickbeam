@@ -23,6 +23,10 @@
     }
   }
 
+  .delete-prompt {
+    padding: 41px;
+  }
+
   form {
     label {
       margin-top: 1em;
@@ -157,6 +161,7 @@
   .site-details {
     padding-top: 40px;
 
+    .btn-destroy,
     .btn-edit {
       margin-bottom: 10px;
     }

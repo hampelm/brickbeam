@@ -24,5 +24,24 @@
 
 FactoryGirl.define do
   factory :site do
+    title { FFaker::Lorem.phrase }
+    description { FFaker::Lorem.paragraph }
+    user
+    building_size '1,501-2,000'
+    building_type 'Commercial'
+
+    trait :residential do
+      building_type 'House'
+    end
+
+    trait :religious do
+      building_type 'Religious'
+    end
+
+    factory :site_with_project do
+      after(:create) do |site, evaluator|
+        create(:project, site: site)
+      end
+    end
   end
 end

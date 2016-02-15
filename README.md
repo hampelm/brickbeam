@@ -39,6 +39,12 @@ platform equivalents, but you'll need to find the correct install process. They 
 To add model descriptions to relevant files, run the command `annotate` from the
 project root.
 
+### To run a specific test:
+
+```
+rspec spec/features/my_spec.rb
+```
+
 ### To generate the daily email digest:
 
 ```
