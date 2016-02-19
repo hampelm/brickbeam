@@ -52,8 +52,10 @@
 javascript:
   $(function() {
     L.mapbox.accessToken = 'pk.eyJ1IjoibWF0dGgiLCJhIjoicGFzV1ZkWSJ9.KeK3hKmM52XpUEHHx_F8NQ';
-    var map = L.mapbox.map('site-map', 'mapbox.streets')
-      .setView([#{@site.lat}, #{@site.lng}], 13) // detroit
+    var map = L.mapbox.map('site-map')
+      .setView([#{@site.lat}, #{@site.lng}], 13)
+    L.mapbox.styleLayer('mapbox://styles/matth/cijg1tef5000a92kfbti9hsfk').addTo(map);
+
     map.scrollWheelZoom.disable();
 
     var circle_options = {
