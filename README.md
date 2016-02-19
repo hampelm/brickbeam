@@ -1,10 +1,8 @@
-== README
+# Brick + Beam Detroit
 
 This is the rails app that powers Brick + Beam Detroit.
 
-[![Dependency Status](https://gemnasium.com/hampelm/brickbeam.svg)](https://gemnasium.com/hampelm/brickbeam)
-
-[![Code Climate](https://codeclimate.com/github/hampelm/brickbeam/badges/gpa.svg)](https://codeclimate.com/github/hampelm/brickbeam)
+[![Build Status](https://travis-ci.org/hampelm/brickbeam.svg?branch=master)](https://travis-ci.org/hampelm/brickbeam) [![Code Climate](https://codeclimate.com/github/hampelm/brickbeam/badges/gpa.svg)](https://codeclimate.com/github/hampelm/brickbeam) [![Dependency Status](https://gemnasium.com/hampelm/brickbeam.svg)](https://gemnasium.com/hampelm/brickbeam)
 
 # Development
 
