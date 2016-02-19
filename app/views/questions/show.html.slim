@@ -54,6 +54,13 @@
 
     = render partial: '/tags/tag_list', :locals => { :tags => @question.tags }
 
+    - if @related.exists?
+       .related-questions
+          h3 Related questions
+          - @related.each do |q|
+            = render partial: 'simple_list_item', :locals => { :question => q }
+
+
 = content_for :title do
   | #{@question.title}
 
