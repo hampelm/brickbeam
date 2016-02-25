@@ -94,6 +94,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # Don't log all activerecord queries
+  config.active_record.logger = nil
+
   config.admin_email = 'brickandbeamdetroit@gmail.com'
 
   config.paperclip_defaults = {
