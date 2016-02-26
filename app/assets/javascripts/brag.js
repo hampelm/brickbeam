@@ -221,18 +221,15 @@ $(function() {
   });
 
   $('#new_site').submit(function(e) {
-    console.log("Form submitted");
-    e.preventDefault();
     var lat = $(this.elements['site[lat]']).val();
     var lng = $(this.elements['site[lng]']).val();
 
     if (!lat || !lng) {
       $('.add-an-address-warning').fadeIn();
+      return false
     } else {
       $('.add-an-address-warning').fadeOut();
-      form.submit();
     }
   });
-
 
 });
