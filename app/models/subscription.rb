@@ -16,8 +16,7 @@ class Subscription < ActiveRecord::Base
     def self.new_subscription_for(user, question)
       # Don't create a subscription twice.
       subscription = Subscription.find_by question: question, user: user
-      logger.debug "-----subscription----"
-      logger.debug subscription
+
       if !subscription
         subscription = self.create(question: question, user: user)
       end
