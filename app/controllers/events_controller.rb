@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   layout "events"
 
   def index
-    @events = Event.where('end_date >= ?', Time.now).order('end_date DESC')
+    @events = Event.where('end_date >= ?', Time.now).order('end_date ASC')
     @past_events = Event.where('end_date < ?', Time.now).order('end_date DESC')
   end
 
