@@ -33,7 +33,13 @@ class Site < ActiveRecord::Base
 
   belongs_to :user
 
-  has_attached_file :photo, styles: { large: "1000x1000>", thumb: "100x100>" }
+  has_attached_file :photo,
+    source_file_options: { all:     '-auto-orient' },
+    styles: {
+      original: "",
+      large: "1000x1000>",
+      thumb: "100x100>"
+    }
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
   def generated_slug

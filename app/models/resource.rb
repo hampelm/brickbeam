@@ -23,7 +23,9 @@ class Resource < ActiveRecord::Base
   has_many :attachments
 
   has_attached_file :photo,
+    source_file_options: { all:     '-auto-orient' },
     styles: {
+      original: "",
       large: "1000x1000>",
       thumb: "500x500#"
     },
