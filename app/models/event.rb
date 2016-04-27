@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
 
   belongs_to:user
 
-  default_scope { order('end_date DESC') }
+  # default_scope { order('end_date DESC') }
 
   has_attached_file :photo,
     source_file_options: { all:     '-auto-orient' },
