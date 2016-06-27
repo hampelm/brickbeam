@@ -16,6 +16,8 @@ class Comment < ActiveRecord::Base
 
   validates :body, presence: true
 
+  default_scope { order('created_at ASC') }
+
   belongs_to :question
   belongs_to :user
 end
