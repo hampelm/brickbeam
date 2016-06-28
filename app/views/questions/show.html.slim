@@ -41,6 +41,11 @@
             div.form-group
               == f.submit "Add your reply", class: 'btn btn-primary'
 
+            div.form-group
+              a[href="/pages/guidelines"]
+                |  Brick + Beam Community Guidelines
+
+
         - else
           h3.sign-in #{link_to('Log in', new_user_session_path)}  or #{link_to('sign up', new_user_registration_path)}  to Brick + Beam to reply
 
