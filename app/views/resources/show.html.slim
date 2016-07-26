@@ -14,7 +14,7 @@
 
         .col-md-8.col-md-pull-4
           - if @resource.photo?
-            =image_tag @resource.photo.url, width: "100%", alt: "", class: "resource-image"
+            =image_tag @resource.photo.url(:large), width: "100%", alt: "", class: "resource-image"
             p.photo-credit =@resource.photo_credit
 
           == @resource.text.html_safe
