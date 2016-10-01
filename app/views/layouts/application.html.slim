@@ -1,6 +1,7 @@
 doctype html
 html prefix="og: http://ogp.me/ns#"
   head
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     - if content_for?(:title)
       title
         = yield(:title)
@@ -10,6 +11,7 @@ html prefix="og: http://ogp.me/ns#"
       title
         | Brick + Beam Detroit
       meta property="og:title" content="Brick + Beam Detroit"
+
 
     - if content_for?(:og)
       = yield(:og)
