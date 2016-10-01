@@ -6,8 +6,8 @@ This is the rails app that powers Brick + Beam Detroit.
 
 # Development
 
-You may need to be using the proper version of Ruby (currently, 2.2.3). We
-suggest using chruby to mangage versions. To switch to the correct version using chruby, run this command: `chruby 2.2.3`
+You may need to be using the proper version of Ruby (currently, 2.3.1). We
+suggest using rvm to mangage versions. To switch to the correct version using rvm, run this command: `rvm use 2.3.1`
 
 Start the app with `rails s`
 
