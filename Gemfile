@@ -35,6 +35,7 @@ gem 'rails_admin', :github => 'sferik/rails_admin', :ref => 'c860b2f'
 
 gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
 gem 'redcarpet' # markdown parser
+gem "skylight" # monitoring
 gem 'slim'
 
 # Use jquery as the JavaScript library
