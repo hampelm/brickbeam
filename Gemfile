@@ -21,6 +21,7 @@ gem 'aws-sdk', '<2.0'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap_form'
 gem 'ckeditor', '~> 4.1.4'
+gem 'coveralls', require: false
 gem 'devise', '~> 3.5.2'
 gem 'font-awesome-rails'
 gem 'friendly_id', '~> 5.1'
