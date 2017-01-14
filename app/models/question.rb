@@ -24,6 +24,8 @@ class Question < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
   belongs_to :user
 
+  validates :title, :presence => true
+
   def generated_slug
     title
   end
