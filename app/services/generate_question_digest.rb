@@ -10,7 +10,7 @@ class GenerateQuestionDigest
   private
 
   def build
-    self.questions = Question.where('updated_at > ?', 1.day.ago).order(updated_at: :desc)
+    self.questions = Question.where('created_at > ?', 1.day.ago).order(updated_at: :desc)
   end
 
   def send
