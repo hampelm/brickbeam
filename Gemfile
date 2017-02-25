@@ -3,34 +3,34 @@ ruby '2.3.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.6'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts-as-taggable-on'
 gem 'annotate'
 gem 'aws-sdk', '<2.0'
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass'
 gem 'bootstrap_form'
-gem 'ckeditor', '~> 4.1.4'
+gem 'ckeditor'
 gem 'coveralls', require: false
-gem 'devise', '~> 3.5.2'
+gem 'devise'
 gem 'font-awesome-rails'
-gem 'friendly_id', '~> 5.1'
+gem 'friendly_id'
 gem 'omniauth-facebook'
 gem 'paperclip', '~>4.3' # attachment
 gem "image_optim_bin", group: :production # Must be before paperclip-optimizer
 gem 'paperclip-optimizer'
-gem 'pg', '~>0.18'
-gem 'pundit', '~> 1.0.1' # authorization
+gem 'pg'
+gem 'pundit' # authorization
 # gem 'rails_admin', '~> 0.8.0'
 gem 'rails_admin', :github => 'sferik/rails_admin', :ref => 'c860b2f'
 
@@ -48,10 +48,10 @@ gem 'rails-jquery-autocomplete'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', group: :doc
 
 # Use ActiveModel has_secure_password
 # (We use devise, which uses bcrypt)
