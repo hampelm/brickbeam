@@ -13,6 +13,7 @@ Start the app with `rails s`
 
 Watch for sass changes and recompile, and run code linters with `guard` in a new tab.
 
+
 ## Setup
 
 The first time you run this app, you'll need to do a little bit of setup.
@@ -31,6 +32,11 @@ platform equivalents, but you'll need to find the correct install process. They 
 2. Run the specs with `rake`
 3. Update the database with `rake db:migrate` if needed
 4. Run the server with `rails s`
+
+## Staging
+
+To protect a staging server, set the environment variable `IS_STAGING` to true
+to require the user to be an admin to use the site.
 
 ## General development notes
 

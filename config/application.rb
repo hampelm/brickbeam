@@ -27,8 +27,14 @@ module Brickbeam
     # Prevent image_optim conflicts
     config.assets.image_optim = false
 
+    config.is_staging = ENV['IS_STAGING'] || false
+
     config.generators do |g|
       g.fixture_replacement :factory_girl
+    end
+
+    config.to_prepare do
+      Devise::SessionsController.skip_before_filter :must_be_admin!
     end
   end
 end
