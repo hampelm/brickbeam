@@ -1,0 +1,49 @@
+
+.business-card { 
+  text-align: center;
+  background: #eee;
+  overflow: auto;
+  margin-bottom: 20px;
+
+  .business-card-details {
+    border: 1px solid #fff;
+    margin: 5px; 
+    padding: 15px 10px 10px 10px;
+
+    h2 {
+      font-size: $size-lg;
+      font-weight: 500;
+      font-family: $serif;
+    }
+
+    .tag-list {
+      a.tag {
+        background: transparent;
+        color: $body;
+      }
+    }
+
+
+  }
+}
+
+
+// TODO:
+/*
+.list
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+ 
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+    .list__item
+    {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+*/

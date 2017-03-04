@@ -19,27 +19,54 @@
 
 class ContractorsController < ApplicationController
   layout "contractors"
+  before_action :authenticate_user!, :except => [:index, :show]
+
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag' 
 
   def index
-    @contractors = Contractor.order('updated_at DESC').all
-    @topics = Topic.all
+    @contractors = Contractor.approved
+    @tags = @contractors.tags_on(:tags)
 
-    @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
+
+    # @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
   end
 
   def show
     @contractor = Contractor.friendly.find(params[:id])
     @topics = Topic.all()
-    @related = Contractor.tagged_with(@contractor.tags, :any => true).limit(6)
+    @related_contractors = Contractor.tagged_with(@contractor.tags, :any => true).limit(4)
     @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
 
     @related_by_tag = Hash.new []
-    @related.each do |related|
+    @related_contractors.each do |related|
       related.tags.each do |tag|
         @related_by_tag[tag] += [related]
       end
     end
-
   end
+
+  def new
+    @contractor = Contractor.new
+    @tags = ActsAsTaggableOn::Tag.all
+    @tags_sorted = @tags.sort_by { |obj| obj.name.downcase }
+  end
+
+  def create
+    @contractor = Contractor.new(contractor_params)
+    # @contractor.user = current_user
+
+    if @contractor.save
+      redirect_to @contractor
+    else
+      render 'new'
+    end
+  end
+
+  private
+    def contractor_params
+      params.require(:contractor).permit(:name, :business_name, :description, 
+        :tag_list, :phone, :website, :email, :city)
+    end
+
 
 end

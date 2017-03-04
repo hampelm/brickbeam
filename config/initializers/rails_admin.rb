@@ -139,6 +139,8 @@ RailsAdmin.config do |config|
       sort_by :updated_at
       field :name
       field :business_name
+      field :blurb
+      field :approved
       field :updated_at
     end
 

@@ -1,0 +1,49 @@
+.row
+  .col-sm-3
+    p Welcome to the Brick + Beam Contractor List 
+    .ask-a-question #{link_to('Suggest a contractor', new_contractor_path, class: 'btn')}
+    / =image_tag('wrenchboard-2.png', width: '80%', class: 'decoration hidden-xs')
+
+
+  .col-sm-6
+    .contractor
+      .index-card
+        h2.article-title =@contractor.title
+        = render partial: '/tags/tag_list', :locals => { :tags => @contractor.tags }
+
+
+        - unless @contractor.city.blank? 
+          .field
+            .name  City
+            .value =@contractor.city
+
+        - unless @contractor.phone.blank? 
+          .field
+            .name  Phone
+            .value =@contractor.phone
+
+        - unless @contractor.website.blank? 
+          .field
+            .name  
+              a href=@contractor.website Website
+
+        - unless @contractor.phone.blank? 
+          .field
+            .name  Email
+            .value = mail_to @contractor.email
+
+        = @contractor.description
+
+
+  .col-sm-3
+    - if @related_contractors.exists?
+       .related-questions
+          h3 Contractors with similar specialties
+          - @related_contractors.each do |c|
+            =render 'shared/business_card', :model => c
+
+
+
+
+= content_for :title do
+  | Contractors

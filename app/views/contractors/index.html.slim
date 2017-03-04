@@ -1,13 +1,21 @@
 .row
-  .col-sm-3.col-sm-push-9
-    = render partial: '/shared/tag_sidebar', :locals => { :tags => @tags, :topics => @topics }
+  .col-sm-3
+    p Welcome to the Brick + Beam Contractor List 
+    .ask-a-question #{link_to('Suggest a contractor', new_contractor_path, class: 'btn')}
+    =image_tag('wrenchboard-2.png', width: '80%', class: 'decoration hidden-xs')
 
-  .col-sm-9.col-sm-pull-3
+
+  .col-sm-9
+    .row
+      .col-md-12
+        h2.article-title Contractor Listings
+        .tags.tag-filter
+          - for tag in @tags
+            a.tag data-tag=tag.id =tag.name
     .row
       - for contractor in @contractors
         .col-md-4.col-sm-6
-          .contractor
-            =render 'shared/business_card', :model => contractor
+          =render 'shared/business_card', :model => contractor
 
 = content_for :title do
   | Contractors

@@ -48,5 +48,27 @@ RSpec.describe Contractor, type: :model do
     @contractor.save
     assert_equal 'wocky-flock', @contractor.slug
   end
-  
+
+  it 'should validate one name or another' do
+    contractor = Contractor.new
+    contractor.valid? 
+    contractor.errors[:base].should include("add a name") 
+
+    contractor.name = 'Jones'
+    contractor.valid? 
+    question.errors[:title].should_not include("can't be blank") 
+
+    contractor.name = nil
+    contractor.valid? 
+    contractor.errors[:base].should include("add a name") 
+
+    contractor.business_name = 'Company name'
+    contractor.valid? 
+    contractor.errors[:base].should_not include("add a name") 
+
+
+    contractor.business_name = 'Company name'
+    contractor.name = 'Jones'
+    contractor.valid? 
+    contractor.errors[:base].should_not include("add a name") 
 end

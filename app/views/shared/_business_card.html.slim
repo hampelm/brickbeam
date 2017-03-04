@@ -1,5 +1,6 @@
-.business-card
+.business-card data-tags=model.tag_classes
   .business-card-details
     h2 #{link_to(model.title, polymorphic_path(model))}
 
     = render partial: '/tags/tag_list', :locals => { :tags => model.tags }
+

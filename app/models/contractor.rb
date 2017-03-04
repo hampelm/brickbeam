@@ -22,10 +22,28 @@ class Contractor < ActiveRecord::Base
   friendly_id :slug_candidates, :use => :slugged
 
   acts_as_taggable
+  validate :has_a_name
+
+  default_scope { order updated_at: :desc }
+  scope :approved, -> { where(approved: true) }
+
+  def tag_classes
+    self.tags.map { |tag| tag.id }.join('tag-')
+  end
 
   def title 
-    self.business_name || self.name
+    if self.business_name? 
+      self.business_name
+    else
+      self.name
+    end
   end
+
+  def has_a_name
+    unless [name?, business_name?].include?(true)
+      errors.add :base, 'Please add a name or business name'
+    end
+  end 
 
   def slug_candidates
     [

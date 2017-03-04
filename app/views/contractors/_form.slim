@@ -1,0 +1,52 @@
+= form_for @contractor do |f|
+  .form-group
+    == f.label :business_name, "Contractor's business name (if they have one)"
+    == f.text_field :business_name, class: 'form-control'
+
+  .form-group
+    == f.label :name, "Contractor's name"
+    == f.text_field :name, class: 'form-control'
+
+
+  h3 What fields do they specialize in? 
+  .form-group
+    = render partial: '/tags/tag_form_fields', :locals => { :tags => @tags_sorted, :f => f }
+    p.tag-prompt Don't see the tag you're looking for? Ask your question, then <a href="mailto:brickandbeamdetroit@gmail.com">drop us an email with details</a>.
+
+  
+  h3 How can people get in touch with the contractor? 
+  p Please supply at least one contact method -- the more the better! These will
+    | posted publicly on Brick + Beam's contractor list. 
+
+  .form-group
+    == f.label :phone, "Phone number"
+    == f.text_field :phone, class: 'form-control'
+
+  .form-group
+    == f.label :phone, "Email address"
+    == f.text_field :phone, class: 'form-control'
+
+  .form-group
+    == f.label :phone, "Website"
+    == f.text_field :phone, class: 'form-control'
+
+  .form-group
+    == f.label :city, "Where are they based? (eg 'Detroit' or 'Warren')"
+    == f.text_field :city, class: 'form-control'
+
+
+  .form-group
+    == f.label :description, "Tell us more about the contractor"
+    p Optional: Tell us more about this contractor. What kind of work do they 
+      | do? What do they specialize in? What should someone know before calling
+      | them? 
+    == f.text_area :description, class: 'form-control', rows: 10
+
+
+  .form-group
+    == f.submit "Submit your recommendation", class: 'btn btn-primary'
+
+  div.form-group
+    a[href="/pages/guidelines"]
+      |  Brick + Beam Community Guidelines
+  .form-group
