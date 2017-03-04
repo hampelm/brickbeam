@@ -1,7 +1,7 @@
 div class=(local_assigns.fetch :container_class, 'col-md-4 col-sm-6')
   .site.polaroid
     - if site.photo.exists?
-      .site-photo.polaroid-photo style="background-image: url(#{site.photo.url})"
+      .site-photo.polaroid-photo style="background-image: url(#{site.photo.url(:medium)})"
         .polaroid-frame
     - else
       .site-photo.polaroid-photo.missing style="background-image: url(#{asset_url(random_image())})"
