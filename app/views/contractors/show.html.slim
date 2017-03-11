@@ -1,0 +1,56 @@
+.row
+  .col-sm-3
+    a.ask-a-question[href="/contrators"]                 
+      i Back to all contractors
+
+    / XXX TODO!
+    br
+    br
+
+    p Welcome to the Brick + Beam Contractor List! We provide this list as a public service, and we don't review or endorse any contractors. See our guide on picking a contractor for tips! 
+
+    .ask-a-question #{link_to('Suggest a contractor', new_contractor_path, class: 'btn')}
+    / =image_tag('wrenchboard-2.png', width: '80%', class: 'decoration hidden-xs')
+
+
+  .col-sm-6
+    .contractor
+      .index-card
+        .index-card-details
+          h2.article-title =@contractor.title
+
+          .city
+            =@contractor.city
+
+          = render partial: '/tags/unlinked_tag_list', :locals => { :tags => @contractor.tags }
+
+          - unless @contractor.phone.blank? 
+            .field
+              /.name  Phone
+              .value =@contractor.phone
+
+          - unless @contractor.website.blank? 
+            .field
+              .name  
+                a href=@contractor.website Website
+
+          - unless @contractor.phone.blank? 
+            .field
+              /.name  Email
+              .value = mail_to @contractor.email
+
+      = simple_format(@contractor.description)
+
+
+  .col-sm-3
+    - if @related_contractors.exists?
+       .related-contractors
+          h3 Contractors with similar specialties
+          - @related_contractors.each do |c|
+            =render 'shared/business_card', :model => c
+
+
+
+
+= content_for :title do
+  | Contractors

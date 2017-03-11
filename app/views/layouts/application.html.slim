@@ -52,6 +52,10 @@ html prefix="og: http://ogp.me/ns#"
           li.forum
             a[href="/questions"]
               | Q&A Forum
+          - if show_dev_features?
+            li.contractors
+              a[href="/contractors"]
+                | Contractors
           li.brag
             a[href="/sites"]
               | Brag your Rehab
@@ -98,7 +102,7 @@ html prefix="og: http://ogp.me/ns#"
                 | About Brick + Beam
               |  -
               a[href="/pages/privacy"]
-                | Privacy Policy
+                |  Privacy Policy
               |  -
               a[href="/pages/guidelines"]
                 |  Community Guidelines

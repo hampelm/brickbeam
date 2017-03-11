@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215194110) do
+ActiveRecord::Schema.define(version: 20170311153735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,23 @@ ActiveRecord::Schema.define(version: 20160215194110) do
 
   add_index "comments", ["question_id"], name: "index_comments_on_question_id", using: :btree
 
+  create_table "contractors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "business_name"
+    t.string   "city"
+    t.string   "address"
+    t.string   "website"
+    t.string   "phone"
+    t.string   "email"
+    t.text     "description"
+    t.string   "slug"
+    t.boolean  "approved"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "blurb"
+    t.integer  "user_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -82,6 +99,21 @@ ActiveRecord::Schema.define(version: 20160215194110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
+  end
+
+  create_table "photo_attachments", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "question_id"
+    t.integer  "comment_id"
+    t.integer  "site_id"
+    t.string   "caption"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "projects", force: :cascade do |t|

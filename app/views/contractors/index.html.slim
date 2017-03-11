@@ -1,0 +1,26 @@
+.row
+  .col-sm-3
+    .contractor-sidebar
+      p Welcome to the Brick + Beam Contractor List! We provide this list as a public service, and we don't review or endorse any contractors. See our guide on picking a contractor for tips! 
+      .ask-a-question #{link_to('Suggest a contractor', new_contractor_path, class: 'btn')}
+      =image_tag('wrenchboard-2.png', width: '80%', class: 'decoration hidden-xs')
+
+
+  .col-sm-9
+    .row
+      .col-md-12
+        h2.article-title Contractor Listings
+        =render 'shared/flash', :flash => flash
+
+        
+        .tags.tag-filter
+          strong Filter contractors by specialty: 
+          - for tag in @tags
+            a.tag data-tag=tag.id =tag.name
+    .row
+      .contractor-list
+        - for contractor in @contractors
+          =render 'shared/business_card', :model => contractor
+
+= content_for :title do
+  | Contractors

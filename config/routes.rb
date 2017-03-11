@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # get 'welcome/index'
 
+  resources :contractors
   resources :events
   resources :pages
   resources :resources

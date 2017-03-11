@@ -9,6 +9,16 @@ class NotificationMailer < ApplicationMailer
     mail(to: @user.email, subject: 'New comment on ' + title)
   end
 
+  def new_contractor_email(user, contractor)
+    @user = user
+    @contractor = contractor
+    @contractor_admin_url = root_url + rails_admin.show_path(model_name: 'contractor', id: @contractor.id)
+    title = @contractor.title
+
+    attachments.inline['logo.png'] = File.read(Rails.root.to_s + '/app/assets/images/emails/bbd_logo2.png')
+    mail(to: @user.email, subject: 'New contratctor recommendation: ' + title)
+  end
+
   def contact_user_email(from, to, body)
     @from = from
     @user = to
