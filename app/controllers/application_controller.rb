@@ -12,11 +12,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # On the staging site, only admins can view pages. 
+  # Only admins can view pages on staging
   def only_admins_on_staging!
-    return unless Rails.configuration.is_staging
-    return if request.env['PATH_INFO'] == new_user_session_path
-    redirect_to new_user_session_path unless current_user.try(:is_admin?)
+    return unless Rails.configuration.is_staging # Only do this on staging
+    return if current_user.try(:is_admin?) # Admins can do everything
+    return if request.env['PATH_INFO'] == new_user_session_path # Let people log in
+    redirect_to new_user_session_path # Otherwise send them to the login page
   end
 
   def not_found
