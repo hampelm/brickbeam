@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
+  helper_method :show_dev_features?
+
   protected
 
   # On the staging site, only admins can view pages. 
@@ -21,7 +24,11 @@ class ApplicationController < ActionController::Base
   end
 
   def protect_dev_features!
-    return not_found unless Rails.configuration.is_staging || Rails.env.development? || Rails.env.test?
+    return not_found unless show_dev_features?
+  end
+
+  def show_dev_features?
+    (Rails.configuration.is_staging || Rails.env.development? || Rails.env.test?)
   end
 
   def configure_permitted_parameters

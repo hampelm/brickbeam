@@ -22,13 +22,14 @@
         = render partial: 'questions/list_item', collection: @questions, as: :question
 
 
-    - unless @contractors.blank?
-      .tag-related-section
-        h2.article-title Contractors
-        .row
-          - @contractors.each do |contractor|
-            .col-md-4
-              = render partial: 'shared/business_card', :locals => { :model => contractor }
+    - if show_dev_features?
+      - unless @contractors.blank?
+        .tag-related-section
+          h2.article-title Contractors
+          .row
+            - @contractors.each do |contractor|
+              .col-md-4
+                = render partial: 'shared/business_card', :locals => { :model => contractor }
 
 
     h2.article-title Resources
