@@ -20,15 +20,13 @@
 class ContractorsController < ApplicationController
   layout "contractors"
   before_action :authenticate_user!, :except => [:index, :show]
+  before_action :protect_dev_features!
 
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag' 
 
   def index
     @contractors = Contractor.approved
     @tags = @contractors.tags_on(:tags)
-
-
-    # @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
   end
 
   def show
@@ -53,10 +51,13 @@ class ContractorsController < ApplicationController
 
   def create
     @contractor = Contractor.new(contractor_params)
-    # @contractor.user = current_user
+    @contractor.user = current_user
+    @contractor.save
 
     if @contractor.save
-      redirect_to @contractor
+      email_admins(@contractor)
+      flash[:notice]  = "Thanks for your recommendation! We review submissions regularly. Yours will appear here once approved."
+      redirect_to action: 'index'
     else
       render 'new'
     end
@@ -68,5 +69,15 @@ class ContractorsController < ApplicationController
         :tag_list, :phone, :website, :email, :city)
     end
 
+    def email_admins(contractor)
+      admins = User.where(:is_admin => true)
+
+      admins.each do |admin|
+        # Don't email users about their own comments.
+        if contractor.user != admin
+          NotificationMailer.new_contractor_email(admin, contractor).deliver_later
+        end
+      end
+    end
 
 end

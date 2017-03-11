@@ -52,23 +52,25 @@ RSpec.describe Contractor, type: :model do
   it 'should validate one name or another' do
     contractor = Contractor.new
     contractor.valid? 
-    contractor.errors[:base].should include("add a name") 
+    contractor.errors[:base][0].should include("add a name") 
 
     contractor.name = 'Jones'
     contractor.valid? 
-    question.errors[:title].should_not include("can't be blank") 
+    expect(contractor.errors[:title]).to be_empty
 
     contractor.name = nil
     contractor.valid? 
-    contractor.errors[:base].should include("add a name") 
+    contractor.errors[:base][0].should include("add a name") 
 
     contractor.business_name = 'Company name'
     contractor.valid? 
-    contractor.errors[:base].should_not include("add a name") 
+    expect(contractor.errors[:base]).to be_empty
 
 
     contractor.business_name = 'Company name'
     contractor.name = 'Jones'
     contractor.valid? 
-    contractor.errors[:base].should_not include("add a name") 
+    expect(contractor.errors[:base]).to be_empty
+
+  end
 end

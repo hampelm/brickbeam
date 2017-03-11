@@ -1,0 +1,4 @@
+-unless flash.empty?
+  .flash-messages
+    - flash.each do |key, value|
+      h3.flash #{value}

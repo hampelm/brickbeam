@@ -238,6 +238,13 @@ img.decoration {
   color: $body;
 }
 
+.flash-messages {
+  padding: 20px 20px 15px 20px;
+  margin-bottom: 15px;
+  color: $body;
+  background: $yellow;
+}
+
 .topbar {
   background: #fff;
   line-height: 1.2;
@@ -254,6 +261,7 @@ img.decoration {
     }
   }
 }
+
 
 header,
 footer {

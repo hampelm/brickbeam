@@ -24,6 +24,8 @@ class Contractor < ActiveRecord::Base
   acts_as_taggable
   validate :has_a_name
 
+  belongs_to :user
+
   default_scope { order updated_at: :desc }
   scope :approved, -> { where(approved: true) }
 

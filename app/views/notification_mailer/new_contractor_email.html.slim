@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+
+    css:
+      body, h1, h2, p {
+        font-family: Helvetica Neue, Helvetica, sans-serif;
+        color: #333;
+      }
+
+  body
+
+    center
+      = image_tag attachments['logo.png'].url, alt: 'Brick + Beam Detroit', width: '100%', style: 'max-width: 300px;'
+
+    h1 New contractor recomendation: #{@contractor.title}
+
+    h2 #{link_to('View recommendation', @contractor_admin_url)}
+
+
+    p
+      strong Submitted by #{@contractor.user.name}

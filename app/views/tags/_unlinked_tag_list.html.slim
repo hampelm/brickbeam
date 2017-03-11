@@ -1,0 +1,4 @@
+.tag-list
+  - tags.sort_by { |obj| obj.name.downcase }.each do |tag|
+    - if defined? tag.name
+      span.tag =tag.name

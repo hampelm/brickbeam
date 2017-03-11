@@ -2,5 +2,5 @@
   .business-card-details
     h2 #{link_to(model.title, polymorphic_path(model))}
 
-    = render partial: '/tags/tag_list', :locals => { :tags => model.tags }
+    = render partial: '/tags/unlinked_tag_list', :locals => { :tags => model.tags }
 
