@@ -19,6 +19,12 @@ $tag-background: $blue;
       background: darken($blue, 5%);
       transition: $transition ease;
     }
+
+    &.active {
+      background: $yellow;
+      color: $body;
+      transition: none;
+    }
   }
 }
 
@@ -98,3 +104,28 @@ form {
     }
   }
 }
+
+
+.related-resources {
+  h3 {
+    margin: 1em 0 0.5em;
+  }
+
+  .question {
+    margin-bottom: 2em;
+
+    h2.article-title {
+      font-size: $size-md;
+      margin-bottom: 0.25em;
+    }
+
+    p {
+      margin-bottom: 0.25em;
+    }
+
+    .tag-list {
+      margin-top: 0;
+    }
+  }
+}
+

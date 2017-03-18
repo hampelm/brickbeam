@@ -12,7 +12,6 @@
   .form-group
     = render partial: '/tags/tag_form_fields', :locals => { :tags => @tags_sorted, :f => f }
     p.tag-prompt Don't see the tag you're looking for? Ask your question, then <a href="mailto:brickandbeamdetroit@gmail.com">drop us an email with details</a>.
-
   
   h3 How can people get in touch with the contractor? 
   p Please supply at least one contact method -- the more the better! These will
@@ -41,6 +40,19 @@
       | do? What do they specialize in? What should someone know before calling
       | them? 
     == f.text_area :description, class: 'form-control', rows: 10
+
+
+  h3 Optional: Add up to three photos
+  p Upload photos that represent the contractor's work. By uploading, you
+    | certify that these are photographs that accurately represent the
+    | contractor, and that you have the authority to share these photos in this 
+    | forum.
+  .form-group
+    == f.file_field :image1, class: 'form-control'
+  .form-group
+    == f.file_field :image2, class: 'form-control'
+  .form-group
+    == f.file_field :image3, class: 'form-control'
 
 
   .form-group

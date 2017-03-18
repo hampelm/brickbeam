@@ -9,18 +9,49 @@
   .col-sm-9
     .row
       .col-md-12
-        h2.article-title Contractor Listings
         =render 'shared/flash', :flash => flash
 
-        
-        .tags.tag-filter
+        .tag-filter.tag-list
           strong Filter contractors by specialty: 
+            <a class="tag" data-tag="all">All Contractors</a>
           - for tag in @tags
             a.tag data-tag=tag.id =tag.name
     .row
       .contractor-list
         - for contractor in @contractors
           =render 'shared/business_card', :model => contractor
+
+javascript:
+  $(function() {
+    function markActive($tag) {
+      $('.tag-filter a').removeClass('active');
+      $tag.addClass('active');
+    }
+
+    function filterByTag(event) {
+      var $target = $(event.target);
+      var tag = '.tag-' + $target.attr('data-tag')
+      console.log(tag, $target);
+
+      var $matching = $(tag);
+      var $notMatching = $('.business-card:not(' + tag + ')');
+      console.log("found", $matching, $notMatching);
+
+      markActive($target);
+
+      if ($target.attr('data-tag') === 'all') {
+        $('.business-card').fadeIn();
+        return;
+      }
+
+      $notMatching.fadeOut();
+      $matching.fadeIn();
+
+    }
+
+    $('.tag-filter a').on('click', filterByTag);
+  });
+
 
 = content_for :title do
   | Contractors

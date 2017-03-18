@@ -35,6 +35,11 @@ class ContractorsController < ApplicationController
     @related_contractors = Contractor.tagged_with(@contractor.tags, :any => true).limit(4)
     @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
 
+    @resources = Resource.tagged_with(@contractor.tags, :any => true).limit(3)
+    @events = Event.tagged_with(@contractor.tags, :any => true).limit(3)
+    @questions = Question.tagged_with(@contractor.tags, :any => true).limit(3)
+    @projects = Project.tagged_with(@contractor.tags, :any => true).limit(3)
+
     @related_by_tag = Hash.new []
     @related_contractors.each do |related|
       related.tags.each do |tag|
@@ -65,8 +70,8 @@ class ContractorsController < ApplicationController
 
   private
     def contractor_params
-      params.require(:contractor).permit(:name, :business_name, :description, 
-        :tag_list, :phone, :website, :email, :city)
+      params.require(:contractor).permit(:name, :business_name, :tag_list, :description, 
+        :phone, :website, :email, :city, :image1, :image2, :image3)
     end
 
     def email_admins(contractor)
