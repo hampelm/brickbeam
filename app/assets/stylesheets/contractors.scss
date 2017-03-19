@@ -71,7 +71,8 @@
 
 
 .contractor {
-  margin-bottom: 2em;
+  margin-bottom: 5em;
+  overflow: auto;
 
   p.featured {
     font-style: italic;
@@ -79,10 +80,19 @@
     border: 3px double $green;
   }
 
+  .caption,
   .photo {
     border: 3px double #ddd;
     padding: 10px;
     margin-bottom: 10px;
+  }
+
+  .photo + .caption {
+    background-color: #f9f9f9;
+    font-style: italic;
+    margin-top: -10px;
+    padding-bottom: 0;
+    border-top: 0px none;
   }
 
 }
@@ -132,6 +142,7 @@
 }
 
 
+.index-card,
 .business-card {
   .tag-list {
     .tag {
@@ -145,7 +156,6 @@
         padding-right: 6px;
         content: '\2022'
       }
-
     }
   }
 }
@@ -244,3 +254,5 @@
     content: '\2022'
   }
 }
+
+
