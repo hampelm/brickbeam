@@ -2,22 +2,107 @@
 .contractor-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  // justify-content: space-between;
 
   .business-card {
     display: flex; // so the inner border will grow
-    flex: 1;
-    margin: 10px;
-    min-width: 270px;
+    // flex: 1;
+    //margin: 10px;
+    width: 30%;
+    margin: 1%;
 
     .business-card-details {
       flex: 1; // so the inner border will grow
     }
   }
+
+
+  @media (min-width:1150px)  { 
+    .business-card:nth-of-type(3n) {
+    //  margin-right: 0;  
+    }
+    .business-card:nth-of-type(3n+1) {
+    //  margin-left: 0; 
+    }
+  }
+
+  
+  @media (max-width:1150px)  { 
+    .business-card {
+      width: 48%;
+      margin: 1%
+    }
+    .business-card:nth-of-type(2n) {
+    // margin-right: 0;  
+    }
+    .business-card:nth-of-type(2n+1) {
+    //  margin-left: 0; 
+    }
+  }
+
+
+  @media (max-width:768px)  { 
+    .business-card {
+      width: calc(50% - 15px);
+      margin: 0 10px 10px 0px;
+    }
+    .business-card:nth-of-type(2n) {
+    //  margin-right: 10px;  
+    }
+    .business-card:nth-of-type(2n+1) {
+    //  margin-left: 10px; 
+    }
+  }
+
+  @media (max-width:480px)  { 
+    .business-card {
+      width: calc(100% - 15px);
+      margin: 0 10px 10px 10px;
+    }
+    .business-card:nth-of-type(2n) {
+    // margin-right: 10px;  
+    }
+    .business-card:nth-of-type(2n+1) {
+     // margin-left: 10px; 
+    }
+  }
+ 
+}
+
+
+.contractor {
+  margin-bottom: 5em;
+  overflow: auto;
+
+  p.featured {
+    font-style: italic;
+    padding: 10px;
+    border: 3px double $green;
+  }
+
+  .caption,
+  .photo {
+    border: 3px double #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .photo + .caption {
+    background-color: #f9f9f9;
+    font-style: italic;
+    margin-top: -10px;
+    padding-bottom: 0;
+    border-top: 0px none;
+  }
+
 }
 
 .contractor-sidebar {
   margin-bottom: 2em;
+
+  .related-tags {
+    margin-bottom: 2em;
+  }
 }
 
 .tag-filter {
@@ -50,36 +135,102 @@
       font-family: $serif;
     }
 
-    .tag-list {
-      .tag {
-        background: transparent;
-        color: $body;
-        display: inline-block;
-        padding: 0 0.5em;
+    .city {
+      padding-top: 0.5em;
+    }
+  }
+}
+
+
+.index-card,
+.business-card {
+  .tag-list {
+    .tag {
+      background: transparent;
+      color: $body;
+      display: inline-block;
+      padding-left: 0;
+
+      &:not(:last-child)::after {
+        padding-left: 6px;
+        padding-right: 6px;
+        content: '\2022'
       }
     }
   }
+}
+
+
+.business-card.featured .city {
+  color: $green;
+  font-weight: 700;
+}
+
+
+.business-card.featured {
+  $contrast-color: $body;
+  background: #eee;
+
+  color: $contrast-color;
+
+
+  a,
+  a:hover,
+  a:active,
+  a:visited,
+  .business-card-details .tag-list .tag {
+    color: $contrast-color;
+  }
+
+  a,
+  a:hover,
+  a:active,
+  a:visited {
+    border-bottom-color: $contrast-color;
+  }
+
 }
 
 .related-contractors h3 {
   margin-bottom: 0.5em;
 }
 
+
+// Index card specific styles
+.index-card {
+    //background-color: $flat-blue;
+}
+
 .index-card .index-card-details {
   font-size: $size-md;
+  font-weight: 500;
+  background-color: #eee;
+
+  color: $body-mild;
+
+  border: 3px double $flat-blue;
+
+  a,
+  a:hover,
+  a:active,
+  a:visited,
+  .index-card-details .tag-list .tag {
+  //  color: #fff;
+  }
+
+  a:hover,
+  a:active,
+  a:visited {
+   // border-bottom: 1px solid #fff;
+  }
 
   h2 {
     font-size: $size-xl;
-    margin: 0.25em 0 0.5em;
+    margin: 0.25em 0;
   }
 
   .tag-list {
     margin-bottom: 0.5em;
-
-    .tag:not(:last-child) {
-      display: inline-block;
-      padding-right: 20px;
-    }
   }
 
   .city {
@@ -105,22 +256,3 @@
 }
 
 
-// TODO:
-/*
-.list
-{
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
- 
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-    .list__item
-    {
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-    }
-*/

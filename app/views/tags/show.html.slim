@@ -31,12 +31,12 @@
               .col-md-4
                 = render partial: 'shared/business_card', :locals => { :model => contractor }
 
-
-    h2.article-title Resources
-    .row
-      - for resource in @resources
-        .col-md-4.col-sm-6
-            =render 'shared/polaroid', :model => resource
+    - unless @resources.blank?
+      h2.article-title Resources
+      .row
+        - for resource in @resources
+          .col-md-4.col-sm-6
+              =render 'shared/polaroid', :model => resource
 
   .col-sm-3.sidebar
     .in

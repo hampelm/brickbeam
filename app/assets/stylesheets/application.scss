@@ -25,11 +25,10 @@
 $teal: #008c74;
 $teal-dark: darken($teal, 30%);
 $blue: #004c66;
+$flat-blue: #3b596a;
 $purple: #332b40;
 $pink: #e13452;
 $yellow: #f4e138;
-$yellow-tark: darken($yellow, 40%);
-
 $warning: #f2d03b;
 $green: #8cb202;
 $green-dark: darken($green, 45%);
@@ -172,6 +171,11 @@ label {
   font-size: 10px;
   padding: 3px 4px;
   border-color: #666;
+}
+
+.form-group + h3  {
+  margin-top: 1em;
+  margin-bottom: 0.25em;
 }
 
 

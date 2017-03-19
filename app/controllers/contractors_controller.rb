@@ -2,20 +2,37 @@
 #
 # Table name: contractors
 #
-#  id            :integer          not null, primary key
-#  name          :string
-#  business_name :string
-#  city          :string
-#  address       :string
-#  website       :string
-#  phone         :string
-#  email         :string
-#  description   :text
-#  slug          :string
-#  approved      :boolean
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-
+#  id                  :integer          not null, primary key
+#  name                :string
+#  business_name       :string
+#  city                :string
+#  address             :string
+#  website             :string
+#  phone               :string
+#  email               :string
+#  description         :text
+#  slug                :string
+#  approved            :boolean
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  blurb               :string
+#  user_id             :integer
+#  image1_file_name    :string
+#  image1_content_type :string
+#  image1_file_size    :integer
+#  image1_updated_at   :datetime
+#  image2_file_name    :string
+#  image2_content_type :string
+#  image2_file_size    :integer
+#  image2_updated_at   :datetime
+#  image3_file_name    :string
+#  image3_content_type :string
+#  image3_file_size    :integer
+#  image3_updated_at   :datetime
+#  caption1            :text
+#  caption2            :text
+#  caption3            :text
+#
 
 class ContractorsController < ApplicationController
   layout "contractors"
@@ -34,6 +51,11 @@ class ContractorsController < ApplicationController
     @topics = Topic.all()
     @related_contractors = Contractor.tagged_with(@contractor.tags, :any => true).limit(4)
     @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
+
+    @resources = Resource.tagged_with(@contractor.tags, :any => true).limit(3)
+    @events = Event.tagged_with(@contractor.tags, :any => true).limit(3)
+    @questions = Question.tagged_with(@contractor.tags, :any => true).limit(3)
+    @projects = Project.tagged_with(@contractor.tags, :any => true).limit(3)
 
     @related_by_tag = Hash.new []
     @related_contractors.each do |related|
@@ -65,8 +87,9 @@ class ContractorsController < ApplicationController
 
   private
     def contractor_params
-      params.require(:contractor).permit(:name, :business_name, :description, 
-        :tag_list, :phone, :website, :email, :city)
+      params.require(:contractor).permit(:name, :business_name, :tag_list, :description, 
+        :phone, :website, :email, :city, :image1, :image2, :image3,
+        :caption1, :caption2, :caption3)
     end
 
     def email_admins(contractor)
