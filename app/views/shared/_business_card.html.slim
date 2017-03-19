@@ -1,4 +1,4 @@
-div[class="business-card #{model.featured?} #{model.tag_classes}"] 
+div[class="business-card active #{model.featured?} #{model.tag_classes}"] 
   .business-card-details
     h2 #{link_to(model.title, polymorphic_path(model))}
 

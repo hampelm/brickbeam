@@ -29,6 +29,9 @@
 #  image3_content_type :string
 #  image3_file_size    :integer
 #  image3_updated_at   :datetime
+#  caption1            :text
+#  caption2            :text
+#  caption3            :text
 #
 
 class Contractor < ActiveRecord::Base

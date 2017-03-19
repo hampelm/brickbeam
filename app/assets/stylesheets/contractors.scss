@@ -8,7 +8,7 @@
     display: flex; // so the inner border will grow
     // flex: 1;
     //margin: 10px;
-    width: 32%;
+    width: 30%;
     margin: 1%;
 
     .business-card-details {
@@ -16,12 +16,13 @@
     }
   }
 
+
   @media (min-width:1150px)  { 
     .business-card:nth-of-type(3n) {
-      margin-right: 0;  
+    //  margin-right: 0;  
     }
     .business-card:nth-of-type(3n+1) {
-      margin-left: 0; 
+    //  margin-left: 0; 
     }
   }
 
@@ -32,10 +33,10 @@
       margin: 1%
     }
     .business-card:nth-of-type(2n) {
-      margin-right: 0;  
+    // margin-right: 0;  
     }
     .business-card:nth-of-type(2n+1) {
-      margin-left: 0; 
+    //  margin-left: 0; 
     }
   }
 
@@ -46,10 +47,10 @@
       margin: 0 10px 10px 0px;
     }
     .business-card:nth-of-type(2n) {
-      margin-right: 10px;  
+    //  margin-right: 10px;  
     }
     .business-card:nth-of-type(2n+1) {
-      margin-left: 10px; 
+    //  margin-left: 10px; 
     }
   }
 
@@ -59,12 +60,13 @@
       margin: 0 10px 10px 10px;
     }
     .business-card:nth-of-type(2n) {
-      margin-right: 10px;  
+    // margin-right: 10px;  
     }
     .business-card:nth-of-type(2n+1) {
-      margin-left: 10px; 
+     // margin-left: 10px; 
     }
   }
+ 
 }
 
 
@@ -136,7 +138,14 @@
       background: transparent;
       color: $body;
       display: inline-block;
-      padding: 0 0.5em;
+      padding-left: 0;
+
+      &:not(:last-child)::after {
+        padding-left: 6px;
+        padding-right: 6px;
+        content: '\2022'
+      }
+
     }
   }
 }

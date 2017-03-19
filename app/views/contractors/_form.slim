@@ -37,22 +37,30 @@
   .form-group
     == f.label :description, "Tell us more about the contractor"
     p Optional: Tell us more about this contractor. What kind of work do they 
-      | do? What do they specialize in? What should someone know before calling
-      | them? 
+        do? What do they specialize in? What should someone know before calling
+        them? Feel free to add links to projects or testimonials.
     == f.text_area :description, class: 'form-control', rows: 10
 
 
   h3 Optional: Add up to three photos
   p Upload photos that represent the contractor's work. By uploading, you
-    | certify that these are photographs that accurately represent the
-    | contractor, and that you have the authority to share these photos in this 
-    | forum.
+      certify that these are photographs that accurately represent the
+      contractor, and that you have the authority to share these photos in this 
+      forum.
+
+  p For each photo, please describe the work in detail: what was done? What 
+      materials and techniques were used? Why is this project important to 
+      share? (If the photos are all of the same project, one description is fine.)
+
   .form-group
     == f.file_field :image1, class: 'form-control'
+    == f.text_area :caption1, class: 'form-control', rows: 3, placeholder: 'Description'
   .form-group
     == f.file_field :image2, class: 'form-control'
+    == f.text_area :caption2, class: 'form-control', rows: 3, placeholder: 'Description'
   .form-group
     == f.file_field :image3, class: 'form-control'
+    == f.text_area :caption3, class: 'form-control', rows: 3, placeholder: 'Description'
 
 
   .form-group
