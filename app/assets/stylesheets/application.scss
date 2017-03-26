@@ -249,6 +249,17 @@ img.decoration {
   background: $yellow;
 }
 
+.errors {
+  padding: 20px 20px 10px 20px;
+  margin-bottom: 1em;
+  border: 3px double #fff;
+  background-color: $warning;
+  font-weight: 700;
+  p {
+    font-family: $sans;
+  }
+}
+
 .topbar {
   background: #fff;
   line-height: 1.2;

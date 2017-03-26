@@ -45,14 +45,16 @@ class Contractor < ActiveRecord::Base
 
   # Image uploads
   image_styles = { large: "1000x1000>", medium: "600x800>", thumb: "100x100>" }
-  image_content_type = /\Aimage\/.*\Z/
+  image_content_type = /\Aimage/
   has_attached_file :image1, styles: image_styles
-  validates_attachment_content_type :image1, content_type: image_content_type
-  has_attached_file :image2, styles: image_styles
-  validates_attachment_content_type :image2, content_type: image_content_type
-  has_attached_file :image3, styles: image_styles
-  validates_attachment_content_type :image3, content_type: image_content_type
+  validates_attachment_content_type :image1, content_type: image_content_type, message: "should be an image file"
 
+  has_attached_file :image2, styles: image_styles
+  validates_attachment_content_type :image2, content_type: image_content_type, message: "should be an image file"
+
+  has_attached_file :image3, styles: image_styles
+  validates_attachment_content_type :image3, content_type: image_content_type, message: "should be an image file"
+  after_validation :clean_paperclip_errors
 
   default_scope { order updated_at: :desc }
   scope :approved, -> { where(approved: true) }
@@ -88,5 +90,12 @@ class Contractor < ActiveRecord::Base
       [:business_name, :name]
     ]
   end
+
+  def clean_paperclip_errors
+    errors.delete(:image1_content_type)
+    errors.delete(:image2_content_type)
+    errors.delete(:image3_content_type)
+  end
+
 end
 

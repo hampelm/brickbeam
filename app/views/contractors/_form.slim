@@ -1,3 +1,8 @@
+- if @contractor.errors.any? 
+  .errors
+    - @contractor.errors.full_messages.each do |msg|
+      p =msg
+
 = form_for @contractor do |f|
   .form-group
     == f.label :business_name, "Contractor's business name (if they have one)"
@@ -30,13 +35,13 @@
     == f.text_field :website, class: 'form-control'
 
   .form-group
-    == f.label :city, "Where are they based? (eg 'Detroit' or 'Warren')"
+    == f.label :city, "In what city are they based? (eg 'Detroit' or 'Warren')"
     == f.text_field :city, class: 'form-control'
 
 
+  h3 Optional: Tell us more about the contractor
   .form-group
-    == f.label :description, "Tell us more about the contractor"
-    p Optional: Tell us more about this contractor. What kind of work do they 
+    p What kind of work do they 
         do? What do they specialize in? What should someone know before calling
         them? Feel free to add links to projects or testimonials.
     == f.text_area :description, class: 'form-control', rows: 10

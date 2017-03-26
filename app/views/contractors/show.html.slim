@@ -44,6 +44,9 @@
               - if @contractor.featured? 
                 p.featured This contractor is based in Detroit
 
+              = simple_format(@contractor.description)
+
+
               - if @contractor.image1?              
                 - if @contractor.image1?
                     .photo
@@ -68,7 +71,6 @@
 
 
 
-              = simple_format(@contractor.description)
 
 
           .col-sm-4
@@ -80,33 +82,10 @@
 
               - if @related_contractors.exists?
                 .related-contractors
-                  h3 Contractors with similar specialties:
+                  h3 Other contractors with similar specialties:
                   - @related_contractors.each do |c|
                       =render 'shared/business_card', :model => c
 
-      - if !@events.blank? || !@questions.blank? || !@resources.blank?
-        .row
-          .col-md-12
-            .related-resources 
-              h2 Want to DIY? 
-
-              - unless @events.blank?
-                h3 Events
-                .row
-                  - for event in @events
-                    .col-sm-6.past-event
-                      =render 'shared/polaroid', :model => event
-
-              - unless @questions.blank?
-                h3 Q & A
-                = render partial: 'questions/list_item', collection: @questions, as: :question
-
-              - unless @resources.blank?
-                h3 Resources
-                .row
-                  - for resource in @resources
-                    .col-md-4.col-sm-6
-                        =render 'shared/polaroid', :model => resource
 
 = content_for :title do
-  | Contractors
+  | #{@contractor.title} | Contractors
