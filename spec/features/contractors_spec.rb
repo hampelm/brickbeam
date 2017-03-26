@@ -30,8 +30,8 @@ RSpec.feature 'Creating ', type: :feature do
     fill_in "Phone number",                                     with: phone
     fill_in "Email address",                                    with: email
     fill_in "Website",                                          with: website
-    fill_in "Where are they based? (eg 'Detroit' or 'Warren')", with: city
-    fill_in "Tell us more about the contractor",                with: description
+    fill_in "In what city are they based? (eg 'Detroit' or 'Warren')", with: city
+    # fill_in "Tell us more about the contractor",                with: description
     click_button 'Submit your recommendation'
 
     # Get redirected back to the root with a flash
