@@ -78,6 +78,7 @@
     font-style: italic;
     padding: 10px;
     border: 3px double $green;
+    text-align: center;
   }
 
   .caption,
@@ -161,6 +162,7 @@
 }
 
 
+.index-card.featured .city,
 .business-card.featured .city {
   color: $green;
   font-weight: 700;

@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  activerecord: 
+    attributes: 
+      contractor:   
+        image1: "First image"
+        image2: "Second image"
+        image3: "Third image"

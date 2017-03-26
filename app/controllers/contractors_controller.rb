@@ -49,7 +49,7 @@ class ContractorsController < ApplicationController
   def show
     @contractor = Contractor.friendly.find(params[:id])
     @topics = Topic.all()
-    @related_contractors = Contractor.tagged_with(@contractor.tags, :any => true).limit(4)
+    @related_contractors = Contractor.tagged_with(@contractor.tags, :any => true).limit(6)
     @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
 
     @resources = Resource.tagged_with(@contractor.tags, :any => true).limit(3)
@@ -81,6 +81,8 @@ class ContractorsController < ApplicationController
       flash[:notice]  = "Thanks for your recommendation! We review submissions regularly. Yours will appear here once approved."
       redirect_to action: 'index'
     else
+      @tags = ActsAsTaggableOn::Tag.all
+      @tags_sorted = @tags.sort_by { |obj| obj.name.downcase }
       render 'new'
     end
   end

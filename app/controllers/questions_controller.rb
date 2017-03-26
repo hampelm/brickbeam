@@ -51,6 +51,8 @@ class QuestionsController < ApplicationController
 
       redirect_to @question
     else
+      @tags = ActsAsTaggableOn::Tag.all
+      @tags_sorted = @tags.sort_by { |obj| obj.name.downcase }
       render 'new'
     end
   end
