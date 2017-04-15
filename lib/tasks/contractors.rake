@@ -6,6 +6,7 @@ namespace :contractors do
     csv.each do |row|
       contractor = row.to_hash
       contractor.delete('fields')
+      contractor['approved'] = true
       begin
         Contractor.create!(contractor)
       rescue 
