@@ -46,6 +46,10 @@
 
               = simple_format(@contractor.description)
 
+              - if @contractor.notes? 
+                .notes 
+                  = simple_format(@contractor.notes)
+
 
               - if @contractor.image1?              
                 - if @contractor.image1?
