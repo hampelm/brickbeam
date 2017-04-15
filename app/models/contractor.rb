@@ -65,7 +65,11 @@ class Contractor < ActiveRecord::Base
   end
 
   def is_detroit
-    self.city.downcase == 'detroit'
+    if self.city
+      self.city.downcase == 'detroit'
+    else 
+      false
+    end
   end
 
   def featured?
