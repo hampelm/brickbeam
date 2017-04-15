@@ -24,6 +24,13 @@
                   .city
                     =@contractor.city
 
+
+                  .tag-list
+                    - @contractor.tags.each do |tag|
+                      <a href="/contractors##{tag.id}" class="tag">
+                        =tag.name
+                      </a>
+
                   = render partial: '/tags/unlinked_tag_list', :locals => { :tags => @contractor.tags }
 
                   - unless @contractor.phone.blank? 
