@@ -32,6 +32,7 @@
 #  caption1            :text
 #  caption2            :text
 #  caption3            :text
+#  notes               :text
 #
 
 FactoryGirl.define do

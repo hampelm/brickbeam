@@ -23,33 +23,80 @@
 
 javascript:
   $(function() {
-    function markActive($tag) {
-      $('.tag-filter a').removeClass('active');
-      $tag.addClass('active');
+    function getTagsFromUrl() {
+      var tags = window.location.hash;
+      if (!tags) { return []; }
+      if (tags[0] === '#') { tags = tags.substring(1);}
+      return tags.split(',');
     }
 
-    function filterByTag(event) {
-      var $target = $(event.target);
-      var tag = '.tag-' + $target.attr('data-tag')
-      console.log(tag, $target);
+    var activeTags = getTagsFromUrl();
+    filterContractors();
 
-      var $matching = $(tag);
-      var $notMatching = $('.business-card:not(' + tag + ')');
-      console.log("found", $matching, $notMatching);
+    function markActive(tagId) {
+      $('tag-filter-' + tagId).addClass('active');
+      $('[data-tag=' +tagId + ']').addClass('active');
+    }
 
-      markActive($target);
+    function removeHash () { 
+      history.pushState("", document.title, window.location.pathname
+                                                           + window.location.search);
+    }
 
-      if ($target.attr('data-tag') === 'all') {
+    function updateUrl() {
+      if (activeTags.length > 0) {
+        window.location.hash = activeTags.join(',');
+      } else {
+        removeHash();
+      }
+    }
+
+    function filterContractors() {
+      $('.tag-filter a').removeClass('active');
+      _.each(activeTags, markActive);
+
+      if (activeTags.length === 0) {
         $('.business-card').fadeIn();
         return;
       }
 
+      // Find contractors that match each
+      var tagClasses = '';
+
+      _.each(activeTags, function(tagId) {
+        tagClasses += '.tag-' + tagId;
+      });
+
+      var $matching = $(tagClasses);
+      var $notMatching = $('.business-card:not(' + tagClasses + ')');
+      console.log("found", $matching, $notMatching);
+
+
       $notMatching.fadeOut();
       $matching.fadeIn();
-
     }
 
-    $('.tag-filter a').on('click', filterByTag);
+
+    function onClickTag(event) {
+      event.preventDefault();
+      var $target = $(event.target);
+      var tag = $target.attr('data-tag');
+
+      if (_.includes(activeTags, tag)) {
+        activeTags = _.without(activeTags, tag);
+      } else {
+        activeTags.push(tag);
+      }
+
+      if (tag === 'all') {
+        activeTags = [];
+      }
+
+      updateUrl();
+      filterContractors();
+    }
+
+    $('.tag-filter a').on('click', onClickTag);
   });
 
 
