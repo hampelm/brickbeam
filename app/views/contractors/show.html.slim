@@ -45,7 +45,7 @@
                       .name  
                         a href=@contractor.website Website
 
-                  - unless @contractor.phone.blank? 
+                  - unless @contractor.email.blank? 
                     .field
                       /.name  Email
                       .value = mail_to @contractor.email
