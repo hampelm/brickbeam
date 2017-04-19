@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
 
   helper_method :show_dev_features?
+  helper_method :show_admin_features?
 
   protected
 
@@ -26,6 +27,10 @@ class ApplicationController < ActionController::Base
 
   def protect_dev_features!
     return not_found unless show_dev_features?
+  end
+
+  def show_admin_features?
+    current_user.try(:is_admin?)
   end
 
   def show_dev_features?

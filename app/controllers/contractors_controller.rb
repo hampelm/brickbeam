@@ -37,7 +37,7 @@
 class ContractorsController < ApplicationController
   layout "contractors"
   before_action :authenticate_user!, :except => [:index, :show]
-  before_action :protect_dev_features!
+  # before_action :protect_dev_features!
 
   autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag' 
 
