@@ -70,6 +70,13 @@
  
 }
 
+.contractors-panel {
+  .ask-a-question + a { 
+    display: inline-block;
+    margin-top: 1em;
+  }
+}
+
 
 .contractor {
   margin-bottom: 5em;
@@ -105,6 +112,7 @@
   .related-tags {
     margin-bottom: 2em;
   }
+
 }
 
 .tag-filter {
