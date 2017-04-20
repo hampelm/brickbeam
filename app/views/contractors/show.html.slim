@@ -33,8 +33,6 @@
                         =tag.name
                       </a>
 
-                  = render partial: '/tags/unlinked_tag_list', :locals => { :tags => @contractor.tags }
-
                   - unless @contractor.phone.blank? 
                     .field
                       /.name  Phone
