@@ -43,8 +43,8 @@ class ContractorsController < ApplicationController
 
   def index
     @contractors = Contractor.approved
-    @tags = @contractors.tags_on(:tags)
     @tags = @contractors.tags_on(:tags).all.sort_by { |obj| obj.name.downcase }
+    @contractors = @contractors.sort_by(&:title)
   end
 
   def show
