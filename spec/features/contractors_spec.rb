@@ -12,7 +12,7 @@ RSpec.feature 'Creating ', type: :feature do
   let(:city)        { 'Detroit' }
   let(:description) { 'Biz description' }
 
-  scenario 'A user asks a question and new comments are emailed to them' do
+  scenario 'Users can suggest a contractor' do
     visit '/contractors'
 
     # Log in
@@ -46,5 +46,33 @@ RSpec.feature 'Creating ', type: :feature do
   end
 
   pending "Check the admin link in the notification email"
-
 end
+
+RSpec.feature 'Viewing ', type: :feature do
+  let!(:user) { FactoryGirl.create :user }
+  let!(:admin) { FactoryGirl.create :admin }
+  let!(:contractor) { FactoryGirl.create :contractor }
+  let!(:contractor2) { FactoryGirl.create :contractor }
+  let!(:contractor3) { FactoryGirl.create :contractor }
+
+  
+  scenario "has a basic index page" do
+    contractors = [contractor, contractor2, contractor3]
+
+    visit '/contractors'
+
+    contractors.each do |contractor|
+      expect(page).to have_content contractor.title
+      expect(page).to have_content contractor.city
+    end
+  end
+
+  scenario "contractors show information" do
+    visit "/contractors/#{contractor.slug}"
+
+    expect(page).to have_content contractor.title
+    expect(page).to have_content contractor.phone
+    expect(page).to have_content contractor.email
+  end
+end
+
