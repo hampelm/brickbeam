@@ -50,7 +50,10 @@ class ContractorsController < ApplicationController
   def show
     @contractor = Contractor.friendly.find(params[:id])
     @topics = Topic.all()
-    @related_contractors = Contractor.tagged_with(@contractor.tags, :any => true).limit(6)
+    @related_contractors = Contractor.tagged_with(@contractor.tags, :any => true)
+      .where.not(id: @contractor.id)
+      .limit(6)
+
     @tags = ActsAsTaggableOn::Tag.all.sort_by { |obj| obj.name.downcase }
 
     @resources = Resource.tagged_with(@contractor.tags, :any => true).limit(3)
