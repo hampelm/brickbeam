@@ -68,6 +68,12 @@ body {
   background: #fff;
 }
 
+@media not print {
+  .printonly {
+    display: none;
+  }
+}
+
 h1,
 h2,
 h3 {
@@ -689,4 +695,4 @@ footer {
 @import 'sites';
 @import 'users';
 @import 'tags';
-
+@import 'print';

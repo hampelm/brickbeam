@@ -75,10 +75,12 @@ html prefix="og: http://ogp.me/ns#"
         p
           | Ask a question in our Q&A forum. Experts are standing by.
         = link_to('Ask now', new_question_path, class: 'rehab-link btn-default')
+      .printonly
+        | Ask a question in our Q&A forum at https://brickandbeamdetroit.com. Experts are standing by to help!
 
     footer
       .container
-        .row
+        .row.noprint
           .col-sm-12
             h1
               a[href="/"]
@@ -97,7 +99,7 @@ html prefix="og: http://ogp.me/ns#"
               = image_tag "logos/detroit-future city-black.png", width: "150px", alt: "Detroit Future City"
         .row
           .col-md-12
-            .footer-links
+            .footer-links.noprint
               a[href="/pages/about"]
                 | About Brick + Beam
               |  -
@@ -109,7 +111,7 @@ html prefix="og: http://ogp.me/ns#"
 
         .row
           .col-md-12
-            .footer-links.social-links
+            .footer-links.social-links.noprint
               a[href="https://www.facebook.com/brickandbeamdetroit"]
                 | Facebook
               |  -

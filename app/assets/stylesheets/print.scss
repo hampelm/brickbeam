@@ -1,0 +1,61 @@
+@media print {
+
+  a[href]:after {
+    content: none;
+  }
+
+  header {
+    margin-bottom: 10pt;
+
+    h1 a {
+      text-indent: 0;
+      text-align: center;
+      height: auto;
+      font-weight: 700;
+      font-size: 15pt;
+    }
+  }
+
+  .section-panel {
+    padding: 10pt 0;
+    margin-bottom: 10pt;
+  }
+
+  .section-panel h2.section-head {
+    letter-spacing: 1pt;
+    font-size: 20pt;
+  }
+
+  .print-wordbreak {
+    word-break: break-all;
+  }
+
+  .noprint,
+  .topbar, 
+  .nav {
+    display: none!important;
+  }
+
+  .forum-prompt-panel {
+    position: static;
+    text-align: center;
+    width: auto;
+  }
+
+  // Special formatting for the contractors page:
+  .contractors-panel {
+    .col-sm-9,
+    .col-sm-3 {
+      width: 100%;
+    }
+
+    .business-card {
+      border-bottom: 1px solid #ddd;
+
+      &.featured {
+        border: 3px solid #ddd;
+      }
+    }
+  }
+
+}

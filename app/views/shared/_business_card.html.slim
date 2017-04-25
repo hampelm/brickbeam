@@ -4,5 +4,9 @@ div[class="business-card active #{model.featured?} #{model.tag_classes}"]
 
     .city #{model.city}
 
+    .printonly #{model.phone}
+    .printonly.print-wordbreak #{model.email}
+    .printonly.print-wordbreak #{model.website}
+
     = render partial: '/tags/unlinked_tag_list', :locals => { :tags => model.tags }
 

@@ -1,16 +1,16 @@
 .row
   .col-sm-3
     a.ask-a-question[href="/contractors"]                 
-      i Back to all contractors
+      i.noprint Back to all contractors
 
-    / XXX TODO!
+    / XXX TODO: Don't use linebreaks. In 2017? Really?!
     br
     br
 
     p Welcome to the Brick + Beam Contractor List! We provide this list as a public service, and we don't review or endorse any contractors. See our guide on picking a contractor for tips! 
 
-    .ask-a-question #{link_to('Suggest a contractor', new_contractor_path, class: 'btn')}
-    a[href="/pages/guidelines"]
+    .ask-a-question.noprint #{link_to('Suggest a contractor', new_contractor_path, class: 'btn')}
+    a[href="/pages/guidelines" class="noprint"]
       |  Contractor disclaimer
     / =image_tag('wrenchboard-2.png', width: '80%', class: 'decoration hidden-xs')
 
@@ -87,9 +87,9 @@
           .col-sm-4
             .contractor-sidebar 
               .related-tags 
-                h3 DIY resources for: 
-                = render partial: '/tags/tag_list', :locals => { :tags => @contractor.tags }
-
+                - if @contractor.tags.exists? 
+                  h3 DIY resources for: 
+                  = render partial: '/tags/tag_list', :locals => { :tags => @contractor.tags }
 
               - if @related_contractors.exists?
                 .related-contractors
