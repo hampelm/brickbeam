@@ -49,6 +49,13 @@
       width: 100%;
     }
 
+    @media (max-width:1150px)  { 
+      .business-card {
+        width: 30%;
+        margin: 1%;
+      }
+    }
+
     .business-card {
       border-bottom: 1px solid #ddd;
 
