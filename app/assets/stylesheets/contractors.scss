@@ -83,10 +83,12 @@
   overflow: auto;
 
   p.featured {
-    font-style: italic;
     padding: 10px;
-    border: 3px double $green;
+    border-top: 7px solid $green;
     text-align: center;
+    font-family: $sans;
+    font-weight: 700;
+    color: #5e9200;
   }
 
   .caption,
@@ -129,20 +131,20 @@
 .index-card,
 .business-card { 
   text-align: center;
-  background: #eee;
+  background: #fffded;
   overflow: auto;
   margin-bottom: 20px;
+  border-top: 7px solid #f2d03b;
 
   .index-card-details,
   .business-card-details {
-    border: 1px solid #fff;
     margin: 5px; 
     padding: 15px 10px 10px 10px;
 
     h2 {
       font-size: $size-lg;
-      font-weight: 500;
-      font-family: $serif;
+      font-weight: 300;
+      // font-family: $serif;
     }
 
     .city {
@@ -170,20 +172,6 @@
 }
 
 
-.index-card.featured .city,
-.business-card.featured .city {
-  color: $green;
-  font-weight: 700;
-}
-
-
-.business-card.featured {
-  $contrast-color: $body;
-  background: #eee;
-
-  color: $contrast-color;
-}
-
 .related-contractors h3 {
   margin-bottom: 0.5em;
 }
@@ -196,12 +184,9 @@
 
 .index-card .index-card-details {
   font-size: $size-md;
-  font-weight: 500;
-  background-color: #eee;
+  font-weight: 400;
 
   color: $body-mild;
-
-  border: 3px double $flat-blue;
 
   a,
   a:hover,
@@ -248,4 +233,38 @@
   }
 }
 
+.index-card.featured,
+.business-card.featured {
+  border-top-color: #5e9200;
+  background-color: #8cb202;
+  color: #fff;
+
+  .tag-list .tag {
+    // color: #fff;
+  }
+
+  a,
+  a:link,
+  a:active,
+  a:visited {
+    color: #fff;
+  }
+
+  .index-card-details {
+    color: #fff;
+  }
+
+  h2 {
+    color: #fff;
+    a,
+    a:link,
+    a:active,
+    a:visited {
+      color: #fff;
+    }
+  }
+  .city {
+    font-weight: 700;
+  }
+}
 
