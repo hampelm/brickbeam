@@ -71,7 +71,14 @@
 }
 
 .contractors-panel {
-  .ask-a-question + a { 
+  .add-a-contractor a {
+    color: #fff;
+    background-color: $green;
+    font-weight: 700;
+    border: 0px none;
+
+  }
+  .add-a-contractor + a { 
     display: inline-block;
     margin-top: 1em;
   }
