@@ -37,7 +37,8 @@
           = link_to('Add your rehab', new_site_path, class: 'btn')
 
       .col-md-6.col-sm-8
-        h3.byline Added by #{link_to(@site.user.name, @site.user)}
+        - if @site.user && @site.user.name
+          h3.byline Added by #{link_to(@site.user.name, @site.user)}
 
         - if @site.photo?
           img src="#{@site.photo.url}" width="100%" class="site-photo"
@@ -93,4 +94,3 @@ javascript:
     | #{@site.title}
   - else
     | #{@site.building_type} added by #{@site.user.name}
-

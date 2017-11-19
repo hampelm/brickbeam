@@ -68,7 +68,8 @@
             .question
               h2.article-title #{link_to(question.title, question_path(question))}
               .question-meta #{pluralize(question.comments.length, 'answer')}
-              .question-user Asked by <strong>#{question.user.name}</strong>
+              - if question.user && question.user.name
+                .question-user Asked by <strong>#{question.user.name}</strong>
 
 .front
   .container
