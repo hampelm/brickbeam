@@ -7,7 +7,8 @@
     h2.article-title #{@question.title}
 
     .question
-      p.question-meta Asked by <strong>#{link_to(@question.user.name, @question.user)}</strong> at #{@question.created_at.to_s(:standard)}
+      - if @question.user && @question.user.name
+        p.question-meta Asked by <strong>#{link_to(@question.user.name, @question.user)}</strong> at #{@question.created_at.to_s(:standard)}
 
       = simple_format(@question.description)
 
@@ -19,7 +20,8 @@
         .row
           .col-sm-12
             .comment-meta
-              span.byline #{link_to(comment.user.name, comment.user)}
+              - if comment.user && comment.user.name
+                span.byline #{link_to(comment.user.name, comment.user)}
               span.timestamp  at #{comment.created_at.to_s(:standard)}
 
             .comment-text
@@ -72,4 +74,3 @@
 = content_for :og do
   meta property="og:title" content="#{@question.title} | Brick + Beam"
   meta property="og:description" content="#{truncate(strip_tags(@question.description).squish, length: 175)}"
-
