@@ -40,6 +40,10 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  # Disable the invisible captcha timing check
+  # Otherwise tests fail because they're as fast as spam bots!
+  InvisibleCaptcha.timestamp_enabled = false
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

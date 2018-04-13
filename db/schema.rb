@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415150139) do
+ActiveRecord::Schema.define(version: 20180413010129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,21 +117,6 @@ ActiveRecord::Schema.define(version: 20170415150139) do
     t.string   "slug"
   end
 
-  create_table "photo_attachments", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "question_id"
-    t.integer  "comment_id"
-    t.integer  "site_id"
-    t.string   "caption"
-    t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-  end
-
   create_table "projects", force: :cascade do |t|
     t.text     "description"
     t.string   "duration"
@@ -152,6 +137,7 @@ ActiveRecord::Schema.define(version: 20170415150139) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.boolean  "hidden"
+    t.boolean  "locked"
   end
 
   create_table "resources", force: :cascade do |t|

@@ -13,6 +13,7 @@
 
 class CommentsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
+  invisible_captcha only: [:create], honeypot: :title
 
   def create
     @question = Question.friendly.find(params[:question_id])

@@ -23,6 +23,10 @@ FactoryGirl.define do
       updated_at 10.days.ago
     end
 
+    trait :locked do
+      locked true
+    end
+
     factory :question_with_hidden_comment do
       after(:create) do |question, evaluator|
         create(:comment, :hidden, question: question)

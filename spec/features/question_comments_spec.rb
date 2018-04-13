@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Question creation spec', type: :feature do
   let!(:user) { FactoryGirl.create :user }
+  let!(:locked_question) { FactoryGirl.create :question, :locked }
   let(:title_text) { 'New question title' }
   let(:comment_text) { 'New comment text' }
 
@@ -24,5 +25,21 @@ RSpec.feature 'Question creation spec', type: :feature do
     expect(page).to have_content title_text
     fill_in 'comment_body', with: comment_text
     click_button 'Add your reply'
+  end
+
+  scenario 'A user cannot comment on locked questions' do
+    visit '/questions'
+
+    # Log in
+    click_link 'Log in'
+    fill_in 'Email', match: :first, with: user.email
+    fill_in 'Password', match: :first, with: user.password
+    click_button 'Sign in'
+
+    # Try to answer the question
+    visit '/questions'
+    click_link locked_question.title
+    expect(page).not_to have_content "Add your reply"
+    expect(page).to have_content "This question is locked"
   end
 end
