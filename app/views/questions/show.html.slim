@@ -25,29 +25,36 @@
             .comment-text
               = simple_format(comment.body)
 
-    .row
-      .col-md-12
-        h3.comment-intro Add your answer
-        - if user_signed_in?
-          = form_for ([@question, @question.comments.build]) do |f|
-            div.form-group
-              == f.text_area :body, class: 'form-control', rows: 5
+    - unless @question.locked
+      .row
+        .col-md-12
+          h3.comment-intro Add your answer
+          - if user_signed_in?
+            = form_for ([@question, @question.comments.build]) do |f|
+              div.form-group
+                == f.text_area :body, class: 'form-control', rows: 5
+                == f.invisible_captcha :title
 
-            div.form-group
-              label.checkbox
-                = f.check_box :subscribe, :checked => true
-                | Send me an email when new replies are posted
+              div.form-group
+                label.checkbox
+                  = f.check_box :subscribe, :checked => true
+                  | Send me an email when new replies are posted
 
-            div.form-group
-              == f.submit "Add your reply", class: 'btn btn-primary'
+              div.form-group
+                == f.submit "Add your reply", class: 'btn btn-primary'
 
-            div.form-group
-              a[href="/pages/guidelines"]
-                |  Brick + Beam Community Guidelines
+              div.form-group
+                a[href="/pages/guidelines"]
+                  |  Brick + Beam Community Guidelines
 
 
-        - else
-          h3.sign-in #{link_to('Log in', new_user_session_path)}  or #{link_to('sign up', new_user_registration_path)}  to Brick + Beam to reply
+          - else
+            h3.sign-in #{link_to('Log in', new_user_session_path)}  or #{link_to('sign up', new_user_registration_path)}  to Brick + Beam to reply
+
+    - if @question.locked
+      .row
+        .col-md-12
+          h3.comment-intro This question is locked and responses can no longer be added.
 
   .col-sm-3
     - if @question.user == current_user

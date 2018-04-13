@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.4.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -25,6 +25,7 @@ gem 'coveralls', require: false
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'friendly_id'
+gem 'invisible_captcha'
 gem 'omniauth-facebook'
 gem 'paperclip', '~>4.3' # attachment
 gem "image_optim_bin", group: :production # Must be before paperclip-optimizer

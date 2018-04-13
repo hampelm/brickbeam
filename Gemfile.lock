@@ -208,6 +208,8 @@ GEM
     image_optim_bin (0.0.7)
     image_size (1.5.0)
     in_threads (1.4.0)
+    invisible_captcha (0.10.0)
+      rails (>= 3.2.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -479,6 +481,7 @@ DEPENDENCIES
   heroku-deflater
   html2slim
   image_optim_bin
+  invisible_captcha
   jbuilder
   jquery-rails
   jquery-ui-rails
@@ -511,7 +514,7 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   1.13.6
+   1.16.1

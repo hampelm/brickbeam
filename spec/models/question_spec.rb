@@ -17,12 +17,12 @@ require 'rails_helper'
 RSpec.describe Question, type: :model do
   it 'should validate presence' do
     question = Question.new
-    question.title = '' 
-    question.valid? 
-    question.errors[:title].should include("can't be blank") 
+    question.title = ''
+    question.valid?
+    question.errors[:title].should include("can't be blank")
 
     question.title = 'Sample title'
-    question.valid? 
-    question.errors[:title].should_not include("can't be blank") 
+    question.valid?
+    question.errors[:title].should_not include("can't be blank")
   end
 end

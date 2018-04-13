@@ -13,7 +13,6 @@ Start the app with `rails s`
 
 Watch for sass changes and recompile, and run code linters with `guard` in a new tab.
 
-
 ## Setup
 
 The first time you run this app, you'll need to do a little bit of setup.
@@ -24,14 +23,16 @@ platform equivalents, but you'll need to find the correct install process. They 
 ### You'll need
 
 * phantomjs: `brew install phantomjs`
+* [qt for capybara](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit#homebrew) --
+  check out the full install instructions
 * A Postgres database
 
 ### First run
 
-1. Install dependencies with `bundle install`
-2. Run the specs with `rake`
-3. Update the database with `rake db:migrate` if needed
-4. Run the server with `rails s`
+1.  Install dependencies with `bundle install`
+2.  Run the specs with `rake`
+3.  Update the database with `rake db:migrate` if needed
+4.  Run the server with `rails s`
 
 ## Staging
 
@@ -43,7 +44,7 @@ to require the user to be an admin to use the site.
 To add model descriptions to relevant files, run the command `annotate` from the
 project root.
 
-We use `skylight` in production to monitor stats. You'll need to set the 
+We use `skylight` in production to monitor stats. You'll need to set the
 `SKYLIGHT_AUTHENTICATION` environment variable for this to work.
 
 ### To run a specific test:
@@ -78,6 +79,3 @@ To enable or disable this, edit this line in `config/environments/production.rb`
 ```
 config.assets.cache_store = :dalli_store
 ```
-
-
-
