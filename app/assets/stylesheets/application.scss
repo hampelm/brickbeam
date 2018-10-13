@@ -74,6 +74,21 @@ body {
   }
 }
 
+.announce {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  div {
+    background: $yellow;
+    padding: 4px 6px;
+    display: inline-block;
+    font-size: $size-lg;
+    font-weight: 500;
+
+  }
+}
+
 h1,
 h2,
 h3 {
