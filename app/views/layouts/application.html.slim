@@ -61,9 +61,13 @@ html prefix="og: http://ogp.me/ns#"
           li.resources
             a[href="/resources"]
               | Rehab Resources
+          li.getinvolved
+            a[href="/pages/getinvolved"]
+              | Get Involved
           li.about
             a[href="/pages/about"]
               | About
+
 
     = content_for?(:content) ? yield(:content) : yield
 
