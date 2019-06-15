@@ -44,7 +44,8 @@ $height: 340px;
     width: calc(100% - 10px);
     padding: 20px 25px;
 
-    h2 {
+    h2,
+    h3 {
       font-weight: 300;
       font-size: 24px;
       margin-bottom: 1px;
@@ -70,6 +71,9 @@ $height: 340px;
         background: $blue;
         box-shadow: 0.2em 0 0 $blue, -0.2em 0 0 $blue;
       }
+    }
+    h3 {
+      font-size: 16px;
     }
 
     .tag-list {

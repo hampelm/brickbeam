@@ -2,7 +2,7 @@
   .row
     - for event in @events
       .col-sm-4
-        =render 'upcoming_event', :event => event
+        =render 'shared/polaroid', :model => event
 
 .upcoming-events
   .row
@@ -11,7 +11,7 @@
   .row
     - for event in @partner_events
       .col-sm-4
-        =render 'upcoming_event', :event => event
+        =render 'shared/polaroid', :model => event
 
 .past-events
   .row

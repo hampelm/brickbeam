@@ -2,6 +2,8 @@
   .polaroid-details
     h2 #{link_to(model.title, polymorphic_path(model))}
     = render partial: '/tags/tag_list', :locals => { :tags => model.tags }
+    -if model.start_date
+      h3 #{link_to(model.start_date.to_s(:standard), polymorphic_path(model))}
 
   .polaroid-photo style="background-image: url(#{model.photo.url(:large)})"
     .polaroid-frame
