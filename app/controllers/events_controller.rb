@@ -23,8 +23,9 @@ class EventsController < ApplicationController
   layout "events"
 
   def index
-    @events = Event.where('end_date >= ?', Time.now).order('end_date ASC')
-    @past_events = Event.where('end_date < ?', Time.now).order('end_date DESC')
+    @events = Event.bbd.future
+    @partner_events = Event.partner.future
+    @past_events = Event.past
   end
 
   def show
