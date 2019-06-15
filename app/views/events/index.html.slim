@@ -1,11 +1,22 @@
 .upcoming-events
-  - for event in @events
-    =render 'upcoming_event', :event => event
+  .row
+    - for event in @events
+      .col-sm-4
+        =render 'upcoming_event', :event => event
+
+.upcoming-events
+  .row
+    .col-sm-12
+      h2.article-title Partner events
+  .row
+    - for event in @partner_events
+      .col-sm-4
+        =render 'upcoming_event', :event => event
 
 .past-events
   .row
     .col-sm-12
-      h2.article-title Past Brick + Beam events
+      h2.article-title Past events
 
   .row
     - for event in @past_events

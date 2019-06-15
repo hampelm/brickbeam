@@ -25,9 +25,13 @@ class Event < ActiveRecord::Base
 
   acts_as_taggable
 
-  belongs_to:user
+  belongs_to :user
 
-  # default_scope { order('end_date DESC') }
+  default_scope { order(start_date: :asc) }
+  scope :partner, -> { where(partner_event: :true) }
+  scope :bbd, -> { where(partner_event: false) }
+  scope :future, -> { where('end_date >= ?', Time.now) }
+  scope :past, -> { where('end_date < ?', Time.now) }
 
   has_attached_file :photo,
     source_file_options: { all:     '-auto-orient' },
