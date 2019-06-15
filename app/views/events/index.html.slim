@@ -4,14 +4,15 @@
       .col-sm-4
         =render 'shared/polaroid', :model => event
 
-.upcoming-events
-  .row
-    .col-sm-12
-      h2.article-title Partner events
-  .row
-    - for event in @partner_events
-      .col-sm-4
-        =render 'shared/polaroid', :model => event
+- unless @partner_events.empty?
+  .upcoming-events
+    .row
+      .col-sm-12
+        h2.article-title Partner events
+    .row
+      - for event in @partner_events
+        .col-sm-4
+          =render 'shared/polaroid', :model => event
 
 .past-events
   .row
