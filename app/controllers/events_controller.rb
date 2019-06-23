@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.bbd.future
     @partner_events = Event.partner.future
-    @past_events = Event.past
+    @past_events = Event.unscoped.past
   end
 
   def show
