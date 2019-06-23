@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
   scope :partner, -> { where(partner_event: :true) }
   scope :bbd, -> { where(partner_event: false) }
   scope :future, -> { where('end_date >= ?', Time.now) }
-  scope :past, -> { where('end_date < ?', Time.now) }
+  scope :past, -> { where('end_date < ?', Time.now).order(start_date: :desc) }
 
   has_attached_file :photo,
     source_file_options: { all:     '-auto-orient' },
