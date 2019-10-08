@@ -95,12 +95,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-email (2.5.0)
-      capybara (~> 2.4)
+    capybara-email (3.0.1)
+      capybara (>= 2.4, < 4.0)
       mail
-    capybara-webkit (1.14.0)
-      capybara (>= 2.3.0, < 2.14.0)
-      json
     ckeditor (4.2.4)
       cocaine
       orm_adapter (~> 0.5.0)
@@ -460,7 +457,6 @@ DEPENDENCIES
   byebug
   capybara
   capybara-email
-  capybara-webkit
   ckeditor
   coffee-rails
   coveralls
@@ -517,4 +513,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.16.1
+   1.16.6
