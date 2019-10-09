@@ -86,7 +86,6 @@ group :development, :test do
   gem 'letter_opener' # Prevews email in the browser
   gem 'capybara-email'
   gem 'rspec-rails'
-  gem 'capybara-webkit'
 end
 
 group :development do
