@@ -26,5 +26,6 @@ FactoryGirl.define do
     description { FFaker::Lorem.paragraph }
     start_date { 10.days.from_now }
     end_date { 11.days.from_now }
+    partner_event { false }
   end
 end
