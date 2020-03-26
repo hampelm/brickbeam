@@ -67,27 +67,44 @@ RSpec.describe Contractor, type: :model do
     assert_equal 'wocky-flock', @contractor.slug
   end
 
+  it "knows if they're in detroit, highland park, or hamtramck" do
+    @contractor = Contractor.new({
+      business_name: 'wocky-flock',
+      city: 'HaMTRamck'
+    })
+    @contractor.save
+    assert_equal true, @contractor.local?
+  end
+
+  it "knows if they're not in detroit, highland park, or hamtramck" do
+    @contractor = Contractor.new({
+      business_name: 'wocky-flock'
+    })
+    @contractor.save
+    assert_equal false, @contractor.local?
+  end
+
   it 'should validate one name or another' do
     contractor = Contractor.new
-    contractor.valid? 
-    contractor.errors[:base][0].should include("add a name") 
+    contractor.valid?
+    contractor.errors[:base][0].should include("add a name")
 
     contractor.name = 'Jones'
-    contractor.valid? 
+    contractor.valid?
     expect(contractor.errors[:title]).to be_empty
 
     contractor.name = nil
-    contractor.valid? 
-    contractor.errors[:base][0].should include("add a name") 
+    contractor.valid?
+    contractor.errors[:base][0].should include("add a name")
 
     contractor.business_name = 'Company name'
-    contractor.valid? 
+    contractor.valid?
     expect(contractor.errors[:base]).to be_empty
 
 
     contractor.business_name = 'Company name'
     contractor.name = 'Jones'
-    contractor.valid? 
+    contractor.valid?
     expect(contractor.errors[:base]).to be_empty
 
   end

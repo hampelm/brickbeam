@@ -64,20 +64,18 @@ class Contractor < ActiveRecord::Base
     self.tags.map { |tag| 'tag-' + tag.id.to_s}.join(' ')
   end
 
-  def is_detroit
-    if self.city
-      self.city.downcase == 'detroit'
-    else 
-      false
-    end
+  def local?
+    return false unless city
+
+    return ['detroit', 'highland park', 'hamtramck'].include? city.downcase
   end
 
   def featured?
-    'featured' if self.is_detroit
+    'featured' if local?
   end
 
-  def title 
-    if self.business_name? 
+  def title
+    if self.business_name?
       self.business_name
     else
       self.name
@@ -88,7 +86,7 @@ class Contractor < ActiveRecord::Base
     unless [name?, business_name?].include?(true)
       errors.add :base, 'Please add a name or business name'
     end
-  end 
+  end
 
   def slug_candidates
     [
