@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.5.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '5.2'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -27,13 +27,13 @@ gem 'font-awesome-rails'
 gem 'friendly_id'
 gem 'invisible_captcha'
 gem 'omniauth-facebook'
-gem 'paperclip', '~>4.3' # attachment
+gem 'paperclip', '~>5.1' # attachment
 gem "image_optim_bin", group: :production # Must be before paperclip-optimizer
 gem 'paperclip-optimizer'
 gem 'pg'
 gem 'pundit' # authorization
 # gem 'rails_admin', '~> 0.8.0'
-gem 'rails_admin', :github => 'sferik/rails_admin', :ref => 'c860b2f'
+gem 'rails_admin', :github => 'sferik/rails_admin'
 
 gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
 gem 'redcarpet' # markdown parser

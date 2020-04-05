@@ -20,9 +20,6 @@ module Brickbeam
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
-
     # https://github.com/janfoeh/paperclip-optimizer#caution
     # Prevent image_optim conflicts
     config.assets.image_optim = false
@@ -33,8 +30,8 @@ module Brickbeam
       g.fixture_replacement :factory_girl
     end
 
-    config.to_prepare do
-      Devise::SessionsController.skip_before_filter :must_be_admin!
-    end
+    # config.to_prepare do
+    #   Devise::SessionsController.skip_before_action :must_be_admin! #skip_before_action
+    # end
   end
 end
