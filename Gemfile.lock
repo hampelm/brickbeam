@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/kryzhovnik/rails_admin_tag_list.git
-  revision: 00d20e975b0e5b85928ea7eda81f11f902081cdc
-  branch: master
-  specs:
-    rails_admin_tag_list (0.2.0)
-      rails_admin (>= 0.6)
-
-GIT
   remote: https://github.com/sferik/rails_admin.git
   revision: 782d4ddac48658a1394a6a8ccbba054d877eafc3
   specs:
@@ -521,7 +513,6 @@ DEPENDENCIES
   rails-jquery-autocomplete
   rails_12factor
   rails_admin!
-  rails_admin_tag_list!
   redcarpet
   rspec-rails
   rubocop-rspec

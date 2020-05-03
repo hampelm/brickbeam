@@ -35,7 +35,6 @@ gem 'pundit' # authorization
 # gem 'rails_admin', '~> 0.8.0'
 gem 'rails_admin', :github => 'sferik/rails_admin'
 
-gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
 gem 'redcarpet' # markdown parser
 gem "skylight" # monitoring
 gem 'slim'

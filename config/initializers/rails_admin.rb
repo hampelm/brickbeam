@@ -64,14 +64,13 @@ RailsAdmin.config do |config|
 
     edit do
       include_all_fields
-      exclude_fields :slug, :base_tags, :tags
+      exclude_fields :slug, :base_tags
 
-      fields_of_type :tag_list do
-        partial 'tag_list_with_suggestions'
-
-        # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
-        ratl_max_suggestions -1
-      end
+      # fields_of_type :tag_list do
+      #   partial 'tag_list_with_suggestions'
+      #   # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
+      #   ratl_max_suggestions -1
+      # end
     end
   end
 
@@ -107,30 +106,28 @@ RailsAdmin.config do |config|
 
     edit do
       include_all_fields
-      exclude_fields :slug, :user, :base_tags, :tags
+      exclude_fields :slug, :user, :base_tags
 
       field :description, :ck_editor
 
-      fields_of_type :tag_list do
-        partial 'tag_list_with_suggestions'
-
-        # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
-        ratl_max_suggestions -1
-      end
+      # fields_of_type :tag_list do
+      #   partial 'tag_list_with_suggestions'
+      #   # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
+      #   ratl_max_suggestions -1
+      # end
     end
   end
 
   config.model Topic do
     edit do
       include_all_fields
-      exclude_fields :base_tags, :tags
+      exclude_fields :base_tags
 
-      fields_of_type :tag_list do
-        partial 'tag_list_with_autocomplete'
-
-        # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
-        ratl_max_suggestions -1
-      end
+      # fields_of_type :tag_list do
+      #   partial 'tag_list_with_autocomplete'
+      #   # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
+      #   ratl_max_suggestions -1
+      # end
     end
   end
 
@@ -146,16 +143,15 @@ RailsAdmin.config do |config|
 
     edit do
       include_all_fields
-      exclude_fields :slug, :base_tags, :tags
+      exclude_fields :slug, :base_tags
 
       field :description, :ck_editor
 
-      fields_of_type :tag_list do
-        partial 'tag_list_with_suggestions'
-
-        # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
-        ratl_max_suggestions -1
-      end
+      # fields_of_type :tag_list do
+      #   partial 'tag_list_with_suggestions'
+      #   # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
+      #   ratl_max_suggestions -1
+      # end
     end
   end
 
@@ -168,16 +164,15 @@ RailsAdmin.config do |config|
 
     edit do
       include_all_fields
-      exclude_fields :slug, :base_tags, :tags
+      exclude_fields :slug, :base_tags
 
       field :text, :ck_editor
 
-      fields_of_type :tag_list do
-        partial 'tag_list_with_suggestions'
-
-        # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
-        ratl_max_suggestions -1
-      end
+      # fields_of_type :tag_list do
+      #   partial 'tag_list_with_suggestions'
+      #   # the option sets max count of suggestions (default is 100); set -1 to abolish the limit
+      #   ratl_max_suggestions -1
+      # end
     end
   end
 
