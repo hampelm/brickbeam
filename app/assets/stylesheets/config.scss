@@ -1,0 +1,31 @@
+$teal: #008c74;
+$teal-dark: darken($teal, 30%);
+$blue: #004c66;
+$flat-blue: #3b596a;
+$purple: #332b40;
+$pink: #e13452;
+$yellow: #f4e138;
+$warning: #f2d03b;
+$green: #8cb202;
+$green-dark: darken($green, 45%);
+
+$trans-white: rgba(255, 255, 255, 0.8);
+$gray: #8a8786;
+$body: #333;
+$body-mild: darken($teal, 40%);
+
+$border-color: $gray;
+$link-color: $blue;
+
+$serif: 'PT Serif', serif;
+$open: 'Open Sans', 'PT Sans', sans-serif;
+$sans: $open;
+
+$size-body: 15px;
+$size-md: 18px;
+$size-lg: 20px;
+$size-xl: 40px;
+
+
+$radius: 4px;
+$transition: 0.3s;

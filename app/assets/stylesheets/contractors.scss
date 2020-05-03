@@ -1,3 +1,5 @@
+@import "config";
+
 // Grid layout on the main contractor page
 .contractor-list {
   display: flex;
@@ -18,56 +20,56 @@
   }
 
 
-  @media (min-width:1150px)  { 
+  @media (min-width:1150px)  {
     .business-card:nth-of-type(3n) {
-    //  margin-right: 0;  
+    //  margin-right: 0;
     }
     .business-card:nth-of-type(3n+1) {
-    //  margin-left: 0; 
+    //  margin-left: 0;
     }
   }
 
-  
-  @media (max-width:1150px)  { 
+
+  @media (max-width:1150px)  {
     .business-card {
       width: 48%;
       margin: 1%
     }
     .business-card:nth-of-type(2n) {
-    // margin-right: 0;  
+    // margin-right: 0;
     }
     .business-card:nth-of-type(2n+1) {
-    //  margin-left: 0; 
+    //  margin-left: 0;
     }
   }
 
 
-  @media (max-width:768px)  { 
+  @media (max-width:768px)  {
     .business-card {
       width: calc(50% - 15px);
       margin: 0 10px 10px 0px;
     }
     .business-card:nth-of-type(2n) {
-    //  margin-right: 10px;  
+    //  margin-right: 10px;
     }
     .business-card:nth-of-type(2n+1) {
-    //  margin-left: 10px; 
+    //  margin-left: 10px;
     }
   }
 
-  @media (max-width:480px)  { 
+  @media (max-width:480px)  {
     .business-card {
       width: calc(100% - 15px);
       margin: 0 10px 10px 10px;
     }
     .business-card:nth-of-type(2n) {
-    // margin-right: 10px;  
+    // margin-right: 10px;
     }
     .business-card:nth-of-type(2n+1) {
-     // margin-left: 10px; 
+     // margin-left: 10px;
     }
   }
- 
+
 }
 
 .contractors-panel {
@@ -78,7 +80,7 @@
     border: 0px none;
 
   }
-  .add-a-contractor + a { 
+  .add-a-contractor + a {
     display: inline-block;
     margin-top: 1em;
   }
@@ -136,7 +138,7 @@
 
 
 .index-card,
-.business-card { 
+.business-card {
   text-align: center;
   background: #fffded;
   overflow: auto;
@@ -145,7 +147,7 @@
 
   .index-card-details,
   .business-card-details {
-    margin: 5px; 
+    margin: 5px;
     padding: 15px 10px 10px 10px;
 
     h2 {
@@ -219,7 +221,7 @@
   }
 
   .city {
-    margin: 0.5em 0; 
+    margin: 0.5em 0;
     text-transform: uppercase;
     font-size: $size-body;
   }

@@ -1,3 +1,5 @@
+@import "config";
+
 .tag-related-section .question {
   h2.article-title {
     font-size: 24px;
@@ -6,7 +8,6 @@
       border-bottom: 1px solid $link-color;
     }
   }
-  @meda
 }
 
 .questions-panel {
