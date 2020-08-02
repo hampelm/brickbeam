@@ -15,6 +15,7 @@ class GenerateQuestionDigest
 
   def send
     User.subscribed_to_question_digest.find_each do |user|
+      Rails.logger.info "Sending digest to user.email."
       NotificationMailer.question_digest_email(user, self.questions).deliver_now
     end
   end
