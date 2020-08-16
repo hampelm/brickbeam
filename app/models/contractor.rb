@@ -43,6 +43,9 @@ class Contractor < ActiveRecord::Base
   validate :has_a_name
 
   belongs_to :user
+  has_many :certifications
+  has_many :licenses
+  has_many :insurance
 
   # Image uploads
   image_styles = { large: "1000x1000>", medium: "600x800>", thumb: "100x100>" }
@@ -64,6 +67,7 @@ class Contractor < ActiveRecord::Base
     self.tags.map { |tag| 'tag-' + tag.id.to_s}.join(' ')
   end
 
+  # Is the contractor local to Detroit?
   def local?
     return false unless city
 
@@ -74,6 +78,9 @@ class Contractor < ActiveRecord::Base
     'featured' if local?
   end
 
+  # A lot of contractors are just individuals -- they don't really have a business name
+  # So to keep things friendly for them, we start with the business name and fall back
+  # to the person's name as the title of a contractor
   def title
     if self.business_name?
       self.business_name
@@ -99,6 +106,5 @@ class Contractor < ActiveRecord::Base
     errors.delete(:image2_content_type)
     errors.delete(:image3_content_type)
   end
-
 end
 
