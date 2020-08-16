@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180413010129) do
+ActiveRecord::Schema.define(version: 20200816162942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20180413010129) do
   end
 
   add_index "attachments", ["resource_id"], name: "index_attachments_on_resource_id", using: :btree
+
+  create_table "certifications", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -88,6 +94,12 @@ ActiveRecord::Schema.define(version: 20180413010129) do
     t.text     "caption2"
     t.text     "caption3"
     t.text     "notes"
+    t.text     "registered"
+    t.integer  "start_year"
+    t.text     "trainings"
+    t.text     "apprenticeship"
+    t.text     "bonded"
+    t.text     "license_bond"
   end
 
   create_table "events", force: :cascade do |t|
@@ -108,6 +120,25 @@ ActiveRecord::Schema.define(version: 20180413010129) do
   end
 
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
+
+  create_table "insurances", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "licenses", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.text     "name"
+    t.text     "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
