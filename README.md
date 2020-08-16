@@ -2,7 +2,7 @@
 
 This is the rails app that powers Brick + Beam Detroit.
 
-[![Build Status](https://travis-ci.org/hampelm/brickbeam.svg?branch=master)](https://travis-ci.org/hampelm/brickbeam) [![Code Climate](https://codeclimate.com/github/hampelm/brickbeam/badges/gpa.svg)](https://codeclimate.com/github/hampelm/brickbeam) [![Dependency Status](https://gemnasium.com/hampelm/brickbeam.svg)](https://gemnasium.com/hampelm/brickbeam) [![Coverage Status](https://coveralls.io/repos/github/hampelm/brickbeam/badge.svg?branch=master)](https://coveralls.io/github/hampelm/brickbeam?branch=master)
+[![Build Status](https://travis-ci.org/hampelm/brickbeam.svg?branch=master)](https://travis-ci.org/hampelm/brickbeam) [![Code Climate](https://codeclimate.com/github/hampelm/brickbeam/badges/gpa.svg)](https://codeclimate.com/github/hampelm/brickbeam) [![Coverage Status](https://coveralls.io/repos/github/hampelm/brickbeam/badge.svg?branch=master)](https://coveralls.io/github/hampelm/brickbeam?branch=master)
 
 # Development
 
