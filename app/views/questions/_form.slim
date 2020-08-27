@@ -1,9 +1,9 @@
-- if @question.errors.any? 
+- if @question.errors.any?
   .errors
-    - @question.errors.full_messages.each do |msg|
+    - @question.errors.each do |error, msg|
       p =msg
 
-                
+
 = form_for @question do |f|
   .form-group
     == f.label :title, "What's your question?"

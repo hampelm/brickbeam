@@ -26,14 +26,14 @@ gem 'devise'
 gem 'font-awesome-rails'
 gem 'friendly_id'
 gem 'invisible_captcha'
+gem "lograge" # Reduce log spam
 gem 'omniauth-facebook'
 gem 'paperclip', '6.1.0' # attachment
 gem "image_optim_bin", group: :production # Must be before paperclip-optimizer
 gem 'paperclip-optimizer'
 gem 'pg'
 gem 'pundit' # authorization
-# gem 'rails_admin', '~> 0.8.0'
-gem 'rails_admin', :github => 'sferik/rails_admin'
+gem 'rails_admin'
 
 gem 'redcarpet' # markdown parser
 gem "skylight" # monitoring
@@ -52,6 +52,8 @@ gem 'jbuilder'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', group: :doc
+
+
 
 # Use ActiveModel has_secure_password
 # (We use devise, which uses bcrypt)

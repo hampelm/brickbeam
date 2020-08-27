@@ -10,7 +10,7 @@
       - if @question.user && @question.user.name
         p.question-meta Asked by <strong>#{link_to(@question.user.name, @question.user)}</strong> at #{@question.created_at.to_s(:standard)}
 
-      = simple_format(@question.description)
+      = simple_format(auto_link @question.description)
 
     - if @comments.exists?
       h3.comment-intro Discussion
@@ -25,7 +25,7 @@
               span.timestamp  at #{comment.created_at.to_s(:standard)}
 
             .comment-text
-              = simple_format(comment.body)
+              = simple_format(auto_link comment.body)
 
     - unless @question.locked
       .row
