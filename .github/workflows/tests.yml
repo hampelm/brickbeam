@@ -38,7 +38,7 @@ jobs:
       run: |
         gem install bundler:1.16.6
         bundle install --jobs 4 --retry 3
-        bin/rails db:setup
+        rake db:schema:load
 
     - name: Run Tests
       env:
