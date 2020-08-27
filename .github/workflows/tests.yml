@@ -38,7 +38,14 @@ jobs:
       run: |
         gem install bundler:1.16.6
         bundle install --jobs 4 --retry 3
-        rake db:schema:load
+
+    - name: Load schema
+      env:
+        PGHOST: localhost
+        PGUSER: postgres
+        RAILS_ENV: test
+      run: |
+        bundle exec rake db:schema:load
 
     - name: Run Tests
       env:
