@@ -36,7 +36,7 @@ jobs:
         PGUSER: postgres
         RAILS_ENV: test
       run: |
-        gem install bundler
+        gem install bundler:1.16.6
         bundle install --jobs 4 --retry 3
         bin/rails db:setup
 
