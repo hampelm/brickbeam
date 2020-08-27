@@ -15,7 +15,7 @@ class TagsController < ApplicationController
     @events = Event.tagged_with(params[:id])
     @questions = Question.tagged_with(params[:id])
     @projects = Project.tagged_with(params[:id])
-    @contractors = Contractor.tagged_with(params[:id])
+    @contractors = Contractor.approved.tagged_with(params[:id])
   end
 
 end

@@ -24,7 +24,7 @@ class Question < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
   belongs_to :user
 
-  validates :title, :presence => true
+  validates :title, presence: true, length: { maximum: 175, too_long: "Your question is too long to fit (the maximim is 175 characters). You can put as much additional information as you need into the details section below." }
 
   def generated_slug
     title
