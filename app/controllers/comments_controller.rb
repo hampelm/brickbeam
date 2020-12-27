@@ -37,7 +37,11 @@ class CommentsController < ApplicationController
       subscriptions.each do |subscription|
         # Don't email users about their own comments.
         if comment.user != subscription.user
-          NotificationMailer.new_comment_email(subscription.user, comment).deliver_later
+          begin
+            NotificationMailer.new_comment_email(subscription.user, comment).deliver_later
+          rescue
+            # Silently handle new comment email fails
+          end
         end
       end
     end
