@@ -6,8 +6,8 @@ This is the rails app that powers Brick + Beam Detroit.
 
 # Development
 
-You may need to be using the proper version of Ruby (currently, 2.3.1). We
-suggest using rvm to mangage versions. To switch to the correct version using rvm, run this command: `rvm use 2.3.1`
+You may need to be using the proper version of Ruby (currently, 2.6). We
+suggest using rvm to mangage versions. To switch to the correct version using rvm, run this command: `rvm use 2.6`
 
 Start the app with `rails s`
 
@@ -29,6 +29,7 @@ platform equivalents, but you'll need to find the correct install process. They 
 
 ### First run
 
+0.  Install bundler `gem install bundler:1.16.6`
 1.  Install dependencies with `bundle install`
 2.  Run the specs with `rake`
 3.  Update the database with `rake db:migrate` if needed
