@@ -63,4 +63,4 @@ jobs:
         TEST_DATABASE: postgres
         PGUSER: postgres
         RAILS_ENV: test
-      run: bundle exec rake test
+      run: bundle exec rspec
