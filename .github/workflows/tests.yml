@@ -52,6 +52,7 @@ jobs:
       env:
         PGHOST: localhost
         PGUSER: postgres
+        TEST_DATABASE: postgres
         RAILS_ENV: test
       run: |
         bundle exec rake db:schema:load
@@ -59,6 +60,7 @@ jobs:
     - name: Run Tests
       env:
         PGHOST: localhost
+        TEST_DATABASE: postgres
         PGUSER: postgres
         RAILS_ENV: test
       run: bundle exec rake test
