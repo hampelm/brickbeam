@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'byebug'
 
 RSpec.feature 'Contact Me spec', type: :feature do
   let!(:user) { FactoryGirl.create :user }
