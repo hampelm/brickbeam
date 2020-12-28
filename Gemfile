@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '~>2.6.0' # Cannot go higher with Rails 4 because of BigDecimal
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -33,8 +33,9 @@ gem "image_optim_bin", group: :production # Must be before paperclip-optimizer
 gem 'paperclip-optimizer'
 gem 'pg'
 gem 'pundit' # authorization
-gem 'rails_admin'
-
+gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git', ref: 'c860b2f'
+gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
+gem 'rails_autolink'
 gem 'redcarpet' # markdown parser
 gem "skylight" # monitoring
 gem 'slim'

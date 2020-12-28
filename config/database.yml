@@ -19,7 +19,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: brickbeam-test
+  database: <%= ENV['TEST_DATABASE'] || 'brickbeam-test' %>
 
 production:
   <<: *default
