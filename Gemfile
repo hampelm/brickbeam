@@ -3,7 +3,7 @@ ruby '~>2.6.0' # Cannot go higher with Rails 4 because of BigDecimal
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '5.2'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -17,7 +17,7 @@ gem 'coffee-rails'
 
 gem 'acts-as-taggable-on'
 gem 'annotate'
-gem 'aws-sdk', '<2.0'
+gem 'aws-sdk-s3'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'ckeditor'
@@ -28,12 +28,12 @@ gem 'friendly_id'
 gem 'invisible_captcha'
 gem "lograge" # Reduce log spam
 gem 'omniauth-facebook'
-gem 'paperclip', '~>4.3' # attachment
+gem 'paperclip', '6.1.0' # attachment
 gem "image_optim_bin", group: :production # Must be before paperclip-optimizer
 gem 'paperclip-optimizer'
 gem 'pg'
 gem 'pundit' # authorization
-gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git', ref: 'c860b2f'
+gem 'rails_admin'
 gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
 gem 'rails_autolink'
 gem 'redcarpet' # markdown parser

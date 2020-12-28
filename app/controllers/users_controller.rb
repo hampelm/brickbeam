@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     @body = params[:body]
 
     if @to.contact_me?
-      NotificationMailer.contact_user_email(@from, @to, @body).deliver_later
+      NotificationMailer.contact_user_email(@from, @to, @body).deliver_now
       flash[:notice] = "We've forwarded your message to " + @to.name + '.'
       redirect_to '/users/' + @to.id.to_s
     else

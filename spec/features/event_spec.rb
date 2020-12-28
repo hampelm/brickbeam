@@ -8,7 +8,7 @@ RSpec.feature 'Event spec', type: :feature do
 
     expect(page).to have_content event.title
 
-    date = event.start_date.strftime('%b %e')
+    date = event.start_date.strftime('%b %-d')
     expect(page).to have_content date
   end
 end
