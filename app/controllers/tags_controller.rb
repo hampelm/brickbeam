@@ -12,7 +12,7 @@ class TagsController < ApplicationController
 
     @tag = params[:id]
     @resources = Resource.tagged_with(params[:id])
-    @events = Event.tagged_with(params[:id])
+    @events = Event.tagged_with(params[:id]).reverse_order
     @questions = Question.tagged_with(params[:id])
     @projects = Project.tagged_with(params[:id])
     @contractors = Contractor.approved.tagged_with(params[:id])

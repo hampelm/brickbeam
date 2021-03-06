@@ -25,11 +25,12 @@ class EventsController < ApplicationController
   def index
     @events = Event.bbd.future
     @partner_events = Event.partner.future
-    @past_events = Event.bbd.past
+    @past_events = Event.bbd.past.reverse_order
   end
 
   def show
     @event = Event.friendly.find(params[:id])
-    @related = Event.tagged_with(@event.tags, :any => true).where.not(id: @event.id).limit(3)
+    @related = Event.unscoped.order(start_date: :desc).tagged_with(@event.tags, :any => true).where.not(id: @event.id).limit(3)
+    byebug
   end
 end
