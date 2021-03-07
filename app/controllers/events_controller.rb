@@ -31,6 +31,5 @@ class EventsController < ApplicationController
   def show
     @event = Event.friendly.find(params[:id])
     @related = Event.unscoped.order(start_date: :desc).tagged_with(@event.tags, :any => true).where.not(id: @event.id).limit(3)
-    byebug
   end
 end
