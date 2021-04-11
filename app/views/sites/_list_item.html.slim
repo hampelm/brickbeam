@@ -12,5 +12,5 @@ div class=(local_assigns.fetch :container_class, 'col-md-4 col-sm-6')
         h2.site-title #{link_to(site.title, site_path(site))}
       - else
         h2.site-title #{link_to(site.building_type, site_path(site))}
-      - if site.user?
+      - unless site.user.nil?
         h2.site-user #{link_to("Added by " + site.user.name, site_path(site))}
