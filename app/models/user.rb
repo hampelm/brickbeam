@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
     mixed = email.include? 'mix-mail'
 
     tld = email.split('.').last
-    weird_tld = !['com', 'net', 'org', 'edu'].include?(tld)
+    weird_tld = !['com', 'net', 'org', 'edu', 'co.uk'].include?(tld)
 
     if russian || hotmales || yandex || random || thefmail || haxx || periods || weird_tld || mixed
       errors.add(:email, 'Not allowed')
