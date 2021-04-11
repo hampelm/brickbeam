@@ -35,6 +35,7 @@ gem 'mimemagic', '0.4.3' # Smarter detection of mime types in file uploads
 gem 'paperclip-optimizer'
 gem 'pg'
 gem 'pundit' # authorization
+gem 'raganwald-andand'
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git', ref: 'c860b2f'
 gem 'rails_admin_tag_list', git: 'https://github.com/kryzhovnik/rails_admin_tag_list.git', branch: 'master'
 gem 'rails_autolink'
