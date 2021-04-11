@@ -28,8 +28,9 @@ gem 'friendly_id'
 gem 'invisible_captcha'
 gem "lograge" # Reduce log spam
 gem 'omniauth-facebook'
-gem 'paperclip', '~>4.3' # attachment
+gem 'paperclip', git: 'https://github.com/sd/paperclip', branch: 'remove-mimemagic'
 gem "image_optim_bin", group: :production # Must be before paperclip-optimizer
+gem 'mimemagic', '0.4.3' # Smarter detection of mime types in file uploads
 gem 'paperclip-optimizer'
 gem 'pg'
 gem 'pundit' # authorization
