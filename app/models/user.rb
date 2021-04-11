@@ -25,6 +25,7 @@
 #  daily_question_digest  :boolean
 #
 
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -43,6 +44,26 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :questions
   has_many :comments
+
+  # Block some users from signing up
+  before_validation do
+    email = self.email
+    russian = email.ends_with? '.ru'
+    hotmales = email.include? 'hotmails'
+    yandex = email.include? 'yandex'
+    random = email[5..9] == 'email'
+    thefmail = email.include? 'thefmail'
+    haxx = email.include? 'haxx'
+    periods = email.count('.') > 3
+    mixed = email.include? 'mix-mail'
+
+    tld = email.split('.').last
+    weird_tld = !['com', 'net', 'org', 'edu'].include?(tld)
+
+    if russian || hotmales || yandex || random || thefmail || haxx || periods || weird_tld || mixed
+      errors.add(:email, 'Not allowed')
+    end
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
