@@ -25,10 +25,15 @@
 #  daily_question_digest  :boolean
 #
 
+def fake_email
+  FFaker::Internet.user_name + '@example.com'
+end
+
+
 FactoryGirl.define do
   factory :user do
     name { FFaker::Name.name }
-    email { FFaker::Internet.email }
+    email { fake_email }
     password 'password'
     password_confirmation 'password'
 

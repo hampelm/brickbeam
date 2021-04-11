@@ -28,7 +28,7 @@ jobs:
 
     - name: Install PostgreSQL 11 client
       run: |
-        sudo apt-get -yqq install libpq-dev
+        sudo apt-get -yqq install libpq-dev shared-mime-info
 
     - name: Restore gem cache
       uses: actions/cache@v2

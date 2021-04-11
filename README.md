@@ -48,7 +48,12 @@ project root.
 We use `skylight` in production to monitor stats. You'll need to set the
 `SKYLIGHT_AUTHENTICATION` environment variable for this to work.
 
-### To run a specific test:
+### To run tests:
+```
+rspec
+```
+
+or
 
 ```
 rspec spec/features/my_spec.rb
