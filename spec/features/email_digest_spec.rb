@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature 'Contact Me spec', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
-  let!(:digest_user) { FactoryGirl.create :user, :daily_digest }
+  let!(:user) { FactoryBot.create :user }
+  let!(:digest_user) { FactoryBot.create :user, :daily_digest }
 
-  let!(:questions) { FactoryGirl.create_list(:question, 3) }
-  let!(:old_question) { FactoryGirl.create :question, :old }
+  let!(:questions) { FactoryBot.create_list(:question, 3) }
+  let!(:old_question) { FactoryBot.create :question, :old }
 
   scenario 'A user gets the daily digest' do
     # Send the users questions

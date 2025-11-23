@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'Contact Me spec', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
-  let!(:contactable_user) { FactoryGirl.create :user, :contactable }
-  let!(:uncontactable_user) { FactoryGirl.create :user, :uncontactable }
+  let!(:user) { FactoryBot.create :user }
+  let!(:contactable_user) { FactoryBot.create :user, :contactable }
+  let!(:uncontactable_user) { FactoryBot.create :user, :uncontactable }
 
   scenario 'A new user can be contacted' do
     # Sign as a user

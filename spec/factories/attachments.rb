@@ -14,10 +14,9 @@
 #  resource_id                  :integer
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :attachment do
-    title "file title"
-    source "file source"
+    title {"file title"}
+    source {"file source"}
   end
-
 end

@@ -12,7 +12,7 @@
 #  user_id     :integer
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :project do
     description { FFaker::Lorem.paragraph }
     site

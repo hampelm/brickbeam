@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Create a site spec', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
+  let!(:user) { FactoryBot.create :user }
   let(:site_name) { 'Site name' }
   let(:body_text) { 'Description of the site' }
 

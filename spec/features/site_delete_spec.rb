@@ -2,12 +2,12 @@
 require 'rails_helper'
 
 RSpec.feature 'Delete a site spec', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
+  let!(:user) { FactoryBot.create :user }
   let(:site_name) { 'Site name' }
   let(:body_text) { 'Description of the site' }
 
-  let!(:religious_site) { FactoryGirl.create :site_with_project, :religious }
-  let!(:residential_site) { FactoryGirl.create :site_with_project, :residential }
+  let!(:religious_site) { FactoryBot.create :site_with_project, :religious }
+  let!(:residential_site) { FactoryBot.create :site_with_project, :residential }
 
   scenario 'A user creates a site and deletes it before finishing' do
     visit '/sites'

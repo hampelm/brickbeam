@@ -12,7 +12,7 @@
 #  hidden      :boolean
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :question do
     title { FFaker::Lorem.phrase }
     description { FFaker::Lorem.paragraph }

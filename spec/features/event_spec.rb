@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Event spec', type: :feature do
-  let!(:event) { FactoryGirl.create :event }
+  let!(:event) { FactoryBot.create :event }
 
   scenario 'Events are displayed' do
     visit '/events'

@@ -30,12 +30,12 @@ def fake_email
 end
 
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     name { FFaker::Name.name }
     email { fake_email }
-    password 'password'
-    password_confirmation 'password'
+    password { 'password' }
+    password_confirmation { 'password' }
 
     trait :admin do
       is_admin true

@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature 'Hidden comments spec', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
+  let!(:user) { FactoryBot.create :user }
   let(:title_text) { 'New question title' }
   let(:comment_text) { 'New comment text' }
 
-  let!(:question) { FactoryGirl.create :question_with_hidden_comment }
+  let!(:question) { FactoryBot.create :question_with_hidden_comment }
 
   scenario 'A user creates a comment and views it' do
     visit '/questions'

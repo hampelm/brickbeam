@@ -11,7 +11,7 @@
 #  hidden      :boolean
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :comment do
     body { FFaker::Lorem.paragraph }
     question

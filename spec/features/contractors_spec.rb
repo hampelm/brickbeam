@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Creating ', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
-  let!(:admin) { FactoryGirl.create :admin }
+  let!(:user) { FactoryBot.create :user }
+  let!(:admin) { FactoryBot.create :admin }
 
   let(:biz)         { 'Biz name' }
   let(:person_name) { 'Person name' }
@@ -49,11 +49,11 @@ RSpec.feature 'Creating ', type: :feature do
 end
 
 RSpec.feature 'Viewing ', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
-  let!(:admin) { FactoryGirl.create :admin }
-  let!(:contractor) { FactoryGirl.create :contractor }
-  let!(:contractor2) { FactoryGirl.create :contractor }
-  let!(:contractor3) { FactoryGirl.create :contractor }
+  let!(:user) { FactoryBot.create :user }
+  let!(:admin) { FactoryBot.create :admin }
+  let!(:contractor) { FactoryBot.create :contractor }
+  let!(:contractor2) { FactoryBot.create :contractor }
+  let!(:contractor3) { FactoryBot.create :contractor }
 
   
   scenario "has a basic index page" do

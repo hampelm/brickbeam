@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'User profile spec', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
-  let!(:user_two) { FactoryGirl.create :user }
+  let!(:user) { FactoryBot.create :user }
+  let!(:user_two) { FactoryBot.create :user }
 
   scenario 'A user creates a profile and visits it' do
     visit '/users/' + user.id.to_s

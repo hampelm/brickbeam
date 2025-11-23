@@ -19,7 +19,7 @@
 #  partner_event      :boolean
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :event do
     title { FFaker::Lorem.phrase }
     location { FFaker::AddressUS.street_address }

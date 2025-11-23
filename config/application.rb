@@ -32,9 +32,10 @@ module Brickbeam
     config.generators do |g|
       g.fixture_replacement :factory_girl
     end
-
-    config.to_prepare do
-      Devise::SessionsController.skip_before_filter :must_be_admin!
-    end
+    
+    # Commented out for now -- no :must_be_admin! restriction on sign in page
+    # config.to_prepare do
+    #   Devise::SessionsController.skip_before_action :must_be_admin!
+    # end
   end
 end
