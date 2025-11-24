@@ -17,7 +17,7 @@ FactoryBot.define do
     question
 
     trait :hidden do
-      hidden true
+      hidden { true }
     end
   end
 end

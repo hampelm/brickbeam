@@ -38,25 +38,25 @@ FactoryBot.define do
     password_confirmation { 'password' }
 
     trait :admin do
-      is_admin true
+      is_admin { true }
     end
 
     trait :contactable do
-      contact_me true
+      contact_me { true }
     end
 
     trait :uncontactable do
-      contact_me false
+      contact_me { false }
     end
 
     trait :daily_digest do
-      daily_question_digest true
+      daily_question_digest { true }
     end
 
     trait :unconfirmed do
-      password nil
-      password_confirmation nil
-      confirmed_at nil
+      password { nil }
+      password_confirmation { nil }
+      confirmed_at { nil }
     end
 
     factory :admin, traits: [:admin]

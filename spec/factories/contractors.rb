@@ -45,6 +45,6 @@ FactoryBot.define do
     phone { FFaker::PhoneNumber.short_phone_number }
     email { FFaker::Internet.email }
     description { FFaker::Lorem.paragraphs }
-    approved true
+    approved { true }
   end
 end
