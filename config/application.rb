@@ -21,11 +21,11 @@ module Brickbeam
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
 
     # https://github.com/janfoeh/paperclip-optimizer#caution
     # Prevent image_optim conflicts
-    config.assets.image_optim = false
+    # config.assets.image_optim = false  # No longer needed without Sprockets in Rails 8
 
     config.is_staging = ENV['IS_STAGING'] || false
 
