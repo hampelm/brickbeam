@@ -11,8 +11,8 @@ gem 'puma' # Web server, not included with Rails 8
 gem 'sprockets-rails'  # Asset pipeline for Rails 8
 gem 'dartsass-rails'
 gem 'sassc-rails'  # SassC processor for Sprockets
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
+# Use Terser as compressor for JavaScript assets (modern replacement for Uglifier)
+gem 'terser'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes

@@ -608,6 +608,8 @@ GEM
     terminal-notifier-guard (1.7.0)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
+    terser (1.2.6)
+      execjs (>= 0.3.0, < 3)
     thor (1.4.0)
     tilt (2.6.1)
     timeout (0.4.4)
@@ -620,8 +622,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uglifier (4.2.1)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (2.6.0)
     uri (1.1.1)
     useragent (0.16.11)
@@ -711,8 +711,8 @@ DEPENDENCIES
   slim_lint
   sprockets-rails
   terminal-notifier-guard
+  terser
   turbolinks
-  uglifier
   web-console
 
 RUBY VERSION
