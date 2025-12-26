@@ -30,7 +30,7 @@ gem 'devise'
 gem 'font-awesome-rails'
 gem 'friendly_id'
 gem 'invisible_captcha'
-gem "lograge" # Reduce log spam
+# gem "lograge" # Temporarily disabled - incompatible with Rack 3
 gem 'omniauth-facebook'
 gem 'paperclip', git: 'https://github.com/sd/paperclip', branch: 'remove-mimemagic'
 gem "image_optim_bin", group: :production # Must be before paperclip-optimizer
