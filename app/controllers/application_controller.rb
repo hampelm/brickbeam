@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def only_admins_on_staging!
     return unless Rails.configuration.is_staging # Only do this on staging
     return if current_user.try(:is_admin?) # Admins can do everything
-    return if request.env['PATH_INFO'] == new_user_session_path # Let people log in
+    return if request.path == new_user_session_path # Let people log in
     redirect_to new_user_session_path # Otherwise send them to the login page
   end
 
