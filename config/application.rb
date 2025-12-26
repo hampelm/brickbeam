@@ -1,6 +1,24 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+# We're not doing rails/all because we need to exclude Active Storage
+# (because this legacy app uses paperclip)
+# require 'rails/all'
+
+
+# Pick only the frameworks we need (exclude Active Storage - we use Paperclip)
+require "rails"
+require "active_model/railtie"
+require "active_job/railtie"
+require "active_record/railtie"
+# require "active_storage/engine"  # Skip - using Paperclip for file uploads
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "action_view/railtie"
+require "action_cable/engine"
+# require "action_mailbox/engine"  # Skip - not using
+# require "action_text/engine"     # Skip - not using
+require "rails/test_unit/railtie"
+require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
