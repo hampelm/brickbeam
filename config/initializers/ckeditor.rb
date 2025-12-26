@@ -1,10 +1,11 @@
 # Use this hook to configure ckeditor
-Ckeditor.setup do |config|
+# Commented out - ckeditor gem removed for Rails 8 compatibility
+# Ckeditor.setup do |config|
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default), :mongo_mapper and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require "ckeditor/orm/active_record"
+  # require "ckeditor/orm/active_record"
 
   # Allowed image file types for upload.
   # Set to nil or [] (empty array) for all file types
@@ -36,4 +37,4 @@ Ckeditor.setup do |config|
   # By default: nil (no limit)
   # config.assets_languages = ['en']
   # config.assets_plugins = ['image']
-end
+# end

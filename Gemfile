@@ -8,7 +8,9 @@ gem 'puma' # Web server, not included with Rails 8
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use SCSS for stylesheets
+gem 'sprockets-rails'  # Asset pipeline for Rails 8
 gem 'dartsass-rails'
+gem 'sassc-rails'  # SassC processor for Sprockets
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
@@ -20,9 +22,9 @@ gem 'acts-as-taggable-on'
 gem 'annotate'
 # gem 'aws-sdk', '<2.0' # Disabled because it needs an old JSON
 gem 'aws-sdk-s3'
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'  # Removed - using manual Bootstrap 3 import instead
 gem 'bootstrap_form'
-gem 'ckeditor'
+# gem 'ckeditor'  # Removed - not used in views and incompatible with Rails 8
 # gem 'coveralls', require: false # Disabled because it uses an old json
 gem 'devise'
 gem 'font-awesome-rails'

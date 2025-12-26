@@ -25,7 +25,7 @@
 class Site < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
-  serialize :project_tags, JSON
+  # serialize :project_tags, JSON
   # attr_accessible :project_tags
 
   has_many :projects, dependent: :destroy

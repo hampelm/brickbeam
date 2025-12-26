@@ -25,7 +25,7 @@ module Brickbeam
 
     # https://github.com/janfoeh/paperclip-optimizer#caution
     # Prevent image_optim conflicts
-    # config.assets.image_optim = false  # No longer needed without Sprockets in Rails 8
+    config.assets.image_optim = false
 
     config.is_staging = ENV['IS_STAGING'] || false
 

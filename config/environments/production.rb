@@ -25,20 +25,20 @@ Rails.application.configure do
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  # config.assets.js_compressor = :uglifier  # No longer needed without Sprockets in Rails 8
+  config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Fall bakc to assets pipeline if a precompiled asset is missed.
   # (default is false)
-  # config.assets.compile = true  # No longer needed without Sprockets in Rails 8
+  config.assets.compile = true
 
   # Use memcache to speed up asset pre-compilation
   # Via http://blog.alexmaccaw.com/faster-deploys
-  # config.assets.cache_store = :dalli_store  # No longer needed without Sprockets in Rails 8
+  config.assets.cache_store = :dalli_store
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
-  # config.assets.digest = true  # No longer needed without Sprockets in Rails 8
+  config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 

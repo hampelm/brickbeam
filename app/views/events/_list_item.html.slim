@@ -6,8 +6,7 @@
       -else
         | Brick + Beam Event
     h2 =event.title
-    h3 =event.start_date.to_s(:standard)
+    h3 =event.start_date.to_fs(:standard)
     h3 =event.location
 
   .polaroid-photo style="background-image: url(#{event.photo})"
-

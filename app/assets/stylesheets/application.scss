@@ -14,45 +14,15 @@
  *xxx require_self
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// Import variables first
+@import 'variables';
+
+// Bootstrap 3 via CDN (using CDN is simpler than managing all SCSS files)
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css);
 @import url(https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css);
 
 @import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800,300italic,400italic);
-
-
-$teal: #008c74;
-$teal-dark: darken($teal, 30%);
-$blue: #004c66;
-$flat-blue: #3b596a;
-$purple: #332b40;
-$pink: #e13452;
-$yellow: #f4e138;
-$warning: #f2d03b;
-$green: #8cb202;
-$green-dark: darken($green, 45%);
-
-$trans-white: rgba(255, 255, 255, 0.8);
-$gray: #8a8786;
-$body: #333;
-$body-mild: darken($teal, 40%);
-
-$border-color: $gray;
-$link-color: $blue;
-
-$serif: 'PT Serif', serif;
-$open: 'Open Sans', 'PT Sans', sans-serif;
-$sans: $open;
-
-$size-body: 15px;
-$size-md: 18px;
-$size-lg: 20px;
-$size-xl: 40px;
-
-
-$radius: 4px;
-$transition: 0.3s;
 
 * {
   margin: 0;
@@ -310,7 +280,7 @@ footer {
 
     text-indent: -9999px;
 
-    background: transparent image-url("bbd_logo2.png") no-repeat center center;
+    background: transparent url("/assets/bbd_logo2.png") no-repeat center center;
     background-size: contain;
   }
 
@@ -612,7 +582,7 @@ footer .nav {
     a.rehab-link,
     a.rehab-link:hover,
     a.rehab-link:active,
-    a.rehab-link:focus, {
+    a.rehab-link:focus {
       display: inline-block;
       padding: 4px 8px;
       background: $yellow;

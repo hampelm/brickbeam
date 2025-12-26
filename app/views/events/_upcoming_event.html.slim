@@ -6,5 +6,5 @@
       -else
         | Brick + Beam Event
     h2 #{link_to(event.title, event_path(event))}
-    h3 <span>#{event.start_date.to_s(:standard)}</span>
+    h3 <span>#{event.start_date.to_fs(:standard)}</span>
     h3 <span>#{event.location}</span>
