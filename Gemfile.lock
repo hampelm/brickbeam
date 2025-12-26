@@ -257,7 +257,6 @@ GEM
       guard (>= 2.0.0)
       guard-compat (~> 1.0)
     hashie (5.0.0)
-    heroku-deflater (0.7.0)
     hpricot (0.8.6)
     html2slim (0.2.0)
       hpricot
@@ -665,7 +664,6 @@ DEPENDENCIES
   guard-rubocop
   guard-scss-lint
   guard-shell
-  heroku-deflater
   html2slim
   image_optim_bin
   invisible_captcha

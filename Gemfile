@@ -73,7 +73,6 @@ gem 'sdoc', group: :doc
 
 group :production do
   gem 'dalli' # memcache
-  gem 'heroku-deflater'
   gem 'memcachier' # heroku addon memcache service
 end
 
