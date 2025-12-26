@@ -75,7 +75,6 @@ group :production do
   gem 'dalli' # memcache
   gem 'heroku-deflater'
   gem 'memcachier' # heroku addon memcache service
-  gem 'rails_12factor'
 end
 
 group :test do
