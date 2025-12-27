@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'U', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
+  let!(:user) { FactoryBot.create :user }
   let(:title_text) { 'New question title' }
   let(:replacement_title_text) { 'Replacement question title' }
   let(:comment_text) { 'New comment text' }

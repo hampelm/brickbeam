@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Question creation spec', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
-  let!(:locked_question) { FactoryGirl.create :question, :locked }
+  let!(:user) { FactoryBot.create :user }
+  let!(:locked_question) { FactoryBot.create :question, :locked }
   let(:title_text) { 'New question title' }
   let(:comment_text) { 'New comment text' }
 

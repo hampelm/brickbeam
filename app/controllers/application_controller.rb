@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :only_admins_on_staging! 
+  # before_action :only_admins_on_staging! 
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def only_admins_on_staging!
     return unless Rails.configuration.is_staging # Only do this on staging
     return if current_user.try(:is_admin?) # Admins can do everything
-    return if request.env['PATH_INFO'] == new_user_session_path # Let people log in
+    return if request.path == new_user_session_path # Let people log in
     redirect_to new_user_session_path # Otherwise send them to the login page
   end
 

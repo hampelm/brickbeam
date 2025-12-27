@@ -22,20 +22,20 @@
 #  hidden             :boolean
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :site do
     title { FFaker::Lorem.phrase }
     description { FFaker::Lorem.paragraph }
     user
-    building_size '1,501-2,000'
-    building_type 'Commercial'
+    building_size { '1,501-2,000' }
+    building_type { 'Commercial' }
 
     trait :residential do
-      building_type 'House'
+      building_type { 'House' }
     end
 
     trait :religious do
-      building_type 'Religious'
+      building_type { 'Religious' }
     end
 
     factory :site_with_project do

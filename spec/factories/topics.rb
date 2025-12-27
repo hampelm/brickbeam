@@ -10,10 +10,10 @@
 #  order       :integer
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :topic do
-    name "MyString"
-    description "MyText"
+    name { "MyString" }
+    description { "MyText" }
   end
 
 end

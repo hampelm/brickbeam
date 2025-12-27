@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'User profile spec', type: :feature do
-  let!(:admin) { FactoryGirl.create :admin }
-  let!(:user)  { FactoryGirl.create :user  }
+  let!(:admin) { FactoryBot.create :admin }
+  let!(:user)  { FactoryBot.create :user  }
 
   after(:each) do 
     Rails.configuration.is_staging = false

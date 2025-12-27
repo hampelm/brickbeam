@@ -35,7 +35,7 @@
 #  notes               :text
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :contractor do
     name { FFaker::Name.name }
     business_name { FFaker::Company.name }
@@ -45,6 +45,6 @@ FactoryGirl.define do
     phone { FFaker::PhoneNumber.short_phone_number }
     email { FFaker::Internet.email }
     description { FFaker::Lorem.paragraphs }
-    approved true
+    approved { true }
   end
 end

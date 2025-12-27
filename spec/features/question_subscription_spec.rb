@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Question comment notification spec', type: :feature do
-  let!(:user) { FactoryGirl.create :user }
-  let!(:user2) { FactoryGirl.create :user }
+  let!(:user) { FactoryBot.create :user }
+  let!(:user2) { FactoryBot.create :user }
   let(:title_text) { 'New question title' }
   let(:comment_text) { 'New comment text' }
 

@@ -1,6 +1,6 @@
 .row
   .col-sm-12
-    h2.article-title #{@user.name}, a part of Brick + Beam since #{@user.created_at.to_s(:since)}
+    h2.article-title #{@user.name}, a part of Brick + Beam since #{@user.created_at.to_fs(:since)}
 
 .row
   .col-sm-8.col-sm-push-2
@@ -54,4 +54,3 @@
 
 = content_for :title do
   | #{@user.name}
-

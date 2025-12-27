@@ -8,7 +8,7 @@
 
     .question
       - if @question.user && @question.user.name
-        p.question-meta Asked by <strong>#{link_to(@question.user.name, @question.user)}</strong> at #{@question.created_at.to_s(:standard)}
+        p.question-meta Asked by <strong>#{link_to(@question.user.name, @question.user)}</strong> at #{@question.created_at.to_fs(:standard)}
 
       = simple_format(auto_link @question.description)
 
@@ -22,7 +22,7 @@
             .comment-meta
               - if comment.user && comment.user.name
                 span.byline #{link_to(comment.user.name, comment.user)}
-              span.timestamp  at #{comment.created_at.to_s(:standard)}
+              span.timestamp  at #{comment.created_at.to_fs(:standard)}
 
             .comment-text
               = simple_format(auto_link comment.body)

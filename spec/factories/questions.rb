@@ -12,19 +12,19 @@
 #  hidden      :boolean
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :question do
     title { FFaker::Lorem.phrase }
     description { FFaker::Lorem.paragraph }
     user
 
     trait :old do
-      created_at 10.days.ago
-      updated_at 10.days.ago
+      created_at { 10.days.ago }
+      updated_at { 10.days.ago }
     end
 
     trait :locked do
-      locked true
+      locked { true}
     end
 
     factory :question_with_hidden_comment do

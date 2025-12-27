@@ -9,7 +9,7 @@
 #  question_id :integer
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :subscription do
     
   end

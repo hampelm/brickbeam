@@ -39,7 +39,7 @@ require 'rails_helper'
 
 RSpec.describe Contractor, type: :model do
   it "has a valid factory" do
-    FactoryGirl.create(:contractor).should be_valid
+    FactoryBot.create(:contractor).should be_valid
   end
 
   it "uses the contractor name and business name as the slug" do

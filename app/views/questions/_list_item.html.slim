@@ -6,6 +6,6 @@
     - else
       | #{pluralize(question.comments.length, 'answer')}.
     - unless question.user == nil
-      |  Asked by #{question.user.name} on #{question.updated_at.to_s(:month_day_year)}
+      |  Asked by #{question.user.name} on #{question.updated_at.to_fs(:month_day_year)}
 
   = render partial: '/tags/tag_list', :locals => { :tags => question.tags }

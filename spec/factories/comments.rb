@@ -11,13 +11,13 @@
 #  hidden      :boolean
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :comment do
     body { FFaker::Lorem.paragraph }
     question
 
     trait :hidden do
-      hidden true
+      hidden { true }
     end
   end
 end
