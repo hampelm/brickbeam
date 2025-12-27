@@ -1,45 +1,5 @@
 h2 Sign up
 
-= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path, class: 'f-login-btn'
+h3.regular-user We've paused new signups 
 
-h3.regular-user Register with your email:
-
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-
-  .form-group
-    = f.label :name
-    = f.text_field :name, autofocus: true, class: 'form-control'
-
-  .form-group
-    = f.label :email
-    = f.email_field :email, class: 'form-control'
-
-  .form-group
-    = f.label :password
-    - if @minimum_password_length
-      em
-        |  (#{@minimum_password_length} characters minimum)
-    = f.password_field :password, autocomplete: "off", class: 'form-control'
-
-  .form-group
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-
-  .form-group
-    label
-      = f.check_box :contact_me, :checked => true
-      |  Yes, let others contact me with rehab questions (your email is not shared, and you can cancel at any time)
-
-  .form-group
-    label
-      = f.check_box :daily_question_digest
-      |  Send me a daily email with new rehab questions
-
-  .form-group
-    label
-      = f.check_box :agreement
-      |  I agree to the <a href="/pages/guidelines">Brick + Beam content policy</a>
-
-  .actions
-    = f.submit "Sign up", class: 'btn btn-primary'
+p Thank you for being a part of Brick & Beam Detroit!
