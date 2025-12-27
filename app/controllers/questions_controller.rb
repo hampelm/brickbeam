@@ -34,12 +34,18 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    render 'index'
+    return
+    
     @question = Question.new
     @tags = ActsAsTaggableOn::Tag.all
     @tags_sorted = @tags.sort_by { |obj| obj.name.downcase }
   end
 
   def create
+    render 'index' 
+    return
+    
     @question = Question.new(question_params)
     @question.user = current_user
 
